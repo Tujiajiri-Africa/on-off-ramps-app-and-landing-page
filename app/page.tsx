@@ -3,6 +3,7 @@ import Hero from '@/components/ui/hero'
 import About from '@/components/ui/about'
 import Features from '@/components/ui/features'
 import FeatureList from '@/components/ui/feature-list'
+import Contact from '@/components/ui/contact'
 
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
 
@@ -19,6 +20,7 @@ export default function Home() {
         <About />
         <Features />
         <FeatureList />
+        <Contact />
     </main>
     </>
     
