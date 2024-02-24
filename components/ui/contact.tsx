@@ -3,7 +3,6 @@ import AboutPageIllustration from '../../app/assets/logo/contact-page-illustrati
 
 export default function ContactPage(){
     return (
-        <>
             <div className="relative w-[80%] mx-auto h-full flex flex-col justify-center items-center bg-[#010203] overflow-hidden">
             <div className="pt-0.5 sm:pt-20 lg:pt-40  flex flex-col lg:flex-row">
             <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
@@ -12,7 +11,7 @@ export default function ContactPage(){
             </h1>
             <div className="p-2  flex flex-col w-full gap-3">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center  hover:text-gray-100">
-            <svg 
+            {/* <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24" 
                 fill="currentColor" 
@@ -20,14 +19,14 @@ export default function ContactPage(){
             >
                   <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
                   <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
-            </svg>
+            </svg> */}
 
             <span className="font-medium text-gray-300">
-             {/* hello@ajirapay.finance */}
+             hello@ajirapay.finance
             </span>
         </div>
         <div className="bg-slate-900 rounded flex p-4 h-full items-center  hover:text-gray-100">
-        <svg 
+        {/* <svg 
            xmlns="http://www.w3.org/2000/svg" 
            viewBox="0 0 24 24" 
            fill="currentColor" 
@@ -38,7 +37,7 @@ export default function ContactPage(){
                d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" 
                clipRule="evenodd" 
             />
-       </svg>
+       </svg> */}
             <span className="font-medium text-gray-300">+254 714 905 613</span>
         </div>
     </div>           
@@ -64,6 +63,5 @@ export default function ContactPage(){
             </div>
             </div>
             </div>    
-        </>
     )
 }
