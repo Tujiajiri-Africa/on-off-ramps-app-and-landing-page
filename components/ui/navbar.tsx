@@ -32,7 +32,7 @@ export default function Navbar(){
                         />
                         {/* <h2 className="w-16 text-white">AjiraPay</h2> */}
                     </div>
-                   <div className="md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                   {/* <div className="md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
                     <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8 mobile:block">
                             <li><a className="hover:text-gray-500" href="/">Home</a></li>
                             <li><a className="hover:text-gray-500" href="#">About</a></li>
@@ -40,10 +40,10 @@ export default function Navbar(){
                             <li><a className="hover:text-gray-500" href="#">How it Works</a></li>
                             <li><a className="hover:text-gray-500" href="#">Contact Us</a></li>
                     </ul>
-                   </div> 
+                   </div>  */}
                     <div className='flex items-center gap-6'>
-                        <button className="bg-[#00BF63] text-white px-5 py-2 rounded-md hover:bg-[#5B21B6] uppercase">Launch App</button>
-                        <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon>
+                        <button className="bg-[#00BF63] text-white px-5 py-2 rounded-md hover:bg-[#5B21B6] uppercase">Coming Soon</button>
+                        {/* <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon> */}
                     </div>
                 </nav>
             </header>
