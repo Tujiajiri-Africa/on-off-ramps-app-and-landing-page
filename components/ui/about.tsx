@@ -1,5 +1,6 @@
 import React from "react";
 import AboutPageIllustration from '../../app/assets/logo/about-section-illustration-svg.svg'
+import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 
 export default function About(){
     return (
@@ -33,8 +34,10 @@ export default function About(){
 
       {/* Buttons */}
       <div className="mt-4 flex flex-col sm:flex-row items-center">
-        <button className=" text-[#00BF63] font-semibold">
-            <a href="#">See how it works</a>
+      <button className=" ">
+            <a href="#" className="inline-flex  gap-4 justify-start items-center px-3 py-2 font-medium rounded leading-5 bg-green-500 text-primary-100 text-white hover:text-white hover:bg-green-700">
+                Join WaitList <ArrowRightCircleIcon className="h-6 w-6 text-3xl cursor-pointer"/>
+            </a>
             {/**TODO Arrow icon here */}
         </button>
         {/* <button className="m-1.5 py-2.5 px-5 rounded-md bg-[#001431]  text-white font-semibold uppercase hover:text-teal-400 hover:border-teal-400">Join WaitList</button> */}

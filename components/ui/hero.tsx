@@ -29,7 +29,7 @@ export default function Hero(){
 
       {/* Buttons */}
       <div className="mt-10 flex flex-col sm:flex-row items-center">
-        <button className="m-1.5 py-2.5 px-5 rounded-md bg-[#5B21B6] text-white font-semibold uppercase hover:bg-[#00BF63]">Coming Soon</button>
+        <button className="m-1.5 py-2.5 px-5 rounded-md bg-[#00BF63] text-white font-semibold uppercase hover:bg-[#00BF63]">Coming Soon</button>
         <button className="m-1.5 py-2.5 px-5 rounded-md bg-[#001431]  text-white font-semibold uppercase hover:text-teal-400 hover:border-teal-400">Join WaitList</button>
       </div>
     </div>

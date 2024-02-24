@@ -2,6 +2,8 @@ import Image from "next/image";
 import Hero from '@/components/ui/hero'
 import About from '@/components/ui/about'
 import Features from '@/components/ui/features'
+import FeatureList from '@/components/ui/feature-list'
+
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
 
 export default function Home() {
@@ -16,6 +18,7 @@ export default function Home() {
         <Hero />
         <About />
         <Features />
+        <FeatureList />
     </main>
     </>
     
