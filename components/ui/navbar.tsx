@@ -68,7 +68,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className='flex items-center gap-6'>
-                        <button className="bg-[#00BF63] text-white px-5 py-2 rounded-md hover:bg-[#00BF63] uppercase">Coming Soon</button>
+                        <button className="bg-[#00BF63] text-white px-5 py-2 rounded-md hover:bg-[#5B21B6] uppercase">Coming Soon</button>
                         {/* <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon> */}
                     </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
