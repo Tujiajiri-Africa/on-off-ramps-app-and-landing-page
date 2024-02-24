@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import AboutPageIllustration from '../../app/assets/logo/contact-page-illustration-svg.svg'
 
