@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import logo from  '../../app/assets/logo/favicon.ico'
 
 export default function Footer(){
-    const [date, setDate] = useState<any>()
+    const [date, setDate] = useState<string>()
 
     useEffect(() =>{
          const now = new Date()
