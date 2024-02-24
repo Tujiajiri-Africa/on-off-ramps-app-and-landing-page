@@ -22,7 +22,7 @@ export default function ContactPage(){
             </svg> */}
 
             <span className="font-medium text-gray-300">
-             hello@ajirapay.finance
+             <p>hello@ajirapay.finance</p>
             </span>
         </div>
         <div className="bg-slate-900 rounded flex p-4 h-full items-center  hover:text-gray-100">
@@ -38,7 +38,7 @@ export default function ContactPage(){
                clipRule="evenodd" 
             />
        </svg> */}
-            <span className="font-medium text-gray-300">+254 714 905 613</span>
+            <span className="font-medium text-gray-300"><p>+254 714 905 613</p></span>
         </div>
     </div>           
         </div>
