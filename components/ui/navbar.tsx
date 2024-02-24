@@ -3,7 +3,6 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import LogoMainTransparent from '../../app/assets/logo/logo-main-transparent-png-2.png'
 import logo from  '../../app/assets/logo/favicon.ico'
 
 const navigation = [

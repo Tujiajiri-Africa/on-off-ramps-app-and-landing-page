@@ -1,6 +1,7 @@
 import React from 'react'
 import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 
+
 export default function FeatureList(){
     return (
         <>
@@ -37,17 +38,17 @@ export default function FeatureList(){
               
     <div className="p-2  w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
             </svg>
-            <span className="font-medium text-gray-300"><span className="text-[#06F0FF]">Buy</span> 70+assets in 150+ jurisdictions</span>
+            <span className="font-medium text-gray-300"><span className="text-[#06F0FF]">Buy</span> 70+ assets in 150+ jurisdictions</span>
         </div>
     </div>
     <div className="p-2 w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
@@ -57,7 +58,7 @@ export default function FeatureList(){
     </div>
     <div className="p-2  w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
@@ -67,7 +68,7 @@ export default function FeatureList(){
     </div>
     <div className="p-2 w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
@@ -77,7 +78,7 @@ export default function FeatureList(){
     </div>
     <div className="p-2  w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
