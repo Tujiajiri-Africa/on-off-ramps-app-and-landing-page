@@ -56,13 +56,13 @@ export default function Footer(){
                           <a href="#" className="hover:underline ">Buy and Sell Crypto</a>
                       </li>
                       <li className="mb-4">
-                          <a href="https://stream.ajirapay.finance/" className="hover:underline">Token Streaming</a>
+                          <a href="https://app.ajirapay.finance/" className="hover:underline">Token Streaming</a>
                       </li>
                       <li className="mb-4">
-                          <a href="https://stream.ajirapay.finance/" className="hover:underline">Token Vesting</a>
+                          <a href="https://app.ajirapay.finance/" className="hover:underline">Token Vesting</a>
                       </li>
                       <li className="mb-4">
-                          <a href="https://docs.ajirapay.finance/" className="hover:underline">Documentation</a>
+                          <a href="https://app.ajirapay.finance/" className="hover:underline">Documentation</a>
                       </li>
                   </ul>
               </div>
