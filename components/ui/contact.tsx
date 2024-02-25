@@ -10,7 +10,7 @@ export default function ContactPage(){
             <h1 className="py-10 text-3xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
                 You have something in mind? <span className="text-[#00BF63]">Let&apos;s Talk</span>
             </h1>
-            <div className="p-2  flex flex-col w-full gap-3">
+            <div className="p-2 flex flex-col sm:flex-row md:flex-row lg:flex-row w-full gap-3">
             <div className="bg-slate-900 rounded flex p-4 h-full items-center  hover:text-gray-100">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
