@@ -5,8 +5,8 @@ import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/
 export default function About(){
     return (
         <>
-        <div className="relative w-[80%] mx-auto h-full flex flex-col justify-center items-center bg-[#010203] overflow-hidden">
-            <div className="pt-0.5 sm:pt-20 lg:pt-40  flex flex-col lg:flex-row">
+        <div className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100">
+            <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto flex flex-col lg:flex-row">
                 <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
                         <img src={AboutPageIllustration.src} 
                             alt='illustration' 
