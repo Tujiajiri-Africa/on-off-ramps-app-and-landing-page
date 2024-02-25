@@ -5,7 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/
 export default function FeatureList(){
     return (
         <>
-        <div className='relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100'>
+        <div className='relative w-full h-full flex justify-center items-center bg-[#081e1c] overflow-hidden opacity-100'>
             <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto flex flex-col lg:flex-row">
             <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden"> {/* Container */}
    
@@ -39,7 +39,7 @@ export default function FeatureList(){
     <div className="p-2  w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
-                className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                className="text-[#00BF63] w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
             </svg>
@@ -49,7 +49,7 @@ export default function FeatureList(){
     <div className="p-2 w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
-                className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                className="text-[#00BF63] w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
             </svg>
@@ -59,7 +59,7 @@ export default function FeatureList(){
     <div className="p-2  w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
-                className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                className="text-[#00BF63] w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
             </svg>
@@ -69,7 +69,7 @@ export default function FeatureList(){
     <div className="p-2 w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
-                className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                className="text-[#00BF63] w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
             </svg>
@@ -79,7 +79,7 @@ export default function FeatureList(){
     <div className="p-2  w-full">
         <div className="bg-slate-900 rounded flex p-4 h-full items-center hover:bg-[#5B21B6] hover:text-gray-100">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
-                className="text-[#00BF63] w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                className="text-[#00BF63] w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
             </svg>
