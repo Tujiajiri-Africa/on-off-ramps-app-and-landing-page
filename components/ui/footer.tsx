@@ -15,7 +15,7 @@ export default function Footer(){
     <>
     <div className="">
    
-    <footer className="bg-[#010203] relative w-[80%] mx-auto h-full flex flex-col justify-center items-center overflow-hidden p-10">
+    <footer className="bg-[#010203] relative w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto h-screen flex flex-col justify-center items-center overflow-hidden p-10">
     <div className="mx-auto w-full p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -24,10 +24,12 @@ export default function Footer(){
                     className="h-8 me-3"
                     src={logo.src}
                     alt="Logo"
+                    width={'auto'}
+                    height={'auto'}
                   />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Ajira Pay Finance</span>
                   <span>
-                    Thirsd Court Street
+                    Third Court Street
                   </span>
               </a>
           </div>
