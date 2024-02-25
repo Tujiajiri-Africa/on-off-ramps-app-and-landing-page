@@ -11,7 +11,7 @@ export default function Hero(){
             }}
             >
 
-<div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto flex flex-col lg:flex-row">
+<div className="pt-0.5 sm:pt-1.5  md:pt-1.5  lg:pt-1.5 w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto flex flex-col lg:flex-row">
   {/* :HERO MAIN */}
   <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600"> {/* Container */}
     {/* ::Hero Inner */}
