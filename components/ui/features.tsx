@@ -5,13 +5,13 @@ export default function Features(){
     return (
         <>
           <div 
-            className="relative w-full h-full flex flex-col justify-center items-center bg-[#010203] overflow-hidden opacity-100"
+            className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100"
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
             }}
             >
 
-<div className="pt-0.5 sm:pt-20 lg:pt-40 w-[80%] mx-auto flex flex-col lg:flex-row">
+<div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto flex flex-col lg:flex-row">
   {/* :HERO MAIN */}
   <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600"> {/* Container */}
     {/* ::Hero Inner */}
