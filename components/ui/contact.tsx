@@ -6,22 +6,31 @@ export default function ContactPage(){
             <>
             <div className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100">
             <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto flex flex-col lg:flex-row">
-            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center"> 
-                <div className="pt-2 w-full h-full flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+            <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center"> 
+                {/* <div className="pt-2 w-full h-full flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                     <div className='text-center gap-1 rounded'>
-                        <div className='flex flex-col justify-between text-center'>
+                        <div className='relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden'>
                         <img 
                         src={AboutPageIllustration.src} 
                         alt='illustration' 
                         style={{
                             width: '100%',
-                            height: 'auto',
-                            borderRadius: '50px'
+                            height: '80%',
+                            //borderRadius: '50px'
                             }}
                         />
                         </div>
                     </div>
-                </div>
+                </div> */}
+                 <img 
+                        src={AboutPageIllustration.src} 
+                        alt='illustration' 
+                        style={{
+                            width: '100%',
+                            height: '80%',
+                            //borderRadius: '50px'
+                            }}
+                        />
             </div>
             <div className="w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] flex flex-col justify-center items-center text-gray-600">
             <h1 className="py-10 text-3xl sm:text-7xl font-semibold leading-tight text-white">
