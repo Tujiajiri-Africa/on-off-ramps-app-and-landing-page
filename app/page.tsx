@@ -4,8 +4,7 @@ import About from '@/components/ui/about'
 import Features from '@/components/ui/features'
 import FeatureList from '@/components/ui/feature-list'
 import Contact from '@/components/ui/contact'
-import WaitListBanner from '@/components/ui/waitlist-banner'
-import Footer from '@/components/ui/footer'
+//import WaitListBanner from '@/components/ui/waitlist-banner'
 
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
 
@@ -24,7 +23,7 @@ export default function Home() {
         <FeatureList />
         <Contact />
         {/* <WaitListBanner /> */}
-        <Footer />
+        
     </main>
     </>
     

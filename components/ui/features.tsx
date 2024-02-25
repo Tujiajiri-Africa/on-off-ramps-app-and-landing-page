@@ -1,11 +1,13 @@
 import React from "react";
 import SellSwapBannerSVG from '../../app/assets/logo/sell-swap-banner-svg.svg'
+import SellSwapBannerGraySVG from '../../app/assets/logo/sell-wap-banner-svg-gray.svg'
+import SellSwapBannerLightGreenSVG from '../../app/assets/logo/sell-wap-banner-svg-light-green.svg'
 import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 export default function Features(){
     return (
         <>
           <div 
-            className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100"
+            className="relative w-full h-full flex justify-center items-center bg-[#081e1c] overflow-hidden opacity-100"
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
             }}
@@ -41,7 +43,7 @@ export default function Features(){
   </div>
   {/* :HERO ILLUSTRATION */}
   <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
-    <img src={SellSwapBannerSVG.src} 
+    <img src={SellSwapBannerLightGreenSVG.src} 
         alt='illustration' 
         //className="w-2/3 lg:w-full"
         style={{

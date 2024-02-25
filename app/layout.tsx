@@ -8,6 +8,7 @@ import "./globals.css";
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
 
 import  Navbar  from '@/components/ui/navbar'
+import Footer from '@/components/ui/footer'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,8 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body 
+      //className="bg-[#191F22]"
       //className={inter.className}
-      className=" bg-[#010203]"
+      className=" bg-[#081e1c]"
       // style={{
       //   backgroundImage: `url(${BackgroundImage.src})`,
       //   backgroundSize: '100% 95%',
@@ -36,6 +38,7 @@ export default function RootLayout({
       >
          <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

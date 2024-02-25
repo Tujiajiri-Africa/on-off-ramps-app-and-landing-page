@@ -5,7 +5,7 @@ export default function Hero(){
     return (
         <>
           <div 
-            className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100"
+            className="relative w-full h-full flex justify-center items-center bg-[#081e1c] overflow-hidden opacity-100"
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
             }}
@@ -30,7 +30,7 @@ export default function Hero(){
       {/* Buttons */}
       <div className="mt-10 flex flex-row sm:flex-row items-center">
         <button 
-            className="m-1.5 py-2 px-2 rounded-md bg-[#5B21B6] text-white font-semibold uppercase hover:bg-[#00BF63]"
+            className="m-1.5 py-2 px-2 rounded-md bg-green-500 text-white font-semibold hover:text-white hover:bg-green-700"
             style={{
                 //background: 'linear-gradient(#593690 50%, #DB1B9A 75%, #9A1AAF 100%);',
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
@@ -38,7 +38,7 @@ export default function Hero(){
             >
             Coming Soon
         </button>
-        <button className="m-1.5 py-2 px-3 rounded-md bg-[#001431]  text-white font-semibold uppercase hover:text-teal-400 hover:border-teal-400">Join WaitList</button>
+        <button className="m-1.5 py-2 px-3 rounded-md bg-[#001431]  text-white font-semibold hover:text-teal-400 hover:border-teal-400">Join WaitList</button>
       </div>
     </div>
   </div>

@@ -19,12 +19,12 @@ function classNames(...classes:any) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-[#010203]">
+    <Disclosure as="nav" className="bg-[#081e1c]">
       {({ open }) => (
         <>
           <div 
             //className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
-            className='w-[80%] mx-auto px-2 sm:px-6 lg:px-8'
+            className='w-[98%] sm:w-[80%] md:w-[80%] lg:w-80%] mx-auto px-2 sm:px-6 lg:px-8'
             >
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -67,7 +67,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className='flex items-center gap-6'>
-                        <button className="bg-[#5B21B6] text-white px-5 py-2 rounded-md hover:bg-[#00BF63] uppercase hidden sm:block md:hidden xl:block lg:block">Coming Soon</button>
+                        <button className="bg-green-500 text-white px-5 py-2 rounded-md hover:bg-green-700  hidden sm:block md:hidden xl:block lg:block">Coming Soon</button>
                         {/* <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon> */}
                     </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
