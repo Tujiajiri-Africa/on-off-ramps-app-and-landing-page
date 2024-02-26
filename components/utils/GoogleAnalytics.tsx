@@ -3,15 +3,14 @@
 
 import Script from 'next/script'
 import {usePathname, useSearchParams} from 'next/navigation'
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import {pageview} from "./gtagHelper"
 
-const GA_MEASUREMENT_ID:string|undefined = process.env.GA_MEASUREMENT_ID
 
 export default function GoogleAnalytics({GA_MEASUREMENT_ID} : {GA_MEASUREMENT_ID : string|undefined}){
     const pathname = usePathname()
     const searchParams = useSearchParams()
-
+    
     useEffect(() => {
         const url = pathname + searchParams.toString()
     

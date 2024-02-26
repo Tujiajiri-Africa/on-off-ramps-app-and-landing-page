@@ -12,7 +12,7 @@ const GA_MEASUREMENT_ID_ = process.env.GA_MEASUREMENT_ID
 import  Navbar  from '@/components/ui/navbar'
 import Footer from '@/components/ui/footer'
 import CookieBanner from '@/components/ui/cookiebanner';
-
+import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID_}/>
+      <Suspense>
+        <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID_}/>
+      </Suspense>
+      
       <body 
       //className="bg-[#191F22]"
       //className={inter.className}
@@ -42,7 +45,10 @@ export default function RootLayout({
          <Navbar />
         {children}
         <Footer />
-        <CookieBanner/>
+        <Suspense >
+          <CookieBanner/>
+        </Suspense>
+        
       </body>
     </html>
   );
