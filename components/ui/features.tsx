@@ -26,7 +26,7 @@ export default function Features(){
       {/* Starting Price */}
         <p className="text-lg font-semibold text-gray-300 tracking-wide">
         {/* Four sizes, starting at $29 */}
-        We have partnered with the best industry leaders to ensure that we bring you the most compliant crypto experience in more than 150+ jurisdictions.
+        We have partnered with the best industry leaders to ensure that we bring you the most compliant crypto experience in more than 20+ jurisdictions across Africa with support for bank and mobile money.
         </p>
 
       {/* Buttons */}

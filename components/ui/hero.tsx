@@ -1,5 +1,32 @@
+'use client'
 import React from "react";
 import BuyCryptoDesignSVG from '../../app/assets/logo/buy-crypto-design-svg.svg'
+import { ReactTyped } from "react-typed";
+
+const HeroSubTextAnimationComponent = () => {
+  return (
+    <div>
+    {/* <ReactTyped strings={["Here you can find anything"]} typeSpeed={40} />
+    <br /> */}
+
+    <ReactTyped
+      strings={[
+        "fiat to crypto",
+        "crypto to fiat"
+      ]}
+      typeSpeed={100}
+      backSpeed={60}
+      showCursor={true}
+      //fadeOut
+      //attr="placeholder"
+      loop
+      //className="text-wrap"
+    >
+      {/* <p /> */}
+    </ReactTyped>
+  </div>
+  )
+}
 
 export default function Hero(){
     return (
@@ -19,12 +46,15 @@ export default function Hero(){
       {/* Hero Title */}
         <h1 className="py-10 text-3xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
             {/* Effortless, <br/>fancy hero 12, <br/>made with love. */}
-            A seamless <span className="text-[#00BF63]" >crypto to fiat </span> onboarding with <span className="text-[#06F0FF]">instant settlement</span> in your <span className="text-[#00BF63]">local currency</span>
+            A seamless <span className="text-[#00BF63]" >
+              <HeroSubTextAnimationComponent /> 
+              {/* on and off ramps */}
+              </span> onboarding with <span className="text-[#06F0FF]">instant settlement</span> in your <span className="text-[#00BF63]">local currency</span>
         </h1>
       {/* Starting Price */}
         <p className="text-lg font-semibold text-gray-300 tracking-wide">
         {/* Four sizes, starting at $29 */}
-            <span className="text-[#00BF63]" >Buy</span>, <span className="text-[#00BF63]">Sell</span> and <span className="text-[#00bf63]">Swap 70+ </span>supported assets in <span className="text-[#00BF63]">150+</span> jurisdictions
+            <span className="text-[#00BF63]" >Buy</span>, <span className="text-[#00BF63]">Sell</span>, <span className="text-[#00BF63]">Send</span> , <span className="text-[#00BF63]">Receive </span> and <span className="text-[#00bf63]">Swap 70+ </span>supported assets in <span className="text-[#00BF63]">20+</span> jurisdictions across Africa and beyond
         </p>
 
       {/* Buttons */}

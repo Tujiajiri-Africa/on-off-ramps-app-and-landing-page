@@ -30,7 +30,7 @@ export default function About(){
       {/* Starting Price */}
         <p className="text-lg font-semibold text-gray-300 tracking-wide">
         {/* Four sizes, starting at $29 */}
-        With AjiraPay, you get the best quotes for your orders
+          With AjiraPay, you get the best quotes for your crypto buy and sell orders, convert supported assets to your local currency in seconds for use in your day to day utilities
         </p>
 
       {/* Buttons */}
