@@ -27,7 +27,7 @@ export default function Footer(){
                     width={'auto'}
                     height={'auto'}
                   />
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Ajira Pay Finance</span>
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Ajirapay LTD</span>
                   {/* <span>
                     Third Court Street
                   </span> */}
@@ -90,7 +90,7 @@ export default function Footer(){
       </div>
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {date} <a href="https://ajirapay.finance" className="hover:underline">Ajira Pay Finance</a>. All Rights Reserved.
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {date} <a href="https://ajirapay.finance" className="hover:underline">Ajirapay LTD</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
               {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
