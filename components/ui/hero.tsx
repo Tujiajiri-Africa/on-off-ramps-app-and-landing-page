@@ -2,29 +2,40 @@
 import React from "react";
 import BuyCryptoDesignSVG from '../../app/assets/logo/buy-crypto-design-svg.svg'
 import { ReactTyped } from "react-typed";
+import { TypeAnimation } from 'react-type-animation';
 
 const HeroSubTextAnimationComponent = () => {
   return (
-    <div>
+  <>
+   <TypeAnimation
+  sequence={['fiat to crypto', 3000, 'crypto to fiat', 3000]}
+  //style={{ fontSize: '1em' }}
+  cursor={false}
+  repeat={Infinity}
+  speed={10}
+/>
+    {/* // <div> */}
     {/* <ReactTyped strings={["Here you can find anything"]} typeSpeed={40} />
     <br /> */}
 
-    <ReactTyped
+    {/* <ReactTyped
       strings={[
         "fiat to crypto",
         "crypto to fiat"
       ]}
-      typeSpeed={100}
-      backSpeed={60}
+      typeSpeed={60}
+      backSpeed={50}
       showCursor={true}
       //fadeOut
       //attr="placeholder"
       loop
       //className="text-wrap"
     >
-      {/* <p /> */}
-    </ReactTyped>
-  </div>
+    
+    </ReactTyped> */}
+  {/* </div> */}
+  </>
+
   )
 }
 
@@ -47,8 +58,9 @@ export default function Hero(){
         <h1 className="py-10 text-3xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
             {/* Effortless, <br/>fancy hero 12, <br/>made with love. */}
             A seamless <span className="text-[#00BF63]" >
+              
               <HeroSubTextAnimationComponent /> 
-              {/* on and off ramps */}
+              {/* Buy <span className="text-white">and</span> Sell Crypto */}
               </span> onboarding with <span className="text-[#06F0FF]">instant settlement</span> in your <span className="text-[#00BF63]">local currency</span>
         </h1>
       {/* Starting Price */}
@@ -79,7 +91,7 @@ export default function Hero(){
         //className="w-2/3 lg:w-full"
         style={{
             width: 'auto',
-            height: 'auto'
+            height: '90%'
         }}
         />
      {/* <img src="https://fancytailwind.com/static/8b86283c874a1f43a78c79fe871525ff/d552e/illustration1.webp" alt="" className="w-2/3 lg:w-full" /> */}

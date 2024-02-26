@@ -34,7 +34,7 @@ export default function Footer(){
               </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-              <div>
+              {/* <div>
                   <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
@@ -50,7 +50,7 @@ export default function Footer(){
                           <a href="#" className="hover:underline">How it Works</a>
                       </li>
                   </ul>
-              </div>
+              </div> */}
               <div>
                   <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Products</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -69,7 +69,7 @@ export default function Footer(){
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="#" className="hover:underline">Privacy Policy</a>

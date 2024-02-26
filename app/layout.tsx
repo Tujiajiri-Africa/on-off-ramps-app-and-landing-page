@@ -14,8 +14,8 @@ import Footer from '@/components/ui/footer'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AjiraPay Finance",
-  description: "Buy and Sell your favourite crypto with instant settlement in your local currency across 20+ compliant jurisdictions in Africa and beyond",
+  title: "AjiraPay Finance |Buy and Sell Crypto at market rates across 20+ African countries and beyond",
+  description: "Buy and Sell your favourite crypto with instant settlement in your local currency across 20+ compliant jurisdictions across Africa and beyond",
 };
 
 export default function RootLayout({
