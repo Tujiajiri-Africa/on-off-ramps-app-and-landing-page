@@ -7,7 +7,7 @@ import "./globals.css";
 // import '@fontsource/roboto/700.css';
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
 import GoogleAnalytics from '@/components/utils/GoogleAnalytics';
-const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID
+const GA_MEASUREMENT_ID_ = process.env.GA_MEASUREMENT_ID
 
 import  Navbar  from '@/components/ui/navbar'
 import Footer from '@/components/ui/footer'
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics GA_MEASUREMENT_ID='G-0000000000'/>
+      <GoogleAnalytics GA_MEASUREMENT_ID={GA_MEASUREMENT_ID_}/>
       <body 
       //className="bg-[#191F22]"
       //className={inter.className}
