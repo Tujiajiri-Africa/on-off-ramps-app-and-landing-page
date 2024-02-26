@@ -13,6 +13,7 @@ import  Navbar  from '@/components/ui/navbar'
 import Footer from '@/components/ui/footer'
 import CookieBanner from '@/components/ui/cookiebanner';
 import { Suspense } from "react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
