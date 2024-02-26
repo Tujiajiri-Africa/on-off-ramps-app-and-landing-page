@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "AjiraPay Finance",
-  description: "Buy and Sell your favourite crypto with instant settlement in your local currency",
+  description: "Buy and Sell your favourite crypto with instant settlement in your local currency across 20+ compliant jurisdictions in Africa and beyond",
 };
 
 export default function RootLayout({
