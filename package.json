@@ -18,6 +18,8 @@
     "@ionic/react-router": "^7.7.3",
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
+    "@types/gtag.js": "^0.0.19",
+    "client-only": "^0.0.1",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",

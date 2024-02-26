@@ -6,10 +6,12 @@ import "./globals.css";
 // import '@fontsource/roboto/500.css';
 // import '@fontsource/roboto/700.css';
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
+import GoogleAnalytics from '@/components/utils/GoogleAnalytics';
+const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID
 
 import  Navbar  from '@/components/ui/navbar'
 import Footer from '@/components/ui/footer'
-
+import CookieBanner from '@/components/ui/cookiebanner';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics GA_MEASUREMENT_ID='G-0000000000'/>
       <body 
       //className="bg-[#191F22]"
       //className={inter.className}
@@ -39,6 +42,7 @@ export default function RootLayout({
          <Navbar />
         {children}
         <Footer />
+        <CookieBanner/>
       </body>
     </html>
   );
