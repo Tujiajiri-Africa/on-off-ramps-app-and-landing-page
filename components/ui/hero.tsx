@@ -58,8 +58,13 @@ export default function Hero(){
         <h1 className="py-10 text-3xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
             {/* Effortless, <br/>fancy hero 12, <br/>made with love. */}
             A seamless <span className="text-[#00BF63]" >
-              
+              <br />
               <HeroSubTextAnimationComponent /> 
+              <br />
+              {/* Seamless crypto onboarding across Africa */}
+              {/* Empowering the masses across Africa with a seamless crypto onboarding */}
+              {/* <span className="text-[#06F0FF]">Unlock your full crypto potential</span> */}
+              {/* </span> */}
               {/* Buy <span className="text-white">and</span> Sell Crypto */}
               </span> onboarding with <span className="text-[#06F0FF]">instant settlement</span> in your <span className="text-[#00BF63]">local currency</span>
         </h1>
