@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from  '../../app/assets/logo/favicon.ico'
+import nanaLogo from  '../../app/assets/logo/nana-logo-color.png'
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
@@ -42,7 +43,7 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-8 w-auto"
+                    className="h-18 w-auto"
                     //src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                     src={logo.src}
                     alt="Logo"
