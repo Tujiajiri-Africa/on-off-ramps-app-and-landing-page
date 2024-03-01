@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from 'next/link'
+import {Poppins} from 'next/font/google'
 
 import Logo from '@/app/assets/logo/nana-pay-logo-color.png'
 

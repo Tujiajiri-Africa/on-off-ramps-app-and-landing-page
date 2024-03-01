@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ForgotPasswordForm = () => {
+export const ForgotPasswordForm = () => {
     return (
         <>
         
@@ -8,4 +8,3 @@ const ForgotPasswordForm = () => {
     )
 }
 
-export default ForgotPasswordForm
