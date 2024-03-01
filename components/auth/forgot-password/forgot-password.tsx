@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const RegisterForm = () => {
+export const ForgotPasswordForm = () => {
     return (
         <>
         
         </>
     )
 }
+

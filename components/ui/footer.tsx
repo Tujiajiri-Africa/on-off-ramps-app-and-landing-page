@@ -27,7 +27,7 @@ export default function Footer(){
                     width={'auto'}
                     height={'auto'}
                   />
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Ajirapay Finance</span>
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">Ajirapay Finance</span>
                   {/* <span>
                     Third Court Street
                   </span> */}
@@ -52,7 +52,7 @@ export default function Footer(){
                   </ul>
               </div> */}
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Products</h2>
+                  <h2 className="mb-6 text-sm font-semibold  uppercase text-white dark:text-white">Products</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="#" className="hover:underline ">Buy and Sell Crypto</a>
@@ -69,7 +69,7 @@ export default function Footer(){
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Company</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="#" className="hover:underline">Privacy Policy</a>
