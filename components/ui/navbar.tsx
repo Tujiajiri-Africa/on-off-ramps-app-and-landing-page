@@ -6,6 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from  '../../app/assets/logo/favicon.ico'
 import nanaLogo from  '../../app/assets/logo/nana-logo-color.png'
 import Link from 'next/link'
+import Image from "next/image";
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
