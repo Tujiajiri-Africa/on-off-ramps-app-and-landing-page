@@ -1,5 +1,6 @@
 import React from 'react'
 import { CardWrapper } from '@/components/auth/card-wrapper'
+import Link from 'next/link'
 
 export const LoginForm = () => {
     return (
@@ -34,9 +35,9 @@ export const LoginForm = () => {
 
                 <div className="flex items-center justify-between">
                     <div className="text-sm">
-                        <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                        <Link href="/forgot-password" className="font-medium text-blue-600 hover:text-blue-500">
                             Forgot your password?
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
