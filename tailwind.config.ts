@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        'hero-page-bg-image': "url('/app/assets/logo/nana-logo-color.png')",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
