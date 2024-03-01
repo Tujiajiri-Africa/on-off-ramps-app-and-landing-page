@@ -4,7 +4,7 @@ import AboutPageIllustration from '../../app/assets/logo/contact-page-illustrati
 export default function ContactPage(){
     return (
             <>
-            <div className="relative w-full h-full flex justify-center items-center bg-[#081e1c] overflow-hidden opacity-100">
+            <div className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100">
             <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] mx-auto flex flex-col lg:flex-row">
             <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center"> 
                 {/* <div className="pt-2 w-full h-full flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
@@ -33,7 +33,7 @@ export default function ContactPage(){
                         />
             </div>
             <div className="w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] flex flex-col justify-center items-center text-gray-600">
-            <h1 className="py-10 text-3xl sm:text-7xl font-semibold leading-tight text-white">
+            <h1 className="py-10 text-4xl sm:text-7xl font-semibold leading-tight text-white">
                 You have something in mind? <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Let&apos;s Talk</span>
             </h1>
             <div className="p-2 flex flex-col sm:flex-row md:flex-row lg:flex-row w-full gap-3">

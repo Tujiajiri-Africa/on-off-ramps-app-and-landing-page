@@ -5,7 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/
 export default function About(){
     return (
         <>
-        <div className="relative w-full h-full flex justify-center items-center bg-[#081e1c] overflow-hidden opacity-100">
+        <div className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100">
             <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] mx-auto flex flex-col lg:flex-row">
                 <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
                         <img src={AboutPageIllustration.src} 
@@ -24,9 +24,9 @@ export default function About(){
     {/* ::Hero Inner */}
     <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
       {/* Hero Title */}
-        <h1 className="py-6 text-3xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
+        <h1 className="py-6 text-4xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
             {/* Effortless, <br/>fancy hero 12, <br/>made with love. */}
-            Take back control of your <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]" >financial freedom</span> today
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Take back control </span> of your <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]" >financial freedom</span> today
         </h1>
       {/* Starting Price */}
         <p className="text-lg font-semibold text-gray-300 tracking-wide">
