@@ -4,7 +4,7 @@ import BuyCryptoDesignSVG from '../../app/assets/logo/buy-crypto-design-svg.svg'
 import HomeBgElementImage from '../../app/assets/logo/backgroundImages/home-bg-element-1.svg'
 import HomeBgElementImage2 from '../../app/assets/logo/backgroundImages/home-page-bg-lights.webp'
 import HomeBgElementImage3 from '../../app/assets/logo/backgroundImages/3.avif'
-
+import Link from "next/link";
 import { ReactTyped } from "react-typed";
 import { TypeAnimation } from 'react-type-animation';
 
@@ -53,6 +53,7 @@ export default function Hero(){
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
                 //bg-[#081e1c]
+                //#0d1117
             }}
             >
 {/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#050520_1px,#00091d_1px)] bg-[size:20px_20px]"></div> */}
@@ -84,6 +85,7 @@ export default function Hero(){
       {/* Buttons */}
       <div className="mt-10 flex flex-row sm:flex-row items-center">
         <button 
+        //href="/register"
             className="m-1.5 py-2 px-2 rounded-md bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white font-semibold hover:text-white hover:bg-green-700"
             style={{
                 //background: 'linear-gradient(#593690 50%, #DB1B9A 75%, #9A1AAF 100%);',

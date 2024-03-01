@@ -4,6 +4,8 @@ import About from '@/components/ui/about'
 import Features from '@/components/ui/features'
 import FeatureList from '@/components/ui/feature-list'
 import Contact from '@/components/ui/contact'
+import  Navbar  from '@/components/ui/navbar'
+import Footer from '@/components/ui/footer'
 //import WaitListBanner from '@/components/ui/waitlist-banner'
 
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
@@ -16,14 +18,15 @@ export default function Home() {
       //className="h-screen bg-gradient-to-t from-[#593690] to-[#9A1AAF]"
     
       >
-       
+        
+        <Navbar/>
         <Hero />
         <About />
         <Features />
         <FeatureList />
         <Contact />
         {/* <WaitListBanner /> */}
-        
+        <Footer />
     </main>
     </>
     

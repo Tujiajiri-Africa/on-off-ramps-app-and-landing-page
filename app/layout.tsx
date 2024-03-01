@@ -9,8 +9,7 @@ import "./globals.css";
 import GoogleAnalytics from '@/components/utils/GoogleAnalytics';
 const GA_MEASUREMENT_ID_ = process.env.GA_MEASUREMENT_ID
 
-import  Navbar  from '@/components/ui/navbar'
-import Footer from '@/components/ui/footer'
+
 import CookieBanner from '@/components/ui/cookiebanner';
 import { Suspense } from "react";
 
@@ -34,9 +33,9 @@ export default function RootLayout({
       
       <body 
       //className="bg-[#191F22]"
-      //className={inter.className}
+      className={inter.className}
       //className=" bg-gradient-to-r from-[#010a2b] to-[#01b5ce] via-[#7931e2]"
-      className="bg-[#010203]"
+      //className="bg-[#010203]"
       // style={{
       //   backgroundColor: '#141041',
       //   backgroundImage: "url('/app/assets/logo/backgroundImages/home-page-bg-lights.webp')",
@@ -45,9 +44,7 @@ export default function RootLayout({
       // }}
       //className="h-screen bg-gradient-to-t from-[#593690] to-[#9A1AAF]"
       >
-         <Navbar />
-        {children}
-        <Footer />
+          {children}
         <Suspense >
           <CookieBanner/>
         </Suspense>

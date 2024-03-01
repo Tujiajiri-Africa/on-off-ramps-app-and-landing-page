@@ -5,6 +5,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from  '../../app/assets/logo/favicon.ico'
 import nanaLogo from  '../../app/assets/logo/nana-logo-color.png'
+import Link from 'next/link'
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
@@ -73,7 +74,11 @@ export default function Navbar() {
                 </div> */}
               </div>
               <div className='flex items-center gap-6'>
-                        <button className="bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white px-5 py-2 rounded-md hover:bg-green-700  hidden sm:block md:hidden xl:block lg:block">Coming Soon</button>
+                        <button 
+                          //href="/register" 
+                          className="bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white px-5 py-2 rounded-md hover:bg-green-700  hidden sm:block md:hidden xl:block lg:block">
+                            Coming Soon
+                          </button>
                         {/* <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon> */}
                     </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

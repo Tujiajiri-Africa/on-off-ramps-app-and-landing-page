@@ -13,7 +13,7 @@ export default function Footer(){
     }, [setDate])
    return (
     <>
-    <div className="">
+    <div className="bg-[#010203]">
    
     <footer className="bg-[#010203] relative w-[98%] mx-auto h-screen flex flex-col justify-center items-center overflow-hidden p-10">
     <div className="mx-auto w-full p-4 py-6 lg:py-8">
