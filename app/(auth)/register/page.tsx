@@ -14,12 +14,6 @@ const  Register = () =>{
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
             Create a new account
         </h2>
-        {/* <p className="mt-2 text-center text-sm text-gray-600 max-w">
-            Or
-            <Link href="/register" className="font-medium text-gray-900 hover:text-white">
-                Sign In
-            </Link>
-        </p> */}
     </div>
 
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -63,7 +57,7 @@ const  Register = () =>{
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA] ">
 
                         Create account
-                        {/* //hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 */}
+                       
                     </button>
                 </div>
             </form>
@@ -98,20 +92,12 @@ const  Register = () =>{
                     <div>
                         <a href="#"
                             className="w-full flex items-center justify-center px-8 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-                            <img className="h-6 w-6" src="https://www.svgrepo.com/show/506498/google.svg"
+                            <Image className="h-6 w-6" height={24} width={24} src="https://www.svgrepo.com/show/506498/google.svg"
                                 alt=""/>
                         </a>
                     </div>
                 </div>
                 <div className="flex items-center justify-between  ">
-                    {/* <div className="flex items-center">
-                        <input id="remember_me" name="remember_me" type="checkbox"
-                            className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"/>
-                        <label className="ml-2 block text-sm text-gray-900">
-                            Remember me
-                        </label>
-                    </div> */}
-
                     <div className="text-sm items-center">
                         <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500">
                             Have an account? Sign in
