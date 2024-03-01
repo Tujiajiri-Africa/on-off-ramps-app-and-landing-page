@@ -53,6 +53,7 @@ export default function Hero(){
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
                 //bg-[#081e1c]
+                //#0d1117
             }}
             >
 {/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#050520_1px,#00091d_1px)] bg-[size:20px_20px]"></div> */}
