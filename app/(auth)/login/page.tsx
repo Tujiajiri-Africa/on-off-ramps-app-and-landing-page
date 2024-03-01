@@ -11,7 +11,7 @@ const  Login = () =>{
             <div className="flex text-center justify-center ">
             <Image src={Logo.src} width={60} height={60}  className="rounded-full" alt="logo"/>
         </div>
-    <div className="flex flex-col sm:mx-auto sm:w-full sm:max-w-md justify-center text-center">
+    <div className="w-[80%] mx-auto sm:mx-auto sm:w-full sm:max-w-md">
        
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
             Sign in to your account

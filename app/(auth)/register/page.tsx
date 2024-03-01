@@ -10,7 +10,7 @@ const  Register = () =>{
             <div className="flex text-center justify-center ">
             <Image src={Logo.src} width={60} height={60}  className="rounded-full" alt="logo"/>
         </div>
-    <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="w-[80%] mx-auto sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
             Create a new account
         </h2>
@@ -114,7 +114,7 @@ const  Register = () =>{
 
                     <div className="text-sm items-center">
                         <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500">
-                            Have have an account? Sign in
+                            Have an account? Sign in
                         </Link>
                     </div>
                 </div>
