@@ -5,7 +5,7 @@ export default function ContactPage(){
     return (
             <>
             <div className="relative w-full h-full flex justify-center items-center bg-[#081e1c] overflow-hidden opacity-100">
-            <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] mx-auto flex flex-col lg:flex-row">
+            <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] mx-auto flex flex-col lg:flex-row">
             <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center"> 
                 {/* <div className="pt-2 w-full h-full flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                     <div className='text-center gap-1 rounded'>
@@ -34,10 +34,10 @@ export default function ContactPage(){
             </div>
             <div className="w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] flex flex-col justify-center items-center text-gray-600">
             <h1 className="py-10 text-3xl sm:text-7xl font-semibold leading-tight text-white">
-                You have something in mind? <span className="text-[#00BF63]">Let&apos;s Talk</span>
+                You have something in mind? <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Let&apos;s Talk</span>
             </h1>
             <div className="p-2 flex flex-col sm:flex-row md:flex-row lg:flex-row w-full gap-3">
-            <div className="bg-slate-900 rounded flex p-4 h-full w-[80%] mx-auto items-center justify-center hover:text-gray-100">
+            <div className="bg-gradient-to-r from-[#050520] to-[#470645] rounded flex p-4 h-full w-[80%] mx-auto items-center justify-center hover:text-gray-100">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     viewBox="0 0 24 24" 
@@ -52,7 +52,7 @@ export default function ContactPage(){
                 <p>hello@ajirapay.finance</p>
                 </span>
             </div>
-            <div className="bg-slate-900 rounded flex p-4 h-full w-[80%] mx-auto items-center justify-center hover:text-gray-100">
+            <div className="bg-gradient-to-r from-[#050520] to-[#470645] rounded flex p-4 h-full w-[80%] mx-auto items-center justify-center hover:text-gray-100">
             <svg 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24" 
