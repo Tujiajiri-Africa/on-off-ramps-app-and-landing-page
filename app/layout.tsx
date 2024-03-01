@@ -36,7 +36,7 @@ export default function RootLayout({
       //className="bg-[#191F22]"
       //className={inter.className}
       //className=" bg-gradient-to-r from-[#010a2b] to-[#01b5ce] via-[#7931e2]"
-      className="bg-[#081e1c]"
+      className="bg-[#010203]"
       // style={{
       //   backgroundColor: '#141041',
       //   backgroundImage: "url('/app/assets/logo/backgroundImages/home-page-bg-lights.webp')",

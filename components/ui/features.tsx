@@ -10,7 +10,7 @@ export default function Features(){
     return (
         <>
           <div 
-            className="relative w-full h-full flex justify-center items-center bg-gradient-to-r bg-[#081e1c] overflow-hidden opacity-100"
+            className="relative w-full h-full flex justify-center items-center bg-gradient-to-r bg-[#010203] overflow-hidden opacity-100"
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
             }}
@@ -22,7 +22,7 @@ export default function Features(){
     {/* ::Hero Inner */}
     <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
       {/* Hero Title */}
-        <h1 className="py-10 text-3xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
+        <h1 className="py-10 text-4xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
             {/* Effortless, <br/>fancy hero 12, <br/>made with love. */}
             Experience <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">secure</span> and <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">compliant</span> crypto onboarding <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"> like a pro</span>
         </h1>
@@ -46,7 +46,7 @@ export default function Features(){
   </div>
   {/* :HERO ILLUSTRATION */}
   <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
-    <img src={SellSwapBannerLightGreenSVG.src} 
+    <img src={SellSwapBannerSVG.src} 
         alt='illustration' 
         //className="w-2/3 lg:w-full"
         style={{

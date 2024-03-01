@@ -23,7 +23,7 @@ export default function Navbar() {
     <Disclosure as="nav" 
     //className="bg-[#081e1c]"
     //className="bg-[#081e1c]"
-    className="bg-[#081e1c]"
+    className="bg-[#010203]"
     //className="bg-gradient-to-r from-slate-800 via-[#6d1dee] to-[#9A1AAF]"
     >
       {({ open }) => (
