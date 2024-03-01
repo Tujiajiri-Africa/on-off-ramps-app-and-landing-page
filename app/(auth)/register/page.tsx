@@ -8,7 +8,7 @@ const  Register = () =>{
         <>
             <div className="min-h-screen bg-gradient-to-r from-[#FDC707] to-[#F00FDA] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="flex text-center justify-center ">
-            <Image src={Logo.src} width={60} height={60}  className="rounded-full" alt="logo"/>
+            <Image src={Logo.src} width={100} height={100}  className="rounded-full" alt="logo"/>
         </div>
     <div className="w-[80%] mx-auto sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
