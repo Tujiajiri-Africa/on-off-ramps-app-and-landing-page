@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RegisterForm = () => {
+const ForgotPasswordForm = () => {
     return (
         <>
         
@@ -8,4 +8,4 @@ const RegisterForm = () => {
     )
 }
 
-export default RegisterForm
+export default ForgotPasswordForm
