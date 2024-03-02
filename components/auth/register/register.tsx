@@ -1,7 +1,36 @@
+'use client'
 import React from 'react'
+import * as z from 'zod'
+import { RegisterSchema} from '@/schemas'
+import {useForm} from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { CardWrapper } from '@/components/auth/card-wrapper'
+import {
+Form,
+FormControl,
+FormField,
+FormLabel,
+FormMessage,
+FormItem
+} from '@/components/ui/form'
+import {Input} from '@/components/ui/input'
+import {Button} from '@/components/ui/button'
 
 export const RegisterForm = () => {
+
+    const form = useForm<z.infer<typeof RegisterSchema>>({
+        resolver: zodResolver(RegisterSchema),
+        defaultValues: {
+            'email': "",
+            "password": "",
+            "confirm_password": ""
+        }
+    })
+
+    const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {
+       //console.log(values)
+    }
+
     return (
         <>
         <CardWrapper 
@@ -10,7 +39,109 @@ export const RegisterForm = () => {
             backButtonLabel="Have an account? Sign in"
             showSocial 
             >
-      <form className="space-y-6" action="#" method="POST">
+                <Form {...form}>
+                    <form 
+                        onSubmit={form.handleSubmit(handleSubmit)} 
+                        className="space-y-6"
+                        >
+                        <div>
+                            <FormField 
+                                control={form.control}
+                                name='email'
+                                render={({field}) => (
+                                    <FormItem>
+                                        <FormLabel 
+                                            className="block text-sm font-medium text-gray-700"
+                                            >
+                                            Email address
+                                        </FormLabel>
+                                        <div 
+                                            className='mt-1'
+                                            >
+                                            <FormControl>
+                                                <Input
+                                                    {...field}
+                                                    //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                    placeholder="Enter your email address"
+                                                    type='email'
+                                                    
+                                                />
+                                            </FormControl>
+                                            <FormMessage/>
+                                        </div>
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
+                        <div>
+                        <FormField 
+                            control={form.control}
+                            name='password'
+                            render={({field}) => (
+                                <FormItem>
+                                    <FormLabel 
+                                        className="block text-sm font-medium text-gray-700"
+                                        >
+                                        Password
+                                    </FormLabel>
+                                    <div 
+                                        className='mt-1'
+                                        >
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                placeholder="********"
+                                                type='password'
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    <div>
+                        <FormField 
+                            control={form.control}
+                            name='confirm_password'
+                            render={({field}) => (
+                                <FormItem>
+                                    <FormLabel 
+                                        className="block text-sm font-medium text-gray-700"
+                                        >
+                                        Confirm Password
+                                    </FormLabel>
+                                    <div 
+                                        className='mt-1'
+                                        >
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                placeholder="********"
+                                                type='password'
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    <div>
+                    <Button 
+                        type="submit"
+                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"
+                        >
+
+                        Create account
+                       
+                    </Button>
+                </div>
+                    </form>
+                </Form>
+      {/* <form className="space-y-6" action="#" method="POST">
                 <div>
                     <label  className="block text-sm font-medium text-gray-700">
                         Email address
@@ -44,15 +175,8 @@ export const RegisterForm = () => {
                 </div>
 
 
-                <div>
-                    <button type="submit"
-                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA] ">
-
-                        Create account
-                       
-                    </button>
-                </div>
-            </form>
+            
+            </form> */}
         </CardWrapper>
         </>
     )
