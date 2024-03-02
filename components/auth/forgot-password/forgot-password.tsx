@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, {useTransition} from 'react'
 import * as z from 'zod'
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
@@ -16,9 +16,12 @@ FormField,
 FormMessage
 } from '@/components/ui/form'
 import { PasswordResetSchema } from '@/schemas'
-
-
+import {FormErrorMessage} from '@/components/form-errors'
+import {FormSuccessMessage} from '@/components/form-success'
+import {resetPassword} from '@/actions/auth'
 export const ForgotPasswordForm = () => {
+    const [isPending, startTransition] = useTransition()
+
     const form = useForm<z.infer<typeof PasswordResetSchema>>({
         resolver: zodResolver(PasswordResetSchema),
         defaultValues:{
@@ -27,7 +30,9 @@ export const ForgotPasswordForm = () => {
     })
 
     const handleSubmit = (values: z.infer<typeof PasswordResetSchema>) =>{
-        
+        startTransition(() => {
+            resetPassword(values)
+        })
     }
 
     return (
@@ -59,6 +64,7 @@ export const ForgotPasswordForm = () => {
                                                 >
                                                 <FormControl>
                                                     <Input
+                                                        disabled={isPending}
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                         placeholder="Enter your email address"
@@ -72,8 +78,11 @@ export const ForgotPasswordForm = () => {
                                     )}
                                 />
                             </div>
+                            <FormErrorMessage message=""/>
+                            <FormSuccessMessage message=""/>
                         <div>
                             <Button 
+                                disabled={isPending}
                                 type="submit"
                                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA] ">
 
