@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, {useTransition} from 'react'
 import * as z from 'zod'
 import { RegisterSchema} from '@/schemas'
 import {useForm} from 'react-hook-form'
@@ -17,8 +17,10 @@ import {Input} from '@/components/ui/input'
 import {Button} from '@/components/ui/button'
 import { FormErrorMessage } from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
+import { register } from '@/actions/auth'
 
 export const RegisterForm = () => {
+    const [isPending, startTransition] = useTransition()
 
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
@@ -30,7 +32,9 @@ export const RegisterForm = () => {
     })
 
     const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {
-       //console.log(values)
+        startTransition(() => {
+            register(values)
+        })  
     }
 
     return (
@@ -62,6 +66,7 @@ export const RegisterForm = () => {
                                             >
                                             <FormControl>
                                                 <Input
+                                                    disabled={isPending}
                                                     {...field}
                                                     //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                     placeholder="Enter your email address"
@@ -91,6 +96,7 @@ export const RegisterForm = () => {
                                         >
                                         <FormControl>
                                             <Input
+                                                disabled={isPending}
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="********"
@@ -119,6 +125,7 @@ export const RegisterForm = () => {
                                         >
                                         <FormControl>
                                             <Input
+                                                disabled={isPending}
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="********"
@@ -135,6 +142,7 @@ export const RegisterForm = () => {
                     <FormSuccessMessage message=""/>
                     <div>
                     <Button 
+                        disabled={isPending}
                         type="submit"
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"
                         >

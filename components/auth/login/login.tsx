@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useTransition } from 'react'
 import { CardWrapper } from '@/components/auth/card-wrapper'
 import Link from 'next/link'
 import * as z from 'zod'
@@ -22,8 +22,11 @@ import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 
 import { LoginSchema } from '@/schemas'
+import { login } from '@/actions/auth'
 
 export const LoginForm = () => {
+    const [isPending, startTransition] = useTransition()
+
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
         defaultValues: {
@@ -33,7 +36,10 @@ export const LoginForm = () => {
     })
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-        
+        //TO-DO post to API here on API implementation
+        startTransition(() => {
+            login(values)
+        })
     }
 
     return (
@@ -68,6 +74,7 @@ export const LoginForm = () => {
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="Enter your email address"
                                                 type='email'
+                                                disabled={isPending}
                                                 
                                             />
                                         </FormControl>
@@ -97,6 +104,7 @@ export const LoginForm = () => {
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="********"
                                                 type='password'
+                                                disabled={isPending}
                                             />
                                         </FormControl>
                                         <FormMessage/>
@@ -123,6 +131,7 @@ export const LoginForm = () => {
                     <FormSuccessMessage message=""/>
                 <div>
                     <Button 
+                        disabled={isPending}
                         type="submit"
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA] ">
 
