@@ -19,6 +19,7 @@ FormDescription
 import {Input} from '@/components/ui/input'
 import {Button} from '@/components/ui/button'
 import {FormErrorMessage} from '@/components/form-errors'
+import {FormSuccessMessage} from '@/components/form-success'
 
 import { LoginSchema } from '@/schemas'
 
@@ -119,6 +120,7 @@ export const LoginForm = () => {
                     </div>
                 </div>
                     <FormErrorMessage/>
+                    <FormSuccessMessage />
                 <div>
                     <Button 
                         type="submit"

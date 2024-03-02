@@ -17,6 +17,7 @@ FormMessage
 } from '@/components/ui/form'
 import { PasswordResetSchema } from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
+import {FormSuccessMessage} from '@/components/form-success'
 
 export const ForgotPasswordForm = () => {
     const form = useForm<z.infer<typeof PasswordResetSchema>>({
@@ -73,6 +74,7 @@ export const ForgotPasswordForm = () => {
                                 />
                             </div>
                             <FormErrorMessage />
+                            <FormSuccessMessage />
                         <div>
                             <Button 
                                 type="submit"
