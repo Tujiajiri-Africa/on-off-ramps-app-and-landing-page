@@ -15,6 +15,7 @@ FormItem
 } from '@/components/ui/form'
 import {Input} from '@/components/ui/input'
 import {Button} from '@/components/ui/button'
+import { FormErrorMessage } from '@/components/form-errors'
 
 export const RegisterForm = () => {
 
@@ -129,6 +130,7 @@ export const RegisterForm = () => {
                             )}
                         />
                     </div>
+                    <FormErrorMessage/>
                     <div>
                     <Button 
                         type="submit"
