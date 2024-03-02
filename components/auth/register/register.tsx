@@ -131,8 +131,8 @@ export const RegisterForm = () => {
                             )}
                         />
                     </div>
-                    <FormErrorMessage/>
-                    <FormSuccessMessage />
+                    <FormErrorMessage message=""/>
+                    <FormSuccessMessage message=""/>
                     <div>
                     <Button 
                         type="submit"

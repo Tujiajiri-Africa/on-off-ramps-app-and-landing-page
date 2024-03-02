@@ -119,8 +119,8 @@ export const LoginForm = () => {
                         </Link>
                     </div>
                 </div>
-                    <FormErrorMessage/>
-                    <FormSuccessMessage />
+                    <FormErrorMessage message=""/>
+                    <FormSuccessMessage message=""/>
                 <div>
                     <Button 
                         type="submit"

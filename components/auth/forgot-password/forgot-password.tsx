@@ -73,8 +73,8 @@ export const ForgotPasswordForm = () => {
                                     )}
                                 />
                             </div>
-                            <FormErrorMessage />
-                            <FormSuccessMessage />
+                            <FormErrorMessage message=""/>
+                            <FormSuccessMessage message=""/>
                         <div>
                             <Button 
                                 type="submit"
