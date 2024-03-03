@@ -44,7 +44,8 @@ export default function FeatureList(){
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                 <path d="M22 4L12 14.01l-3-3"></path>
             </svg>
-            <span className="font-medium text-gray-300"><span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Buy</span> 70+ crypto assets with your local or any supported fiat currency</span>
+            <span className="font-medium text-gray-300"><span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Buy</span> 70+ crypto assets including 
+            <span className='font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]'> USDT and USDC stablecoins </span > with your local or any supported fiat currency</span>
         </div>
     </div>
     <div className="p-2 w-full">
