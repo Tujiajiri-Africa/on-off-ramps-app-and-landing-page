@@ -33,7 +33,7 @@ export const register = async(values: z.infer<typeof RegisterSchema>) =>{
         body: JSON.stringify(validatedFields.data)
     }
 
-    const registerUser = fetch(endpoint,payload).then(async(response) =>{
+    const sendUserRegistrationRequest = fetch(endpoint,payload).then(async(response) =>{
         if(response.status === 500){
             dataInfo = {
                 error: 'Something went wrong!',
@@ -73,7 +73,7 @@ export const register = async(values: z.infer<typeof RegisterSchema>) =>{
 
     try{
         //handle login here with nextauth
-        return registerUser
+        return sendUserRegistrationRequest
     }catch(error){
         dataInfo = {
             error: 'Something went wrong!',
@@ -87,10 +87,21 @@ export const register = async(values: z.infer<typeof RegisterSchema>) =>{
 export const login = async(values: z.infer<typeof LoginSchema>) => { 
     const endpoint = "http://127.0.0.1:8000/api/v1/auth/login"
 
+    let dataInfo: UserResponseDataProps = {
+        data: "",
+        error: "",
+        success: ""
+    }
+
     const validatedFields = LoginSchema.safeParse(values)
 
     if(!validatedFields.success){
-        return {error : 'Invalid credentials'}
+        dataInfo = {
+            error: 'Invalid Credentials',
+            success: '',
+            data: ''
+        }
+        return  { data: dataInfo}
     }
 
     //const {email, password} = validatedFields.data
@@ -103,28 +114,54 @@ export const login = async(values: z.infer<typeof LoginSchema>) => {
         body: JSON.stringify(validatedFields.data)
     }
 
-    try{
-        await fetch(endpoint, payload)
-        .then(async(response) =>{
-            if(response.status === 200 || response.status === 201){
-                const data = await response.json()
-                const message = data['message']
-                console.log(data)
-            }else if(response.status === 500){
-                console.log('server error while logging in')
-            }else if(response.status === 404){
-                console.log('Not found error')
-            }else if(response.status === 422){
-                console.log('validation error on server')
+    const sendUserLoginRequest = fetch(endpoint,payload).then(async(response) =>{
+        if(response.status === 500){
+            dataInfo = {
+                error: 'Something went wrong!',
+                success: '',
+                data: ''
             }
-    
-          })
-          .catch((error) => {
-            console.log(error)
+
+            return { data: dataInfo}
+        }
+        const data = await response.json()
+        if(data['status'] == false){
+            dataInfo = {
+                error: data['message'],
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+        if(data['status'] == true){
+            dataInfo = {
+                error: "",
+                success: data['message'],
+                data: data['data']
+            }
+
+            return { data: dataInfo}
+        }
+        }).catch(()=>{
+            dataInfo = {
+                error: "Something went wrong!",
+                success: '',
+                data: ''
+            }
+            return {data: dataInfo}
         })
+
+    try{
+        //handle login here with nextauth
+        return sendUserLoginRequest
     }catch(error){
-        console.log(error)
-        throw error
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
     }
 }
 

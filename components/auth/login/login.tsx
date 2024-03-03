@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition } from 'react'
+import React, { useTransition, useState } from 'react'
 import { CardWrapper } from '@/components/auth/card-wrapper'
 import Link from 'next/link'
 import * as z from 'zod'
@@ -26,6 +26,8 @@ import { login } from '@/actions/auth'
 
 export const LoginForm = () => {
     const [isPending, startTransition] = useTransition()
+    const [error, setError] = useState<string>("")
+    const [success, setSuccess] = useState<string>("")
 
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
@@ -36,8 +38,24 @@ export const LoginForm = () => {
     })
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-        startTransition(() => {
+        setError("")
+        setSuccess("")
+
+        startTransition(async() => {
             login(values)
+            .then((data:any) => {
+                if(data?.data.error){
+                    form.reset()
+                    setError(data?.data.error)
+                }
+                if(data?.data.success){
+                    form.reset()
+                    setSuccess(data?.data.success)
+                }
+            }).catch(() => {
+                setError("Something went wrong")
+                setSuccess("")
+            })
         })
     }
 
@@ -126,8 +144,8 @@ export const LoginForm = () => {
                         </Link>
                     </div>
                 </div>
-                    <FormErrorMessage message=""/>
-                    <FormSuccessMessage message=""/>
+                    <FormErrorMessage message={error}/>
+                    <FormSuccessMessage message={success}/>
                 <div>
                     <Button 
                         disabled={isPending}
