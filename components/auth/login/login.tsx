@@ -36,7 +36,6 @@ export const LoginForm = () => {
     })
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-        //TO-DO post to API here on API implementation
         startTransition(() => {
             login(values)
         })
@@ -47,7 +46,7 @@ export const LoginForm = () => {
             backButtonHref='/register'
             headerLabel='Sign in to your account'
             backButtonLabel="Don't have an account? Create account"
-            showSocial 
+            showSocial={false} 
             >
                 <Form {...form}>
                 <form 

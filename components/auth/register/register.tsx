@@ -1,5 +1,6 @@
 'use client'
-import React, {useTransition} from 'react'
+
+import React, {useState, useTransition} from 'react'
 import * as z from 'zod'
 import { RegisterSchema} from '@/schemas'
 import {useForm} from 'react-hook-form'
@@ -21,6 +22,8 @@ import { register } from '@/actions/auth'
 
 export const RegisterForm = () => {
     const [isPending, startTransition] = useTransition()
+    const [error, setError] = useState<string>("")
+    const [success, setSuccess] = useState<string>("")
 
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
@@ -32,18 +35,34 @@ export const RegisterForm = () => {
     })
 
     const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {
-        startTransition(() => {
-            register(values)
-        })  
-    }
+        setError("")
+        setSuccess("")
 
+        startTransition(async() => {
+            register(values)
+            .then((data:any) => {
+                if(data?.data.error){
+                    form.reset()
+                    setError(data?.data.error)
+                }
+                if(data?.data.success){
+                    form.reset()
+                    setSuccess(data?.data.success)
+                }
+            }).catch(() => {
+                setError("Something went wrong")
+                setSuccess("")
+            })
+        })
+    }
+    
     return (
         <>
         <CardWrapper 
             backButtonHref='/login'
             headerLabel='Create a new account'
             backButtonLabel="Have an account? Sign in"
-            showSocial 
+            showSocial={false} 
             >
                 <Form {...form}>
                     <form 
@@ -74,7 +93,7 @@ export const RegisterForm = () => {
                                                     
                                                 />
                                             </FormControl>
-                                            <FormMessage/>
+                                            <FormMessage />
                                         </div>
                                     </FormItem>
                                 )}
@@ -138,8 +157,8 @@ export const RegisterForm = () => {
                             )}
                         />
                     </div>
-                    <FormErrorMessage message=""/>
-                    <FormSuccessMessage message=""/>
+                    <FormErrorMessage message={error}/>
+                    <FormSuccessMessage message={success}/>
                     <div>
                     <Button 
                         disabled={isPending}
