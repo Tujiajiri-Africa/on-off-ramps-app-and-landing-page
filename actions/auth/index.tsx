@@ -3,6 +3,7 @@
 import  * as z from 'zod'
 import { LoginSchema, RegisterSchema, PasswordResetSchema } from '@/schemas'
 import {UserResponseDataProps} from '@/lib/utils'
+import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
 
 export const register = async(values: z.infer<typeof RegisterSchema>) =>{
     let dataInfo: UserResponseDataProps = {
@@ -10,8 +11,6 @@ export const register = async(values: z.infer<typeof RegisterSchema>) =>{
         error: "",
         success: ""
     }
-
-    const endpoint = "http://127.0.0.1:8000/api/v1/auth/register"
 
     const validatedFields = RegisterSchema.safeParse(values)
     
@@ -32,6 +31,8 @@ export const register = async(values: z.infer<typeof RegisterSchema>) =>{
         },
         body: JSON.stringify(validatedFields.data)
     }
+
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/auth/register' : PROD_BASE_URI + '/auth/register'
 
     const sendUserRegistrationRequest = fetch(endpoint,payload).then(async(response) =>{
         if(response.status === 500){
@@ -85,7 +86,6 @@ export const register = async(values: z.infer<typeof RegisterSchema>) =>{
 }
 
 export const login = async(values: z.infer<typeof LoginSchema>) => { 
-    const endpoint = "http://127.0.0.1:8000/api/v1/auth/login"
 
     let dataInfo: UserResponseDataProps = {
         data: "",
@@ -113,6 +113,8 @@ export const login = async(values: z.infer<typeof LoginSchema>) => {
         },
         body: JSON.stringify(validatedFields.data)
     }
+
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/auth/login' : PROD_BASE_URI + '/auth/login'
 
     const sendUserLoginRequest = fetch(endpoint,payload).then(async(response) =>{
         if(response.status === 500){
