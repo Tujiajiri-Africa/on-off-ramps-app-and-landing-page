@@ -7,13 +7,14 @@ import "./globals.css";
 // import '@fontsource/roboto/700.css';
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
 import GoogleAnalytics from '@/components/utils/GoogleAnalytics';
-const GA_MEASUREMENT_ID_ = process.env.GA_MEASUREMENT_ID
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 
 
 import CookieBanner from '@/components/ui/cookiebanner';
 import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
+const GA_MEASUREMENT_ID_ = process.env.GA_MEASUREMENT_ID
 
 export const metadata: Metadata = {
   title: "AjiraPay Finance |Buy and Sell Crypto at market rates across 20+ African countries and beyond",
@@ -44,7 +45,10 @@ export default function RootLayout({
       // }}
       //className="h-screen bg-gradient-to-t from-[#593690] to-[#9A1AAF]"
       >
-          {children}
+          <AppRouterCacheProvider options={{ enableCssLayer: false }}>
+            {children}
+          </AppRouterCacheProvider>
+          
         <Suspense >
           <CookieBanner/>
         </Suspense>
