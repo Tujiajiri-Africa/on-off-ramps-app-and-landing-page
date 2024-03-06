@@ -28,18 +28,23 @@ export default function page() {
           </h2>
           <div className="hidden md:flex items-center space-x-2">
             {/* <CalendarDateRangePicker /> */}
-            <Button
+            {/* <Button
                 className="bg-[#16a34a] dark:text-white"
             >
                 Send/Receive
-            </Button>
+            </Button> */}
             <Button
-                className="w-full"
+                className="bg-[#16a34a] dark:text-white"
             >
                 Buy/Sell
             </Button>
           </div>
         </div>
+          <Button
+                className="sm:hidden bg-[#16a34a] dark:text-white"
+            >
+                Buy/Sell
+          </Button>
         <Tabs defaultValue="overview" className="space-y-4">
           <TabsList>
             <TabsTrigger value="overview">Overview</TabsTrigger>

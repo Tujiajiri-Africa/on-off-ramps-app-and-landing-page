@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import ThemeProvider from "@/components/layout/ThemeToggle/theme-provider";
 
 export const metadata: Metadata = {
-  title: "NanaPay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond",
+  title: "NanaPay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond, cash out in your local currency",
   description: "Buy and Sell your favourite crypto with instant settlement in your local currency across 20+ compliant jurisdictions across Africa and beyond",
 };
 
