@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ["latin"] });
 const GA_MEASUREMENT_ID_ = process.env.GA_MEASUREMENT_ID
 
 export const metadata: Metadata = {
-  title: "AjiraPay Finance |Buy and Sell Crypto at market rates across 20+ African countries and beyond",
+  title: "NanaPay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond",
   description: "Buy and Sell your favourite crypto with instant settlement in your local currency across 20+ compliant jurisdictions across Africa and beyond",
 };
 
@@ -45,10 +45,11 @@ export default function RootLayout({
       // }}
       //className="h-screen bg-gradient-to-t from-[#593690] to-[#9A1AAF]"
       >
-          <AppRouterCacheProvider options={{ enableCssLayer: false }}>
-            {children}
-          </AppRouterCacheProvider>
+          {/* <AppRouterCacheProvider options={{ enableCssLayer: false }}>
+            
+          </AppRouterCacheProvider> */}
           
+          {children}
         <Suspense >
           <CookieBanner/>
         </Suspense>
