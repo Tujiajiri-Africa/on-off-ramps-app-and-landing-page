@@ -25,6 +25,10 @@ export const RegisterForm = () => {
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
 
+    const [step, setStep] = useState<number>(0)
+
+    
+
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues: {
