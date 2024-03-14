@@ -1,3 +1,4 @@
+
 import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
 import { RecentSales } from "@/components/recent-sales";
@@ -15,10 +16,17 @@ import BTC_LOGO from '@/app/assets/logo/bitcoin-btc-logo.svg'
 import ETH_LOGO from '@/app/assets/logo/ethereum-eth-logo.svg'
 import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
 import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
-
 import Image from 'next/image'
+import {
+  getAssetTimeSeriesData, 
+  getBtcLatestAssetPrice,
+  getAssetQuote,
+  getEthLatestAssetPrice,
+  getSolLatestAssetPrice,
+  getMaticLatestAssetPrice} from '@/actions/crypto'
 
-export default function page() {
+
+export default async function page() {
   return (
     <ScrollArea className="h-full">
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
@@ -63,23 +71,40 @@ export default function page() {
                       height={30}
                       alt={'btc-logo'}
                   />
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                  </svg> */}
+                
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">$66,705.89</div>
+                  <div className="text-2xl font-bold">$ 
+                    {
+                      //await getAssetTimeSeriesData('BTC','USDT')
+                      (await getBtcLatestAssetPrice()).price
+                    }
+
+                  </div>
+                  
                   <p className="text-xs text-muted-foreground mb-6">
-                  <span className="text-green-600">+20.1%  </span> 24hr Change
+                    { 
+                      parseFloat((await getBtcLatestAssetPrice())._24hr_change) < 0 && 
+                    (
+                      <>
+                        <span className="text-red-600">
+                          {(await getBtcLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    } 
+                     { 
+                      parseFloat((await getBtcLatestAssetPrice())._24hr_change) > 0 && 
+                    (
+                      <>
+                        <span className="text-green-600">
+                          {(await getBtcLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    }
                   </p>
                   <Button
                     //className="w-full"
@@ -88,25 +113,12 @@ export default function page() {
                   </Button>
                 </CardContent>
               </Card>
+              
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     ETH
                   </CardTitle>
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg> */}
                    <Image
                       src={ETH_LOGO.src}
                       width={20}
@@ -115,9 +127,37 @@ export default function page() {
                   />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">$3,860.33</div>
+                <div className="text-2xl font-bold">$ 
+                    {
+                      //await getAssetTimeSeriesData('BTC','USDT')
+                      (await getEthLatestAssetPrice()).price
+                    }
+
+                  </div>
+                  
                   <p className="text-xs text-muted-foreground mb-6">
-                    <span className="text-green-600"> +180.1% </span> 24hr Change
+                    { 
+                      parseFloat((await getEthLatestAssetPrice())._24hr_change) < 0 && 
+                    (
+                      <>
+                        <span className="text-red-600">
+                          {(await getEthLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    } 
+                     { 
+                      parseFloat((await getEthLatestAssetPrice())._24hr_change) > 0 && 
+                    (
+                      <>
+                        <span className="text-green-600">
+                          {(await getEthLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    }
                   </p>
                   <Button
                     //className="w-full"
@@ -129,19 +169,6 @@ export default function page() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">SOL</CardTitle>
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <rect width="20" height="14" x="2" y="5" rx="2" />
-                    <path d="M2 10h20" />
-                  </svg> */}
                      <Image
                       src={SOL_lOGO.src}
                       width={30}
@@ -150,9 +177,37 @@ export default function page() {
                   />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">$131.13</div>
+                <div className="text-2xl font-bold">$ 
+                    {
+                      //await getAssetTimeSeriesData('BTC','USDT')
+                      (await getSolLatestAssetPrice()).price
+                    }
+
+                  </div>
+                  
                   <p className="text-xs text-muted-foreground mb-6">
-                  <span className="text-green-600">+19%</span> 24hr Change
+                    { 
+                      parseFloat((await getSolLatestAssetPrice())._24hr_change) < 0 && 
+                    (
+                      <>
+                        <span className="text-red-600">
+                          {(await getSolLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    } 
+                     { 
+                      parseFloat((await getSolLatestAssetPrice())._24hr_change) > 0 && 
+                    (
+                      <>
+                        <span className="text-green-600">
+                          {(await getSolLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    }
                   </p>
                   <Button
                     //className="w-full"
@@ -166,20 +221,6 @@ export default function page() {
                   <CardTitle className="text-sm font-medium">
                     MATIC
                   </CardTitle>
-                  {/* <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="h-4 w-4 text-muted-foreground"
-                  >
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg> */}
                    <Image
                       src={MATIC_LOGO.src}
                       width={30}
@@ -188,9 +229,37 @@ export default function page() {
                   />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">$1.10</div>
+                <div className="text-2xl font-bold">$ 
+                    {
+                      //await getAssetTimeSeriesData('BTC','USDT')
+                      (await getMaticLatestAssetPrice()).price
+                    }
+
+                  </div>
+                  
                   <p className="text-xs text-muted-foreground mb-6">
-                    <span className="text-green-600"> +23.1% </span> 24hr Change
+                    { 
+                      parseFloat((await getMaticLatestAssetPrice())._24hr_change) < 0 && 
+                    (
+                      <>
+                        <span className="text-red-600">
+                          {(await getMaticLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    } 
+                     { 
+                      parseFloat((await getMaticLatestAssetPrice())._24hr_change) > 0 && 
+                    (
+                      <>
+                        <span className="text-green-600">
+                          {(await getMaticLatestAssetPrice())._24hr_change} %
+                        </span> 24hr Change
+                      </>
+                      
+                      )
+                    }
                   </p>
                   <Button
                     //className="w-full"
