@@ -1,4 +1,4 @@
-import { CalendarDateRangePicker } from "@/components/date-range-picker";
+//import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
 import { RecentSales } from "@/components/recent-sales";
 import { Button } from "@/components/ui/button";
@@ -17,18 +17,10 @@ import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
 import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
 import Image from 'next/image'
 import {
-  getAssetTimeSeriesData, 
   getBtcLatestAssetPrice,
-  getAssetQuote,
   getEthLatestAssetPrice,
   getSolLatestAssetPrice,
   getMaticLatestAssetPrice} from '@/actions/crypto'
-import PricePage from '@/components/ui/crypto/PricePage'
-import axios from "axios";
-import {
-  useQuery
-} from 'react-query'
-import LatestBtcPrice from '@/components/ui/crypto/price/latest'
 
 export default async function Page() {
   return (
