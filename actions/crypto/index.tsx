@@ -11,18 +11,33 @@ const payload = {
     headers: {
         'Accept' : 'application/json',
         'Content-Type': 'application/json',
-        'Accept-Encoding': 'deflate, gzip',
-        'X-CoinAPI-Key': `${apiKey}`
+        'Accept-Encoding': 'utf-8',
+        'X-CoinAPI-Key': `${cmcApiKey}`
     },
     next:{
-        revalidate: 3600
+        revalidate: 2000,
+        //cache: 'no-store'//force-cache'
     }
 }
 
 export const getCurrentAssetPrice  = async() => {
-    const endpoint = 'https://rest.coinapi.io/v1/quotes/:symbol_id/current'
     let price 
-    await fetch(endpoint, payload)
+    const endpoint = 'https://rest.coinapi.io/v1/quotes/:symbol_id/current'
+    const _payload = {
+        method: 'GET',
+        headers: {
+            'Accept' : 'application/json',
+            'Content-Type': 'application/json',
+            'Accept-Encoding': 'utf-8',
+            'X-CoinAPI-Key': `${apiKey}`
+        },
+        next:{
+            revalidate: 2000,
+            //cache: 'no-store'//force-cache'
+        }
+    }
+    
+    await fetch(endpoint, _payload)
     .then(async(response) => {
         if(response.status != 200) return null 
         const data:TimeSeriesApiResponse[] = await response.json()
@@ -39,9 +54,21 @@ export const getAssetTimeSeriesData = async(quoteAsset:string, baseAsset:string)
     let coinData: string = "" 
     const endpoint = `${baseUrl}/exchangerate/${quoteAsset}/${baseAsset}/history?period_id=${COIN_API_PERIOD_DATA._1_second}`
 
+    const _payload = {
+        method: 'GET',
+        headers: {
+            'Accept' : 'application/json',
+            'Content-Type': 'application/json',
+            'Accept-Encoding': 'utf-8',
+            'X-CoinAPI-Key': `${apiKey}`
+        },
+        next:{
+            revalidate: 2000,
+            //cache: 'no-store'//force-cache'
+        }
+    }
 
-
-    await fetch(endpoint, payload)
+    await fetch(endpoint, _payload)
     .then(async(response) => {
         if(response.status != 200) return null 
         const data:TimeSeriesApiResponse[] = await response.json()
@@ -59,20 +86,19 @@ export const getBTCPrice = async() =>{
     let _24hr_change:string = ""
     let _1hr_change:string = ""
 
+    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=bitcoin`
     const payload = {
         method: 'GET',
         headers:{
             'Accept' : 'application/json',
             'Content-Type': 'application/json',
-            'Accept-Encoding': 'deflate, gzip',
+            'Accept-Encoding': 'utf-8',
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
         },
         next:{
             revalidate: 3600
-        }  
+        } 
     }
-
-    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=bitcoin`
     await fetch(endpoint, payload).then(async(response) => {
         if(response.status == 200){
             const data = await response.json()
@@ -99,13 +125,13 @@ export const getBtcLatestAssetPrice = async() => {
         let price:string = ""
         let _24hr_change:string = ""
         let _1hr_change:string = ""
-    
+
         const payload = {
             method: 'GET',
             headers:{
                 'Accept' : 'application/json',
                 'Content-Type': 'application/json',
-                'Accept-Encoding': 'deflate, gzip',
+                'Accept-Encoding': 'utf-8',
                 'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
             },
             next:{
@@ -148,20 +174,19 @@ export const getEthLatestAssetPrice = async() => {
     let _24hr_change:string = ""
     let _1hr_change:string = ""
 
+    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=ethereum`
     const payload = {
         method: 'GET',
         headers:{
             'Accept' : 'application/json',
             'Content-Type': 'application/json',
-            'Accept-Encoding': 'deflate, gzip',
+            'Accept-Encoding': 'utf-8',
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
-        },  
+        },
         next:{
             revalidate: 3600
         } 
     }
-
-    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=ethereum`
     await fetch(endpoint, payload).then(async(response) => {
         if(response.status == 200){
             const data = await response.json()
@@ -189,20 +214,19 @@ export const getSolLatestAssetPrice = async() => {
     let _24hr_change:string = ""
     let _1hr_change:string = ""
 
+    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=solana`
     const payload = {
         method: 'GET',
         headers:{
             'Accept' : 'application/json',
             'Content-Type': 'application/json',
-            'Accept-Encoding': 'deflate, gzip',
+            'Accept-Encoding': 'utf-8',
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
         },
         next:{
             revalidate: 3600
-        }   
+        } 
     }
-
-    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=solana`
     await fetch(endpoint, payload).then(async(response) => {
         if(response.status == 200){
             const data = await response.json()
@@ -229,21 +253,20 @@ export const getMaticLatestAssetPrice = async() => {
     let _24hr_change:string = ""
     let _1hr_change:string = ""
 
+
+    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=polygon`
     const payload = {
         method: 'GET',
         headers:{
             'Accept' : 'application/json',
             'Content-Type': 'application/json',
-            'Accept-Encoding': 'deflate, gzip',
+            'Accept-Encoding': 'utf-8',
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
         },
         next:{
             revalidate: 3600
-        }   
+        } 
     }
-
-    const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=polygon`
-
     // await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?limit=200&sort=cmc_rank&symbol=matic', payload).then(async(response) => {
     //     if(response.status == 200){
     //         const data = await response.json()
@@ -278,43 +301,29 @@ export const getAssetQuote = async(slug:string) =>{
     let response = null
 
     const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=${slug}`
-    const payload = {
-        method: 'GET',
-        headers:{
-            'Accept' : 'application/json',
-            'Content-Type': 'application/json',
-            'Accept-Encoding': 'deflate, gzip',
-            'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
-        },
-        next:{
-            revalidate: 3600
-        }   
+
+    new Promise(async (resolve, reject) => {
+    try {
+        response = await axios.get(endpoint, {
+            headers:{
+                'Accept' : 'application/json',
+                'Content-Type': 'application/json',
+                'Accept-Encoding': 'utf-8',
+                'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
+            } 
+        });
+    } catch(ex) {
+        response = null;
+        // error
+        console.log(ex);
+        reject(ex);
     }
-
-
-
-new Promise(async (resolve, reject) => {
-  try {
-       response = await axios.get(endpoint, {
-        headers:{
-            'Accept' : 'application/json',
-            'Content-Type': 'application/json',
-            'Accept-Encoding': 'utf-8',
-            'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
-        } 
+    if (response) {
+        // success
+        const data = await response.data
+        resolve(data)
+    }
     });
-  } catch(ex) {
-    response = null;
-    // error
-    console.log(ex);
-    reject(ex);
-  }
-  if (response) {
-    // success
-    const data = await response.data
-    resolve(data)
-  }
-});
 
 return response
 }
