@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import ThemeProvider from "@/components/layout/ThemeToggle/theme-provider";
 import Providers from "@/components/layout/providers";
 //import { getServerSession } from "next-auth";
-import { getSession } from 'next-auth/react'
-
+//import { getSession } from 'next-auth/react'
+import {auth} from '@/auth'
 
 export const metadata: Metadata = {
   title: "NanaPay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond, cash out in your local currency",
@@ -20,6 +20,7 @@ export default async function DashboardLayout({
 
   //const session = await getServerSession();
   //const session = await getSession()
+  const session = await auth()
   return (
     <>
       
@@ -43,7 +44,7 @@ export default async function DashboardLayout({
           </ThemeProvider> */}
    
         <Providers
-          session={null}
+          session={session}
         >
           <Header />
           <div 
