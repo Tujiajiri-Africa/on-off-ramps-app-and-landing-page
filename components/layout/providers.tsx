@@ -4,9 +4,6 @@ import ThemeProvider from "./ThemeToggle/theme-provider";
 import { SessionProvider, SessionProviderProps } from "next-auth/react";
 
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from 'react-query'

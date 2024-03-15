@@ -1,7 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextAuthConfig } from "next-auth";
 import {LoginSchema} from '@/schemas'
-import {login} from '@/actions/auth'
+//import {login} from '@/actions/auth'
 import {UserResponseDataProps} from '@/lib/utils'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
 
