@@ -39,7 +39,7 @@ export const {
       //   send OTP here
       //   throw new Error('Email verification pending')
       // }
-      console.log("LOGGED IN USER DETAILS", user)
+      //console.log("LOGGED IN USER DETAILS", user)
       return true;
     },
     async session({ session, token }) {
@@ -47,7 +47,7 @@ export const {
       //session.user.refreshToken = token.refreshToken;
       session.user.accessTokenExpires = token.accessTokenExpires;
       session.email = token.email
-      console.log("USER SESSION", session)
+      //console.log("USER SESSION", session)
       return session;
     },
     async jwt({ token, user, account }) {
@@ -63,7 +63,7 @@ export const {
         };
       }
 
-      console.log('USER JWT', token)
+      //console.log('USER JWT', token)
       return token;
     },
 
