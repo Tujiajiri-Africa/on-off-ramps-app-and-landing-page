@@ -11,6 +11,7 @@ export interface UserResponseDataProps{
   data: any
 }
 
-export function getUserNameFromEmail(emailAddress:string){
+export function getUserNameFromEmail(emailAddress:string|undefined){
+  if(emailAddress == undefined) return emailAddress
   return emailAddress.substring(0, emailAddress.indexOf("@"));
 }
