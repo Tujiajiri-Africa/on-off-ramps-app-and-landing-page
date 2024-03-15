@@ -23,10 +23,11 @@ async function getData(){
             'Content-Type': 'application/json',
             'Accept-Encoding': 'utf-8',
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
-            'cache': 'force-cache'
+            //'cache': 'no-store'//'force-cache'
         },
         next: {
-            revalidate: 2000
+            revalidate: 3600,
+            //cache: 'no-store'//force-cache'
         },
         //cache: 'force-cache'
     }
