@@ -135,8 +135,8 @@ export const getBtcLatestAssetPrice = async() => {
                 'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
             },
             next:{
-                revalidate: 3600
-            } 
+                revalidate: 3
+            }, 
         }
     
         const endpoint = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=bitcoin`
@@ -184,7 +184,7 @@ export const getEthLatestAssetPrice = async() => {
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
         },
         next:{
-            revalidate: 3600
+            revalidate: 3
         } 
     }
     await fetch(endpoint, payload).then(async(response) => {
@@ -224,7 +224,7 @@ export const getSolLatestAssetPrice = async() => {
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
         },
         next:{
-            revalidate: 3600
+            revalidate: 3
         } 
     }
     await fetch(endpoint, payload).then(async(response) => {
@@ -264,7 +264,7 @@ export const getMaticLatestAssetPrice = async() => {
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
         },
         next:{
-            revalidate: 3600
+            revalidate: 3
         } 
     }
     // await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?limit=200&sort=cmc_rank&symbol=matic', payload).then(async(response) => {
