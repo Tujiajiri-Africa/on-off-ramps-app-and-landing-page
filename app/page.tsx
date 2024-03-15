@@ -14,20 +14,21 @@ export default function Home() {
   return (
     <>
       
-      <main 
-      //className="h-screen bg-gradient-to-t from-[#593690] to-[#9A1AAF]"
-    
-      >
-        
-        <Navbar/>
-        <Hero />
-        <About />
-        <Features />
-        <FeatureList />
-        <Contact />
-        {/* <WaitListBanner /> */}
-        <Footer />
-    </main>
+        <main 
+        //className="h-screen bg-gradient-to-t from-[#593690] to-[#9A1AAF]"
+      
+        >
+          
+          <Navbar/>
+          <Hero />
+          <About />
+          <Features />
+          <FeatureList />
+          <Contact />
+          {/* <WaitListBanner /> */}
+          <Footer />
+      </main>
+
     </>
     
   );

@@ -1,4 +1,3 @@
-
 import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
 import { RecentSales } from "@/components/recent-sales";
@@ -24,11 +23,16 @@ import {
   getEthLatestAssetPrice,
   getSolLatestAssetPrice,
   getMaticLatestAssetPrice} from '@/actions/crypto'
+import PricePage from '@/components/ui/crypto/PricePage'
+import axios from "axios";
+import {
+  useQuery
+} from 'react-query'
+import LatestBtcPrice from '@/components/ui/crypto/price/latest'
 
-
-export default async function page() {
+export default async function Page() {
   return (
-    <ScrollArea className="h-full">
+ <ScrollArea className="h-full">
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">
@@ -60,6 +64,9 @@ export default async function page() {
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+           
+              {/* <LatestBtcPrice /> */}
+                
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
@@ -78,6 +85,7 @@ export default async function page() {
                     {
                       //await getAssetTimeSeriesData('BTC','USDT')
                       (await getBtcLatestAssetPrice()).price
+                      
                     }
 
                   </div>
@@ -88,7 +96,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getBtcLatestAssetPrice())._24hr_change} %
+                          {(await getBtcLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -99,7 +107,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getBtcLatestAssetPrice())._24hr_change} %
+                          {(await getBtcLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -112,7 +120,7 @@ export default async function page() {
                     Buy/Sell
                   </Button>
                 </CardContent>
-              </Card>
+              </Card> 
               
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -141,7 +149,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getEthLatestAssetPrice())._24hr_change} %
+                          {(await getEthLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -152,7 +160,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getEthLatestAssetPrice())._24hr_change} %
+                          {(await getEthLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -191,7 +199,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getSolLatestAssetPrice())._24hr_change} %
+                          {(await getSolLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -202,7 +210,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getSolLatestAssetPrice())._24hr_change} %
+                          {(await getSolLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -243,7 +251,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getMaticLatestAssetPrice())._24hr_change} %
+                          {(await getMaticLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -254,7 +262,7 @@ export default async function page() {
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getMaticLatestAssetPrice())._24hr_change} %
+                          {(await getMaticLatestAssetPrice())._24hr_change}%
                         </span> 24hr Change
                       </>
                       
@@ -275,7 +283,7 @@ export default async function page() {
                   <CardTitle>Overview</CardTitle>
                 </CardHeader>
                 <CardContent className="pl-2">
-                  <Overview />
+                  <Overview /> 
                 </CardContent>
               </Card>
               <Card className="col-span-4 md:col-span-3">

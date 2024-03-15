@@ -5,6 +5,7 @@ import ThemeProvider from "@/components/layout/ThemeToggle/theme-provider";
 import Providers from "@/components/layout/providers";
 import { getServerSession } from "next-auth";
 
+
 export const metadata: Metadata = {
   title: "NanaPay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond, cash out in your local currency",
   description: "Buy and Sell your favourite crypto with instant settlement in your local currency across 20+ compliant jurisdictions across Africa and beyond",
@@ -20,27 +21,28 @@ export default async function DashboardLayout({
   
   return (
     <>
-
-        <ThemeProvider 
-            attribute="class" 
-            defaultTheme="system" 
-            enableSystem
-            >
-            <Header />
-        
-        <div 
-            className="flex h-screen overflow-hidden"
-            >
-            <Sidebar />
-            <main 
-                className="w-full pt-16"
-                >
-                    {children}
-            </main>
-        </div>
-        </ThemeProvider>
-        {/* <Providers
-          session={session}
+      
+        {/* <ThemeProvider 
+              attribute="class" 
+              defaultTheme="system" 
+              enableSystem
+              >
+              <Header />
+          
+          <div 
+              className="flex h-screen overflow-hidden"
+              >
+              <Sidebar />
+              <main 
+                  className="w-full pt-16"
+                  >
+                      {children}
+              </main>
+          </div>
+          </ThemeProvider> */}
+   
+        <Providers
+          session={null}
         >
           <Header />
           <div 
@@ -53,7 +55,7 @@ export default async function DashboardLayout({
                     {children}
             </main>
         </div>
-        </Providers> */}
+        </Providers>
     </>
   );
 }
