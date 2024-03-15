@@ -14,16 +14,17 @@ export const {
   auth,
   signIn,
   signOut,
+  update
 } = NextAuth({
   pages: {
     signIn: "/auth/login",
     error: "/auth/error",
   },
-  events: {
-    async linkAccount({ user }) {
+  // events: {
+  //   async linkAccount({ user }) {
       
-    }
-  },
+  //   }
+  // },
   callbacks: {
     async signIn({ user, account }) {
       //Allow OAuth without email verification
@@ -68,7 +69,8 @@ export const {
 
 
   },
+  secret: process.env.AUTH_SECRET,
   //adapter: PrismaAdapter(db),
-  session: { strategy: "jwt" },
+  session: { strategy: "jwt",maxAge: 15 * 24 * 60 * 60, },
   ...authConfig,
 });
