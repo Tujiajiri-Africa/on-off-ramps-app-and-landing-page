@@ -1,10 +1,8 @@
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
 import type { Metadata } from "next";
-import ThemeProvider from "@/components/layout/ThemeToggle/theme-provider";
+//import ThemeProvider from "@/components/layout/ThemeToggle/theme-provider";
 import Providers from "@/components/layout/providers";
-//import { getServerSession } from "next-auth";
-//import { getSession } from 'next-auth/react'
 import {auth} from '@/auth'
 
 export const metadata: Metadata = {
@@ -18,8 +16,7 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
 
-  //const session = await getServerSession();
-  //const session = await getSession()
+
   const session = await auth()
   return (
     <>
