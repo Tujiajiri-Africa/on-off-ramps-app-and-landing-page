@@ -12,10 +12,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut, useSession } from "next-auth/react";
+import {getUserNameFromEmail} from '@/lib/utils'
 
 export function UserNav() {
-  //const { data: session } = useSession();
-  // if (session) {
+  const { data: session } = useSession();
+  if (session) {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -26,8 +27,9 @@ export function UserNav() {
                 alt={session.user?.name ?? ""}
               /> */}
               <AvatarFallback>
-                {/* {session.user?.name?.[0]} */}
-                DO
+                 {session.user?.email?.[0].toUpperCase()} 
+                 {/**+ session.user?.email?.[1].toUpperCase() */}
+                {/* DO */}
               </AvatarFallback>
             </Avatar>
           </Button>
@@ -36,12 +38,12 @@ export function UserNav() {
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
               <p className="text-sm font-medium leading-none">
-                {/* {session.user?.name} */}
-                Dickens Odera
+              { session.user?.name ? session.user?.name: getUserNameFromEmail(session.user?.email)}
+                {/* Dickens Odera */}
               </p>
               <p className="text-xs leading-none text-muted-foreground">
-                {/* {session.user?.email} */}
-                dickensodera9@gmail.com
+                  {session.user?.email} 
+                {/* dickensodera9@gmail.com */}
               </p>
             </div>
           </DropdownMenuLabel>
@@ -71,5 +73,5 @@ export function UserNav() {
         </DropdownMenuContent>
       </DropdownMenu>
     );
-  // }
+   }
 }
