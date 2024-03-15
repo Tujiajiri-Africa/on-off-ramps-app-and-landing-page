@@ -96,7 +96,7 @@ export default async function Page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getBtcLatestAssetPrice())._24hr_change}%
+                          {(await getBtcLatestAssetPrice())._24hr_change.slice(1)}%
                         </span> 24hr Change
                       </>
                       
@@ -149,7 +149,7 @@ export default async function Page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getEthLatestAssetPrice())._24hr_change}%
+                          {(await getEthLatestAssetPrice())._24hr_change.slice(1)}%
                         </span> 24hr Change
                       </>
                       
@@ -199,7 +199,7 @@ export default async function Page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getSolLatestAssetPrice())._24hr_change}%
+                          {(await getSolLatestAssetPrice())._24hr_change.slice(1)}%
                         </span> 24hr Change
                       </>
                       
@@ -251,7 +251,7 @@ export default async function Page() {
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getMaticLatestAssetPrice())._24hr_change}%
+                          {(await getMaticLatestAssetPrice())._24hr_change.slice(1)}%
                         </span> 24hr Change
                       </>
                       

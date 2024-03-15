@@ -75,10 +75,10 @@ export default async function CoinListMain(){
         
         <p className="text-xs text-muted-foreground mb-6">
             { 
-                data?._24hr_change < "0" && 
+                parseFloat(data?._24hr_change) < 0 && 
             <>
             <span className="text-red-600">
-                { data?._24hr_change } %
+                { data?._24hr_change.slice(1) } %
                 </span> 
                 24hr Change 
             </>
