@@ -41,6 +41,14 @@ export const {
       console.log("LOGGED IN USER DETAILS", user)
       return true;
     },
+    async session({ session, token }) {
+      session.user.accessToken = token.accessToken;
+      //session.user.refreshToken = token.refreshToken;
+      session.user.accessTokenExpires = token.accessTokenExpires;
+      session.email = token.email
+      console.log("USER SESSION", session)
+      return session;
+    },
     async jwt({ token, user, account }) {
       if (account && user) {
         return {
@@ -58,14 +66,7 @@ export const {
       return token;
     },
 
-    async session({ session, token }) {
-      session.user.accessToken = token.accessToken;
-      //session.user.refreshToken = token.refreshToken;
-      session.user.accessTokenExpires = token.accessTokenExpires;
-      session.email = token.email
-      console.log("USER SESSION", session)
-      return session;
-    },
+
   },
   //adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
