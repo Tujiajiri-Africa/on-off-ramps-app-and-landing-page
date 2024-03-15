@@ -61,7 +61,7 @@ export const LoginForm = () => {
 
     return (
         <CardWrapper 
-            backButtonHref='/register'
+            backButtonHref='/auth/register'
             headerLabel='Sign in to your account'
             backButtonLabel="Don't have an account? Create account"
             showSocial={false} 
@@ -137,7 +137,7 @@ export const LoginForm = () => {
                         className="text-sm"
                         >
                         <Link 
-                            href="/forgot-password" 
+                            href="/auth/forgot-password" 
                             className="font-medium text-blue-600 hover:text-blue-500"
                             >
                             Forgot your password?
