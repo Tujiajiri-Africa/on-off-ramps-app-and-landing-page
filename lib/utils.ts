@@ -10,3 +10,7 @@ export interface UserResponseDataProps{
   success: string;
   data: any
 }
+
+export function getUserNameFromEmail(emailAddress:string){
+  return emailAddress.substring(0, emailAddress.indexOf("@"));
+}

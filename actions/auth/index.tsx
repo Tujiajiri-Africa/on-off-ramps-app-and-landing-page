@@ -183,6 +183,13 @@ export const login = async(
                         data: ''
                     }
                   return { data: dataInfo }
+                case "AccessDenied":
+                    dataInfo = {
+                        error: "Please check and verify your email to continue!",
+                        success: "",
+                        data: ""
+                    }
+                  return {data:dataInfo}
                 default:
                     dataInfo = {
                         error: 'Something went wrong!',

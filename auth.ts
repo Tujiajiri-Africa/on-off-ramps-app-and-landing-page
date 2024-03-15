@@ -4,11 +4,11 @@ import authConfig from '@/auth.config'
 //import CredentialsProvider from "next-auth/providers/credentials";
 
 //import {login} from '@/actions/auth'
-export type UserProps={
-  accessToken:string,
-  email:string,
-  tokenType:string
-}
+// export type UserProps={
+//   accessToken:string,
+//   email:string,
+//   tokenType:string
+// }
 export const {
   handlers: { GET, POST },
   auth,
@@ -32,38 +32,40 @@ export const {
       // if(!user.email){
       //   return false
       // }
-      // if(!user){
-      //   console.log("No access token")
+
+      // if(user && user['user']['email_verified_at'] == null) {
+      //   //verify email here
+      //   send OTP here
+      //   throw new Error('Email verification pending')
       // }
       console.log("LOGGED IN USER DETAILS", user)
       return true;
     },
-    jwt: async ({ token, user }) => {
-      if (!token.sub) return token;
+    async jwt({ token, user, account }) {
+      if (account && user) {
+        return {
+          ...token,
+          accessToken: user['accessToken'],
+          //refreshToken: user.refreshToken,
+          tokenType: user['tokenType'],
+          email: user['user']['email'],
+          emailVerifiedAt: user['user']['email_verified_at'],
+          id: user.id
+        };
+      }
 
-      //const existingUser = await getUserById(token.sub);
-
-      //if (!existingUser) return token;
-
-      // const existingAccount = await getAccountByUserId(
-      //   existingUser.id
-      // );
-
-      //token.isOAuth = !!existingAccount;
-      //token.name = existingUser.name;
-      //token.email = existingUser.email;
-      //token.role = existingUser.role;
-      //token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
-      console.log("JWT USER TOKEN OBJECT", token)
+      console.log('USER JWT', token)
       return token;
-     },
-     session: async ({ session, token }) => {
-      //  if (token) {
-      //    //session.jwt = token.jwt;
-      //  }
+    },
+
+    async session({ session, token }) {
+      session.user.accessToken = token.accessToken;
+      //session.user.refreshToken = token.refreshToken;
+      session.user.accessTokenExpires = token.accessTokenExpires;
+      session.email = token.email
       console.log("USER SESSION", session)
-       return session;
-     },
+      return session;
+    },
   },
   //adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
