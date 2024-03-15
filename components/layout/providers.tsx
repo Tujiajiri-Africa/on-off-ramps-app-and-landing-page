@@ -2,6 +2,17 @@
 import React from "react";
 import ThemeProvider from "./ThemeToggle/theme-provider";
 import { SessionProvider, SessionProviderProps } from "next-auth/react";
+
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query'
+
+const queryClient = new QueryClient()
+
 export default function Providers({
   session,
   children,
@@ -11,9 +22,14 @@ export default function Providers({
 }) {
   return (
     <>
+    
+    <QueryClientProvider  client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SessionProvider session={session}>{children}</SessionProvider>
       </ThemeProvider>
+    </QueryClientProvider>
+    
+
     </>
   );
 }
