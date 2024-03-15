@@ -32,13 +32,13 @@ async function getData(){
         //cache: 'force-cache'
     }
 
-    const response = await fetch(endpoint, payload, {next:{revalidate:2}}) //cache:'force-cache' cache: 'no-store'
+    const response = await fetch(endpoint, payload) //cache:'force-cache' cache: 'no-store'
 
     if (response.status == 200){
         const data  = await response.json()
         
-        const price = parseFloat(data.data['1']['quote']['USD']['price']).toFixed(3).toString()
-        const _24hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_24h']).toFixed(3).toString()
+        const price = parseFloat(data.data['1']['quote']['USD']['price']).toFixed(2).toString()
+        const _24hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_24h']).toFixed(2).toString()
         
         priceData = {
             price,

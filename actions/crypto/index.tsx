@@ -15,7 +15,7 @@ const payload = {
         'X-CoinAPI-Key': `${cmcApiKey}`
     },
     next:{
-        revalidate: 2000,
+        revalidate: 3,
         //cache: 'no-store'//force-cache'
     }
 }
@@ -32,7 +32,7 @@ export const getCurrentAssetPrice  = async() => {
             'X-CoinAPI-Key': `${apiKey}`
         },
         next:{
-            revalidate: 2000,
+            revalidate: 3,
             //cache: 'no-store'//force-cache'
         }
     }
@@ -63,7 +63,7 @@ export const getAssetTimeSeriesData = async(quoteAsset:string, baseAsset:string)
             'X-CoinAPI-Key': `${apiKey}`
         },
         next:{
-            revalidate: 2000,
+            revalidate: 3,
             //cache: 'no-store'//force-cache'
         }
     }
@@ -96,15 +96,15 @@ export const getBTCPrice = async() =>{
             'X-CMC_PRO_API_KEY': `${cmcApiKey}`,
         },
         next:{
-            revalidate: 3600
+            revalidate: 3
         } 
     }
     await fetch(endpoint, payload).then(async(response) => {
         if(response.status == 200){
             const data = await response.json()
-            price = parseFloat(data.data['1']['quote']['USD']['price']).toFixed(3).toString()
-            _1hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_1h']).toFixed(3).toString()
-            _24hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_24h']).toFixed(3).toString()
+            price = parseFloat(data.data['1']['quote']['USD']['price']).toFixed(2).toString()
+            _1hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_1h']).toFixed(2).toString()
+            _24hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_24h']).toFixed(2).toString()
             //console.log(data.data['1']['quote']['USD']['price'])
         }
     }).catch((error) => {
@@ -143,9 +143,9 @@ export const getBtcLatestAssetPrice = async() => {
         await fetch(endpoint, payload).then(async(response) => {
             if(response.status == 200){
                 const data = await response.json()
-                price = parseFloat(data.data['1']['quote']['USD']['price']).toFixed(3).toString()
-                _1hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_1h']).toFixed(3).toString()
-                _24hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_24h']).toFixed(3).toString()
+                price = parseFloat(data.data['1']['quote']['USD']['price']).toFixed(2).toString()
+                _1hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_1h']).toFixed(2).toString()
+                _24hr_change = parseFloat(data.data['1']['quote']['USD']['percent_change_24h']).toFixed(2).toString()
                 //console.log(data.data['1']['quote']['USD']['price'])
             }
         }).catch((error) => {
@@ -191,9 +191,9 @@ export const getEthLatestAssetPrice = async() => {
         if(response.status == 200){
             const data = await response.json()
             //console.log(data)
-            price = parseFloat(data.data['1027']['quote']['USD']['price']).toFixed(3).toString()
-            _1hr_change = parseFloat(data.data['1027']['quote']['USD']['percent_change_1h']).toFixed(3).toString()
-            _24hr_change = parseFloat(data.data['1027']['quote']['USD']['percent_change_24h']).toFixed(3).toString()
+            price = parseFloat(data.data['1027']['quote']['USD']['price']).toFixed(2).toString()
+            _1hr_change = parseFloat(data.data['1027']['quote']['USD']['percent_change_1h']).toFixed(2).toString()
+            _24hr_change = parseFloat(data.data['1027']['quote']['USD']['percent_change_24h']).toFixed(2).toString()
             //console.log(data.data['1']['quote']['USD']['price'])
         }
     }).catch((error) => {
@@ -230,9 +230,9 @@ export const getSolLatestAssetPrice = async() => {
     await fetch(endpoint, payload).then(async(response) => {
         if(response.status == 200){
             const data = await response.json()
-            price = parseFloat(data.data['5426']['quote']['USD']['price']).toFixed(3).toString()
-            _1hr_change = parseFloat(data.data['5426']['quote']['USD']['percent_change_1h']).toFixed(3).toString()
-            _24hr_change = parseFloat(data.data['5426']['quote']['USD']['percent_change_24h']).toFixed(3).toString()
+            price = parseFloat(data.data['5426']['quote']['USD']['price']).toFixed(2).toString()
+            _1hr_change = parseFloat(data.data['5426']['quote']['USD']['percent_change_1h']).toFixed(2).toString()
+            _24hr_change = parseFloat(data.data['5426']['quote']['USD']['percent_change_24h']).toFixed(2).toString()
             //console.log(data.data['1']['quote']['USD']['price'])
         }
     }).catch((error) => {
@@ -279,9 +279,9 @@ export const getMaticLatestAssetPrice = async() => {
     await fetch(endpoint, payload).then(async(response) => {
         if(response.status == 200){
             const data = await response.json()
-            price = parseFloat(data.data['3890']['quote']['USD']['price']).toFixed(3).toString()
-            _1hr_change = parseFloat(data.data['3890']['quote']['USD']['percent_change_1h']).toFixed(3).toString()
-            _24hr_change = parseFloat(data.data['3890']['quote']['USD']['percent_change_24h']).toFixed(3).toString()
+            price = parseFloat(data.data['3890']['quote']['USD']['price']).toFixed(2).toString()
+            _1hr_change = parseFloat(data.data['3890']['quote']['USD']['percent_change_1h']).toFixed(2).toString()
+            _24hr_change = parseFloat(data.data['3890']['quote']['USD']['percent_change_24h']).toFixed(2).toString()
             //console.log(data.data['1']['quote']['USD']['price'])
         }
     }).catch((error) => {
