@@ -82,7 +82,7 @@ export const RegisterForm = () => {
                                         <FormLabel 
                                             className="block text-sm font-medium text-gray-700"
                                             >
-                                            Email address
+                                            Email 
                                         </FormLabel>
                                         <div 
                                             className='mt-1'
