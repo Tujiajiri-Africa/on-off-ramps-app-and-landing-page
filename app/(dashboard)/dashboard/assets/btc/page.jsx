@@ -26,13 +26,13 @@ async function getData(){
             //'cache': 'no-store'//'force-cache'
         },
         next: {
-            revalidate: 3600,
+            revalidate: 3,
             //cache: 'no-store'//force-cache'
         },
         //cache: 'force-cache'
     }
 
-    const response = await fetch(endpoint, payload) //cache:'force-cache' cache: 'no-store'
+    const response = await fetch(endpoint, payload, {next:{revalidate:2}}) //cache:'force-cache' cache: 'no-store'
 
     if (response.status == 200){
         const data  = await response.json()
@@ -87,7 +87,7 @@ export default async function CoinListMain(){
             data?._24hr_change > "0" && 
             <>
             <span className="text-green-600">
-                { data?._24hr_change } %
+                { priceData?._24hr_change } %
                 </span> 
                 24hr Change 
             </>
@@ -103,4 +103,3 @@ export default async function CoinListMain(){
     )
 }
 
-//export default CoinListMain
