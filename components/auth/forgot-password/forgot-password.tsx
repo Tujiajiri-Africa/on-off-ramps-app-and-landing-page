@@ -19,6 +19,7 @@ import { PasswordResetSchema } from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import {resetPassword} from '@/actions/auth'
+
 export const ForgotPasswordForm = () => {
     const [isPending, startTransition] = useTransition()
 
@@ -57,7 +58,7 @@ export const ForgotPasswordForm = () => {
                                             <FormLabel 
                                                 className="block text-sm font-medium text-gray-700"
                                                 >
-                                                Email address
+                                                Email
                                             </FormLabel>
                                             <div 
                                                 className='mt-1'
