@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import BTC_LOGO from '@/app/assets/logo/bitcoin-btc-logo.svg'
 import {cookies} from 'next/headers'
+import {ChevronDown, ChevronUp} from 'lucide-react'
+import {ChevronDownIcon, ChevronUpIcon} from '@radix-ui/react-icons'
 
 const cmcApiKey = process.env.COINAMERKETCAP_API_KEY
 
@@ -45,7 +47,7 @@ async function getData(){
             _24hr_change
         }
     }
-    console.log(priceData)
+    //console.log(priceData)
     return {priceData}
 }
 
@@ -77,10 +79,7 @@ export default async function CoinListMain(){
             { 
                 parseFloat(data?._24hr_change) < 0 && 
             <>
-            <span className="text-red-600">
-                { data?._24hr_change.slice(1) } %
-                </span> 
-                24hr Change 
+            <span className="text-red-600"><ChevronDownIcon className="w-4 h-4 text-sm"/>{ data?._24hr_change.slice(1) } %</span> 24hr Change 
             </>
             }
             { 

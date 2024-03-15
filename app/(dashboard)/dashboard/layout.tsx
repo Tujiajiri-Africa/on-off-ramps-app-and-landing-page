@@ -3,7 +3,8 @@ import Sidebar from "@/components/layout/sidebar";
 import type { Metadata } from "next";
 import ThemeProvider from "@/components/layout/ThemeToggle/theme-provider";
 import Providers from "@/components/layout/providers";
-import { getServerSession } from "next-auth";
+//import { getServerSession } from "next-auth";
+import { getSession } from 'next-auth/react'
 
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default async function DashboardLayout({
 }) {
 
   //const session = await getServerSession();
-  
+  //const session = await getSession()
   return (
     <>
       

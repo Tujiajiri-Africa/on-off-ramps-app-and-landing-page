@@ -2,6 +2,7 @@
 
 import React, { useTransition, useState } from 'react'
 import { CardWrapper } from '@/components/auth/card-wrapper'
+import { useSearchParams } from "next/navigation";
 import Link from 'next/link'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
@@ -25,6 +26,8 @@ import { LoginSchema } from '@/schemas'
 import { login } from '@/actions/auth'
 
 export const LoginForm = () => {
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get("callbackUrl");
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
@@ -42,7 +45,7 @@ export const LoginForm = () => {
         setSuccess("")
 
         startTransition(async() => {
-            login(values)
+            login(values, callbackUrl)
             .then((data:any) => {
                 if(data?.data.error){
                     form.reset()
@@ -61,7 +64,7 @@ export const LoginForm = () => {
 
     return (
         <CardWrapper 
-            backButtonHref='/register'
+            backButtonHref='/auth/register'
             headerLabel='Sign in to your account'
             backButtonLabel="Don't have an account? Create account"
             showSocial={false} 
@@ -137,7 +140,7 @@ export const LoginForm = () => {
                         className="text-sm"
                         >
                         <Link 
-                            href="/forgot-password" 
+                            href="/auth/forgot-password" 
                             className="font-medium text-blue-600 hover:text-blue-500"
                             >
                             Forgot your password?

@@ -31,7 +31,9 @@ import {
     UserX2Icon,
     X,
     BadgeDollarSign,
-    List
+    List,
+    ChevronDown,
+    ChevronUp
   } from "lucide-react";
   
   export type Icon = LucideIcon;
@@ -66,6 +68,8 @@ import {
     laptop: Laptop,
     dolarSign: BadgeDollarSign,
     list: List,
+    chevron_down:ChevronDown,
+    chevron_up:ChevronUp,
     gitHub: ({ ...props }: LucideProps) => (
       <svg
         aria-hidden="true"
