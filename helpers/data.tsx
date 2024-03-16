@@ -15,7 +15,7 @@ export const navItems: NavItem[] = [
     },
     {
       title: "Buy/Sell",
-      href: "/dashboard/user",
+      href: "/dashboard/crypto",
       icon: "add",
       label: "add",
     },
