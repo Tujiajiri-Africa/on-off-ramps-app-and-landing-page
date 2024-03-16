@@ -24,6 +24,7 @@ import {
 
 import { Greetings } from '@/components/ui/dashboard/greetings'
 import {ArrowDownIcon, ArrowUpIcon} from '@radix-ui/react-icons'
+import Link from 'next/link'
 
 export default async function Page() {
   return (
@@ -44,18 +45,22 @@ export default async function Page() {
             <Button
                 className="bg-[#16a34a] dark:text-white"
             >
-                Buy/Sell
+               <Link href='/dashboard/crypto'>
+                        Buy/Sell
+                    </Link>
             </Button>
           </div>
         </div>
           <Button
                 className="sm:hidden bg-[#16a34a] dark:text-white"
             >
-                Buy/Sell
+                <Link href='/dashboard/crypto'>
+                        Buy/Sell
+                    </Link>
           </Button>
         <Tabs defaultValue="overview" className="space-y-4">
           <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="overview">Dashboard</TabsTrigger>
             <TabsTrigger value="analytics" disabled>Analytics</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
@@ -113,7 +118,9 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                    Buy/Sell
+                    <Link href='/dashboard/crypto'>
+                        Buy/Sell
+                    </Link>
                   </Button>
                 </CardContent>
               </Card> 
@@ -166,7 +173,9 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                    Buy/Sell
+                   <Link href='/dashboard/crypto'>
+                        Buy/Sell
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -217,7 +226,9 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                    Buy/Sell
+                    <Link href='/dashboard/crypto'>
+                        Buy/Sell
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -269,7 +280,9 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                    Buy/Sell
+                    <Link href='/dashboard/crypto'>
+                        Buy/Sell
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
