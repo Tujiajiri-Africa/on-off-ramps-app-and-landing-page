@@ -283,9 +283,9 @@ export default async function Page() {
               </Card>
               <Card className="col-span-4 md:col-span-3">
                 <CardHeader>
-                  <CardTitle>Recent Send Transactions</CardTitle>
+                  <CardTitle>Recent Transactions</CardTitle>
                   <CardDescription>
-                      You made 265 crypto send transactions this month
+                      Your transactions history
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
