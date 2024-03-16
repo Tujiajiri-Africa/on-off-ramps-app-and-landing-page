@@ -1,4 +1,4 @@
-//import { CalendarDateRangePicker } from "@/components/date-range-picker";
+import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
 import { RecentSales } from "@/components/recent-sales";
 import { Button } from "@/components/ui/button";
@@ -275,7 +275,14 @@ export default async function Page() {
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-4">
                 <CardHeader>
-                  <CardTitle>Income Overview</CardTitle>
+                <div className="flex items-center justify-between space-y-2">
+                    <div className="md:flex items-center space-x-2">
+                    <CardTitle>
+                      Income Overview
+                    </CardTitle>
+                    <CalendarDateRangePicker />
+                    </div>
+                  </div>   
                 </CardHeader>
                 <CardContent className="pl-2">
                   <Overview /> 
