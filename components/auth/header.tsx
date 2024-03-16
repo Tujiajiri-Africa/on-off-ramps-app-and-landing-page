@@ -9,14 +9,17 @@ interface HeaderProps{
 export const Header = ({label}:HeaderProps) =>{
     return (
         <>
-        <div className="flex text-center justify-center ">
-            <Image src={Logo.src} width={100} height={100}  className="rounded-full" alt="logo"/>
-        </div>
-        <div className="w-[80%] mx-auto sm:mx-auto sm:w-full sm:max-w-md">
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
-                {label}
-            </h2>
-        </div>
+            <div className="flex text-center justify-center ">
+                <Image src={Logo.src} width={80} height={80}  className="rounded-full" alt="logo"/>
+            </div>
+            <div 
+            //className="w-[92%] sm:w-[86%] mx-auto sm:max-w-md"
+            className="w-full space-y-4"
+            >
+                <h2 className="mt-2 text-center md:text-center text-1xl font-bold">
+                    {label}
+                </h2>
+            </div>
         </>
         )
 }
