@@ -22,14 +22,20 @@ export default function Navbar(){
                 <nav className="flex justify-between items-center">
                     <div className="platform-logo">
                         {/* <h2 className="w-16">AjiraPay</h2> */}
-                        <img 
+                        {/* <img 
                             className="w-16  text-white" 
                             //src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" 
                             src={LogoMainTransparent.src}
                             alt="logo"
                             //width={200}
                             //height={100}
-                        />
+                        /> */}
+                        <Image
+                    height={50}
+                    width={50}
+                    src={LogoMainTransparent.src}
+                    alt='Logo'
+                  />
                         {/* <h2 className="w-16 text-white">AjiraPay</h2> */}
                     </div>
                    {/* <div className="md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
