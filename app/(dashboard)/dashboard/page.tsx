@@ -1,4 +1,4 @@
-//import { CalendarDateRangePicker } from "@/components/date-range-picker";
+import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
 import { RecentSales } from "@/components/recent-sales";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,7 @@ import {
   getMaticLatestAssetPrice} from '@/actions/crypto'
 
 import { Greetings } from '@/components/ui/dashboard/greetings'
+import {ArrowDownIcon, ArrowUpIcon} from '@radix-ui/react-icons'
 
 export default async function Page() {
   return (
@@ -87,23 +88,23 @@ export default async function Page() {
                   
                   <p className="text-xs text-muted-foreground mb-6">
                     { 
-                      parseFloat((await getBtcLatestAssetPrice())._24hr_change) < 0 && 
+                      parseFloat((await getBtcLatestAssetPrice())._1hr_change) < 0 && 
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getBtcLatestAssetPrice())._24hr_change.slice(1)}%
-                        </span> 24hr Change
+                          {(await getBtcLatestAssetPrice())._1hr_change.slice(1)}%
+                        </span> 1hr Change
                       </>
                       
                       )
                     } 
                      { 
-                      parseFloat((await getBtcLatestAssetPrice())._24hr_change) > 0 && 
+                      parseFloat((await getBtcLatestAssetPrice())._1hr_change) > 0 && 
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getBtcLatestAssetPrice())._24hr_change}%
-                        </span> 24hr Change
+                          {(await getBtcLatestAssetPrice())._1hr_change}%
+                        </span> 1hr Change
                       </>
                       
                       )
@@ -140,23 +141,23 @@ export default async function Page() {
                   
                   <p className="text-xs text-muted-foreground mb-6">
                     { 
-                      parseFloat((await getEthLatestAssetPrice())._24hr_change) < 0 && 
+                      parseFloat((await getEthLatestAssetPrice())._1hr_change) < 0 && 
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getEthLatestAssetPrice())._24hr_change.slice(1)}%
-                        </span> 24hr Change
+                          {(await getEthLatestAssetPrice())._1hr_change.slice(1)}%
+                        </span> 1hr Change
                       </>
                       
                       )
                     } 
                      { 
-                      parseFloat((await getEthLatestAssetPrice())._24hr_change) > 0 && 
+                      parseFloat((await getEthLatestAssetPrice())._1hr_change) > 0 && 
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getEthLatestAssetPrice())._24hr_change}%
-                        </span> 24hr Change
+                          {(await getEthLatestAssetPrice())._1hr_change}%
+                        </span> 1hr Change
                       </>
                       
                       )
@@ -190,23 +191,24 @@ export default async function Page() {
                   
                   <p className="text-xs text-muted-foreground mb-6">
                     { 
-                      parseFloat((await getSolLatestAssetPrice())._24hr_change) < 0 && 
+                      parseFloat((await getSolLatestAssetPrice())._1hr_change) < 0 && 
                     (
                       <>
+                      
                         <span className="text-red-600">
-                          {(await getSolLatestAssetPrice())._24hr_change.slice(1)}%
-                        </span> 24hr Change
+                          {(await getSolLatestAssetPrice())._1hr_change.slice(1)}%
+                        </span> 1hr Change 
                       </>
                       
                       )
                     } 
                      { 
-                      parseFloat((await getSolLatestAssetPrice())._24hr_change) > 0 && 
+                      parseFloat((await getSolLatestAssetPrice())._1hr_change) > 0 && 
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getSolLatestAssetPrice())._24hr_change}%
-                        </span> 24hr Change
+                          {(await getSolLatestAssetPrice())._1hr_change}%
+                        </span> 1hr Change
                       </>
                       
                       )
@@ -242,23 +244,23 @@ export default async function Page() {
                   
                   <p className="text-xs text-muted-foreground mb-6">
                     { 
-                      parseFloat((await getMaticLatestAssetPrice())._24hr_change) < 0 && 
+                      parseFloat((await getMaticLatestAssetPrice())._1hr_change) < 0 && 
                     (
                       <>
                         <span className="text-red-600">
-                          {(await getMaticLatestAssetPrice())._24hr_change.slice(1)}%
-                        </span> 24hr Change
+                          {(await getMaticLatestAssetPrice())._1hr_change.slice(1)}%
+                        </span> 1hr Change
                       </>
                       
                       )
                     } 
                      { 
-                      parseFloat((await getMaticLatestAssetPrice())._24hr_change) > 0 && 
+                      parseFloat((await getMaticLatestAssetPrice())._1hr_change) > 0 && 
                     (
                       <>
                         <span className="text-green-600">
-                          {(await getMaticLatestAssetPrice())._24hr_change}%
-                        </span> 24hr Change
+                          {(await getMaticLatestAssetPrice())._1hr_change}%
+                        </span> 1hr Change
                       </>
                       
                       )
@@ -275,7 +277,14 @@ export default async function Page() {
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-4">
                 <CardHeader>
-                  <CardTitle>Overview</CardTitle>
+                <div className="flex items-center justify-between space-y-2">
+                    <div className="md:flex items-center space-x-2">
+                    <CardTitle>
+                      Income Overview
+                    </CardTitle>
+                    <CalendarDateRangePicker />
+                    </div>
+                  </div>   
                 </CardHeader>
                 <CardContent className="pl-2">
                   <Overview /> 
