@@ -3,6 +3,7 @@ import SellSwapBannerSVG from '../../app/assets/logo/sell-swap-banner-svg.svg'
 import SellSwapBannerGraySVG from '../../app/assets/logo/sell-wap-banner-svg-gray.svg'
 import SellSwapBannerLightGreenSVG from '../../app/assets/logo/sell-wap-banner-svg-light-green.svg'
 import SellSwapBannerLightDarkSVG from '../../app/assets/logo/sell-swap-banner-light-dark-svg.svg'
+import Image from 'next/image'
 
 import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 
@@ -46,14 +47,20 @@ export default function Features(){
   </div>
   {/* :HERO ILLUSTRATION */}
   <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
-    <img src={SellSwapBannerSVG.src} 
+            <Image
+                height={700}
+                width={700}
+                src={SellSwapBannerSVG.src}
+                alt='Logo'
+            />
+    {/* <img src={SellSwapBannerSVG.src} 
         alt='illustration' 
         //className="w-2/3 lg:w-full"
         style={{
             width: 'auto',
             height: 'auto'
         }}
-        />
+        /> */}
      {/* <img src="https://fancytailwind.com/static/8b86283c874a1f43a78c79fe871525ff/d552e/illustration1.webp" alt="" className="w-2/3 lg:w-full" /> */}
   </div>
 </div>

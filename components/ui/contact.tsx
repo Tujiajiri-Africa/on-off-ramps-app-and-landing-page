@@ -1,39 +1,37 @@
-import React from 'react'
+import React from "react";
 import AboutPageIllustration from '../../app/assets/logo/contact-page-illustration-svg.svg'
+import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
-export default function ContactPage(){
+export default function About(){
     return (
-            <>
-            <div className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100">
+        <>
+        <div className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100">
             <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] mx-auto flex flex-col lg:flex-row">
-            <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center"> 
-                {/* <div className="pt-2 w-full h-full flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-                    <div className='text-center gap-1 rounded'>
-                        <div className='relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden'>
-                        <img 
-                        src={AboutPageIllustration.src} 
-                        alt='illustration' 
-                        style={{
-                            width: '100%',
-                            height: '80%',
-                            //borderRadius: '50px'
+                <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
+                        {/* <img src={AboutPageIllustration.src} 
+                            alt='illustration' 
+                            //className="w-2/3 lg:w-full"
+                            //bg-[#050520]
+                            style={{
+                                width: '100%',
+                                height: '80%',
+                                opacity: '100%'
                             }}
-                        />
-                        </div>
-                    </div>
-                </div> */}
-                 <img 
-                        src={AboutPageIllustration.src} 
-                        alt='illustration' 
-                        style={{
-                            width: '100%',
-                            height: '80%',
-                            //borderRadius: '50px'
-                            }}
-                        />
-            </div>
-            <div className="w-[98%] sm:w-[80%] md:w-[80%] lg:w-[80%] flex flex-col justify-center items-center text-gray-600">
-            <h1 className="py-10 text-4xl sm:text-7xl font-semibold leading-tight text-white">
+                        /> */}
+                        <Image
+                          height={400}
+                          width={680}
+                          src={AboutPageIllustration.src}
+                          alt='Logo'
+                  />
+                            {/* <img src="https://fancytailwind.com/static/8b86283c874a1f43a78c79fe871525ff/d552e/illustration1.webp" alt="" className="w-2/3 lg:w-full" /> */}
+                </div>
+                <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600"> {/* Container */}
+    {/* ::Hero Inner */}
+    <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+      {/* Hero Title */}
+      <h1 className="py-10 text-4xl sm:text-7xl font-semibold leading-tight text-white">
                 You have something in mind? <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Let&apos;s Talk</span>
             </h1>
             <div className="p-2 flex flex-col sm:flex-row md:flex-row lg:flex-row w-full gap-3">
@@ -69,11 +67,11 @@ export default function ContactPage(){
                     <p>+254 714 905 613</p>
                 </span>
             </div>
-    </div>           
-        </div>
-
+    </div>
+    </div>
+  </div>
             </div>
-            </div>    
-            </>
-    )
+        </div>
+        </>
+        )
 }

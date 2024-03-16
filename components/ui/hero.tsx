@@ -7,6 +7,7 @@ import HomeBgElementImage3 from '../../app/assets/logo/backgroundImages/3.avif'
 import Link from "next/link";
 import { ReactTyped } from "react-typed";
 import { TypeAnimation } from 'react-type-animation';
+import Image from 'next/image'
 
 const HeroSubTextAnimationComponent = () => {
   return (
@@ -101,14 +102,20 @@ export default function Hero(){
   </div>
   {/* :HERO ILLUSTRATION */}
   <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
-    <img src={BuyCryptoDesignSVG.src} 
+        <Image
+              height={300}
+              width={320}
+              src={BuyCryptoDesignSVG.src}
+              alt='Logo'
+                  />
+    {/* <img src={BuyCryptoDesignSVG.src} 
         alt='illustration' 
         //className="w-2/3 lg:w-full"
         style={{
             width: 'auto',
             height: '90%'
         }}
-        />
+        /> */}
      {/* <img src="https://fancytailwind.com/static/8b86283c874a1f43a78c79fe871525ff/d552e/illustration1.webp" alt="" className="w-2/3 lg:w-full" /> */}
   </div>
 </div>

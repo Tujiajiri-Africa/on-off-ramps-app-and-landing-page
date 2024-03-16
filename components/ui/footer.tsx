@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import logo from  '../../app/assets/logo/favicon.ico'
+import Image from 'next/image'
 
 export default function Footer(){
     const [date, setDate] = useState<string>()
@@ -20,12 +21,18 @@ export default function Footer(){
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
               <a href="https://ajirapay.finance/" className="flex items-center">
-                  <img
+                  {/* <img
                     className="h-8 me-3"
                     src={logo.src}
                     alt="Logo"
                     width={'auto'}
                     height={'auto'}
+                  /> */}
+                      <Image
+                    height={50}
+                    width={50}
+                    src={logo.src}
+                    alt='Logo'
                   />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">Ajirapay Finance</span>
                   {/* <span>
