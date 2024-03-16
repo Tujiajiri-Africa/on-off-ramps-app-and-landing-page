@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut, useSession } from "next-auth/react";
 import {getUserNameFromEmail} from '@/lib/utils'
+import Link from "next/link";
 
 export function UserNav() {
   const { data: session } = useSession();
@@ -50,8 +51,8 @@ export function UserNav() {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              Profile
-              {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+              <Link href='/dashboard/user'>Profile</Link>
+              {/* <Drop>downMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
             </DropdownMenuItem>
             {/* <DropdownMenuItem>
               Billing

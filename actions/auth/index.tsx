@@ -119,60 +119,12 @@ export const login = async(
         },
         body: JSON.stringify(validatedFields.data)
     }
-
-    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/auth/login' : PROD_BASE_URI + '/auth/login'
-
-    // const sendUserLoginRequest = fetch(endpoint,payload).then(async(response) =>{
-    //     if(response.status === 500){
-    //         dataInfo = {
-    //             error: 'Something went wrong!',
-    //             success: '',
-    //             data: ''
-    //         }
-
-    //         return { data: dataInfo}
-    //     }
-    //     const data = await response.json()
-    //     if(data['status'] == false){
-    //         dataInfo = {
-    //             error: data['message'],
-    //             success: '',
-    //             data: ''
-    //         }
-
-    //         return { data: dataInfo}
-    //     }
-    //     if(data['status'] == true){
-    //         dataInfo = {
-    //             error: "",
-    //             success: data['message'],
-    //             data: data['data']
-    //         }
-
-    //         return { data: dataInfo}
-    //     }
-    //     }).catch(()=>{
-    //         dataInfo = {
-    //             error: "Something went wrong!",
-    //             success: '',
-    //             data: ''
-    //         }
-    //         return {data: dataInfo}
-    //     })
-        
-        
-
         try {
-          //const data = sendUserLoginRequest
-         
             await signIn("credentials", {
               email,
               password,
               redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT,
             })
-            
-            //const sendUserLoginRequest = 
-            //return sendUserLoginRequest
           } catch (error) {
             if (error instanceof AuthError) {
               switch (error.type) {
@@ -200,28 +152,8 @@ export const login = async(
               }
             }
             
-            // dataInfo = {
-            //     error: "Something went wrong!",
-            //     success: '',
-            //     data: ''
-            // }
-            // return {
-            //     data: dataInfo
-            // }
             throw error
           }
-    // try{
-    //     //handle login here with nextauth
-    //     //signIn("credentials")
-    //     return sendUserLoginRequest
-    // }catch(error){
-        // dataInfo = {
-        //     error: 'Something went wrong!',
-        //     success: '',
-        //     data: ''
-        // }
-    //     return {data: dataInfo}
-    // }
 }
 
 export const resetPassword = async(values: z.infer<typeof PasswordResetSchema>) =>{
