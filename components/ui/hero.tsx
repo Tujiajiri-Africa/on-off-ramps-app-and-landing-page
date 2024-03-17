@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ReactTyped } from "react-typed";
 import { TypeAnimation } from 'react-type-animation';
 import Image from 'next/image'
+import {Button} from '@/components/ui/button'
 
 const HeroSubTextAnimationComponent = () => {
   return (
@@ -95,7 +96,7 @@ export default function Hero(){
               <br/>
                 <span className="inline-block relative">
             in Africa{" "}
-              <img
+              <Image
                 src={curve.src}
                 className="absolute top-full left-0 w-full xl:-mt-2"
                 width={624}
@@ -113,9 +114,10 @@ export default function Hero(){
 
       {/* Buttons */}
       <div className="mt-10 flex flex-row sm:flex-row items-center">
-        <button 
+        <Button 
         //href="/register"
-            className="m-1.5 py-2 px-2 rounded-md bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white font-semibold hover:text-white hover:bg-green-700"
+            className="m-1.5 py-2 px-2 rounded-md bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white  hover:text-white hover:bg-green-700"
+            //className="bg-[#00BF63] m-1.5 py-2 px-2 rounded-md text-white hover:text-white font-semibold hover:bg-green-700"
             style={{
                 //background: 'linear-gradient(#593690 50%, #DB1B9A 75%, #9A1AAF 100%);',
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
@@ -123,12 +125,12 @@ export default function Hero(){
             }}
             >
             Coming Soon
-        </button>
-        <button className="m-1.5 py-2 px-3 rounded-md bg-[#001431]  text-white font-semibold hover:text-teal-400 hover:border-teal-400">Join WaitList</button>
+        </Button>
+        <Button className="m-1.5 py-2 px-3 rounded-sm bg-[#00BF63] text-white  hover:bg-slate-900 hover:border-teal-400">Join Waitlist</Button>
       </div>
     </div>
   </div>
-  {/* :HERO ILLUSTRATION */}
+  {/* :HERO ILLUSTRATION button color font-semibold */}
   <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
         <Image
               height={300}
