@@ -39,7 +39,7 @@ const productsList:ProductProps[] = [
     },
     {
         title: "Realtime Crypto Payments",
-        description: "Harness the power of real-time token streaming to empower your friends and family to access liquidity in real-time giving them the flexibility to explore and invest in other profitable DeFi products",
+        description: "Harness the power of real-time token streaming to empower your friends and family to access liquidity in real-time giving them the flexibility to explore and invest in other profitable DeFi products or cash out in local currency",
         icon: <MagnifierIcon />,
         href: "#",
         buttonLabel: "Get Started",
