@@ -63,13 +63,16 @@ export default function Footer(){
                   <h2 className="mb-6 text-sm font-semibold  uppercase text-white dark:text-white">Products</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="#">Buy and Sell Crypto</a>
+                          <a href="#">On/Off Ramps</a>
                       </li>
                       <li className="mb-4">
                           <a href="https://app.ajirapay.finance/" >Token Streaming</a>
                       </li>
                       <li className="mb-4">
-                          <a href="https://app.ajirapay.finance/" >Token Vesting</a>
+                          <a href="https://app.ajirapay.finance/" >Crypto Invoices</a>
+                      </li>
+                      <li className="mb-4">
+                          <a href="https://app.ajirapay.finance/" >Crypto Subscriptions</a>
                       </li>
                       <li className="mb-4">
                           <a href="https://app.ajirapay.finance/" >Documentation</a>

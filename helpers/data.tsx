@@ -68,6 +68,15 @@ export type TimeSeriesApiResponse  = {
     rate_close: BigNumber; //3925.2395386860276
 }
 
+export type CountryProps = {
+  name: string;
+  code: string;
+  active: boolean;
+  currency: string;
+  flag? : JSX.Element;
+  href?: string;
+}
+
 export const COIN_API_PERIOD_DATA =
   {
     hour : '1HRS',
@@ -76,3 +85,74 @@ export const COIN_API_PERIOD_DATA =
     day : ''
 
   }
+
+export const countries:CountryProps[] = [
+  {
+    name: 'Kenya',
+    code: "+254",
+    active: true,
+    currency: "KES",
+    href: "https://www.freepik.com/icon/flag_14009694#fromView=search&page=1&position=31&uuid=2ce58cdf-77c1-4a08-8c28-9ba1caf9799c"
+  },
+  {
+    name: "Nigeria",
+    code: "+234",
+    active: false,
+    currency: "NGN"
+  },
+  {
+    name: 'Uganda',
+    code: "+256",
+    active: false,
+    currency: 'UGX',
+    //flag: 
+  },
+  {
+    name: 'Tanzania',
+    code: '+255',
+    active: false,
+    currency: 'TZS'
+  },
+  {
+    name: 'Ghana',
+    code: '+233',
+    active: false,
+    currency: 'GHS'
+  },
+  {
+    name: 'Cameroon',
+    code: '+237',
+    active: false,
+    currency: 'XAF'
+  },
+  {
+    name: 'Zambia',
+    code: '+260',
+    active: false,
+    currency: 'ZMW'
+  },
+  {
+    name: 'South Africa',
+    code: '+27',
+    active: false,
+    currency: 'ZAR'
+  },
+  {
+    name: 'Rwanda',
+    code: '+250',
+    active: false,
+    currency: 'RWF'
+  },
+  {
+    name: 'Botswana',
+    code: '+267',
+    active: false,
+    currency: 'BWP'
+  },
+  {
+    name: 'Malawi',
+    code: '+265',
+    active: false,
+    currency: 'MWK'
+  }
+]

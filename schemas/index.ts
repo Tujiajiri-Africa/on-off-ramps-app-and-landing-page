@@ -1,4 +1,6 @@
 import * as z from 'zod'
+import {countries} from '@/helpers/data'
+import {phoneRegex} from '@/lib/utils'
 
 export const LoginSchema = z.object({
     email: z.string().email({
@@ -41,14 +43,7 @@ export const UserProfileSchema = z.object({
     }),
     last_name: z.string().min(3,{
         message: "Minimum 3 characters required"
-    }),
-    phone: z.string().min(10,{
-        message: "Enter your mobile money number"
     })
-}).refine((values) => {
-    return values.phone.startsWith("+254") || values.phone.startsWith("+234") || values.phone.startsWith("+255")
-}, {
-    message: "Phone must begin with +254 or +234 or +255"
 })
 
 export const UserPasswordChangeSchema = z.object({
@@ -68,3 +63,17 @@ export const UserPasswordChangeSchema = z.object({
 }, {
     message: "Passwords do not match"
 })
+
+export const UserPhoneVerificationSchema = z.object({
+    phone: z.string().min(10,{
+       message: "Minimum 10 characters required"
+    }).regex(phoneRegex, {message: "Invalid phone number"})
+}).refine((values) => {
+    const codePattern = values.phone.slice(0, 4)
+    const country = countries.find(({ code }) => code === codePattern);
+    return country?.active == true
+},
+{
+    message: "Country not supported yet"
+}
+)

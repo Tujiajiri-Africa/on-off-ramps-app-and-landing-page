@@ -31,6 +31,7 @@ import {
   } from "@/components/ui/sheet"
 import { UserProfileUpdateForm } from './profileUpdateForm'
 import {UserPasswordUpdateForm} from './passwordChangeForm'
+import {UserAddPhoneForm} from './addPhoneForm'
 
 export default function Profile(){
     return (
@@ -55,7 +56,7 @@ export default function Profile(){
                         <Button >Add Mobile Money Number</Button>
                     </SheetTrigger>
                     <SheetContent>
-                        <UserProfileUpdateForm />
+                        <UserAddPhoneForm />
                     </SheetContent>
                   </Sheet>
 
