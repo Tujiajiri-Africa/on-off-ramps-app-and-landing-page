@@ -29,6 +29,8 @@ import {
     SheetFooter,
     SheetClose
   } from "@/components/ui/sheet"
+import { UserProfileUpdateForm } from './profileUpdateForm'
+import {UserPasswordUpdateForm} from './passwordChangeForm'
 
 export default function Profile(){
     return (
@@ -47,67 +49,32 @@ export default function Profile(){
             >
                 Send/Receive
             </Button> */}
-              {/* <Dialog>
-                            <DialogTrigger asChild>
-                                    <Button variant="outline">Edit Profile</Button>
-                                </DialogTrigger>
-                                <DialogContent className="sm:max-w-[425px]">
-                                    <DialogHeader>
-                                    <DialogTitle>Edit profile</DialogTitle>
-                                    <DialogDescription>
-                                        Make changes to your profile here. Click save when you're done.
-                                    </DialogDescription>
-                                    </DialogHeader>
-                                    <div className="grid gap-4 py-4">
-                                    <div className="grid grid-cols-4 items-center gap-4">
-                                        <Label htmlFor="name" className="text-right">
-                                        Name
-                                        </Label>
-                                        <Input id="name" value="Pedro Duarte" className="col-span-3" />
-                                    </div>
-                                    <div className="grid grid-cols-4 items-center gap-4">
-                                        <Label htmlFor="username" className="text-right">
-                                        Username
-                                        </Label>
-                                        <Input id="username" value="@peduarte" className="col-span-3" />
-                                    </div>
-                                    </div>
-                                    <DialogFooter>
-                                    <Button type="submit">Save changes</Button>
-                                    </DialogFooter>
-                                </DialogContent>
-                        </Dialog> */}
-                    <Sheet>
+
+                <Sheet>
                     <SheetTrigger asChild>
-                        <Button variant="outline">Edit Profile</Button>
+                        <Button >Add Mobile Money Number</Button>
                     </SheetTrigger>
                     <SheetContent>
-                        <SheetHeader>
-                        <SheetTitle>Edit profile</SheetTitle>
-                        <SheetDescription>
-                            Make changes to your profile here. Click save when you&apos;re done.
-                        </SheetDescription>
-                        </SheetHeader>
-                        <div className="grid gap-4 py-4">
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="name" className="text-right">
-                            Name
-                            </Label>
-                            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="username" className="text-right">
-                            Username
-                            </Label>
-                            <Input id="username" value="@peduarte" className="col-span-3" />
-                        </div>
-                        </div>
-                        <SheetFooter>
-                        <SheetClose asChild>
-                            <Button type="submit">Save changes</Button>
-                        </SheetClose>
-                        </SheetFooter>
+                        <UserProfileUpdateForm />
                     </SheetContent>
+                  </Sheet>
+
+                  <Sheet>
+                    <SheetTrigger asChild>
+                        <Button>Edit Profile</Button>
+                    </SheetTrigger>
+                    <SheetContent>
+                        <UserProfileUpdateForm />
+                    </SheetContent>
+                    </Sheet>
+
+                    <Sheet>
+                      <SheetTrigger asChild>
+                          <Button>Change Password</Button>
+                      </SheetTrigger>
+                      <SheetContent>
+                          <UserPasswordUpdateForm />
+                      </SheetContent>
                     </Sheet>
           </div>
         </div>
