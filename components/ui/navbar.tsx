@@ -8,17 +8,100 @@ import nanaLogo from  '../../app/assets/logo/nana-logo-color.png'
 import Link from 'next/link'
 import Image from "next/image";
 import {useScrollPosition} from '@/hooks/useScrollPosition'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {Button} from '@/components/ui/button'
 
 const navigation = [
   { name: 'Home', href: '/', current: false }, //current: true
   { name: 'About', href: '#about', current: false },
   { name: 'Features', href: '#features', current: false },
   { name: 'How it Works', href: '#feature-list', current: false },
-  { name: "Contact Us", href: "#contact", current: false}
+  { name: "Products", href: "#products", current: false},
+  { name: "Contact Us", href: "#contact", current: false},
+  //{ name: 'Academy', href: "#", current: false},
+  
 ]
 
 function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
+}
+
+const ProductsDropdown = () => {
+  return (<>
+  <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Products</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>Our Products</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+              On Ramps
+            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+              Off Ramps
+            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+              Crypto Invoicing
+            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+              Crypto Subscriptions
+            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+              Token Streaming
+            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+          </DropdownMenuItem>
+            <DropdownMenuItem>
+              Token Vesting
+            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        {/* <DropdownMenuGroup>
+          <DropdownMenuItem>Team</DropdownMenuItem>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem>Email</DropdownMenuItem>
+                <DropdownMenuItem>Message</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>More...</DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+          <DropdownMenuItem>
+            New Team
+            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuGroup> */}
+        {/* <DropdownMenuSeparator />
+        <DropdownMenuItem>GitHub</DropdownMenuItem>
+        <DropdownMenuItem>Support</DropdownMenuItem>
+        <DropdownMenuItem disabled>API</DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          Log out
+          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+        </DropdownMenuItem> */}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </>
+  )
 }
 
 export default function Navbar() {
