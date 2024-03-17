@@ -33,8 +33,9 @@ export default function Footer(){
                     width={50}
                     src={logo.src}
                     alt='Logo'
+                    className='gap-10'
                   />
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">Ajirapay Finance</span>
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">Ajira Pay Finance</span>
                   {/* <span>
                     Third Court Street
                   </span> */}
@@ -62,16 +63,16 @@ export default function Footer(){
                   <h2 className="mb-6 text-sm font-semibold  uppercase text-white dark:text-white">Products</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="#" className="hover:underline ">Buy and Sell Crypto</a>
+                          <a href="#">Buy and Sell Crypto</a>
                       </li>
                       <li className="mb-4">
-                          <a href="https://app.ajirapay.finance/" className="hover:underline">Token Streaming</a>
+                          <a href="https://app.ajirapay.finance/" >Token Streaming</a>
                       </li>
                       <li className="mb-4">
-                          <a href="https://app.ajirapay.finance/" className="hover:underline">Token Vesting</a>
+                          <a href="https://app.ajirapay.finance/" >Token Vesting</a>
                       </li>
                       <li className="mb-4">
-                          <a href="https://app.ajirapay.finance/" className="hover:underline">Documentation</a>
+                          <a href="https://app.ajirapay.finance/" >Documentation</a>
                       </li>
                   </ul>
               </div>
@@ -79,16 +80,16 @@ export default function Footer(){
                   <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Company</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="#" className="hover:underline">Privacy Policy</a>
+                          <a href="#" >Privacy Policy</a>
                       </li>
                       <li className="mb-4">
-                          <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                          <a href="#">Terms &amp; Conditions</a>
                       </li>
                       <li className="mb-4">
-                          <a href="#" className="hover:underline">Compliance</a>
+                          <a href="#" >Legal and Compliance</a>
                       </li>
                       <li className="mb-4">
-                          <a href="#" className="hover:underline">Audits</a>
+                          <a href="#">Audits</a>
                       </li>
                   </ul>
               </div>
@@ -97,7 +98,7 @@ export default function Footer(){
       </div>
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {date} <a href="https://ajirapay.finance" className="hover:underline">NanaPay LTD</a>. All Rights Reserved.
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {date} <a href="https://ajirapay.finance" target="_blank">NanaPay LTD</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
               {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
