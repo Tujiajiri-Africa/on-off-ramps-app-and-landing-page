@@ -50,12 +50,13 @@ export default function Hero(){
     return (
         <>
           <div 
-            className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100"
+            className="bg-[#010203] relative w-full h-full flex justify-center items-center  overflow-hidden opacity-100"
             id="hero"
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
                 //bg-[#081e1c]
                 //#0d1117
+                //010203
             }}
             >
 {/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#050520_1px,#00091d_1px)] bg-[size:20px_20px]"></div> */}
