@@ -70,8 +70,9 @@ export function Overview() {
           tickLine={false}
           axisLine={false}
           tickFormatter={(value) => `KES${value}`}
+          
         />
-        <Bar dataKey="total" fill="#adfa1d" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="total" fill="#1d4ed8" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );
