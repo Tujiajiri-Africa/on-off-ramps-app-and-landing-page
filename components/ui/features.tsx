@@ -31,7 +31,7 @@ export default function Features(){
       {/* Starting Price */}
         <p className="text-lg font-semibold text-gray-300 tracking-wide">
         {/* Four sizes, starting at $29 */}
-        We have partnered with the best industry leaders to ensure that we bring you the most compliant crypto experience in more than 20+ jurisdictions across Africa with support for bank and mobile money.
+        We have partnered with the best industry leaders to ensure that we bring you the most compliant crypto experience in more than 20+ jurisdictions across Africa with <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">support for bank</span> and <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">mobile money</span>
         </p>
 
       {/* Buttons */}

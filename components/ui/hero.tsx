@@ -4,6 +4,7 @@ import BuyCryptoDesignSVG from '../../app/assets/logo/buy-crypto-design-svg.svg'
 import HomeBgElementImage from '../../app/assets/logo/backgroundImages/home-bg-element-1.svg'
 import HomeBgElementImage2 from '../../app/assets/logo/backgroundImages/home-page-bg-lights.webp'
 import HomeBgElementImage3 from '../../app/assets/logo/backgroundImages/3.avif'
+import curve from '@/app/assets/hero/curve.png'
 import Link from "next/link";
 import { ReactTyped } from "react-typed";
 import { TypeAnimation } from 'react-type-animation';
@@ -46,6 +47,23 @@ const HeroSubTextAnimationComponent = () => {
   )
 }
 
+const ProductOffering = () => {
+  return (
+    <>
+     <TypeAnimation
+    sequence={['off ramping', 3000, 'on ramping', 3000, 'payments', 3000, 'invoicing', 3000, 'subscriptions', 3000]}
+    // 
+    //style={{ fontSize: '1em' }}
+    cursor={false}
+    repeat={Infinity}
+    speed={10}
+    //key={}
+    //preRenderFirstString
+    />
+    </>
+  )
+}
+
 export default function Hero(){
     return (
         <>
@@ -67,17 +85,25 @@ export default function Hero(){
     <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
       {/* Hero Title */}
         <h1 className="py-10 text-4xl sm:text-7xl font-semibold tracking-wide leading-tight text-white ">
-            {/* Effortless, <br/>fancy hero 12, <br/>made with love. FDC707|FF06E6*/}
-            A seamless <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]" >
+            {/* A seamless <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]" >
               <br />
               <HeroSubTextAnimationComponent /> 
               <br />
-              {/* Seamless crypto onboarding across Africa */}
-              {/* Empowering the masses across Africa with a seamless crypto onboarding */}
-              {/* <span className="text-[#06F0FF]">Unlock your full crypto potential</span> */}
-              {/* </span> */}
-              {/* Buy <span className="text-white">and</span> Sell Crypto */}
-              </span> onboarding with <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">instant settlement</span> in your <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">local currency</span>
+
+              </span> onboarding with <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">instant settlement</span> in your <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">local currency</span> */}
+              Your <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">gateway </span><br />to crypto <br /><span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"><ProductOffering /> </span> 
+              <br/>
+                <span className="inline-block relative">
+            in Africa{" "}
+              <img
+                src={curve.src}
+                className="absolute top-full left-0 w-full xl:-mt-2"
+                width={624}
+                height={28}
+                alt="Curve"
+              />
+            </span><br/> 
+            and beyond
         </h1>
       {/* Starting Price */}
         <p className="text-lg font-semibold text-gray-300 tracking-wide">

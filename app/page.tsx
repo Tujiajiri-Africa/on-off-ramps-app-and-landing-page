@@ -6,6 +6,7 @@ import FeatureList from '@/components/ui/feature-list'
 import Contact from '@/components/ui/contact'
 import  Navbar  from '@/components/ui/navbar'
 import Footer from '@/components/ui/footer'
+import Products from '@/components/ui/products'
 //import WaitListBanner from '@/components/ui/waitlist-banner'
 
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
@@ -26,6 +27,7 @@ export default function Home() {
           <About />
           <Features />
           <FeatureList />
+          <Products />
           <Contact />
           {/* <WaitListBanner /> */}
           <Footer />
