@@ -12,6 +12,7 @@ export default function Features(){
         <>
           <div 
             className="relative w-full h-full flex justify-center items-center bg-gradient-to-r bg-[#010203] overflow-hidden opacity-100"
+            id="feature-list"
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
             }}

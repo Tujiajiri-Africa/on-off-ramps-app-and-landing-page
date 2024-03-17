@@ -51,6 +51,7 @@ export default function Hero(){
         <>
           <div 
             className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100"
+            id="hero"
             style={{
                 //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
                 //bg-[#081e1c]

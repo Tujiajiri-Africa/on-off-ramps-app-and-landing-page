@@ -7,13 +7,14 @@ import logo from  '../../app/assets/logo/favicon.ico'
 import nanaLogo from  '../../app/assets/logo/nana-logo-color.png'
 import Link from 'next/link'
 import Image from "next/image";
+import {useScrollPosition} from '@/hooks/useScrollPosition'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'About', href: '#', current: false },
-  { name: 'Features', href: '#', current: false },
-  { name: 'How it Works', href: '#', current: false },
-  { name: "Contact Us", href: "#", current: false}
+  { name: 'Home', href: '/', current: false }, //current: true
+  { name: 'About', href: '#about', current: false },
+  { name: 'Features', href: '#features', current: false },
+  { name: 'How it Works', href: '#feature-list', current: false },
+  { name: "Contact Us", href: "#contact", current: false}
 ]
 
 function classNames(...classes:any) {
@@ -21,11 +22,16 @@ function classNames(...classes:any) {
 }
 
 export default function Navbar() {
+  const scrollPosition = useScrollPosition()
+
   return (
     <Disclosure as="nav" 
     //className="bg-[#081e1c]"
     //className="bg-[#081e1c]"
-    className="bg-[#010203]"
+    //#001431
+    //#010203
+    className={`bg-[#010203] sticky top-0 z-50 transition-shadow 
+    ${scrollPosition > 0 ? "shadow bg-opacity-70 backdrop-blur-3xl backdrop-filter" : "shadow-none"}`}
     //className="bg-gradient-to-r from-slate-800 via-[#6d1dee] to-[#9A1AAF]"
     >
       {({ open }) => (
@@ -35,9 +41,10 @@ export default function Navbar() {
             className='w-[98%]  mx-auto px-2 sm:px-6 lg:px-8'
             >
             <div className="relative flex h-16 items-center justify-between">
-              {/* <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button 
+                  className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -46,7 +53,7 @@ export default function Navbar() {
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
-              </div>  */}
+              </div>  
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   {/* <img
@@ -62,14 +69,14 @@ export default function Navbar() {
                     alt='Logo'
                   />
                 </div>
-                 {/* <div className="hidden sm:ml-6 sm:block">
+                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-slate-900 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -78,7 +85,7 @@ export default function Navbar() {
                       </a>
                     ))}
                   </div>
-                </div>  */}
+                </div>  
               </div>
               <div className='flex items-center gap-6'>
                         <button 
@@ -168,7 +175,7 @@ export default function Navbar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-slate-900 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}

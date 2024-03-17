@@ -9,6 +9,7 @@ import Footer from '@/components/ui/footer'
 //import WaitListBanner from '@/components/ui/waitlist-banner'
 
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
+//v2 components
 
 export default function Home() {
   return (
@@ -16,10 +17,11 @@ export default function Home() {
       
         <main 
         //className="h-screen bg-gradient-to-t from-[#593690] to-[#9A1AAF]"
-      
+        className="!scroll-smooth"
         >
           
           <Navbar/>
+          {/* <NavbarV2 /> */}
           <Hero />
           <About />
           <Features />
