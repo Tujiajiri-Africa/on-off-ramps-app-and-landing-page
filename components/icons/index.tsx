@@ -28,7 +28,13 @@ export const LogoIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-14 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#000" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g
@@ -109,7 +115,13 @@ export const LogoIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-14 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#000" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g
@@ -186,7 +198,13 @@ export const LogoIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-14 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#000" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g
@@ -247,7 +265,13 @@ export const LogoIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-14 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#000" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g
@@ -348,7 +372,13 @@ export const LogoIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-12 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#000" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g
@@ -420,12 +450,23 @@ export const LogoIcon = () => {
     );
   };
   
+  // <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
+  //               className="text-[#00BF63] w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+  //               <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+  //               <path d="M22 4L12 14.01l-3-3"></path>
+  //           </svg>
   export const WalletIcon = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-12 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#010203" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g
@@ -518,7 +559,13 @@ export const LogoIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-12 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#000" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g
@@ -591,7 +638,13 @@ export const LogoIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 128 128"
-        className="w-12 fill-primary"
+        //className="w-14 fill-primary"
+        className="bg-[#00BF63] overflow-hidden font-semibold rounded-full w-16 h-16"
+        //fill="none" 
+        stroke="#000" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="1"
       >
         <title>Free Icons</title>
         <g

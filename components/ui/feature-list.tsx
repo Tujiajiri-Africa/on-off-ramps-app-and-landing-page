@@ -1,6 +1,7 @@
 import React from 'react'
 import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
-
+import curve from '@/app/assets/hero/curve.png'
+import Image from 'next/image'
 
 export default function FeatureList(){
     return (
@@ -14,7 +15,16 @@ export default function FeatureList(){
         <h1 className="py-10 text-4xl sm:text-7xl font-semibold leading-start text-white">
            
             <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Achieve</span> your <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">web3 financial goals </span> with our 
-            <span className=""> tailor-made <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">features</span></span>
+            <span className="inline-block relative">
+            cutting-edge{" "}
+              <Image
+                src={curve.src}
+                className="absolute top-full left-0 w-full xl:-mt-2"
+                width={624}
+                height={28}
+                alt="Curve"
+              />
+            </span> <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">features</span>
         </h1>
      
         <p className="text-lg font-semibold text-gray-300 tracking-wide">

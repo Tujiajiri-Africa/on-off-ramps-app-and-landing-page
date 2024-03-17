@@ -93,31 +93,39 @@ export default function Products(){
             {productsList.map(({ icon, title, description, href, buttonLabel, showButton }: ProductProps) => (
             <Card
                 key={title}
-                //className="bg-[#00BF63] text-white"
+                //className="bg-gradient-to-b from-cyan-500 to-blue-500"
                 //className='bg-[#00BF63] text-white'
                 //className='bg-gradient-to-r from-[#050520] to-[#470645] text-white'
                 //bg-muted/50 
                 //FFC90B
                 //className="bg-gradient-to-r from-[#050520] to-[#470645]   text-white"
                 // via-[#FFC90B] to-[rgb(151,17,163)]
-                //className='bg-[#F00FDA]'
-                className='bg-gradient-to-b from-[#FDC707] to-[#F00FDA] text-white'
+                //className='bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#FDC707] from-0% to-[#F00FDA]  via-[#050520] to-70%'
+                className='bg-gradient-to-b from-[#FDC707] via-[#F00FDA] to-[#00BF63] shadow-inner bg-opacity-50'
             >
                 <CardHeader>
                 <CardTitle className="grid gap-4 place-items-center font-bold">
-                    {icon}
-                    {title}
+                   <span 
+                        //className='bg-white w-auto h-auto overflow-hidden text-white font-semibold rounded-full'
+                        >
+                            {icon}
+                    </span> 
+                    <span
+                        className='text-white font-bold'
+                    >
+                        {title}
+                    </span>
                 </CardTitle>
                 </CardHeader>
                 <CardContent 
-                    //className='text-gray-200'
+                    className='text-gray-200'
                     >
                         {description}
                 </CardContent>
                 <CardFooter>
                     {showButton && (
                         <Button 
-                        className='w-full'
+                        className='w-full bg-[#00BF63]'
                         //className="w-full bg-[#00BF63]"
                         //className='bg-gradient-to-r from-[#FDC707] to-[#F00FDA] w-full'
                     // bg-gradient-to-r from-[#FDC707] to-[#F00FDA]
