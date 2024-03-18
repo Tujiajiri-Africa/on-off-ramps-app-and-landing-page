@@ -28,7 +28,7 @@ import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 
 import { UserProfileSchema } from '@/schemas'
-import { updateProfile } from '@/actions/auth'
+import { updateProfile } from '@/actions/settings'
 
 export const UserProfileForm = () => {
     const searchParams = useSearchParams();
@@ -41,8 +41,7 @@ export const UserProfileForm = () => {
         resolver: zodResolver(UserProfileSchema),
         defaultValues: {
             first_name: "",
-            last_name: "",
-            phone: ""
+            last_name: ""
         }
     })
 
@@ -128,35 +127,6 @@ export const UserProfileForm = () => {
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="Enter your last name"
-                                                type='text'
-                                                disabled={isPending}
-                                            />
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </div>
-                                </FormItem>
-                            )}
-                        />
-                    </div>
-                    <div>
-                        <FormField 
-                            control={form.control}
-                            name='phone'
-                            render={({field}) => (
-                                <FormItem>
-                                    <FormLabel 
-                                        className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                                        >
-                                        Phone
-                                    </FormLabel>
-                                    <div 
-                                        className='mt-1'
-                                        >
-                                        <FormControl>
-                                            <Input
-                                                {...field}
-                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="Enter mobile money phone number"
                                                 type='text'
                                                 disabled={isPending}
                                             />

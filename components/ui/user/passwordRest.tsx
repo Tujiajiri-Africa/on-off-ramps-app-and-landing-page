@@ -28,7 +28,7 @@ import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 
 import { UserPasswordChangeSchema } from '@/schemas'
-import { changePassword } from '@/actions/auth'
+import { changePassword } from '@/actions/settings'
 
 export const UserPasswordChangeForm = () => {
     const searchParams = useSearchParams();
