@@ -51,20 +51,20 @@ export function UserNav() {
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <Link href='/dashboard/user'>Profile</Link>
+              <Link href='/dashboard/user/profile'>Profile</Link>
               {/* <Drop>downMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
             </DropdownMenuItem>
             {/* <DropdownMenuItem>
               Billing
               <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> 
             </DropdownMenuItem> */}
-            <DropdownMenuItem>
+            {/* <DropdownMenuItem>
               Settings
-              {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
-            </DropdownMenuItem>
-            <DropdownMenuItem>
+              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> 
+            </DropdownMenuItem> */}
+            {/* <DropdownMenuItem>
               Support
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => signOut()}>

@@ -74,10 +74,10 @@ export const UserPhineVerificationForm = () => {
                     <CardHeader className='font-bold text-2xl dark:text-white'>
                         <CardTitle>Add mobile money number</CardTitle>
                         <CardDescription>
-                            <ol className='max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400'>
+                            <ol className='max-w-md space-y-1 list-disc list-inside dark:text-gray-300 text-[12px] font-medium'>
                                 <li>Please enter your mobile money number that you can verify with us</li>
                                 <li>Ensure you can receive our verification code on this number for approval</li>
-                                <li>This is the phone number that you will be using to transact with mobile money and to receive our authentication codes</li>
+                                <li>This is the phone number that you will be using to transact with mobile money and to receive our alerts security requests</li>
                             </ol>
                         </CardDescription>
                     </CardHeader>

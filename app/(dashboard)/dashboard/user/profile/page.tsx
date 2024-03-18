@@ -29,9 +29,9 @@ import {
     SheetFooter,
     SheetClose
   } from "@/components/ui/sheet"
-import { UserProfileUpdateForm } from './profileUpdateForm'
-import {UserPasswordUpdateForm} from './passwordChangeForm'
-import {UserAddPhoneForm} from './addPhoneForm'
+import { UserProfileUpdateForm } from '@/app/(dashboard)/dashboard/user/profileUpdateForm'
+import {UserPasswordUpdateForm} from '@/app/(dashboard)/dashboard/user/passwordChangeForm'
+import {UserAddPhoneForm} from '@/app/(dashboard)/dashboard/user/addPhoneForm'
 
 export default function Profile(){
     return (
@@ -43,7 +43,7 @@ export default function Profile(){
             Profile
           </h2>
           
-          <div className="md:flex items-center space-x-2">
+          <div className="hidden sm:flex items-center space-x-2 ">
             {/* <CalendarDateRangePicker /> */}
             {/* <Button
                 className="bg-[#16a34a] dark:text-white"
@@ -79,6 +79,36 @@ export default function Profile(){
                     </Sheet>
           </div>
         </div>
+
+        <div className="sm:hidden grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"> 
+        <Sheet>
+                    <SheetTrigger asChild>
+                        <Button >Add Mobile Money Number</Button>
+                    </SheetTrigger>
+                    <SheetContent>
+                        <UserAddPhoneForm />
+                    </SheetContent>
+                  </Sheet>
+
+                  <Sheet>
+                    <SheetTrigger asChild>
+                        <Button>Edit Profile</Button>
+                    </SheetTrigger>
+                    <SheetContent>
+                        <UserProfileUpdateForm />
+                    </SheetContent>
+                    </Sheet>
+
+                    <Sheet>
+                      <SheetTrigger asChild>
+                          <Button>Change Password</Button>
+                      </SheetTrigger>
+                      <SheetContent>
+                          <UserPasswordUpdateForm />
+                      </SheetContent>
+                    </Sheet>
+          
+        </div>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-4">
                 <CardHeader>
@@ -108,9 +138,7 @@ export default function Profile(){
               </Card>
             </div>
         </div>
-        {/* <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7"> */}
-
-        {/* </div> */}
+   
         </ScrollArea>
 
 

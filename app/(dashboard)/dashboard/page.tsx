@@ -35,7 +35,7 @@ export default async function Page() {
             Hi, Welcome back 👋 Dickens
           </h2> */}
           <Greetings />
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden sm:flex items-center space-x-2">
             {/* <CalendarDateRangePicker /> */}
             {/* <Button
                 className="bg-[#16a34a] dark:text-white"
@@ -45,7 +45,7 @@ export default async function Page() {
             <Button
                 className="bg-[#16a34a] dark:text-white"
             >
-               <Link href='/dashboard/crypto'>
+               <Link href='/dashboard/buy-sell-crypto'>
                         Buy/Sell
                     </Link>
             </Button>
@@ -54,7 +54,7 @@ export default async function Page() {
           <Button
                 className="sm:hidden bg-[#16a34a] dark:text-white"
             >
-                <Link href='/dashboard/crypto'>
+                <Link href='/dashboard/buy-sell-crypto'>
                         Buy/Sell
                     </Link>
           </Button>
@@ -118,7 +118,7 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                    <Link href='/dashboard/crypto'>
+                    <Link href='/dashboard/buy-sell-crypto'>
                         Buy/Sell
                     </Link>
                   </Button>
@@ -173,7 +173,7 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                   <Link href='/dashboard/crypto'>
+                   <Link href='/dashboard/buy-sell-crypto'>
                         Buy/Sell
                     </Link>
                   </Button>

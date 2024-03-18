@@ -15,7 +15,7 @@ export const navItems: NavItem[] = [
     },
     {
       title: "Buy/Sell",
-      href: "/dashboard/crypto",
+      href: "/dashboard/buy-sell-crypto",
       icon: "add",
       label: "add",
     },
@@ -45,16 +45,16 @@ export const navItems: NavItem[] = [
     // },
     {
         title: "Profile",
-        href: "/dashboard/user",
+        href: "/dashboard/user/profile",
         icon: "profile",
         label: "profile",
       },
-    {
-      title: "Logout",
-      href: "/auth/logout",
-      icon: "logout",
-      label: "logout",
-    },
+    // {
+    //   title: "Logout",
+    //   href: "/auth/logout",
+    //   icon: "logout",
+    //   label: "logout",
+    // },
   ];
 
 export type TimeSeriesApiResponse  = {

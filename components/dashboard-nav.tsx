@@ -8,6 +8,9 @@ import { cn } from "@/lib/utils";
 import { NavItem } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import {signOut} from 'next-auth/react'
+import { Button } from "@/components/ui/button";
+import { LogOut } from 'lucide-react'
+import {Separator} from '@/components/ui/separator'
 
 interface DashboardNavProps {
   items: NavItem[];
@@ -32,9 +35,6 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
               href={item.disabled ? "/" : item.href}
               onClick={() => {
                 if (setOpen) setOpen(false);
-                // if(item.label === 'logout'){
-                //   signOut()
-                // }
               }}
             >
               <span
@@ -51,6 +51,18 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
           )
         );
       })}
+
+    <Separator className="my-8" />
+
+    <Button
+      className="content-start w-full group flex items-center rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
+      variant={'outline'}
+          onClick={() => {
+            signOut()
+          }}
+        >
+          <LogOut className="mr-2 h-4 w-4"/>   Logout
+        </Button>
     </nav>
   );
 }
