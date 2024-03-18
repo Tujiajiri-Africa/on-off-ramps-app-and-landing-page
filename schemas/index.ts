@@ -37,6 +37,68 @@ export const PasswordResetSchema = z.object({
     })
 })
 
+// const sender = {
+//     name: "Sample Name",
+//     country: "US",
+//     phone: "+12222222222",
+//     address: "Sample Address",
+//     dob: "mm/dd/yyyy",
+//     email: "email@domain.com",
+//     idNumber: "0123456789",
+//     idType: "license"
+//   }
+
+//   const destination = {
+//     accountNumber: "0690000040",
+//     accountType: network.accountNumberType,
+//     country: network.country,
+//     networkId: network.id,
+//     accountBank: network.code
+//   }
+
+// let request = {
+//     channelId: channel.id,
+//     currency: channel.currency,
+//     country: channel.country,
+//     amountUSD,
+//     reason,
+//     destination,
+//     sender
+//   }
+
+// {
+//     "partnerId": "9ecf5248-17e7-4a2b-b5a8-3bd58ff0fe01",
+//     "currency": "NGN",
+//     "rate": 679.91,
+//     "status": "process",
+//     "createdAt": "2023-03-21T17:01:46.746Z",
+//     "sequenceId": "64ajhfba-aHbv-4b96-v28d-5h8a19c2aa8c",
+//     "country": "NG",
+//     "reason": "other",
+//     "sender": {
+//       "country": "Nigeria",
+//       "address": "12 John Street, Lagos",
+//       "idType": "12",
+//       "phone": "+12514218828",
+//       "dob": "02/01/1997",
+//       "name": "John Smith",
+//       "idNumber": "12",
+//       "email": "justin@yellowcard.io"
+//     },
+//     "convertedAmount": 60000,
+//     "channelId": "fe8f4989-3bf6-41ca-9621-ffe2bc127569",
+//     "expiresAt": "2023-03-21T17:11:46.729Z",
+//     "updatedAt": "2023-03-21T17:02:28.733Z",
+//     "amount": 88.25,
+//     "destination": {
+//       "networkName": "Stanbic Ibtc Bank",
+//       "networkId": "3d4d08c1-4811-4fee-9349-a302328e55c1",
+//       "accountNumber": "0760349371",
+//       "accountName": "Héloïse D'arban",
+//       "accountType": "bank"
+//     },
+//     "id": "0d72f565-f617-534c-871d-c055ee28c544"
+//   }
 export const UserProfileSchema = z.object({
     first_name: z.string().min(3,{
         message: "Minimum 3 characters required"
