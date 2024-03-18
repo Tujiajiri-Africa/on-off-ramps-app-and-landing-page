@@ -1,10 +1,9 @@
 import React from 'react'
-import {PlaneIcon,WalletIcon,LightBulbIcon, GiftIcon,MedalIcon,ChartIcon,MagnifierIcon} from '@/components/icons/index'
+import {WalletIcon,MedalIcon,MagnifierIcon} from '@/components/icons/index'
 import {
     Card, 
     CardHeader, 
     CardTitle, 
-    CardDescription,
     CardContent,
     CardFooter
 } from '@/components/ui/card'
