@@ -55,7 +55,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
     <Separator className="my-3" />
 
     <Button
-      className="!items-start w-full group flex rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
+      className="content-start w-full group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
       variant={'outline'}
           onClick={() => {
             signOut()
