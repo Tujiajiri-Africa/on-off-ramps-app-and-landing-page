@@ -82,7 +82,7 @@ export default function Products(){
         <div className='container'>
             <h1 className="py-10 text-4xl sm:text-7xl font-semibold tracking-wide leading-tight text-white">
                 {/* Effortless, <br/>fancy hero 12, <br/>made with love. */}
-                Our <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]'>core products</span>
+                <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]'>Explore </span> our <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]'>core products</span>
             </h1>
         <p className="md:w-3/4 mx-auto mt-4 mb-8 text-[18px] font-medium text-gray-400 tracking-wide">
             We have challenged ourselves to bring blockchain technology and cryptocurrency to the unbanked and underbanked African community combining it with the existing local payment channels to connect the African continent to the global digital financial ecosystem with a strict focus on compliance and real-world usecase of these powerful technologies to positively impact the lives of our users and the communities around us
