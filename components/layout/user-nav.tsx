@@ -28,7 +28,7 @@ export function UserNav() {
                 alt={session.user?.name ?? ""}
               /> */}
               <AvatarFallback>
-                 {session.user?.email?.[0].toUpperCase()} 
+                 {`${session.user?.email?.[0].toUpperCase()}${session.user?.email?.[1].toUpperCase()}`} 
                  {/**+ session.user?.email?.[1].toUpperCase() */}
                 {/* DO */}
               </AvatarFallback>
@@ -68,7 +68,7 @@ export function UserNav() {
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => signOut()}>
-            Log out
+            Sign out
             {/* <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut> */}
           </DropdownMenuItem>
         </DropdownMenuContent>
