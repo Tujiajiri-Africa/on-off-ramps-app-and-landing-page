@@ -1,5 +1,13 @@
 import { NavItem, SidebarNavItem } from "@/types";
 import {BigNumber} from 'bignumber.js'
+import {
+  ArrowUpCircle,
+  CheckCircle2,
+  Circle,
+  HelpCircle,
+  LucideIcon,
+  XCircle,
+} from "lucide-react"
 
 export const PROD_BASE_URI = process.env.PROD_BASE_URI
 export const DEV_BASE_URI = process.env.DEV_BASE_URI
@@ -169,3 +177,52 @@ export const countries:CountryProps[] = [
     currency: 'MWK'
   }
 ]
+
+export type Asset = {
+  value: string
+  label: string
+  icon: LucideIcon
+}
+ 
+export const supportedAssets: Asset[] = [
+  {
+    value: "bitcoin",
+    label: "BTC",
+    icon: HelpCircle,
+  },
+  {
+    value: "eth",
+    label: "ETH",
+    icon: Circle,
+  },
+  {
+    value: "usdt",
+    label: "USDT",
+    icon: ArrowUpCircle,
+  },
+  {
+    value: "solana",
+    label: "SOL",
+    icon: CheckCircle2,
+  },
+  {
+    value: "matic",
+    label: "MATIC",
+    icon: XCircle,
+  },
+  {
+      value: 'usdc',
+      label: 'USDC',
+      icon: XCircle
+  },
+  {
+      value: 'pyusd',
+      label: 'PYUSD',
+      icon: XCircle
+  },
+  {
+      value: 'cUSD',
+      label: 'cUSD',
+      icon: XCircle
+  }
+] 

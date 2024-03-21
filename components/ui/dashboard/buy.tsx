@@ -26,6 +26,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {BuyAssetSchema} from '@/schemas'
+import{AssetList} from '@/components/ui/dashboard/supported-assets'
 
 export function BuyComponent(){
     const [error, setError] = useState<string>("")
@@ -42,7 +43,7 @@ export function BuyComponent(){
 
     return (
         <>
-                      <Card>
+                <Card>
                     <CardHeader>
                       <CardTitle>Buy</CardTitle>
                       <CardDescription>Buy crypto and pay with either mobile money or from bank</CardDescription>
