@@ -27,6 +27,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {BuyAssetSchema} from '@/schemas'
 import{AssetList} from '@/components/ui/dashboard/supported-assets'
+import {supportedAssets} from '@/helpers/data'
 
 export function BuyComponent(){
     const [error, setError] = useState<string>("")
@@ -90,13 +91,11 @@ export function BuyComponent(){
                                                   <SelectValue placeholder="select asset" />
                                                 </SelectTrigger>
                                                 <SelectContent position="popper">
-                                                  <SelectItem value="btc">BTC</SelectItem>
-                                                  <SelectItem value="eth">ETH</SelectItem>
-                                                  <SelectItem value="usdt">USDT</SelectItem>
-                                                  <SelectItem value="usdc">USDC</SelectItem>
-                                                  <SelectItem value="sol">SOL</SelectItem>
-                                                  <SelectItem value="cUSD">cUSD</SelectItem>
-                                                  <SelectItem value="pyUSD">PYUSD</SelectItem>
+                                                    {
+                                                        supportedAssets.sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase())).map((asset) => (
+                                                            <SelectItem key={asset.value} value={asset.value}>{asset.label}</SelectItem>
+                                                        ))
+                                                    }
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
