@@ -55,6 +55,12 @@ export const navItems: NavItem[] = [
       icon: "minus",
       label: "withdraw",
   },
+  {
+    title: 'My Wallet',
+    href: '/dashboard/wallet',
+    icon: 'wallet',
+    label: 'wallet'
+  },
     {
         title: "Profile",
         href: "/dashboard/user/profile",

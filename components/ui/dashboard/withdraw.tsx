@@ -35,7 +35,8 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 
-const handleDeposit = () => {
+
+const handleWithdraw = () => {
 
 }
 
@@ -135,7 +136,7 @@ export function WithdrawForm(){
                                             {...field}
                                             >
                                                 <SelectTrigger className="w-full">
-                                                  <SelectValue placeholder="select payment method" />
+                                                  <SelectValue placeholder="withdrawal method" />
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                   <SelectItem value="btc">Mobile Money</SelectItem>

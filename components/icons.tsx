@@ -37,7 +37,8 @@ import {
     LockKeyhole,
     CheckCheck, 
     CheckCircleIcon,
-    Minus
+    Minus,
+    Wallet2Icon
   } from "lucide-react";
   
   export type Icon = LucideIcon;
@@ -76,6 +77,7 @@ import {
     chevron_down:ChevronDown,
     chevron_up:ChevronUp,
     check_circle_icon:CheckCircleIcon,
+    wallet: Wallet2Icon,
     gitHub: ({ ...props }: LucideProps) => (
       <svg
         aria-hidden="true"
