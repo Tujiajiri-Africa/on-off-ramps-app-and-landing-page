@@ -135,7 +135,7 @@ export function WithdrawForm(){
                                             {...field}
                                             >
                                                 <SelectTrigger className="w-full">
-                                                  <SelectValue placeholder="select asset" />
+                                                  <SelectValue placeholder="select payment method" />
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                   <SelectItem value="btc">Mobile Money</SelectItem>
