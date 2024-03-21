@@ -14,10 +14,16 @@ export const navItems: NavItem[] = [
       label: "Dashboard",
     },
     {
+      title: "Verification",
+      href: "/dashboard/verification",
+      icon: "check_circle_icon",
+      label: "Verification",
+    },
+    {
       title: "Buy/Sell",
       href: "/dashboard/buy-sell-crypto",
-      icon: "add",
-      label: "add",
+      icon: "dolarSign",
+      label: "Buy/Sell",
     },
     // {
     //   title: "Deposit",
@@ -37,24 +43,25 @@ export const navItems: NavItem[] = [
     //     icon: "list",
     //     label: "kanban",
     // },
-    // {
-    //     title: "Transactions",
-    //     href: "/dashboard/invoices",
-    //     icon: "list",
-    //     label: "list",
-    // },
+    {
+        title: "Deposit",
+        href: "/dashboard/deposit",
+        icon: "add",
+        label: "deposit",
+    },
+    {
+      title: "Withdraw",
+      href: "/dashboard/withdraw",
+      icon: "minus",
+      label: "withdraw",
+  },
     {
         title: "Profile",
         href: "/dashboard/user/profile",
         icon: "profile",
         label: "profile",
       },
-    // {
-    //   title: "Logout",
-    //   href: "/auth/logout",
-    //   icon: "logout",
-    //   label: "logout",
-    // },
+
   ];
 
 export type TimeSeriesApiResponse  = {

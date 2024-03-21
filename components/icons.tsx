@@ -33,7 +33,11 @@ import {
     BadgeDollarSign,
     List,
     ChevronDown,
-    ChevronUp
+    ChevronUp,
+    LockKeyhole,
+    CheckCheck, 
+    CheckCircleIcon,
+    Minus
   } from "lucide-react";
   
   export type Icon = LucideIcon;
@@ -58,6 +62,7 @@ import {
     billing: CreditCard,
     ellipsis: MoreVertical,
     add: Plus,
+    minus: Minus,
     warning: AlertTriangle,
     user: User,
     arrowRight: ArrowRight,
@@ -70,6 +75,7 @@ import {
     list: List,
     chevron_down:ChevronDown,
     chevron_up:ChevronUp,
+    check_circle_icon:CheckCircleIcon,
     gitHub: ({ ...props }: LucideProps) => (
       <svg
         aria-hidden="true"

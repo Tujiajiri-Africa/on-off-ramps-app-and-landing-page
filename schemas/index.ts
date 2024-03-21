@@ -139,3 +139,32 @@ export const UserPhoneVerificationSchema = z.object({
     message: "Country not supported yet"
 }
 )
+
+export const DepositSchema = z.object({
+    amount: z.number().gt(300,{
+        message: "Minimum deposit amount is KES 300"
+    })
+})
+
+export const WithdrawSchema = z.object({
+    amount: z.number().gt(50,{
+        message: "Minimum withdrawal amount is KES 100"
+    }),
+    channel: z.string()
+})
+
+export const BuyAssetSchema = z.object({
+    asset: z.string(),
+    amount: z.number().min(300,{
+        message: 'Minimum purchase amount is KES 300'
+    }),
+    payment_method: z.string()
+})
+
+export const SellAssetSchema = z.object({
+    asset: z.string(),
+    amount: z.number().min(300,{
+        message: 'Minimum purchase amount is KES 300'
+    }),
+    payment_method: z.string()
+})

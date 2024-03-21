@@ -25,6 +25,8 @@ import {
 import { Greetings } from '@/components/ui/dashboard/greetings'
 import {ArrowDownIcon, ArrowUpIcon} from '@radix-ui/react-icons'
 import Link from 'next/link'
+import {DepositForm} from '@/components/ui/dashboard/deposit'
+import {WithdrawForm} from '@/components/ui/dashboard/withdraw'
 
 export default async function Page() {
   return (
@@ -64,8 +66,9 @@ export default async function Page() {
             <TabsTrigger value="analytics" disabled>Analytics</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-           
+            
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+               
               {/* <LatestBtcPrice /> */}
                 
               <Card>
@@ -287,6 +290,10 @@ export default async function Page() {
                 </CardContent>
               </Card>
             </div>
+            {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              <DepositForm />
+              <WithdrawForm />
+            </div> */}
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-4">
                 <CardHeader>
