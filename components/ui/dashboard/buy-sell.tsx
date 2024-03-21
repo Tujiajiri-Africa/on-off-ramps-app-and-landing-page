@@ -21,7 +21,7 @@ export function BuySellComponent(){
             <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
              
               <Tabs defaultValue="buy" className="w-full">
-                <TabsList>
+                <TabsList className='w-full'>
                   <TabsTrigger value="buy" className=''>Buy</TabsTrigger>
                   <TabsTrigger value="sell" className=''>Sell</TabsTrigger>
                 </TabsList>
