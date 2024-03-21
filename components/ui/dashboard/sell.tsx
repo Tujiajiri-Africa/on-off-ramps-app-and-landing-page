@@ -27,6 +27,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {SellAssetSchema} from '@/schemas'
+import {supportedAssets} from '@/helpers/data'
 
 export function SellComponent(){
     const [error, setError] = useState<string>("")
@@ -85,14 +86,12 @@ export function SellComponent(){
                                                 <SelectTrigger className="w-full">
                                                   <SelectValue placeholder="select asset" />
                                                 </SelectTrigger>
-                                                <SelectContent>
-                                                  <SelectItem value="btc">BTC</SelectItem>
-                                                  <SelectItem value="eth">ETH</SelectItem>
-                                                  <SelectItem value="usdt">USDT</SelectItem>
-                                                  <SelectItem value="usdc">USDC</SelectItem>
-                                                  <SelectItem value="sol">SOL</SelectItem>
-                                                  <SelectItem value="cUSD">cUSD</SelectItem>
-                                                  <SelectItem value="pyUSD">PYUSD</SelectItem>
+                                                <SelectContent position="popper">
+                                                    {
+                                                        supportedAssets.sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase())).map((asset) => (
+                                                            <SelectItem key={asset.value} value={asset.value}>{asset.label}</SelectItem>
+                                                        ))
+                                                    }
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
