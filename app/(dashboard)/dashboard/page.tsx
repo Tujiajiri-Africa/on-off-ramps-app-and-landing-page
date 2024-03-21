@@ -226,7 +226,7 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                    <Link href='/dashboard/crypto'>
+                    <Link href='/dashboard/buy-sell-crypto'>
                         Buy/Sell
                     </Link>
                   </Button>
@@ -280,7 +280,7 @@ export default async function Page() {
                   <Button
                     //className="w-full"
                   >
-                    <Link href='/dashboard/crypto'>
+                    <Link href='/dashboard/buy-sell-crypto'>
                         Buy/Sell
                     </Link>
                   </Button>
