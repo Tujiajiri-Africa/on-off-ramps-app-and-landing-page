@@ -181,7 +181,8 @@ export const countries:CountryProps[] = [
 export type Asset = {
   value: string
   label: string
-  icon: LucideIcon
+  icon: LucideIcon,
+  active: boolean
 }
  
 export const supportedAssets: Asset[] = [
@@ -189,40 +190,67 @@ export const supportedAssets: Asset[] = [
     value: "bitcoin",
     label: "BTC",
     icon: HelpCircle,
+    active: true,
   },
   {
     value: "eth",
     label: "ETH",
     icon: Circle,
+    active: true,
   },
   {
     value: "usdt",
     label: "USDT",
     icon: ArrowUpCircle,
+    active: true,
   },
   {
     value: "solana",
     label: "SOL",
     icon: CheckCircle2,
+    active: true,
   },
   {
     value: "matic",
     label: "MATIC",
     icon: XCircle,
+    active: true,
   },
   {
       value: 'usdc',
       label: 'USDC',
-      icon: XCircle
+      icon: XCircle,
+      active: true,
   },
   {
       value: 'pyusd',
       label: 'PYUSD',
-      icon: XCircle
+      icon: XCircle,
+      active: true,
   },
   {
       value: 'cUSD',
       label: 'cUSD',
-      icon: XCircle
+      icon: XCircle,
+      active: true,
   }
 ] 
+
+export type SupportedPaymentMethods = {
+  value: string;
+  label: string;
+  active: boolean;
+}
+
+export const supportedPaymentMethods:SupportedPaymentMethods[] = [
+  {
+    value: 'mobile_money',
+    label: 'Mobile Money',
+    active: true,
+  },
+  {
+    value: 'bank',
+    label: 'Bank Transfer',
+    active: true
+  }
+]

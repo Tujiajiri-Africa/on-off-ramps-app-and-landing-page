@@ -27,7 +27,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {BuyAssetSchema} from '@/schemas'
 import{AssetList} from '@/components/ui/dashboard/supported-assets'
-import {supportedAssets} from '@/helpers/data'
+import {supportedAssets, supportedPaymentMethods} from '@/helpers/data'
 
 export function BuyComponent(){
     const [error, setError] = useState<string>("")
@@ -67,7 +67,7 @@ export function BuyComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700"
                                         >
-                                        Select asset to buy
+                                        Select the asset you want to buy
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -92,7 +92,10 @@ export function BuyComponent(){
                                                 </SelectTrigger>
                                                 <SelectContent position="popper">
                                                     {
-                                                        supportedAssets.sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase())).map((asset) => (
+                                                        supportedAssets
+                                                        .filter((s) => s.active == true)
+                                                        .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
+                                                        .map((asset) => (
                                                             <SelectItem key={asset.value} value={asset.value}>{asset.label}</SelectItem>
                                                         ))
                                                     }
@@ -145,7 +148,7 @@ export function BuyComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700"
                                         >
-                                        Select payment method
+                                        Select how you want to pay
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -169,8 +172,14 @@ export function BuyComponent(){
                                                   <SelectValue placeholder="payment method" />
                                                 </SelectTrigger>
                                                 <SelectContent>
-                                                  <SelectItem value="btc">Mobile Money</SelectItem>
-                                                  <SelectItem value="eth">Bank</SelectItem>
+                                                    {
+                                                        supportedPaymentMethods
+                                                        .filter((p) => p.active == true)
+                                                        .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
+                                                        .map((channel) => (
+                                                            <SelectItem key={channel.value} value={channel.value}>{channel.label}</SelectItem>
+                                                        ))
+                                                    }
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
