@@ -47,7 +47,7 @@ export async function MainUserDashboard() {
             <Button
                 className="bg-[#16a34a] dark:text-white"
             >
-               <Link href='/dashboard/buy-sell-crypto'>
+               <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDT&currency=KES`}>
                         Buy/Sell
                     </Link>
             </Button>
@@ -56,7 +56,7 @@ export async function MainUserDashboard() {
           <Button
                 className="sm:hidden bg-[#16a34a] dark:text-white"
             >
-                <Link href='/dashboard/buy-sell-crypto'>
+                <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDT&currency=KES`}>
                         Buy/Sell
                     </Link>
           </Button>
@@ -121,7 +121,7 @@ export async function MainUserDashboard() {
                   <Button
                     //className="w-full"
                   >
-                    <Link href='/dashboard/buy-sell-crypto'>
+                    <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
                         Buy/Sell
                     </Link>
                   </Button>
@@ -176,7 +176,7 @@ export async function MainUserDashboard() {
                   <Button
                     //className="w-full"
                   >
-                   <Link href='/dashboard/buy-sell-crypto'>
+                   <Link href={`/dashboard/buy-sell-crypto?baseAsset=ETH&currency=KES`}>
                         Buy/Sell
                     </Link>
                   </Button>
@@ -229,7 +229,7 @@ export async function MainUserDashboard() {
                   <Button
                     //className="w-full"
                   >
-                    <Link href='/dashboard/buy-sell-crypto'>
+                    <Link href={`/dashboard/buy-sell-crypto?baseAsset=SOL&currency=KES`}>
                         Buy/Sell
                     </Link>
                   </Button>
@@ -283,7 +283,7 @@ export async function MainUserDashboard() {
                   <Button
                     //className="w-full"
                   >
-                    <Link href='/dashboard/buy-sell-crypto'>
+                    <Link href={`/dashboard/buy-sell-crypto?baseAsset=MATIC&currency=KES`}>
                         Buy/Sell
                     </Link>
                   </Button>
