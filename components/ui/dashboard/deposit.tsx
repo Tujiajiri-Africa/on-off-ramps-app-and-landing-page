@@ -56,10 +56,9 @@ export function DepositForm(){
         <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none'>
         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
         <Card>
-            
             <CardHeader>
                 <CardTitle>Deposit</CardTitle>
-                <CardDescription className="mb-10">Deposit into your mobile money wallet and start transacting with ease</CardDescription>
+                <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription>
             </CardHeader>
             <CardContent>
             
