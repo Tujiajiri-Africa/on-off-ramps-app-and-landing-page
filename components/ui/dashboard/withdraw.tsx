@@ -65,10 +65,9 @@ export function WithdrawForm(){
         <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none'>
         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
         <Card>
-            
             <CardHeader>
                 <CardTitle>Withdraw</CardTitle>
-                <CardDescription className="mb-10">Withdraw from your KES wallet to your mobile money or bank account</CardDescription>
+                <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription>
             </CardHeader>
             <CardContent>
             
