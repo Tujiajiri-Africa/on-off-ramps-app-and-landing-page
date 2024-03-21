@@ -34,6 +34,7 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
+import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
 
 
 const handleWithdraw = () => {
@@ -133,13 +134,21 @@ export function WithdrawForm(){
                                             /> */}
                                             <Select
                                             {...field}
+                                            onValueChange={field.onChange}
+                                            defaultValue={field.value}
                                             >
                                                 <SelectTrigger className="w-full">
                                                   <SelectValue placeholder="withdrawal method" />
                                                 </SelectTrigger>
                                                 <SelectContent>
-                                                  <SelectItem value="btc">Mobile Money</SelectItem>
-                                                  <SelectItem value="eth">Bank</SelectItem>
+                                                    {
+                                                        supportedPaymentMethods
+                                                        .filter((p) => p.active == true)
+                                                        .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
+                                                        .map((channel) => (
+                                                            <SelectItem key={channel.value} value={channel.value}>{channel.label}</SelectItem>
+                                                        ))
+                                                    }
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
