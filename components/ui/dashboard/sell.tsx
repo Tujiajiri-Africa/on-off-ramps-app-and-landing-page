@@ -79,6 +79,8 @@ export function SellComponent(){
                                             /> */}
                                             <Select
                                             {...field}
+                                            onValueChange={field.onChange}
+                                            defaultValue={field.value}
                                             >
                                                 <SelectTrigger className="w-full">
                                                   <SelectValue placeholder="select asset" />
@@ -157,6 +159,8 @@ export function SellComponent(){
                                             /> */}
                                             <Select
                                             {...field}
+                                            onValueChange={field.onChange}
+                                            defaultValue={field.value}
                                             >
                                                 <SelectTrigger className="w-full">
                                                   <SelectValue placeholder="payment method" />
