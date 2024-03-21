@@ -41,6 +41,10 @@ export function BuyComponent(){
       }
     })
 
+    const handleValueChange = () => {
+
+    }
+
     return (
         <>
                 <Card>
@@ -79,11 +83,13 @@ export function BuyComponent(){
                                             /> */}
                                             <Select
                                             {...field}
+                                            onValueChange={field.onChange}
+                                            defaultValue={field.value}
                                             >
                                                 <SelectTrigger className="w-full">
                                                   <SelectValue placeholder="select asset" />
                                                 </SelectTrigger>
-                                                <SelectContent>
+                                                <SelectContent position="popper">
                                                   <SelectItem value="btc">BTC</SelectItem>
                                                   <SelectItem value="eth">ETH</SelectItem>
                                                   <SelectItem value="usdt">USDT</SelectItem>
@@ -157,6 +163,8 @@ export function BuyComponent(){
                                             /> */}
                                             <Select
                                             {...field}
+                                            onValueChange={field.onChange}
+                                            defaultValue={field.value}
                                             >
                                                 <SelectTrigger className="w-full">
                                                   <SelectValue placeholder="payment method" />
