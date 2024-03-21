@@ -251,6 +251,6 @@ export const supportedPaymentMethods:SupportedPaymentMethods[] = [
   {
     value: 'bank',
     label: 'Bank Transfer',
-    active: false
+    active: true
   }
 ]
