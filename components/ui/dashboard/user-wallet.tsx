@@ -138,10 +138,10 @@ export function UserWallet(){
                                     <Card>
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                         <CardTitle className="text-sm font-medium">
-                                            ETH
+                                            cUSD
                                         </CardTitle>
                                         <Image
-                                            src={ETH_LOGO.src}
+                                            src={cUSD_LOGO.src}
                                             width={30}
                                             height={30}
                                             alt={'btc-logo'}
