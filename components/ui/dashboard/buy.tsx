@@ -42,13 +42,10 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {BuyAssetSchema} from '@/schemas'
-import{AssetList} from '@/components/ui/dashboard/supported-assets'
 import {supportedAssets, supportedPaymentMethods} from '@/helpers/data'
 import {Clock8Icon} from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
 
 export function BuyComponent(){
     const [error, setError] = useState<string>("")
