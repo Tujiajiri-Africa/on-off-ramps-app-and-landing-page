@@ -34,10 +34,16 @@ export function UserWallet(){
                                 <div className="flex items-center justify-between space-y-2">
                                     <div className="md:flex items-center space-x-2">
                                     <CardTitle>
-                                        Crypto Wallet Balance
+                                        Crypto Wallet
                                     </CardTitle>
-
+                                    
                                     </div>
+                                    <Button 
+                                        className="content-start group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
+                                        variant={'outline'}
+                                    >
+                                        Manage
+                                    </Button>
                                 </div>   
                             </CardHeader>
                             <CardContent className="pl-2">
@@ -64,7 +70,7 @@ export function UserWallet(){
                                                 </span> last 1 month
                                             </p>
                                             <Button
-                                                //className="w-full"
+                                                className="w-full"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
                                                     Buy/Sell
@@ -95,7 +101,7 @@ export function UserWallet(){
                                                 </span> last 1 month
                                             </p>
                                             <Button
-                                                //className="w-full"
+                                                className="w-full"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
                                                     Buy/Sell
@@ -126,7 +132,7 @@ export function UserWallet(){
                                                 </span> last 1 month
                                             </p>
                                             <Button
-                                                //className="w-full"
+                                                className="w-full"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
                                                     Buy/Sell
@@ -157,7 +163,7 @@ export function UserWallet(){
                                                 </span> last 1 month
                                             </p>
                                             <Button
-                                                //className="w-full"
+                                                className="w-full"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
                                                     Buy/Sell
