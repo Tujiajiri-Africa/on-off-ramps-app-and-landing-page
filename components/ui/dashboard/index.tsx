@@ -68,7 +68,7 @@ export async function MainUserDashboard() {
           <TabsContent value="overview" className="space-y-4">
             
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
-            <Card className="col-span-4">
+            <div className="col-span-4">
                 <CardHeader>
                 <div className="flex items-center justify-between space-y-2">
                     <div className="md:flex items-center space-x-2">
@@ -301,7 +301,7 @@ export async function MainUserDashboard() {
               </Card>
                   </div>
                 </CardContent>
-              </Card>
+              </div>
               {/* <LatestBtcPrice /> */}
                 
 
