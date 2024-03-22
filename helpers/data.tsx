@@ -17,6 +17,8 @@ import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
 import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
 import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 import PAYPAL_USD_LOGO from '@/app/assets/logo/crypto/paypal-usd-logo-transparent.png'
+import ADA_LOGO from '@/app/assets/logo/crypto/cardano-ada-logo.svg'
+import TETHER_GOLD_LOGO from '@/app/assets/logo/crypto/tether-gold-xaut-logo.svg'
 
 import Image, { ImageProps } from 'next/image'
 
@@ -245,6 +247,17 @@ export const supportedAssets: Asset[] = [
       label: 'cUSD',
       icon: cUSD_LOGO,
       active: true,
+  },
+  {
+    value: 'cardano',
+    label: 'ADA',
+    icon: ADA_LOGO,
+    active: true
+  },{
+    value: 'tether_gold',
+    label: 'XAUT',
+    icon: TETHER_GOLD_LOGO,
+    active: true
   }
 ] 
 
