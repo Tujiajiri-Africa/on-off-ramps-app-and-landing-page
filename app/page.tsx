@@ -7,6 +7,8 @@ import Contact from '@/components/ui/contact'
 import  Navbar  from '@/components/ui/navbar'
 import Footer from '@/components/ui/footer'
 import Products from '@/components/ui/products'
+import SupportedAssets from '@/components/ui/supportedAssets'
+
 //import WaitListBanner from '@/components/ui/waitlist-banner'
 
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
@@ -24,10 +26,12 @@ export default function Home() {
           <Navbar/>
           {/* <NavbarV2 /> */}
           <Hero />
+          
           <About />
           <Features />
           <FeatureList />
           <Products />
+          <SupportedAssets />
           <Contact />
           {/* <WaitListBanner /> */}
           <Footer />
