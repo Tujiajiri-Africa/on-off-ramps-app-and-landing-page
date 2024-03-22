@@ -9,6 +9,17 @@ import {
   XCircle,
 } from "lucide-react"
 
+import BTC_LOGO from '@/app/assets/logo/bitcoin-btc-logo.svg'
+import ETH_LOGO from '@/app/assets/logo/ethereum-eth-logo.svg'
+import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
+import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
+import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
+import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
+import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
+import PAYPAL_USD_LOGO from '@/app/assets/logo/crypto/paypal-usd-logo-transparent.png'
+
+import Image, { ImageProps } from 'next/image'
+
 export const PROD_BASE_URI = process.env.PROD_BASE_URI
 export const DEV_BASE_URI = process.env.DEV_BASE_URI
 export const ENVIRONMENT = process.env.ENVIRONMENT
@@ -70,12 +81,12 @@ export const navItems: NavItem[] = [
     icon: 'wallet',
     label: 'wallet'
   },
-    {
-        title: "Profile",
-        href: "/dashboard/user/profile",
-        icon: "profile",
-        label: "profile",
-      },
+  {
+    title: "Profile",
+    href: "/dashboard/user/profile",
+    icon: "profile",
+    label: "profile",
+  },
 
   ];
 
@@ -182,7 +193,7 @@ export const countries:CountryProps[] = [
 export type Asset = {
   value: string
   label: string
-  icon: LucideIcon,
+  icon: ImageProps,
   active: boolean
 }
  
@@ -190,49 +201,49 @@ export const supportedAssets: Asset[] = [
   {
     value: "bitcoin",
     label: "BTC",
-    icon: HelpCircle,
+    icon: BTC_LOGO,
     active: true,
   },
   {
     value: "eth",
     label: "ETH",
-    icon: Circle,
+    icon: ETH_LOGO,
     active: true,
   },
   {
     value: "usdt",
     label: "USDT",
-    icon: ArrowUpCircle,
+    icon: USDT_LOGO,
     active: true,
   },
   {
     value: "solana",
     label: "SOL",
-    icon: CheckCircle2,
+    icon: SOL_lOGO,
     active: true,
   },
   {
     value: "matic",
     label: "MATIC",
-    icon: XCircle,
+    icon: MATIC_LOGO,
     active: true,
   },
   {
       value: 'usdc',
       label: 'USDC',
-      icon: XCircle,
+      icon: USDC_LOGO,
       active: true,
   },
   {
       value: 'pyusd',
       label: 'PYUSD',
-      icon: XCircle,
+      icon: PAYPAL_USD_LOGO,
       active: true,
   },
   {
       value: 'cUSD',
       label: 'cUSD',
-      icon: XCircle,
+      icon: cUSD_LOGO,
       active: true,
   }
 ] 

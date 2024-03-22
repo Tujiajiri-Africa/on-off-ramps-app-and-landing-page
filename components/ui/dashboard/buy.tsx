@@ -42,10 +42,10 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {BuyAssetSchema} from '@/schemas'
-import{AssetList} from '@/components/ui/dashboard/supported-assets'
 import {supportedAssets, supportedPaymentMethods} from '@/helpers/data'
 import {Clock8Icon} from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function BuyComponent(){
     const [error, setError] = useState<string>("")
@@ -114,7 +114,12 @@ export function BuyComponent(){
                                                         .filter((s) => s.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((asset) => (
-                                                            <SelectItem key={asset.value} value={asset.value}>{asset.label}</SelectItem>
+                                                                <SelectItem key={asset.value} value={asset.value}>
+                                                                        <div className='flex items-center content-center gap-2'>
+                                                                            <Image src={asset.icon.src} width={18} height={18} alt={asset.label} />
+                                                                            {asset.label}
+                                                                        </div>
+                                                                </SelectItem>
                                                         ))
                                                     }
                                                 </SelectContent>
