@@ -68,10 +68,20 @@ export async function MainUserDashboard() {
           <TabsContent value="overview" className="space-y-4">
             
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
-               
-              {/* <LatestBtcPrice /> */}
-                
-              <Card>
+            <Card className="col-span-4">
+                <CardHeader>
+                <div className="flex items-center justify-between space-y-2">
+                    <div className="md:flex items-center space-x-2">
+                    <CardTitle>
+                      Popular Assets
+                    </CardTitle>
+                   
+                    </div>
+                  </div>   
+                </CardHeader>
+                <CardContent className="pl-2">
+                  <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                  <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     BTC
@@ -289,6 +299,12 @@ export async function MainUserDashboard() {
                   </Button>
                 </CardContent>
               </Card>
+                  </div>
+                </CardContent>
+              </Card>
+              {/* <LatestBtcPrice /> */}
+                
+
             </div>
             {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <DepositForm />
