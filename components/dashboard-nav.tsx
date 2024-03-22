@@ -9,7 +9,7 @@ import { NavItem } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 import {signOut} from 'next-auth/react'
 import { Button } from "@/components/ui/button";
-import { LogOut } from 'lucide-react'
+import { LogOut, Settings } from 'lucide-react'
 import {Separator} from '@/components/ui/separator'
 
 interface DashboardNavProps {
@@ -52,17 +52,33 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
         );
       })}
 
-    <Separator className="my-3" />
+    <Separator className="my-10" />
 
-    <Button
-      className="content-start w-full group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
-      variant={'outline'}
-          onClick={() => {
-            signOut()
-          }}
-        >
-          <LogOut className="mr-2 h-4 w-4"/>  Sign Out
-        </Button>
+      <span className="group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+        <Settings className="mr-2 h-4 w-4" />
+        Settings
+        
+      </span>
+      
+      <span className="group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+      {/* <Button
+        //className="content-start w-full group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
+        variant={'outline'}
+            onClick={() => {
+              signOut()
+            }}
+          >
+            <LogOut className="mr-2 h-4 w-4"/>  <span>Sign Out</span>
+        </Button> */}
+        <button 
+          className="flex "
+          onClick={() => signOut()}
+          >
+            <LogOut className="mr-2 h-4 w-4"/>  <span>Sign Out</span>
+        </button>
+      </span>
+
+        {/* <LogOut className=" group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground mr-2 h-4 w-4"/>  <span>Sign Out</span> */}
     </nav>
   );
 }
