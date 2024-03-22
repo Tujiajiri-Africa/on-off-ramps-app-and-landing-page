@@ -105,7 +105,7 @@ export function UserWallet(){
                                             <Button
                                                 className="w-full"
                                             >
-                                                <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
+                                                <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDT&currency=KES`}>
                                                     Buy/Sell
                                                 </Link>
                                             </Button>
@@ -136,7 +136,7 @@ export function UserWallet(){
                                             <Button
                                                 className="w-full"
                                             >
-                                                <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
+                                                <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDC&currency=KES`}>
                                                     Buy/Sell
                                                 </Link>
                                             </Button>
@@ -167,7 +167,7 @@ export function UserWallet(){
                                             <Button
                                                 className="w-full"
                                             >
-                                                <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
+                                                <Link href={`/dashboard/buy-sell-crypto?baseAsset=cUSD&currency=KES`}>
                                                     Buy/Sell
                                                 </Link>
                                             </Button>

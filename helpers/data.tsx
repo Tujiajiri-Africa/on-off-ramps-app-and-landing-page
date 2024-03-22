@@ -25,6 +25,7 @@ export const navItems: NavItem[] = [
       title: "Verification",
       href: "/dashboard/verification",
       icon: "check_circle_icon",
+      //icon: 'badge_check'
       label: "Verification",
     },
     {
@@ -54,13 +55,13 @@ export const navItems: NavItem[] = [
     {
         title: "Deposit",
         href: "/dashboard/deposit",
-        icon: "add",
+        icon: "circle_arrow_up",
         label: "deposit",
     },
     {
       title: "Withdraw",
       href: "/dashboard/withdraw",
-      icon: "minus",
+      icon: "circle_arrow_down",
       label: "withdraw",
   },
   {

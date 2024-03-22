@@ -38,7 +38,10 @@ import {
     CheckCheck, 
     CheckCircleIcon,
     Minus,
-    Wallet2Icon
+    Wallet2Icon,
+    BadgeCheck,
+    ArrowDownCircle,
+    ArrowUpCircleIcon
   } from "lucide-react";
   
   export type Icon = LucideIcon;
@@ -78,6 +81,9 @@ import {
     chevron_up:ChevronUp,
     check_circle_icon:CheckCircleIcon,
     wallet: Wallet2Icon,
+    badge_check:BadgeCheck,
+    circle_arrow_down:ArrowDownCircle,
+    circle_arrow_up:ArrowUpCircleIcon,
     gitHub: ({ ...props }: LucideProps) => (
       <svg
         aria-hidden="true"
