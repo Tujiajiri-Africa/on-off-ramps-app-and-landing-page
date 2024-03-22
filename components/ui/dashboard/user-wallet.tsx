@@ -66,6 +66,7 @@ export function UserWallet(){
                                             <div className='text-2xl font-bold'>
                                                 KES 43,184.00
                                             </div>
+                                            <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="text-green-600">
                                                     10.19%
@@ -97,6 +98,7 @@ export function UserWallet(){
                                             <div className='text-2xl font-bold'>
                                                 KES 5,184.00
                                             </div>
+                                            <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="text-green-600">
                                                     34.97%
@@ -128,6 +130,7 @@ export function UserWallet(){
                                             <div className='text-2xl font-bold'>
                                                 KES 8,184.00
                                             </div>
+                                            <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="text-green-600">
                                                     25.93%
@@ -159,6 +162,7 @@ export function UserWallet(){
                                             <div className='text-2xl font-bold'>
                                                 KES 2,184.00
                                             </div>
+                                            <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="text-red-600">
                                                     2.23%

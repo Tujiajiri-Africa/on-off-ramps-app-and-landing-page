@@ -63,7 +63,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
         );
       })}
 
-      <Separator className="my-3" />
+      <Separator className="max-xl:my-6 my-3" />
 
       <span className="cursor-pointer group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
         <Settings className="mr-2 h-4 w-4" />
