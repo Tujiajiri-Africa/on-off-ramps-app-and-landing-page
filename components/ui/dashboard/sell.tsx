@@ -65,7 +65,7 @@ export function SellComponent(){
                         <Card>
                     <CardHeader>
                       <CardTitle>Sell</CardTitle>
-                      <CardDescription>Sell your crypto for fiat</CardDescription>
+                      <CardDescription>Sell your crypto for fiat and receive your money into your mobile money or directly to your bank account</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>
@@ -167,7 +167,7 @@ export function SellComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700"
                                         >
-                                        Select how you want to pay
+                                        Select how you want to receive the pay
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
