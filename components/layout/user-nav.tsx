@@ -14,6 +14,7 @@ import {
 import { signOut, useSession } from "next-auth/react";
 import {getUserNameFromEmail} from '@/lib/utils'
 import Link from "next/link";
+import { LogOut, Settings , User2Icon} from 'lucide-react'
 
 export function UserNav() {
   const { data: session } = useSession();
@@ -50,7 +51,8 @@ export function UserNav() {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              <User2Icon className="mr-2 h-4 w-4" />
               <Link href='/dashboard/user/profile'>Profile</Link>
               {/* <Drop>downMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
             </DropdownMenuItem>
@@ -58,17 +60,19 @@ export function UserNav() {
               Billing
               <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> 
             </DropdownMenuItem> */}
-            {/* <DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              <Settings className="mr-2 h-4 w-4" />
               Settings
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> 
-            </DropdownMenuItem> */}
+              {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>  */}
+            </DropdownMenuItem>
             {/* <DropdownMenuItem>
               Support
             </DropdownMenuItem> */}
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => signOut()}>
-            Sign out
+          <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">
+            <LogOut className="mr-2 h-4 w-4" />
+              Sign out
             {/* <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut> */}
           </DropdownMenuItem>
         </DropdownMenuContent>
