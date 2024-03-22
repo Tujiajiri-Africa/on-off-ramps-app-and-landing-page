@@ -21,7 +21,9 @@ import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 export function UserWallet(){
     return (
         <>
-            <ScrollArea className="h-full">
+            <ScrollArea className="h-full"
+            //dark:bg-[#182122]
+            >
                 <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
                     <div className="flex items-center justify-between space-y-2">
                         <h2 className="text-3xl font-bold tracking-tight">
@@ -42,7 +44,7 @@ export function UserWallet(){
                                         className="content-start group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
                                         variant={'outline'}
                                     >
-                                        Manage
+                                        View More
                                     </Button>
                                 </div>   
                             </CardHeader>
