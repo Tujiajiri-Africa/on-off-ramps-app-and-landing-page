@@ -1,9 +1,11 @@
 import { DashboardNav } from "@/components/dashboard-nav";
 import { navItems } from "@/helpers/data";
 import { cn } from "@/lib/utils";
+import {ScrollArea, ScrollBar} from '@/components/ui/scroll-area'
 
 export default function Sidebar() {
     return (
+      
       <nav
         className={cn(`relative hidden h-screen border-r pt-16 lg:block w-72`)}
       >
@@ -18,5 +20,7 @@ export default function Sidebar() {
           </div>
         </div>
       </nav>
+     
+
     );
   }

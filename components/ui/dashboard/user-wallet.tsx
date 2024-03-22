@@ -15,7 +15,7 @@ import ETH_LOGO from '@/app/assets/logo/ethereum-eth-logo.svg'
 import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
 import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
 import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
-import USDC_LOGO from '@/app/assets/logo/crypto/usdc_transparent.png'
+import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
 import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 
 export function UserWallet(){
