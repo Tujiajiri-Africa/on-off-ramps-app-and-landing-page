@@ -45,6 +45,7 @@ import {SellAssetSchema} from '@/schemas'
 import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
 import Link from 'next/link'
 import { Clock8Icon } from 'lucide-react'
+import Image from 'next/image'
 
 export function SellComponent(){
     const [error, setError] = useState<string>("")
@@ -109,7 +110,12 @@ export function SellComponent(){
                                                         .filter((s) => s.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((asset) => (
-                                                            <SelectItem key={asset.value} value={asset.value}>{asset.label}</SelectItem>
+                                                            <SelectItem key={asset.value} value={asset.value}>
+                                                                <div className='flex items-center content-center gap-2'>
+                                                                    <Image src={asset.icon.src} width={18} height={18} alt={asset.label} />
+                                                                    {asset.label}
+                                                                </div>
+                                                            </SelectItem>
                                                         ))
                                                     }
                                                 </SelectContent>
