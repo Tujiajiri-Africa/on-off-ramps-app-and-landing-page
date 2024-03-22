@@ -69,7 +69,7 @@ export function BuyComponent(){
                 <Card>
                     <CardHeader>
                       <CardTitle>Buy</CardTitle>
-                      <CardDescription>Buy crypto and pay with either mobile money or from bank</CardDescription>
+                      <CardDescription>Buy crypto and pay with either mobile money or from your bank account</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>
