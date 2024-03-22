@@ -20,7 +20,6 @@ import {
   CardFooter } from "@/components/ui/card";
 import Image from 'next/image'
 import {CheckCircle2,CheckCheck, CheckCircle2Icon} from 'lucide-react'
-import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface DashboardNavProps {

@@ -31,7 +31,7 @@ export function UserWallet(){
                         </h2>
                     </div>
                     <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
-                        <Card className="col-span-4">
+                        <div className="col-span-4">
                             <CardHeader>
                                 <div className="flex items-center justify-between space-y-2">
                                     <div className="md:flex items-center space-x-2">
@@ -181,7 +181,7 @@ export function UserWallet(){
 
                                 </div>
                             </CardContent>
-                        </Card>
+                        </div>
                     </div>
                 </div>
             </ScrollArea>
