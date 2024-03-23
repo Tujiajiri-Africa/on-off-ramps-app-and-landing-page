@@ -20,6 +20,26 @@ export const RegisterSchema = z.object({
     }),
     confirm_password: z.string().min(6,{
         message: "Minimum 6 characters required"
+    }),
+    username: z.string().min(4,{
+        message: 'Miimum 4 characters required'
+    }).max(8,{
+        message: 'Maximum 8 characters required'
+    }),
+    first_name: z.string().min(4, {
+        message: 'Minimum 4 caharacters required'
+    }).max(8,{
+        message: 'Maximum 8 characters required'
+    }),
+    last_name: z.string().min(4, {
+        message: "Minimum 4 characters required"
+    }).max(8,{
+        message: 'Maximum 8 characters required'
+    }),
+    phone: z.string().min(13, {
+        message: 'Minimum 13 characters required'
+    }).max(13,{
+        message: 'Maxi um 13 characters required'
     })
 }).refine(
     (values) => {
