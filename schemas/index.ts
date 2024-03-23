@@ -22,7 +22,7 @@ export const RegisterSchema = z.object({
         message: "Minimum 6 characters required"
     }),
     username: z.string().min(4,{
-        message: 'Miimum 4 characters required'
+        message: 'Minimum 4 characters required'
     }).max(8,{
         message: 'Maximum 8 characters required'
     }),
@@ -39,7 +39,7 @@ export const RegisterSchema = z.object({
     phone: z.string().min(13, {
         message: 'Minimum 13 characters required'
     }).max(13,{
-        message: 'Maxi um 13 characters required'
+        message: 'Maximum 13 characters required'
     })
 }).refine(
     (values) => {

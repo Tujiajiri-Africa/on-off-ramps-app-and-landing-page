@@ -42,14 +42,6 @@ export const {
       //console.log("LOGGED IN USER DETAILS", user)
       return true;
     },
-    async session({ session, token }) {
-      session.user.accessToken = token.accessToken;
-      //session.user.refreshToken = token.refreshToken;
-      session.user.accessTokenExpires = token.accessTokenExpires;
-      session.email = token.email
-      //console.log("USER SESSION", session)
-      return session;
-    },
     async jwt({ token, user, account }) {
       if (account && user) {
         return {
@@ -59,14 +51,30 @@ export const {
           tokenType: user['tokenType'],
           email: user['user']['email'],
           emailVerifiedAt: user['user']['email_verified_at'],
-          id: user.id
+          id: user.id,
+          username: user['user']['username'],
+          first_name: user['user']['first_name'],
+          last_name: user['user']['last_name'],
+          phone: user['user']['phone']
         };
       }
 
       //console.log('USER JWT', token)
       return token;
     },
-
+    async session({ session, token }) {
+      session.user.accessToken = token.accessToken;
+      //session.user.refreshToken = token.refreshToken;
+      session.user.accessTokenExpires = token.accessTokenExpires;
+      session.user.email = token.email
+      session.user.first_name = token.first_name;
+      session.user.last_name = token.last_name;
+      session.user.username = token.username;
+      session.user.phone = token.phone;
+      session.user.name = token.first_name + ' ' + token.last_name;
+      //console.log("USER SESSION", session)
+      return session;
+    },
 
   },
   secret: process.env.AUTH_SECRET,

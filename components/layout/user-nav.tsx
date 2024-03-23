@@ -29,7 +29,7 @@ export function UserNav() {
                 alt={session.user?.name ?? ""}
               /> */}
               <AvatarFallback>
-                 {`${session.user?.email?.[0].toUpperCase()}${session.user?.email?.[1].toUpperCase()}`} 
+                 {`${session.user?.first_name?.[0].toUpperCase()}${session.user?.last_name?.[1].toUpperCase()}`} 
                  {/**+ session.user?.email?.[1].toUpperCase() */}
                 {/* DO */}
               </AvatarFallback>

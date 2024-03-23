@@ -8,7 +8,7 @@ export function Greetings(){
     return (
         session && (
             <h2 className="text-3xl font-bold tracking-tight">
-                Hi, Welcome back 👋 { session.data?.user?.name ? session.data?.user?.name: getUserNameFromEmail(session.data?.user?.email)}
+                Hi, Welcome back 👋 { session.data?.user?.username ? session.data?.user?.username: getUserNameFromEmail(session.data?.user?.email)}
             </h2>
         )
 )
