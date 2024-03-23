@@ -17,6 +17,8 @@ import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
 import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
 import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
 import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
+import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart-metrics'
+
 
 export function UserWallet(){
     return (
@@ -182,6 +184,27 @@ export function UserWallet(){
                                 </div>
                             </CardContent>
                         </div>
+                    </div>
+                    <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
+                        <Card className="col-span-5">
+                            <CardHeader>
+                            <div className="flex items-center justify-between space-y-2">
+                                <div className="md:flex items-center space-x-2">
+                                <CardTitle>
+                                    Balance Analysis
+                                </CardTitle>
+                                {/* <CalendarDateRangePicker /> */}
+                                </div>
+                            </div>   
+                            </CardHeader>
+                            <CardContent className='pl-2'>
+                                <UserBalanceChartAnalysis /> 
+                             
+                            </CardContent>
+                        </Card>
+                        <Card className='col-span-2'>
+
+                        </Card>
                     </div>
                 </div>
             </ScrollArea>

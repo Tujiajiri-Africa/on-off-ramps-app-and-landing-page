@@ -279,3 +279,42 @@ export const supportedPaymentMethods:SupportedPaymentMethods[] = [
     active: true
   }
 ]
+
+export type WaletChartData = {
+  asset: string;
+  label: string;
+  total?: number;
+  incoming: number;
+  outgoing: number;
+}
+
+export const sampleWalletData:WaletChartData[] = [
+  {
+    asset: 'BTC',
+    label: 'BTC',
+    total: 2000,
+    incoming: 1700,
+    outgoing:300
+  },
+  {
+    asset: 'USDT',
+    label: 'USDT',
+    total: 3990,
+    incoming: 2000,
+    outgoing: 1999
+  },
+  {
+    asset: 'cUSD',
+    label: 'cUSD',
+    total: 1600,
+    incoming: 327,
+    outgoing:3456
+  },
+  {
+    asset: 'USDC',
+    label: 'USDC',
+    total: 300,
+    incoming: 6364,
+    outgoing: 6383
+  }
+]

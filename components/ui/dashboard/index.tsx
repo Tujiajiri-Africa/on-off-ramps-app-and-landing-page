@@ -27,6 +27,7 @@ import {ArrowDownIcon, ArrowUpIcon} from '@radix-ui/react-icons'
 import Link from 'next/link'
 import {DepositForm} from '@/components/ui/dashboard/deposit'
 import {WithdrawForm} from '@/components/ui/dashboard/withdraw'
+import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart-metrics'
 
 export async function MainUserDashboard() {
   return (
@@ -316,14 +317,15 @@ export async function MainUserDashboard() {
                 <div className="flex items-center justify-between space-y-2">
                     <div className="md:flex items-center space-x-2">
                     <CardTitle>
-                      Income Overview
+                      Balance Overview
                     </CardTitle>
-                    <CalendarDateRangePicker />
+                    {/* <CalendarDateRangePicker /> */}
                     </div>
                   </div>   
                 </CardHeader>
                 <CardContent className="pl-2">
-                  <Overview /> 
+                  {/* <Overview />  */}
+                  <UserBalanceChartAnalysis />
                 </CardContent>
               </Card>
               <Card className="col-span-4 md:col-span-3">
