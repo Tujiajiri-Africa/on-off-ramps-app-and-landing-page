@@ -1,9 +1,13 @@
 'use client'
 import React from "react";
-import BuyCryptoDesignSVG from '../../app/assets/logo/buy-crypto-design-svg.svg'
-import HomeBgElementImage from '../../app/assets/logo/backgroundImages/home-bg-element-1.svg'
-import HomeBgElementImage2 from '../../app/assets/logo/backgroundImages/home-page-bg-lights.webp'
-import HomeBgElementImage3 from '../../app/assets/logo/backgroundImages/3.avif'
+import BuyCryptoDesignSVG from '@/app/assets/logo/buy-crypto-design-svg.svg'
+//import HomeBgElementImage from '../../app/assets/logo/backgroundImages/home-bg-element-1.svg'
+//import HomeBgElementImage2 from '../../app/assets/logo/backgroundImages/home-page-bg-lights.webp'
+//import HomeBgElementImage3 from '../../app/assets/logo/backgroundImages/3.avif'
+import BuyDashboardPage from '@/app/assets/logo/backgroundImages/sell-on-dashboard.svg'
+import BuySellDashboardPage from '@/app/assets/logo/backgroundImages/buy-sell-with-dashboard.png'
+import BuySellDashboardPageSVG from '@/app/assets/logo/backgroundImages/buy-sell-hero-page-svg.svg'
+
 import curve from '@/app/assets/hero/curve.png'
 import Link from "next/link";
 import { ReactTyped } from "react-typed";
@@ -135,8 +139,12 @@ export default function Hero(){
         <Image
               height={300}
               width={320}
-              src={BuyCryptoDesignSVG.src}
+              //src={BuyCryptoDesignSVG.src}
+              src={BuyDashboardPage.src}
+              //src={BuySellDashboardPage.src}
+              //src={BuySellDashboardPageSVG.src}
               alt='Logo'
+              className="rounded-md"
                   />
     {/* <img src={BuyCryptoDesignSVG.src} 
         alt='illustration' 

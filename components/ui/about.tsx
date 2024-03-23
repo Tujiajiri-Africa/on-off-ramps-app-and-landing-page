@@ -1,7 +1,13 @@
 import React from "react";
-import AboutPageIllustration from '../../app/assets/logo/about-section-illustration-svg.svg'
+import AboutPageIllustration from '@/app/assets/logo/about-section-illustration-svg.svg'
 import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import BuySellDashboardPageSVG from '@/app/assets/logo/backgroundImages/buy-sell-hero-page-svg.svg'
+import WalletBananer from '@/app/assets/logo/backgroundImages/wallet-banner-png-2.png'
+import AboutPageBananer from '@/app/assets/logo/backgroundImages/about-banner-png.png'
+import AboutPageBanner_3 from '@/app/assets/logo/backgroundImages/about-banner-3-png.png'
+import MainDashboard from '@/app/assets/logo/backgroundImages/dashboard-main.png'
+import SellWithdrawIllustration from '@/app/assets/logo/backgroundImages/sell-withdraw-illustration.svg'
 
 export default function About(){
     return (
@@ -20,10 +26,17 @@ export default function About(){
                             }}
                         /> */}
                         <Image
-                          height={700}
-                          width={700}
-                          src={AboutPageIllustration.src}
+                          height={700}//
+                          width={1024}
+                          //src={AboutPageIllustration.src}
+                          //src={BuySellDashboardPageSVG.src}
+                          //src={WalletBananer.src}
+                          //src={AboutPageBananer.src}
+                          //src={AboutPageBanner_3.src}
+                          //src={MainDashboard.src}
+                          src={SellWithdrawIllustration.src}
                           alt='Logo'
+                          className="rounded-md"
                   />
                             {/* <img src="https://fancytailwind.com/static/8b86283c874a1f43a78c79fe871525ff/d552e/illustration1.webp" alt="" className="w-2/3 lg:w-full" /> */}
                 </div>
