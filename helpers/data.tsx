@@ -19,6 +19,18 @@ import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 import PAYPAL_USD_LOGO from '@/app/assets/logo/crypto/paypal-usd-logo-transparent.png'
 import ADA_LOGO from '@/app/assets/logo/crypto/cardano-ada-logo.svg'
 import TETHER_GOLD_LOGO from '@/app/assets/logo/crypto/tether-gold-xaut-logo.svg'
+import KE_FLAG from '@/app/assets/icons/countries/flags/ke.svg'
+import UG_FLAG from '@/app/assets/icons/countries/flags/ug.svg'
+import SOUTH_AFRICAN_LOGO from '@/app/assets/icons/countries/flags/za.svg'
+import TZ_FLAG from '@/app/assets/icons/countries/flags/tz.svg'
+import ZAMBIA_FLAG from '@/app/assets/icons/countries/flags/zm.svg'
+import RWANDA_FLAG from '@/app/assets/icons/countries/flags/rw.svg'
+import BOTSWANA_FLAG from '@/app/assets/icons/countries/flags/bw.svg'
+import MALAWI_FLAG from '@/app/assets/icons/countries/flags/mw.svg'
+import CAMEROON_FLAG from '@/app/assets/icons/countries/flags/cm.svg'
+import GHANA_FLAG from '@/app/assets/icons/countries/flags/gh.svg'
+import NIGERIAN_FLAG from '@/app/assets/icons/countries/flags/ng.svg'
+
 
 import Image, { ImageProps } from 'next/image'
 
@@ -108,7 +120,7 @@ export type CountryProps = {
   code: string;
   active: boolean;
   currency: string;
-  flag? : JSX.Element;
+  flag : ImageProps;
   href?: string;
 }
 
@@ -127,68 +139,78 @@ export const countries:CountryProps[] = [
     code: "+254",
     active: true,
     currency: "KES",
-    href: "https://www.freepik.com/icon/flag_14009694#fromView=search&page=1&position=31&uuid=2ce58cdf-77c1-4a08-8c28-9ba1caf9799c"
+    href: "https://www.freepik.com/icon/flag_14009694#fromView=search&page=1&position=31&uuid=2ce58cdf-77c1-4a08-8c28-9ba1caf9799c",
+    flag: KE_FLAG
   },
   {
     name: "Nigeria",
     code: "+234",
-    active: false,
-    currency: "NGN"
+    active: true,
+    currency: "NGN",
+    flag: NIGERIAN_FLAG
   },
   {
     name: 'Uganda',
     code: "+256",
-    active: false,
+    active: true,
     currency: 'UGX',
-    //flag: 
+    flag: UG_FLAG
   },
   {
     name: 'Tanzania',
     code: '+255',
-    active: false,
-    currency: 'TZS'
+    active: true,
+    currency: 'TZS',
+    flag: TZ_FLAG
   },
   {
     name: 'Ghana',
     code: '+233',
-    active: false,
-    currency: 'GHS'
+    active: true,
+    currency: 'GHS',
+    flag: GHANA_FLAG
   },
   {
     name: 'Cameroon',
     code: '+237',
-    active: false,
-    currency: 'XAF'
+    active: true,
+    currency: 'XAF',
+    flag: CAMEROON_FLAG
   },
   {
     name: 'Zambia',
     code: '+260',
-    active: false,
-    currency: 'ZMW'
+    active: true,
+    currency: 'ZMW',
+    flag: ZAMBIA_FLAG
   },
   {
     name: 'South Africa',
     code: '+27',
-    active: false,
-    currency: 'ZAR'
+    active: true,
+    currency: 'ZAR',
+    flag: SOUTH_AFRICAN_LOGO
   },
   {
     name: 'Rwanda',
     code: '+250',
-    active: false,
-    currency: 'RWF'
+    active: true,
+    currency: 'RWF',
+    flag: RWANDA_FLAG
   },
   {
     name: 'Botswana',
     code: '+267',
-    active: false,
-    currency: 'BWP'
+    active: true,
+    currency: 'BWP',
+    flag: BOTSWANA_FLAG
   },
   {
     name: 'Malawi',
     code: '+265',
-    active: false,
-    currency: 'MWK'
+    active: true,
+    currency: 'MWK',
+    flag: MALAWI_FLAG
   }
 ]
 

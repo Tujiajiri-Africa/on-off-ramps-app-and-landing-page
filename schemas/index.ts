@@ -1,6 +1,7 @@
 import * as z from 'zod'
 import {countries} from '@/helpers/data'
 import {phoneRegex} from '@/lib/utils'
+import {isValidPhoneNumber} from 'react-phone-number-input'
 
 export const LoginSchema = z.object({
     email: z.string().email({
@@ -28,19 +29,20 @@ export const RegisterSchema = z.object({
     }),
     first_name: z.string().min(4, {
         message: 'Minimum 4 caharacters required'
-    }).max(8,{
-        message: 'Maximum 8 characters required'
+    }).max(11,{
+        message: 'Maximum 11 characters required'
     }),
     last_name: z.string().min(4, {
         message: "Minimum 4 characters required"
-    }).max(8,{
-        message: 'Maximum 8 characters required'
+    }).max(11,{
+        message: 'Maximum 11 characters required'
     }),
     phone: z.string().min(13, {
         message: 'Minimum 13 characters required'
     }).max(13,{
         message: 'Maximum 13 characters required'
-    })
+    }),
+    //country:z.string()
 }).refine(
     (values) => {
       return values.password === values.confirm_password;
@@ -51,6 +53,12 @@ export const RegisterSchema = z.object({
     }
   );
 
+//   phone: z.object({
+//     phone: z
+//       .string()
+//       .refine(isValidPhoneNumber, { message: "Invalid phone number" })
+//       .or(z.literal("")),
+//   });
 export const PasswordResetSchema = z.object({
     email: z.string().email({
         message: "Email is required"
