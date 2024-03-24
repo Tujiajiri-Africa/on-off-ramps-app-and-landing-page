@@ -27,7 +27,13 @@ import {
     getSortedRowModel,
     useReactTable,
   } from "@tanstack/react-table"
-  import { ArrowUpDown, ChevronDown, MoreHorizontal, ArrowDownLeftFromCircleIcon, ArrowUpRightFromCircleIcon } from "lucide-react"
+  import { 
+    ArrowUpDown, 
+    ChevronDown, 
+    MoreHorizontal, 
+    ArrowDownLeftFromCircleIcon, 
+    ArrowUpRightFromCircleIcon,
+    Clock } from "lucide-react"
   import { Checkbox } from "@/components/ui/checkbox"
   import {
     DropdownMenu,
@@ -58,6 +64,7 @@ import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 import PAYPAL_USD_LOGO from '@/app/assets/logo/crypto/paypal-usd-logo-transparent.png'
 import ADA_LOGO from '@/app/assets/logo/crypto/cardano-ada-logo.svg'
 import TETHER_GOLD_LOGO from '@/app/assets/logo/crypto/tether-gold-xaut-logo.svg'
+import { CounterClockwiseClockIcon } from '@radix-ui/react-icons';
 //import {samplePayments, Payment} from '@/helpers/data'
 
 const data: Payment[] = [
@@ -439,7 +446,7 @@ export function InvoiceComponent(){
                     </h2>
                 </div>
                 <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
-                    <Card className='col-span-4'>
+                    <div className='col-span-4'>
                         <CardHeader>
                                 <div className="flex items-center justify-between space-y-2">
                                     <div className="md:flex items-center space-x-2">
@@ -545,7 +552,7 @@ export function InvoiceComponent(){
                                         <CardTitle className="text-sm font-medium">
                                             Pending Invoices
                                         </CardTitle>
-                                        <DollarSign className='w-4 h-4'/>
+                                        <CounterClockwiseClockIcon className='w-4 h-4'/>
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
@@ -568,7 +575,7 @@ export function InvoiceComponent(){
                                     </Card>
                             </div>
                         </CardContent>
-                    </Card>
+                    </div>
                 </div>
                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-7">
