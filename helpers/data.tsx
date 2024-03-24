@@ -9,6 +9,7 @@ import {
   XCircle,
 } from "lucide-react"
 
+//ASSET LOGOS
 import BTC_LOGO from '@/app/assets/logo/bitcoin-btc-logo.svg'
 import ETH_LOGO from '@/app/assets/logo/ethereum-eth-logo.svg'
 import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
@@ -19,6 +20,8 @@ import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 import PAYPAL_USD_LOGO from '@/app/assets/logo/crypto/paypal-usd-logo-transparent.png'
 import ADA_LOGO from '@/app/assets/logo/crypto/cardano-ada-logo.svg'
 import TETHER_GOLD_LOGO from '@/app/assets/logo/crypto/tether-gold-xaut-logo.svg'
+
+//FLAGS
 import KE_FLAG from '@/app/assets/icons/countries/flags/ke.svg'
 import UG_FLAG from '@/app/assets/icons/countries/flags/ug.svg'
 import SOUTH_AFRICAN_LOGO from '@/app/assets/icons/countries/flags/za.svg'
