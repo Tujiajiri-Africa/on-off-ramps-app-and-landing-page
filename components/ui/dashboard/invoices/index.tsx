@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
 import {DollarSign, PlusCircleIcon} from 'lucide-react'
 import { RecentSales } from '@/components/recent-sales';
@@ -27,7 +27,7 @@ import {
     getSortedRowModel,
     useReactTable,
   } from "@tanstack/react-table"
-  import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+  import { ArrowUpDown, ChevronDown, MoreHorizontal, ArrowDownLeftFromCircleIcon, ArrowUpRightFromCircleIcon } from "lucide-react"
   import { Checkbox } from "@/components/ui/checkbox"
   import {
     DropdownMenu,
@@ -48,6 +48,16 @@ import {
     TableRow,
   } from "@/components/ui/table"
 
+import BTC_LOGO from '@/app/assets/logo/bitcoin-btc-logo.svg'
+import ETH_LOGO from '@/app/assets/logo/ethereum-eth-logo.svg'
+import SOL_LOGO from '@/app/assets/logo/solana-sol-logo.svg'
+import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
+import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
+import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
+import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
+import PAYPAL_USD_LOGO from '@/app/assets/logo/crypto/paypal-usd-logo-transparent.png'
+import ADA_LOGO from '@/app/assets/logo/crypto/cardano-ada-logo.svg'
+import TETHER_GOLD_LOGO from '@/app/assets/logo/crypto/tether-gold-xaut-logo.svg'
 //import {samplePayments, Payment} from '@/helpers/data'
 
 const data: Payment[] = [
@@ -57,7 +67,8 @@ const data: Payment[] = [
       status: "success",
       email: "ken99@yahoo.com",
       settlement_method: 'SOL',
-      type: 'Outgoing'
+      type: 'Outgoing',
+      icon: SOL_LOGO
     },
     {
       id: "3u1reuv4",
@@ -65,23 +76,26 @@ const data: Payment[] = [
       status: "success",
       email: "Abe45@gmail.com",
       settlement_method: 'ETH',
-      type: 'Outgoing'
+      type: 'Outgoing',
+      icon: ETH_LOGO
     },
     {
       id: "derv1ws0",
       amount: 837,
       status: "processing",
       email: "Monserrat44@gmail.com",
-      settlement_method: 'cUSD',
-      type: 'Incoming'
+      settlement_method: 'XAUT',
+      type: 'Incoming',
+      icon: TETHER_GOLD_LOGO
     },
     {
       id: "5kma53ae",
       amount: 874,
       status: "success",
       email: "Silas22@gmail.com",
-      settlement_method: 'PYUSD',
-      type: 'Outgoing'
+      settlement_method: 'ADA',
+      type: 'Outgoing',
+      icon: ADA_LOGO
     },
     {
       id: "bhqecj4p",
@@ -89,7 +103,8 @@ const data: Payment[] = [
       status: "failed",
       email: "carmella@hotmail.com",
       settlement_method: 'BTC',
-      type: 'Incoming'
+      type: 'Incoming',
+      icon: BTC_LOGO
     },
 
     {
@@ -98,7 +113,8 @@ const data: Payment[] = [
         status: "failed",
         email: "carmewlla@hotmail.com",
         settlement_method: 'BTC',
-        type: 'Outgoing'
+        type: 'Outgoing',
+        icon: BTC_LOGO
       },
       {
         id: "bhqecj4p",
@@ -106,15 +122,17 @@ const data: Payment[] = [
         status: "failed",
         email: "ncarmella@hotmail.com",
         settlement_method: 'USDC',
-        type: 'Incoming'
+        type: 'Incoming',
+        icon: USDC_LOGO
       },
       {
         id: "bhqecj4p",
         amount: 421,
         status: "failed",
         email: "ycarmella@hotmail.com",
-        settlement_method: 'USDT',
-        type: 'Incoming'
+        settlement_method: 'MATIC',
+        type: 'Incoming',
+        icon: MATIC_LOGO
       },
   ]
    
@@ -127,6 +145,7 @@ export type Payment = {
     chain?: string
     creationDate?: string
     type?: 'Incoming' | 'Outgoing'
+    icon?: ImageProps
 }
 
 const columns: ColumnDef<Payment>[] = [
@@ -179,7 +198,12 @@ const columns: ColumnDef<Payment>[] = [
         },
       //header: "Status",
       cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("settlement_method")}</div>
+        <div 
+            className="flex gap-2"
+        >
+            <Image src={`${row.original.icon?.src}`} width={25} height={24} alt={'asset-logo'} />
+            {row.getValue("settlement_method")} 
+        </div>
       ),
     },
     {
@@ -196,7 +220,9 @@ const columns: ColumnDef<Payment>[] = [
         },
       //header: "Status",
       cell: ({ row }) => (
-        <div className="capitalize">{row.getValue("status")}</div>
+        <div className="capitalize">
+            {row.getValue("status")}
+        </div>
       ),
     },
     {
@@ -247,11 +273,11 @@ const columns: ColumnDef<Payment>[] = [
                 <DropdownMenuItem
                   onClick={() => navigator.clipboard.writeText(payment.id)}
                 >
-                  Copy payment ID
+                  Copy invoice ID
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>View customer</DropdownMenuItem>
-                <DropdownMenuItem>View payment details</DropdownMenuItem>
+                <DropdownMenuItem>View client</DropdownMenuItem>
+                <DropdownMenuItem>View invoice details</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )
@@ -464,7 +490,7 @@ export function InvoiceComponent(){
                                         <CardTitle className="text-sm font-medium">
                                             Incoming Invoices
                                         </CardTitle>
-                                        <DollarSign className='w-4 h-4'/>
+                                        <ArrowDownLeftFromCircleIcon className='w-4 h-4'/>
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
@@ -491,7 +517,7 @@ export function InvoiceComponent(){
                                         <CardTitle className="text-sm font-medium">
                                             Outgoing Invoices
                                         </CardTitle>
-                                        <DollarSign className='w-4 h-4'/>
+                                        <ArrowUpRightFromCircleIcon className='w-4 h-4'/>
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
