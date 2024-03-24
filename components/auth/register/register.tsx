@@ -3,7 +3,7 @@
 import React, {useState, useTransition} from 'react'
 import * as z from 'zod'
 import { RegisterSchema} from '@/schemas'
-import {useForm} from 'react-hook-form'
+import {useForm, Controller} from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CardWrapper } from '@/components/auth/card-wrapper'
 import {
@@ -19,6 +19,18 @@ import {Button} from '@/components/ui/button'
 import { FormErrorMessage } from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import { register } from '@/actions/auth'
+import {countries,CountryProps} from '@/helpers/data'
+import {
+    Select, 
+    SelectContent, 
+    SelectGroup, 
+    SelectItem, 
+    SelectLabel, 
+    SelectScrollDownButton, 
+    SelectSeparator, 
+    SelectTrigger, 
+    SelectValue} from '@/components/ui/select'
+import Image from 'next/image'
 
 export const RegisterForm = () => {
     const [isPending, startTransition] = useTransition()
@@ -171,7 +183,65 @@ export const RegisterForm = () => {
                                 )}
                             />
                         </div>
+
                         <div>
+                        </div>
+                        
+                                    <div>
+                                        <FormField
+                                                control={form.control}
+                                                name='phone'
+                                                render={({field}) => (
+                                                    <FormItem>
+                                                    <FormLabel 
+                                                        //className="block text-sm font-medium text-gray-700"
+                                                        >
+                                                        Country 
+                                                    </FormLabel>
+                                                    <div 
+                                                        className='mt-1'
+                                                        >
+                                                        <FormControl> 
+                                                            <Select
+                                                               // {...field}
+                                                                onValueChange={field.onChange}
+                                                                defaultValue={field.value}
+                                                                >
+                                                                    <SelectTrigger className="w-full">
+                                                                    <SelectValue placeholder="select country" />
+                                                                    </SelectTrigger>
+                                                                    <SelectContent position="popper">
+                                                                        {
+                                                                            countries
+                                                                            .filter((s) => s.active == true)
+                                                                            .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+                                                                            .map((country) => (
+                                                                                <SelectItem key={country.code} value={country.code}>
+                                                                                    <div className='flex items-center content-center gap-2'>
+                                                                                    
+                                                                                       <Image 
+                                                                                            src={country.flag.src} 
+                                                                                            width={18} 
+                                                                                            height={18} 
+                                                                                            alt={country.name}
+                                                                                            className='rounded-full'
+                                                                                        /> 
+                                                                                        { ` ${country.name} `}
+                                                                                    </div>
+                                                                                </SelectItem>
+                                                                            ))
+                                                                        }
+                                                                    </SelectContent>
+                                                                </Select> 
+                                                        </FormControl>
+                                                        <FormMessage />
+                                                    </div>
+                                                </FormItem>
+                                                )}
+                                        />
+                                    </div>
+                        <div>
+                    
                             <FormField 
                                 control={form.control}
                                 name='phone'
@@ -183,18 +253,16 @@ export const RegisterForm = () => {
                                             Mobile money number
                                         </FormLabel>
                                         <div 
-                                            className='mt-1'
+                                            className=' mt-1'
                                             >
-                                            <FormControl>
                                                 <Input
                                                     disabled={isPending}
                                                     {...field}
                                                     //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                    placeholder="+254....."
+                                                    placeholder="Enter phone number"
                                                     type='text'
                                                     
                                                 />
-                                            </FormControl>
                                             <FormMessage />
                                         </div>
                                     </FormItem>
