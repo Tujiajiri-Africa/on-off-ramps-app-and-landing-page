@@ -84,18 +84,18 @@ const data: Payment[] = [
       amount: 837,
       status: "processing",
       email: "Monserrat44@gmail.com",
-      settlement_method: 'cUSD',
+      settlement_method: 'XAUT',
       type: 'Incoming',
-      icon: cUSD_LOGO
+      icon: TETHER_GOLD_LOGO
     },
     {
       id: "5kma53ae",
       amount: 874,
       status: "success",
       email: "Silas22@gmail.com",
-      settlement_method: 'PYUSD',
+      settlement_method: 'ADA',
       type: 'Outgoing',
-      icon: PAYPAL_USD_LOGO
+      icon: ADA_LOGO
     },
     {
       id: "bhqecj4p",
@@ -130,9 +130,9 @@ const data: Payment[] = [
         amount: 421,
         status: "failed",
         email: "ycarmella@hotmail.com",
-        settlement_method: 'USDT',
+        settlement_method: 'MATIC',
         type: 'Incoming',
-        icon: USDT_LOGO
+        icon: MATIC_LOGO
       },
   ]
    
