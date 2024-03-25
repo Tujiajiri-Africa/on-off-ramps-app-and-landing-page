@@ -3163,6 +3163,11 @@ input-format@^0.3.9:
   dependencies:
     prop-types "^15.8.1"
 
+input-otp@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/input-otp/-/input-otp-1.2.2.tgz#0a92e80591c4c64d30684509ebba1fcf59ef2d5e"
+  integrity sha512-9x6UurPuc9Tb+ywWFcFrG4ryvScSmfLyj8D35dl/HNpSr9jZNtWiXufU65kaDHD/KYUop7hDFH+caZCUKdYNsg==
+
 internal-slot@^1.0.5, internal-slot@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/internal-slot/-/internal-slot-1.0.7.tgz#c06dcca3ed874249881007b0a5523b172a190802"
