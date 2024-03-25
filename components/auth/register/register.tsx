@@ -76,6 +76,7 @@ export const RegisterForm = () => {
                     //redirect('/auth/verify-phone')
                     //router.push('/auth/verify-phone')
                     //return Response.redirect(new URL(DEFAULT_REGISTRATION_CALLBACK))
+                    window.location.replace('/auth/verify-phone')
                 }
             }).catch(() => {
                 setError("Something went wrong")
@@ -87,8 +88,7 @@ export const RegisterForm = () => {
     
     return (
         <>
-        {
-            !showPhoneVerification &&(
+       
                 <CardWrapper 
                 backButtonHref='/auth/login'
                 headerLabel='Create a new account'
@@ -421,13 +421,6 @@ export const RegisterForm = () => {
                 
                 </form> */}
             </CardWrapper>
-                )
-        }
-        {
-            showPhoneVerification && (
-                <FirstTimePhoneVerification />
-            )
-        }
         </>
     )
 }

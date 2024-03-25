@@ -48,7 +48,7 @@ export const LoginForm = () => {
             login(values, callbackUrl)
             .then((data:any) => {
                 if(data?.data.error){
-                    form.reset()
+                    //form.reset()
                     setError(data?.data.error)
                 }
                 if(data?.data.success){
