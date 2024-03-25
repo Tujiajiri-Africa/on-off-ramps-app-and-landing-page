@@ -79,13 +79,15 @@ export function FirstTimePhoneVerification(){
                     className="space-y-6"
                 >
                     <div className="flex flex-wrap -mx-3 mb-6 items-center">
-                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <div className="w-full  px-3 mb-6 md:mb-0"
+                        //md:w-1/2
+                        >
                             <FormField
                             control={form.control}
                             name="registration_otp"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel className='block text-sm font-medium text-gray-700'>Enter verification code sent to phone</FormLabel>
+                                <FormLabel className='block text-sm font-medium text-gray-700'>Enter verification code sent to your phone</FormLabel>
                                 <div className='mt-1' >
                                     <FormControl className='items-center'>
                                         <InputOTP maxLength={6} {...field} >
@@ -112,7 +114,7 @@ export function FirstTimePhoneVerification(){
                         <Button 
                             disabled={isPending}
                             type="submit"
-                            className="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"
+                            className="group w-full relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"
                             >
 
                             Verify Phone
