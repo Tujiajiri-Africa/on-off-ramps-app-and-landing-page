@@ -39,8 +39,8 @@ export const RegisterSchema = z.object({
     }),
     phone: z.string().min(13, {
         message: 'Minimum 13 characters required'
-    }).max(13,{
-        message: 'Maximum 13 characters required'
+    }).max(14,{
+        message: 'Maximum 14 characters required'
     }),
     //country:z.string()
 }).refine(
@@ -176,7 +176,7 @@ export const DepositSchema = z.object({
 
 export const WithdrawSchema = z.object({
     amount: z.number().gt(50,{
-        message: "Minimum withdrawal amount is KES 100"
+        message: "Minimum withdrawal amount is KES 50"
     }),
     channel: z.string()
 })
