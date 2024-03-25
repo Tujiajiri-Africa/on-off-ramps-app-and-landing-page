@@ -56,6 +56,7 @@ export function FirstTimePhoneVerification(){
                     form.reset()
                     setSuccess(data?.data.success)
                     //redirect('/auth/login')
+                    window.location.replace('/auth/login')
                 }
             }).catch(() => {
                 setError("Something went wrong")
