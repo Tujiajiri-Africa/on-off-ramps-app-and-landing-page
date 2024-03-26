@@ -57,7 +57,7 @@ export const navItems: NavItem[] = [
       label: "Verification",
     },
     {
-      title: "Buy/Sell",
+      title: "Buy/Sell Crypto",
       href: "/dashboard/buy-sell-crypto",
       icon: "dolarSign",
       label: "Buy/Sell",
