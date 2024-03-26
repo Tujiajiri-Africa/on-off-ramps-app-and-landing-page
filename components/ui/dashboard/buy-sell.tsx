@@ -22,8 +22,8 @@ export function BuySellComponent(){
              
               <Tabs defaultValue="buy" className="w-full">
                 <TabsList className='w-full'>
-                  <TabsTrigger value="buy" className=''>Buy</TabsTrigger>
-                  <TabsTrigger value="sell" className=''>Sell</TabsTrigger>
+                  <TabsTrigger value="buy" className='w-full border-spacing-4'>Buy</TabsTrigger>
+                  <TabsTrigger value="sell" className='w-full border-spacing-4'>Sell</TabsTrigger>
                 </TabsList>
                 <TabsContent value="buy">
                     <BuyComponent />
