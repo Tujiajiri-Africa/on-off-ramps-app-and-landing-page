@@ -383,4 +383,86 @@ export const samplePayments: Payment[] = [
     email: "carmella@hotmail.com",
   },
 ]
- 
+
+//INVOICE
+export type InvoicePaymentTermProps = {
+  dueDate: string;
+}
+
+export type InvoiceBuyerInfoAddresProps = {
+  streetAddress: string;
+  extendedAddress: string;
+  city: string;
+  postalCode: string;
+  region: string;
+  country: string;
+}
+
+export type InvoiceBuyerInfoProps = {
+  businessName: string;
+  address: InvoiceBuyerInfoAddresProps;
+  email: string;
+  firstName: string;
+  lastName: string;
+  taxRegistration: string;
+}
+
+export type InvoiceTaxProps = {
+  type: string;
+  amount: string;
+}
+
+export type InvoiceItemProps = {
+  currency : string;
+  name: string;
+  quantity: number;
+  tax: InvoiceTaxProps,
+  unitPrice: string;
+}
+
+export type InvoiceProps = {
+  creationDate: string;
+  invoiceItems: InvoiceItemProps[];
+  invoiceNumber: string;
+  buyerInfo: InvoiceBuyerInfoProps;
+  paymentTerms: InvoicePaymentTermProps;
+  paymentAddress: string;
+  paymentCurrency: string;
+  tags: string[];
+}
+
+//PAYROLL
+export type PayrolMetaProps = {
+  meta: 'rnf_salary';
+  version: string;
+}
+
+export type PayrollItemProps = {
+  currency : string;
+  name: string;
+  quantity: number;
+  unitPrice: string;
+}
+
+export type PayrolBuyerInfoProps = {
+  email: string;
+}
+
+export type PayrolSellerInfoProps = {
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+export type PayrollProps = {
+  meta: PayrolMetaProps;
+  creationDate: string;
+  invoiceItems: PayrollItemProps[];
+  invoiceNumber: string;
+  buyerInfo: PayrolBuyerInfoProps;
+  sellerInfo: PayrolSellerInfoProps;
+  paymentTerms: InvoicePaymentTermProps;
+  paymentAddress: string;
+  paymentCurrency: string;
+  recurringRule: string;// "DTSTART:20230601T074619Z\nRRULE:FREQ=MONTHLY;INTERVAL=1;COUNT=3"
+}
