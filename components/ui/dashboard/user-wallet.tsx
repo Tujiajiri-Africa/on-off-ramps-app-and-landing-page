@@ -52,7 +52,7 @@ export function UserWallet(){
                             </CardHeader>
                             <CardContent className="pl-2">
                                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                                    <Card>
+                                    <Card className='bg-teal-300 bg-opacity-80 dark:bg-opacity-20'>
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                         <CardTitle className="text-sm font-medium">
                                             BTC
@@ -84,7 +84,7 @@ export function UserWallet(){
                                         </CardContent>
                                     </Card>
 
-                                    <Card>
+                                    <Card className='bg-violet-800 bg-opacity-20 dark:bg-opacity-20'>
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                         <CardTitle className="text-sm font-medium">
                                             USDT
@@ -116,7 +116,7 @@ export function UserWallet(){
                                         </CardContent>
                                     </Card>
 
-                                    <Card>
+                                    <Card className='bg-cyan-400 bg-opacity-20 dark:bg-opacity-60 dark:bg-[#7c3aed]'>
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                         <CardTitle className="text-sm font-medium">
                                             USDC
@@ -148,7 +148,7 @@ export function UserWallet(){
                                         </CardContent>
                                     </Card>
 
-                                    <Card>
+                                    <Card className='bg-green-400 bg-opacity-20 dark:bg-opacity-10'>
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                         <CardTitle className="text-sm font-medium">
                                             cUSD
