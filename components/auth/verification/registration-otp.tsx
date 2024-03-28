@@ -56,7 +56,7 @@ export function FirstTimePhoneVerification(){
                     form.reset()
                     setSuccess(data?.data.success)
                     //redirect('/auth/login')
-                    window.location.replace('/auth/login')
+                    window.location.replace('/account/login')
                 }
             }).catch(() => {
                 setError("Something went wrong")
@@ -68,7 +68,7 @@ export function FirstTimePhoneVerification(){
     return (
         <>
         <CardWrapper 
-            backButtonHref='/auth/login'
+            backButtonHref='/account/login'
             headerLabel='Verify phone number'
             backButtonLabel="Already verified? Sign in instead"
             showSocial={false} 

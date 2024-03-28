@@ -39,7 +39,7 @@ export const ForgotPasswordForm = () => {
     return (
         <>
             <CardWrapper
-                backButtonHref='/auth/login'
+                backButtonHref='/account/login'
                 headerLabel='Forgot password'
                 backButtonLabel="Sign in instead"
                 showSocial={false} 

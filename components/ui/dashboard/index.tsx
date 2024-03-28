@@ -20,7 +20,8 @@ import {
   getBtcLatestAssetPrice,
   getEthLatestAssetPrice,
   getSolLatestAssetPrice,
-  getMaticLatestAssetPrice} from '@/actions/crypto'
+  getMaticLatestAssetPrice
+} from '@/actions/crypto'
 
 import { Greetings } from '@/components/ui/dashboard/greetings'
 import {ArrowDownIcon, ArrowUpIcon} from '@radix-ui/react-icons'
