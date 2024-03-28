@@ -7,7 +7,7 @@ export default function FeatureList(){
     return (
         <>
         <div className='relative w-full h-full flex justify-center items-center bg-gradient-to-r bg-[#010203] overflow-hidden opacity-100' id="features">
-            <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%]  mx-auto flex flex-col lg:flex-row">
+            <div className="pt-0.5 2xl:w-[80%] sm:pt-20 lg:pt-40 w-[98%]  mx-auto flex flex-col lg:flex-row">
             <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden"> 
    
     <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">

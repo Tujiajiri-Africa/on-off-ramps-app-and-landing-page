@@ -17,7 +17,7 @@ export default function Footer(){
     <div className="bg-[#010203]">
    
     <footer className="bg-[#010203] relative w-[98%] mx-auto h-screen flex flex-col justify-center items-center overflow-hidden p-10">
-    <div className="mx-auto w-full p-4 py-6 lg:py-8">
+    <div className="mx-auto w-full p-4 py-6 lg:py-8 2xl:w-[80%]">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
               <a href="https://ajirapay.finance/" className="flex items-center">

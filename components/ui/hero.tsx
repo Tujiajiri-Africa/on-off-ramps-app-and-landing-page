@@ -88,7 +88,7 @@ export default function Hero(){
             }}
             >
 {/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#050520_1px,#00091d_1px)] bg-[size:20px_20px]"></div> */}
-<div className="pt-0.5 sm:pt-1.5  md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto flex flex-col lg:flex-row">
+<div className="pt-0.5 sm:pt-1.5 2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto flex flex-col lg:flex-row">
   {/* :HERO MAIN */}
   <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600"> {/* Container */}
     {/* ::Hero Inner */}
