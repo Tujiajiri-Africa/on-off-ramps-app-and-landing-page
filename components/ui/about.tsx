@@ -15,7 +15,7 @@ export default function About(){
     return (
         <>
         <div className="relative w-full h-full flex justify-center items-center bg-[#010203] overflow-hidden opacity-100" id="about">
-            <div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] mx-auto flex flex-col-reverse md:flex-row  ">
+            <div className="pt-0.5 sm:pt-20 2xl:w-[80%] lg:pt-40 w-[98%] mx-auto flex flex-col-reverse md:flex-row  ">
                 <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
                         {/* <img src={AboutPageIllustration.src} 
                             alt='illustration' 

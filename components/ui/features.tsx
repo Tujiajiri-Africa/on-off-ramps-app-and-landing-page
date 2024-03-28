@@ -18,7 +18,7 @@ export default function Features(){
             }}
             >
 
-<div className="pt-0.5 sm:pt-20 lg:pt-40 w-[98%] mx-auto flex flex-col lg:flex-row">
+<div className="pt-0.5 2xl:w-[80%] sm:pt-20 lg:pt-40 w-[98%] mx-auto flex flex-col lg:flex-row">
   {/* :HERO MAIN */}
   <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600"> {/* Container */}
     {/* ::Hero Inner */}
