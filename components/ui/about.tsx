@@ -8,6 +8,8 @@ import AboutPageBananer from '@/app/assets/logo/backgroundImages/about-banner-pn
 import AboutPageBanner_3 from '@/app/assets/logo/backgroundImages/about-banner-3-png.png'
 import MainDashboard from '@/app/assets/logo/backgroundImages/dashboard-main.png'
 import SellWithdrawIllustration from '@/app/assets/logo/backgroundImages/sell-withdraw-illustration.svg'
+import backgroundImage3 from '@/app/assets/backgrounds/264.jpg'
+import backgroundImage4 from '@/app/assets/backgrounds/oooscillate_4.svg'
 
 export default function About(){
     return (

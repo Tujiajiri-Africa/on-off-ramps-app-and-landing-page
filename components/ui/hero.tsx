@@ -14,6 +14,11 @@ import { ReactTyped } from "react-typed";
 import { TypeAnimation } from 'react-type-animation';
 import Image from 'next/image'
 import {Button} from '@/components/ui/button'
+import backgroundImage from '@/app/assets/backgrounds/oooscillate_3.svg'
+import backgroundImage2 from '@/app/assets/backgrounds/rrrepeat.svg'
+import backgroundImage4 from '@/app/assets/backgrounds/rrreflection.svg'
+import backgroundImage3 from '@/app/assets/backgrounds/264.jpg'
+import backgroundImage5 from '@/app/assets/backgrounds/oooscillate_4.svg'
 
 const HeroSubTextAnimationComponent = () => {
   return (

@@ -5,8 +5,8 @@
  */
 export const publicRoutes = [
     "/",
-    //"/auth/new-verification"
-    //"/auth/verify-phone"
+    //"/account/new-verification"
+    //"/account/verify-phone"
   ];
   
   /**
@@ -15,12 +15,12 @@ export const publicRoutes = [
    * @type {string[]}
    */
   export const authRoutes = [
-    "/auth/login",
-    "/auth/register",
-    //"/auth/error",
-    //"/auth/reset",
-    "/auth/forgot-password",
-    "/auth/verify-phone"
+    "/account/login",
+    "/account/register",
+    //"/account/error",
+    //"/account/reset",
+    "/account/forgot-password",
+    "/account/verify-phone"
   ];
   
   /**
