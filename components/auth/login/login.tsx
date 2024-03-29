@@ -27,7 +27,7 @@ import { login } from '@/actions/auth'
 
 export const LoginForm = () => {
     const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get("callbackUrl");
+    const callbackUrl = searchParams.get("pathname");
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
