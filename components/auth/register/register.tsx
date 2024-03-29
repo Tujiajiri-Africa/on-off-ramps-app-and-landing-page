@@ -42,7 +42,7 @@ export const RegisterForm = () => {
     const [showPhoneVerification, setShouldShowPhoneVerification] = useState<boolean>(false)
     const [step, setStep] = useState<number>(0)
 
-    const DEFAULT_REGISTRATION_CALLBACK = '/auth/verify-phone'
+    const DEFAULT_REGISTRATION_CALLBACK = '/account/verify-phone'
 
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
@@ -73,10 +73,10 @@ export const RegisterForm = () => {
                     form.reset()
                     setSuccess(data?.data.success)
                     setShouldShowPhoneVerification(true)
-                    //redirect('/auth/verify-phone')
-                    //router.push('/auth/verify-phone')
+                    //redirect('/account/verify-phone')
+                    //router.push('/account/verify-phone')
                     //return Response.redirect(new URL(DEFAULT_REGISTRATION_CALLBACK))
-                    window.location.replace('/account/verify-phone')
+                    window.location.replace(DEFAULT_REGISTRATION_CALLBACK)
                 }
             }).catch(() => {
                 setError("Something went wrong")
