@@ -341,6 +341,20 @@ export const sampleWalletData:WaletChartData[] = [
     total: 300,
     incoming: 6364,
     outgoing: 6383
+  },
+  {
+    asset: 'SOL',
+    label: 'SOL',
+    total: 5344,
+    incoming: 2452,
+    outgoing: 5672
+  },
+  {
+    asset: 'MATIC',
+    label: 'MATIC',
+    total: 7334,
+    incoming: 6353,
+    outgoing: 281
   }
 ]
 

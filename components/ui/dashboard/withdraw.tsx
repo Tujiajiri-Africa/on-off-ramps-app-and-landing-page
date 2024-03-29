@@ -84,7 +84,7 @@ export function WithdrawForm(){
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel 
-                                        className="block text-sm font-medium text-gray-700"
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
                                         Amount
                                     </FormLabel>
@@ -115,7 +115,7 @@ export function WithdrawForm(){
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel 
-                                        className="block text-sm font-medium text-gray-700"
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
                                         Select Withdawal method
                                     </FormLabel>

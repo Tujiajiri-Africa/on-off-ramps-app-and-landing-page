@@ -79,7 +79,7 @@ export function SellComponent(){
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel 
-                                        className="block text-sm font-medium text-gray-700"
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
                                         Select the asset you want to sell
                                     </FormLabel>
@@ -134,7 +134,7 @@ export function SellComponent(){
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel 
-                                        className="block text-sm font-medium text-gray-700"
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
                                         Amount
                                     </FormLabel>
@@ -165,7 +165,7 @@ export function SellComponent(){
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel 
-                                        className="block text-sm font-medium text-gray-700"
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
                                         Select how you want to receive the pay
                                     </FormLabel>
@@ -210,7 +210,7 @@ export function SellComponent(){
                     </div>
                     <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger className='text-[14px]'>Expand to view quote details</AccordionTrigger>
+                        <AccordionTrigger className='text-[14px] text-gray-700 dark:text-gray-400'>Expand to view quote details</AccordionTrigger>
                         <AccordionContent>
                             You will receive ~300.00 KES for 2.26 USDT
                             <br/>
