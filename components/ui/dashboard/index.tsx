@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -29,11 +30,13 @@ import Link from 'next/link'
 import {DepositForm} from '@/components/ui/dashboard/deposit'
 import {WithdrawForm} from '@/components/ui/dashboard/withdraw'
 import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart-metrics'
+import AboutPageIllustration from '@/app/assets/logo/about-section-illustration-svg.svg'
 
 export async function MainUserDashboard() {
   return (
  <ScrollArea className="h-full">
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
+
         <div className="flex items-center justify-between space-y-2">
           {/* <h2 className="text-3xl font-bold tracking-tight">
             Hi, Welcome back 👋 Dickens
@@ -55,6 +58,7 @@ export async function MainUserDashboard() {
             </Button>
           </div>
         </div>
+        
           <Button
                 className="sm:hidden bg-[#16a34a] dark:text-white"
             >
@@ -62,13 +66,52 @@ export async function MainUserDashboard() {
                         Buy/Sell
                     </Link>
           </Button>
+
         <Tabs defaultValue="overview" className="space-y-4">
+        <div className="w-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg p-8 h-45">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
+              <div className="col-span-3">
+                  <h1 className="text-4xl font-bold text-white mb-4">
+                      Complete Account Verification
+                  </h1>
+                  <p className="text-lg text-white mb-8">
+                      Submit verification documents to our compliance team for approval and unlock more features including crypto/fiat transactions.
+                  </p>
+                  <Link href="/dashboard/deposit" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
+                      Get verified
+                  </Link>
+              </div>
+              <div className="col-span-2">
+                  <h1 className="text-4xl font-bold text-white mb-4">
+                      Top Up Account
+                  </h1>
+                  <p className="text-lg text-white mb-8">
+                      After verification, you are now ready to top up your account and seamlessly manage transactions.
+                  </p>
+                  <Link href="/dashboard/deposit" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
+                      Deposit
+                  </Link>
+              </div>
+              <div className="col-span-2">
+                {/* <Image src={AboutPageIllustration.src} width={150} height={20} alt='d' className="h-auto"/> */}
+                <h1 className="text-4xl font-bold text-white mb-4">
+                      Buy/Sell
+                  </h1>
+                  <p className="text-lg text-white mb-8">
+                      Start buying and selling crypto, create and manage invoices with ease.
+                  </p>
+                  <Link href="/dashboard/buy-sell-crypto" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
+                      Get started
+                  </Link>
+              </div>
+            </div>
+              </div>  
           <TabsList>
             <TabsTrigger value="overview">Dashboard</TabsTrigger>
             <TabsTrigger value="analytics" disabled>Analytics</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
-            
+          
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
             <div className="col-span-4">
                 <CardHeader>
@@ -343,6 +386,7 @@ export async function MainUserDashboard() {
             </div>
           </TabsContent>
         </Tabs>
+        
       </div>
     </ScrollArea>
   );
