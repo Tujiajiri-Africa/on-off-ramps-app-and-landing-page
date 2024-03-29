@@ -35,7 +35,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
   }
 
   return (
-    <nav className="grid items-start gap-2">
+    <nav className="grid items-start gap-1 2xl:gap-2">
       {items.map((item, index) => {
         const Icon = Icons[item.icon || "arrowRight"];
         return (
@@ -50,9 +50,10 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
               <span
                 className={cn(
                   "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground",
-                  path === item.href ? "bg-[#4B49AC] text-primary-foreground dark:text-white" : "transparent",
+                  path === item.href ? "bg-purple-600 text-primary-foreground dark:text-white" : "transparent",
                   item.disabled && "cursor-not-allowed opacity-80",
                 )}
+                //bg-[#4B49AC]
               >
                 <Icon className="mr-2 h-4 w-4" />
                 <span>{item.title}</span>
@@ -62,7 +63,7 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
         );
       })}
 
-      <Separator className="max-xl:my-6 my-3" />
+      <Separator className="max-xl:my-6 my-1 2xl:my-6" />
 
       <span className="cursor-pointer group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
         <Settings className="mr-2 h-4 w-4" />

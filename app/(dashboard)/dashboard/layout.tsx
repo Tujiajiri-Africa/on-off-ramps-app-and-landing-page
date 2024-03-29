@@ -45,12 +45,12 @@ export default async function DashboardLayout({
           <Header />
           <div 
             className="flex h-screen overflow-hidden"
-            //bg-gradient-to-r from-[#69e4de] via-[#FDC707] to-[#F00FDA] text-white
+            //bg-gradient-to-r from-[#69e4de] via-[#FDC707] to-[#F00FDA] text-white bg-[#4B49AC]/5
             >
             <Sidebar />
             <main 
             //dark:#191C24
-                className="w-full pt-16 dark:bg-[#191C24]/30"
+                className="w-full pt-16 dark:bg-[#191C24]/30 bg-white/50"
                 >
                     {children}
             </main>
