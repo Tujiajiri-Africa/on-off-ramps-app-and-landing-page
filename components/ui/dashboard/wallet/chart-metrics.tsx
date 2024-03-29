@@ -37,9 +37,9 @@ export function UserBalanceChartAnalysis(){
                   axisLine={false}
                     />
                 <Tooltip />
-                <Area type="monotone" dataKey="total" stackId="1" stroke="#8884d8" fill="#8884d8" />
-                <Area type="monotone" dataKey="incoming" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-                <Area type="monotone" dataKey="outgoing" stackId="1" stroke="#ffc658" fill="#ffc658" />
+                <Area type="monotone" name="total" dataKey="total" stackId="1" stroke="#7DA0FA" fill="#7DA0FA" />
+                <Area type="monotone" name="incoming" dataKey="incoming" stackId="2" stroke="#4B49AC" fill="#4B49AC" />
+                <Area type="monotone" name="outgoing" dataKey="outgoing" stackId="3" stroke="#F3797E" fill="#F3797E" />
                 </AreaChart>
             </ResponsiveContainer>
     )
