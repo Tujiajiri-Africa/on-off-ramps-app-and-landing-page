@@ -98,9 +98,9 @@ export default function Products(){
                 //bg-muted/50 
                 //FFC90B
                 //className="bg-gradient-to-r from-[#050520] to-[#470645]   text-white"
-                // via-[#FFC90B] to-[rgb(151,17,163)]
+                // via-[#FFC90B] to-[rgb(151,17,163)]bg-gradient-to-b from-[#FDC707] via-[#F00FDA]
                 //className='bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#FDC707] from-0% to-[#F00FDA]  via-[#050520] to-70%'
-                className='bg-gradient-to-b from-[#FDC707] via-[#F00FDA] to-[#00BF63] shadow-inner bg-opacity-50'
+                className=' bg-slate-50 shadow-inner bg-opacity-5'
             >
                 <CardHeader>
                 <CardTitle className="grid gap-4 place-items-center font-bold">
@@ -124,7 +124,7 @@ export default function Products(){
                 <CardFooter>
                     {showButton && (
                         <Button 
-                        className='w-full bg-[#00BF63]'
+                        className="w-full m-1.5 py-2 px-2 rounded-md bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white  hover:text-white hover:bg-green-700"
                         //className="w-full bg-[#00BF63]"
                         //className='bg-gradient-to-r from-[#FDC707] to-[#F00FDA] w-full'
                     // bg-gradient-to-r from-[#FDC707] to-[#F00FDA]
