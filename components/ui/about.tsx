@@ -28,8 +28,8 @@ export default function About(){
                             }}
                         /> */}
                         <Image
-                          height={700}//
-                          width={1024}
+                          height={600}//
+                          width={800}
                           //src={AboutPageIllustration.src}
                           //src={BuySellDashboardPageSVG.src}
                           //src={WalletBananer.src}

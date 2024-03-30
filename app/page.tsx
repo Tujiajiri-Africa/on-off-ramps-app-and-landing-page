@@ -8,11 +8,14 @@ import  Navbar  from '@/components/ui/navbar'
 import Footer from '@/components/ui/footer'
 import Products from '@/components/ui/products'
 import SupportedAssets from '@/components/ui/supportedAssets'
+import { DemoRequest } from '@/components/ui/demo-request'
 
 //import WaitListBanner from '@/components/ui/waitlist-banner'
 
 //import BackgroundImage from '../app/assets/logo/background-image-sample-svg.svg'
 //v2 components
+import HeroPage2  from '@/components/ui/home-page-v2/hero'
+import NavbarPage2 from '@/components/ui/home-page-v2/navbar'
 
 export default function Home() {
   return (
@@ -26,7 +29,8 @@ export default function Home() {
           <Navbar/>
           {/* <NavbarV2 /> */}
           <Hero />
-          
+          {/* <NavbarPage2 /> */}
+          {/* <HeroPage2 /> */}
           <About />
           <Features />
           <FeatureList />
@@ -34,6 +38,7 @@ export default function Home() {
           <SupportedAssets />
           <Contact />
           {/* <WaitListBanner /> */}
+          <DemoRequest />
           <Footer />
       </main>
 
