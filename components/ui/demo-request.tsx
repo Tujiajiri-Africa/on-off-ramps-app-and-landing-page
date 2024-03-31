@@ -3,14 +3,14 @@ import React from 'react'
 export function DemoRequest(){
     return (
         <>
-<section className="relative z-10 h-full overflow-hidden bg-orange-600 py-16 px-8 content-center" id="demo-request">
+<section className="relative z-10 h-full overflow-hidden bg-white shadow-2xl py-16 px-8 content-center" id="demo-request">
     <div className="container ">
         <div className="-mx-4 flex flex-wrap items-center ">
             <div className="w-full px-4 lg:w-1/2">
                 <div className="text-center lg:text-left ">
                     <div className="mb-10 lg:mb-0 ">
                         <h1
-                            className="mt-0 mb-3 text-4xl font-bold leading-tight sm:text-7xl sm:leading-tight md:text-[40px] md:leading-tight text-white ">
+                            className="mt-0 mb-3 text-4xl font-bold leading-tight sm:text-7xl sm:leading-tight md:text-[40px] md:leading-tight text-slate-900 ">
                                 Ready to expand your global reach with crypto?</h1>
                         <p
                             className="w-full text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed text-white">
@@ -20,7 +20,7 @@ export function DemoRequest(){
             </div>
             <div className="w-full px-4 lg:w-1/2">
                 <div className="text-center lg:text-right"><a
-                        className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-[#FDC707] text-black py-4 px-9 hover:bg-opacity-90"
+                        className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white py-4 px-9 hover:bg-opacity-90"
                         href="#">Get Started With Our Partner Widget</a>
                 </div>
             </div>
