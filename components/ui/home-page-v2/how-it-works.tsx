@@ -4,7 +4,7 @@ import Image from 'next/image'
 export function HowItWorksV2(){
     return (<>
     
-    <section id="works" className="relative  bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 sm:h-screen h-full content-center">
+    <section id="how-it-works" className="relative  bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 sm:h-screen h-full content-center">
     <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
         <p className="text-center text-base font-semibold leading-7 text-primary-500">Getting started</p>
         <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
@@ -18,7 +18,7 @@ export function HowItWorksV2(){
             {/* <p className="max-w-2xl mx-auto mt-4 text-base text-gray-400 leading-relaxed md:text-2xl">
                 We believe there should be no barrier to your adoption of crypto across Africa
             </p> */}
-            <p className="mt-1.5 text-sm leading-6 text-secondary-500">We believe there should be no barrier to your adoption of crypto across Africa</p>
+            <p className="mt-1.5 text-sm leading-6 text-secondary-500">We believe there should be no barrier to your adoption of crypto across Africa, we have made the onboarding process as seamless as possible</p>
         </div>
         <div className="relative mt-12 lg:mt-20">
             <div className="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
@@ -30,7 +30,7 @@ export function HowItWorksV2(){
                         className="flex items-center justify-center w-16 h-16 mx-auto bg-orange-600 border-2 border-gray-200 rounded-full shadow">
                         <span className="text-xl font-semibold text-white">1</span>
                     </div>
-                    <h3 className="mt-6 text-xl  text-slate-900 font-semibold leading-tight md:mt-10">Sign Up</h3>
+                    <h3 className="mt-6 text-xl  text-slate-900 font-semibold leading-tight md:mt-10">Sign up</h3>
                     {/* <p className="mt-4 text-base text-gray-400 md:text-lg">
                         Select template accourding to your requirement
                     </p> */}
