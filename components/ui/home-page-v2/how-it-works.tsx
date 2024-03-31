@@ -4,11 +4,11 @@ import Image from 'next/image'
 export function HowItWorksV2(){
     return (<>
     
-    <section id="how-it-works" className="relative  bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 sm:h-screen h-full content-center">
+    <section id="how-it-works" className="relative  bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 lg:h-screen h-full content-center">
     <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
         <p className="text-center text-base font-semibold leading-7 text-primary-500">Getting started</p>
         <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
-            How to get started
+            How To Get Started
         </h2>
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
@@ -24,7 +24,7 @@ export function HowItWorksV2(){
             <div className="absolute inset-x-0 hidden xl:px-44 top-2 md:block md:px-20 lg:px-28">
                 <Image alt="" loading="lazy" width="1000" height="500" decoding="async" data-nimg="1" className="w-full" style={{color: 'transparent'}} src="https://cdn.rareblocks.xyz/collection/celebration/images/steps/2/curved-dotted-line.svg"/>
             </div>
-            <div className="relative grid grid-cols-1 text-center gap-y-12 md:grid-cols-4 gap-x-12">
+            <div className="relative grid grid-cols-1 text-center gap-y-12 lg:grid-cols-4 md:grid-cols-2 2xl:grid-cols-4 gap-x-12">
                 <div>
                     <div
                         className="flex items-center justify-center w-16 h-16 mx-auto bg-orange-600 border-2 border-gray-200 rounded-full shadow">

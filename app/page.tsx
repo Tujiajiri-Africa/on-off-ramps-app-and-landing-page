@@ -21,6 +21,7 @@ import { SupportedAssetsV2 } from '@/components/ui/home-page-v2/supportedAssets'
 import { HowItWorksV2 } from '@/components/ui/home-page-v2/how-it-works'
 import {FeatureListV2} from '@/components/ui/home-page-v2/feature-list'
 import {FaqV2} from '@/components/ui/home-page-v2/faq'
+import {ContactPageV2} from '@/components/ui/home-page-v2/contact'
 
 export default function Home() {
   return (
@@ -50,7 +51,8 @@ export default function Home() {
           {/* <ProductsV2 /> */}
           {/* <Products /> */}
           {/* <SupportedAssets /> */}
-          <Contact />
+          {/* <Contact /> */}
+          <ContactPageV2 />
           {/* <WaitListBanner /> */}
           <FaqV2 />
           <DemoRequest />

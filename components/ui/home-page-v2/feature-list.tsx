@@ -6,16 +6,20 @@ import illustration from '@/app/assets/backgrounds/sell-withdraw-illustration-li
 
 export function FeatureListV2(){
     return (<>
-            <div className='relative w-full h-full sm:h-screen flex justify-center items-center bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 overflow-hidden opacity-100' id="features">
+            <div className='relative w-full h-full lg:h-screen flex justify-center items-center bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 overflow-hidden opacity-100' id="features">
             <div className="pt-0.5 2xl:w-[80%]  w-[98%]  mx-auto flex flex-col lg:flex-row"
             //sm:pt-20 lg:pt-40
             >
             <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden"> 
    
     <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-    <h2 className="font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl sm:text-start">
-    Achieve your web3 financial goals with our cutting-edge features
-    </h2>
+    {/* <h2 className="font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl sm:text-start text-center">
+    Achieve Your Web3 Financial Goals With Our Cutting-edge Features
+    </h2> */}
+            <h2 className="text-center justify-normal font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl sm:text-start">
+             Achieve Your Web3 Financial Goals With Our Cutting-edge Features
+            </h2>
+    
         {/* <h1 className="py-10 text-4xl sm:text-7xl font-semibold leading-start text-white">
            
             <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">Achieve</span> your <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">web3 financial goals </span> with our 
@@ -50,10 +54,10 @@ export function FeatureListV2(){
     </div>
   </div>
                 <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600">
-                <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+                <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left lg:grid-cols-4 md:grid-cols-2 2xl:grid-cols-4">
               
     <div className="p-2  w-full">
-        <div className="bg-white shadow-md rounded-xl flex p-4 h-full items-center">
+        <div className="bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-xl flex p-4 h-full items-center">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-orange-600 w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
@@ -65,7 +69,7 @@ export function FeatureListV2(){
         </div>
     </div>
     <div className="p-2 w-full">
-        <div className="bg-white shadow-md rounded-xl flex p-4 h-full items-center ">
+        <div className="bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-xl flex p-4 h-full items-center ">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-orange-600 w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
@@ -77,7 +81,7 @@ export function FeatureListV2(){
         </div>
     </div>
     <div className="p-2 w-full">
-        <div className="bg-white shadow-md rounded-xl flex p-4 h-full items-center">
+        <div className="bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-xl flex p-4 h-full items-center">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-orange-600 w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
@@ -92,7 +96,7 @@ export function FeatureListV2(){
     </div>
     <div className="p-2  w-full">
     {/* #050520, 470645 */}
-        <div className="bg-white shadow-md rounded-xl flex p-4 h-full items-center">
+        <div className="bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-xl flex p-4 h-full items-center">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-orange-600 w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
@@ -106,7 +110,7 @@ export function FeatureListV2(){
     </div>
 
     <div className="p-2  w-full">
-        <div className="bg-white shadow-md rounded-xl flex p-4 h-full items-center">
+        <div className="bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-xl flex p-4 h-full items-center">
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3"
                 className="text-orange-600 w-10 h-10 flex-shrink-0 mr-4" viewBox="0 0 24 24">
                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
