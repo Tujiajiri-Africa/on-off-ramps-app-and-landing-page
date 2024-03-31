@@ -38,7 +38,7 @@ export function SupportedAssetsV2() {
   )
   return (
     <>
-    <section id="supported-assets" className="relative  bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10  h-full  content-center shadow-md">
+    <section id="supported-assets" className="relative  bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10  h-screen content-center shadow-md">
     <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
         <p className="text-center text-base font-semibold leading-7 text-primary-500">Supported assets</p>
         <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
