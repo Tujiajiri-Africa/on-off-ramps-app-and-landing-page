@@ -243,7 +243,7 @@ export function FaqV2(){
                     <Card>
                         <CardContent>
                         <p className="group-open:animate-fadeIn mt-1.5 leading-6 text-sm text-neutral-600">If you need help with our platform or
-                        have any other questions, you can contact the company's support team by submitting a support
+                        have any other questions, you can contact the company&apos;s support team by submitting a support
                         request through the website or by emailing hello@ajirapay.finance
                     </p>
                         </CardContent>
