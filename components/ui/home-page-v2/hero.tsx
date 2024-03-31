@@ -106,7 +106,7 @@ export default function HeroPage2(){
     intelligent system streamlines and enhances every aspect of your insurance operations.  */}
     {/* Buy,Sell,Send,Receive,BTC,USDT,USDC,ETH,SOL,cUSD,PYUSD and other supported assets in 20+ jurisdictions across Africa */}
 
-    Seamlessly buy, sell, send, receive BTC, USDT, USDC, cUSD, PYUSD, ETH, SOL and other supported crypto assets in 20+ jurisdictions across Africa with support for mobile money and bank transfer. 
+    Seamlessly buy, sell, send, receive BTC, USDT, USDC, cUSD, PYUSD, ETH, SOL and other supported crypto assets in 20+ jurisdictions across Africa using your local mobile money payment channel or bank transfer 
     {/* Create and manage crypto invoice and subscriptions with ease */}
   </h2>
   <a className="bg-orange-600 dark:bg-gray-800 rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-gray-600 transition"

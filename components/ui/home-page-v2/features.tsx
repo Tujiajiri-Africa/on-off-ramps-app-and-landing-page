@@ -10,7 +10,7 @@ import {Button} from '@/components/ui/button'
 export function ProductsV2(){
     return (
         <>
-        <div id="products" className=" bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 shadow-2xl px-2 py-10 ">
+        <div id="products" className=" bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 ">
 
 <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
   <p className="text-center text-base font-semibold leading-7 text-primary-500">Products</p>
@@ -18,7 +18,7 @@ export function ProductsV2(){
     Explore our core products
   </h2>
   <ul className="mt-16 grid grid-cols-1 gap-6 text-center text-slate-700 md:grid-cols-4 xl:grid-cols-4">
-    <li className="rounded-xl bg-white px-6 py-8 shadow-2xl">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
 
       <Image 
         //src="https://www.svgrepo.com/show/530438/ddos-protection.svg" 
@@ -35,7 +35,7 @@ export function ProductsV2(){
             Coming Soon
         </Button>
     </li>
-    <li className="rounded-xl bg-white px-6 py-8 shadow-2xl">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
 
       <Image 
         //src="https://www.svgrepo.com/show/530442/port-detection.svg"
@@ -51,7 +51,7 @@ export function ProductsV2(){
             Coming Soon
         </Button>
     </li>
-    <li className="rounded-xl bg-white px-6 py-8 shadow-2xl">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
         <Image 
             src={InvoiceVector.src} 
             alt="" 
@@ -67,7 +67,7 @@ export function ProductsV2(){
                 Coming Soon
         </Button>
     </li>
-    <li className="rounded-xl bg-white px-6 py-8 shadow-2xl">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
       <Image 
         src={WalletVector1.src} 
         alt="" 
