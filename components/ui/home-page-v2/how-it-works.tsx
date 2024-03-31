@@ -6,7 +6,7 @@ export function HowItWorksV2(){
     
     <section id="how-it-works" className="relative  bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 lg:h-screen h-full content-center">
     <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
-        <p className="text-center text-base font-semibold leading-7 text-primary-500">Getting started</p>
+        <p className="text-center text-base font-semibold leading-7 text-primary-500">Getting Started</p>
         <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
             How To Get Started
         </h2>
