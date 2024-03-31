@@ -113,7 +113,7 @@ export default function NavbarPage2() {
     //className="bg-[#081e1c]"
     //#001431
     //#010203
-    className={`bg-[#010203] sticky top-0 z-50 transition-shadow 
+    className={`bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 sticky top-0 z-50 transition-shadow 
     ${scrollPosition > 0 ? "shadow bg-opacity-70 backdrop-blur-3xl backdrop-filter" : "shadow-none"}`}
     //className="bg-gradient-to-r from-slate-800 via-[#6d1dee] to-[#9A1AAF]"
     >
@@ -159,7 +159,7 @@ export default function NavbarPage2() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-slate-900 hover:text-white',
+                          item.current ? 'bg-gray-900 text-slate-900' : 'text-slate-900 hover:bg-slate-900 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
