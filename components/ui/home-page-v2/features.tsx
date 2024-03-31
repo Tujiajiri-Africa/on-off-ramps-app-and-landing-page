@@ -15,9 +15,9 @@ export function ProductsV2(){
 <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
   <p className="text-center text-base font-semibold leading-7 text-primary-500">Products</p>
   <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
-    Explore our core products
+    Explore Our Core Products
   </h2>
-  <ul className="mt-16 grid grid-cols-1 gap-6 text-center text-slate-700 md:grid-cols-4 xl:grid-cols-4">
+  <ul className="mt-16 grid grid-cols-1 gap-6 text-center text-slate-700 lg:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4">
     <li className="rounded-xl bg-white px-6 py-8 shadow-md">
 
       <Image 
