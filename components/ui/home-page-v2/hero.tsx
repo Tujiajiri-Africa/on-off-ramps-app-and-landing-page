@@ -63,7 +63,7 @@ const ProductOffering = () => {
   return (
     <>
      <TypeAnimation
-    sequence={['off ramping', 3000, 'on ramping', 3000, 'payments', 3000, 'invoicing', 3000, 'subscriptions', 3000]}
+    sequence={['off ramping', 1000, 'on ramping', 1000, 'payments', 1000, 'invoicing', 1000, 'subscriptions', 1000, 'streaming', 1000]}
     // 
     //style={{ fontSize: '1em' }}
     cursor={false}
@@ -79,148 +79,39 @@ const ProductOffering = () => {
 export default function HeroPage2(){
     return (
         <>
-          <div 
-            className="bg-[#d85829]  relative w-full h-screen flex justify-center items-center  overflow-hidden opacity-100 bg-hero bg-no-repeat bg-cover bg-center bg-fixed"
-            id="hero"
-            style={{
-                //backgroundImage: `url(${wave.src})`,
-                //backgroundRepeat: 'repeat',
-                //backgroundSize: 'cover',
-                //width: '100%',
-                //bottom: 0,
-                //position: 'relative',
-                //display: 'block',
-                //width: 'calc(300% + 1.3px)',
-                //height: '371px',
-            }}
-            >
-{/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#050520_1px,#00091d_1px)] bg-[size:20px_20px]"></div> */}
-<div className="pt-0.5 sm:pt-1.5 2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto flex flex-col lg:flex-row">
-  {/* :HERO MAIN */}
-  <div className="w-full lg:w-1/2 flex flex-col justify-center items-center text-gray-600"> {/* Container */}
-    {/* ::Hero Inner */}
-    <div className="p-5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-      {/* Hero Title */}
-        <h1 className="py-10 text-4xl sm:text-7xl font-semibold tracking-wide leading-tight text-white ">
-            {/* A seamless <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]" >
-              <br />
-              <HeroSubTextAnimationComponent /> 
-              <br />
+  <div
+  className="flex  w-full h-screen sm:h-full flex-col items-center justify-center text-center px-4 py-20 bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
+  <a href=""
+    className="border border-white-700 dark:border-gray-300 rounded-lg py-2 px-4 text-white-400 dark:text-gray-300 text-sm mb-5 transition duration-300 ease-in-out hover:text-gray-500 dark:hover:text-gray-400">
+    {/* Forget about spending hundreds $  flex justify-center items-center  overflow-hidden*/}
+    Enhancing crypto adoption across Africa 
 
-              </span> onboarding with <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">instant settlement</span> in your <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">local currency</span> */}
-              {/* Your <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]">
-                gateway </span><br />to crypto <br />
-                <span className="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"><ProductOffering /> </span>  */}
-                Your gateway to crypto payments
-              <br/>
-                <span className="inline-block relative">
-            in Africa{" "}
-              <Image
-                src={curve.src}
-                className="absolute top-full left-0 w-full xl:-mt-2"
-                width={624}
-                height={28}
-                alt="Curve"
-              />
-            </span><br/> 
-            and beyond
-        </h1>
-      {/* Starting Price */}
-        <p className="text-lg font-semibold text-gray-300 tracking-wide">
-        {/* Four sizes, starting at $29 */}
-            <span className="text-[#00BF63]" >Buy</span>, <span className="text-[#00BF63]">Sell</span>, <span className="text-[#00BF63]">Send</span> , <span className="text-[#00BF63]">Receive </span> and <span className="text-[#00bf63]">Swap 70+ </span>supported assets in <span className="text-[#00BF63]">20+</span> jurisdictions across Africa
-        </p>
+  </a>
+  <h1
+    className="mx-auto w-[96%] sm:max-w-3xl font-display text-5xl font-bold tracking-normal text-white-300 dark:text-gray-300 sm:text-7xl">
+    Your Gateway To Crypto <br />
+    {/* Crypto <br /> */}
+    <span className="relative whitespace-nowrap text-white-600 dark:text-gray-300"> <span className="text-[#F00FDA]"> <ProductOffering /></span> </span> <br />
+    <span className="relative whitespace-nowrap text-orange-500 dark:text-orange-300">
+      <svg aria-hidden="true" viewBox="0 0 418 42" className="absolute top-2/3 left-0 h-[0.58em] w-full fill-orange-500 dark:fill-orange-300/60" preserveAspectRatio="none">
+        <path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.780 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.540-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.810 23.239-7.825 27.934-10.149 28.304-14.005 .417-4.348-3.529-6-16.878-7.066Z"></path>
+      </svg>
+      {/* <span className="relative">with AI</span> */}
+      <span className="relative">in Africa</span> <br />
+    </span>
+    {/* made easy */}
+  </h1>
+  <h2 className="mx-auto mt-12 max-w-xl text-lg sm:text-white-400 text-white-500 dark:text-gray-300 leading-7">
+    {/* Experience the future of insurance with our cutting-edge AI tool. From underwriting to claims processing, our
+    intelligent system streamlines and enhances every aspect of your insurance operations.  */}
+    {/* Buy,Sell,Send,Receive,BTC,USDT,USDC,ETH,SOL,cUSD,PYUSD and other supported assets in 20+ jurisdictions across Africa */}
 
-      {/* Buttons */}
-      <div className="mt-10 flex flex-row sm:flex-row items-center">
-        <Button 
-        //href="/register"
-            className="m-1.5 py-2 px-2 rounded-md bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white  hover:text-white hover:bg-green-700"
-            //className="bg-[#00BF63] m-1.5 py-2 px-2 rounded-md text-white hover:text-white font-semibold hover:bg-green-700"
-            style={{
-                //background: 'linear-gradient(#593690 50%, #DB1B9A 75%, #9A1AAF 100%);',
-                //background: 'radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(198,45,253,1) 100%)'
-                //font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-[#FDC707] to-[#F00FDA]
-            }}
-            >
-            Coming Soon
-        </Button>
-        <Button className="m-1.5 py-2 px-3 rounded-sm bg-[#00BF63] text-white  hover:bg-slate-900 hover:border-teal-400">Join Waitlist</Button>
-      </div>
-    </div>
-  </div>
-  {/* :HERO ILLUSTRATION button color font-semibold */}
-  <div className="relative w-full lg:w-1/2 flex flex-col justify-center items-center overflow-hidden">
-        <Image
-              height={250}
-              width={320}
-              //src={BuyCryptoDesignSVG.src}
-              src={BuyDashboardPage.src}
-              //src={BuySellDashboardPage.src}
-              //src={BuySellDashboardPageSVG.src}
-              alt='Logo'
-              className="rounded-md"
-                  />
-    {/* <img src={BuyCryptoDesignSVG.src} 
-        alt='illustration' 
-        //className="w-2/3 lg:w-full"
-        style={{
-            width: 'auto',
-            height: '90%'
-        }}
-        /> */}
-     {/* <img src="https://fancytailwind.com/static/8b86283c874a1f43a78c79fe871525ff/d552e/illustration1.webp" alt="" className="w-2/3 lg:w-full" /> */}
-  </div>
-  {/* <span className="absolute top-0 right-0 -z-10">
-        <svg 
-            width="388" 
-            height="250" 
-            viewBox="0 0 388 220" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg">
-                <path 
-                    opacity="0.05" 
-                    d="M203 -28.5L4.87819e-05 250.5L881.5 250.5L881.5 -28.5002L203 -28.5Z" 
-                    fill="url(#paint0_linear_971_6910)">
-                        </path>
-                        <defs>
-                            <linearGradient 
-                                id="paint0_linear_971_6910" 
-                                x1="60.5" 
-                                y1="111" 
-                                x2="287" 
-                                y2="111" 
-                                gradientUnits="userSpaceOnUse">
-                                    <stop 
-                                        offset="0.520507" 
-                                        stopColor="white">
-                                    </stop>
-                                    <stop 
-                                        offset="1" 
-                                        stopColor="white" 
-                                        stopOpacity="0">
-                                    </stop>
-                                        </linearGradient>
-                        </defs>
-                        </svg>
-                    </span>
-                    <span 
-                        className="absolute top-0 right-0 -z-10">
-                            <svg 
-                            width="324" 
-                            height="250" 
-                            viewBox="0 0 324 220" 
-                            fill="none" 
-                            xmlns="http://www.w3.org/2000/svg">
-                                <path 
-                                    opacity="0.05" 
-                                    d="M203 -28.5L4.87819e-05 250.5L881.5 250.5L881.5 -28.5002L203 -28.5Z" fill="url(#paint0_linear_971_6911)"></path><defs><linearGradient id="paint0_linear_971_6911" x1="60.5" y1="111" x2="287" y2="111" gradientUnits="userSpaceOnUse"><stop offset="0.520507" stopColor="white"></stop><stop offset="1" stopColor="white" stopOpacity="0"></stop></linearGradient></defs></svg></span><span className="absolute top-4 left-4 -z-10"><svg width="43" height="56" viewBox="0 0 43 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.5"><circle cx="40.9984" cy="1.49626" r="1.49626" transform="rotate(90 40.9984 1.49626)" fill="white"></circle><circle cx="27.8304" cy="1.49626" r="1.49626" transform="rotate(90 27.8304 1.49626)" fill="white"></circle><circle cx="14.6644" cy="1.49626" r="1.49626" transform="rotate(90 14.6644 1.49626)" fill="white"></circle><circle cx="1.49642" cy="1.49626" r="1.49626" transform="rotate(90 1.49642 1.49626)" fill="white"></circle><circle cx="40.9984" cy="14.6642" r="1.49626" transform="rotate(90 40.9984 14.6642)" fill="white"></circle><circle cx="27.8304" cy="14.6642" r="1.49626" transform="rotate(90 27.8304 14.6642)" fill="white"></circle><circle cx="14.6644" cy="14.6642" r="1.49626" transform="rotate(90 14.6644 14.6642)" fill="white"></circle><circle cx="1.49642" cy="14.6642" r="1.49626" transform="rotate(90 1.49642 14.6642)" fill="white"></circle><circle cx="40.9984" cy="27.8302" r="1.49626" transform="rotate(90 40.9984 27.8302)" fill="white"></circle><circle cx="27.8304" cy="27.8302" r="1.49626" transform="rotate(90 27.8304 27.8302)" fill="white"></circle><circle cx="14.6644" cy="27.8302" r="1.49626" transform="rotate(90 14.6644 27.8302)" fill="white"></circle><circle cx="1.49642" cy="27.8302" r="1.49626" transform="rotate(90 1.49642 27.8302)" fill="white"></circle><circle cx="40.9984" cy="40.9982" r="1.49626" transform="rotate(90 40.9984 40.9982)" fill="white"></circle><circle cx="27.8304" cy="40.9963" r="1.49626" transform="rotate(90 27.8304 40.9963)" fill="white"></circle><circle cx="14.6644" cy="40.9982" r="1.49626" transform="rotate(90 14.6644 40.9982)" fill="white"></circle><circle cx="1.49642" cy="40.9963" r="1.49626" transform="rotate(90 1.49642 40.9963)" fill="white"></circle><circle cx="40.9984" cy="54.1642" r="1.49626" transform="rotate(90 40.9984 54.1642)" fill="white"></circle><circle cx="27.8304" cy="54.1642" r="1.49626" transform="rotate(90 27.8304 54.1642)" fill="white"></circle><circle cx="14.6644" cy="54.1642" r="1.49626" transform="rotate(90 14.6644 54.1642)" fill="white"></circle><circle cx="1.49642" cy="54.1642" r="1.49626" transform="rotate(90 1.49642 54.1642)" fill="white"></circle></g>
-        </svg>
-    </span> */}
+    Seamlessly buy, sell, send, receive BTC, USDT, USDC, cUSD, PYUSD, ETH, SOL and other supported crypto assets in 20+ jurisdictions across Africa with support for mobile money and bank transfer. 
+    {/* Create and manage crypto invoice and subscriptions with ease */}
+  </h2>
+  <a className="bg-orange-600 dark:bg-gray-800 rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-gray-600 transition"
+    href="">Coming Soon</a>
 </div>
-
-</div>
-            
         </>
         
         )

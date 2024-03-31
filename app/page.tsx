@@ -29,7 +29,8 @@ export default function Home() {
           
           <Navbar/>
           {/* <NavbarV2 /> */}
-          <Hero />
+          {/* <Hero /> */}
+          <HeroPage2 />
           
           {/* <NavbarPage2 /> */}
           {/* <HeroPage2 /> */}

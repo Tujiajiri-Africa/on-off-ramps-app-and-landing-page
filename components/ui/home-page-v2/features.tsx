@@ -10,7 +10,7 @@ import {Button} from '@/components/ui/button'
 export function ProductsV2(){
     return (
         <>
-        <div id="products" className=" bg-gray-50 shadow-2xl px-2 py-10 ">
+        <div id="products" className=" bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 shadow-2xl px-2 py-10 ">
 
 <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
   <p className="text-center text-base font-semibold leading-7 text-primary-500">Products</p>
@@ -31,7 +31,7 @@ export function ProductsV2(){
       <p className="mt-1.5 text-sm leading-6 text-secondary-500">
       Buy USDT, USDC, cUSD, PYUSD, BTC, ETH, SOL, DAI and other supported crypto assets with your local currency using either mobile money or bank transfer.
       </p>
-        <Button className='mt-6 w-full bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white'>
+        <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 px-4 py-3 sm:mt-10 mt-8'>
             Coming Soon
         </Button>
     </li>
@@ -47,7 +47,7 @@ export function ProductsV2(){
       <p className="mt-1.5 text-sm leading-6 text-secondary-500">
       Sell USDT, USDC, cUSD, PYUSD, BTC, ETH, SOL, DAI and other supported crypto assets at market rates with minimal fee and cash out into your local currency for use in your day to day utilities.
       </p>
-      <Button className='mt-6 w-full bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white'>
+      <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 px-4 py-3 sm:mt-10 mt-8'>
             Coming Soon
         </Button>
     </li>
@@ -63,7 +63,7 @@ export function ProductsV2(){
         <p className="mt-1.5 text-sm leading-6 text-secondary-500">
         We offer support for one-click invoice payments, real-time invoice payment reconciliation, settlement in fiat, invoice payments in crypto
           </p>
-      <Button className='mt-6 w-full bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white'>
+      <Button className='mt-8 w-full bg-orange-600 text-white hover:bg-orange-500 px-4 py-3 sm:mt-10'>
                 Coming Soon
         </Button>
     </li>
@@ -79,7 +79,7 @@ export function ProductsV2(){
       <p className="mt-1.5 text-sm leading-6 text-secondary-500">
       Harness the power of real-time token transfers popularly known as token streaming to empower your friends and family to access liquidity in real-time giving them the flexibility to explore and invest in other profitable DeFi products or cash out in local currency.
       </p>
-      <Button className='mt-6 w-full bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white'>
+      <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 px-4 py-3 sm:mt-10 mt-8'>
             Coming Soon
         </Button>
     </li>

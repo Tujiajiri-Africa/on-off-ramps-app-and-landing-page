@@ -3,7 +3,7 @@ import React from 'react'
 export function DemoRequest(){
     return (
         <>
-<section className="relative z-10 h-full overflow-hidden bg-white shadow-2xl py-16 px-8 content-center" id="demo-request">
+<section className="relative z-10 h-full overflow-hidden bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 shadow-2xl py-16 px-8 content-center" id="demo-request">
     <div className="container ">
         <div className="-mx-4 flex flex-wrap items-center ">
             <div className="w-full px-4 lg:w-1/2">
@@ -20,7 +20,7 @@ export function DemoRequest(){
             </div>
             <div className="w-full px-4 lg:w-1/2">
                 <div className="text-center lg:text-right"><a
-                        className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white py-4 px-9 hover:bg-opacity-90"
+                        className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-orange-600 text-white py-4 px-9 hover:bg-opacity-90"
                         href="#">Get Started With Our Partner Widget</a>
                 </div>
             </div>
