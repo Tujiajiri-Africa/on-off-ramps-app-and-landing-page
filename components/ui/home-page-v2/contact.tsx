@@ -9,7 +9,7 @@ export function ContactPageV2(){
         <div className='2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit content-center items-center'>
         <p className="text-center text-base font-semibold leading-7 text-primary-500">Contact Us</p>
        <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
-         Let&apos;s Talk
+        You Have Something In Mind? <br />Let&apos;s Talk
        </h2>
        <div className="max-w-2xl mx-auto text-center">
         {/* <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
