@@ -16,6 +16,7 @@ import { DemoRequest } from '@/components/ui/demo-request'
 //v2 components
 import HeroPage2  from '@/components/ui/home-page-v2/hero'
 import NavbarPage2 from '@/components/ui/home-page-v2/navbar'
+import { ProductsV2 } from '@/components/ui/home-page-v2/features'
 
 export default function Home() {
   return (
@@ -29,12 +30,16 @@ export default function Home() {
           <Navbar/>
           {/* <NavbarV2 /> */}
           <Hero />
+          
           {/* <NavbarPage2 /> */}
           {/* <HeroPage2 /> */}
           <About />
+          
           <Features />
+          
           <FeatureList />
-          <Products />
+          <ProductsV2 />
+          {/* <Products /> */}
           <SupportedAssets />
           <Contact />
           {/* <WaitListBanner /> */}
