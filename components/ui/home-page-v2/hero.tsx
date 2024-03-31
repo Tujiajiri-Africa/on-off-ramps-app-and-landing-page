@@ -70,7 +70,7 @@ const ProductOffering = () => {
     repeat={Infinity}
     speed={10}
     //key={}
-    //preRenderFirstString
+    preRenderFirstString
     />
     </>
   )
