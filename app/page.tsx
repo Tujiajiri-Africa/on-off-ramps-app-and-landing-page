@@ -19,6 +19,7 @@ import NavbarPage2 from '@/components/ui/home-page-v2/navbar'
 import { ProductsV2 } from '@/components/ui/home-page-v2/features'
 import { SupportedAssetsV2 } from '@/components/ui/home-page-v2/supportedAssets'
 import { HowItWorksV2 } from '@/components/ui/home-page-v2/how-it-works'
+import {FeatureListV2} from '@/components/ui/home-page-v2/feature-list'
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
           <HeroPage2 />
           <ProductsV2 />
           <HowItWorksV2 />
+          <FeatureListV2 />
           <SupportedAssetsV2 />
           {/* <HowItWorksV2 /> */}
           {/* <NavbarPage2 /> */}
@@ -43,7 +45,7 @@ export default function Home() {
           
           <Features />
           
-          <FeatureList />
+          {/* <FeatureList /> */}
           {/* <ProductsV2 /> */}
           {/* <Products /> */}
           {/* <SupportedAssets /> */}
