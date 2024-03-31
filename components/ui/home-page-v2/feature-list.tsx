@@ -2,6 +2,7 @@ import React from "react";
 import { Bars3Icon, BellIcon, XMarkIcon,ArrowRightCircleIcon } from '@heroicons/react/24/outline'
 import curve from '@/app/assets/hero/curve.png'
 import Image from 'next/image'
+import illustration from '@/app/assets/backgrounds/sell-withdraw-illustration-light-green.svg'
 
 export function FeatureListV2(){
     return (<>
@@ -122,7 +123,18 @@ export function FeatureListV2(){
                 </div>
    
             </div>
+
         </div>
+        {/* <div className="relative flex justify-center h-[520px] w-[250px] border-4 border-black rounded-2xl bg-gray-50"
+    style={{boxShadow: '10px 10px 5px 12px rgb(209, 218, 218)'}}>
+    
+    <span className="border border-black bg-black w-28 h-5 rounded-br-xl rounded-bl-xl"></span>
+     <div className="content-center items-center ">
+        <Image src={illustration.src} width={1028} height={870} alt="illustration" />
+     </div> 
+    <span className="absolute -right-2 top-20 border-4 border-black h-10 rounded-md"></span>
+    <span className="absolute -right-2 top-44 border-4 border-black h-24 rounded-md"></span>
+</div> */}
     </>
 )
 }
