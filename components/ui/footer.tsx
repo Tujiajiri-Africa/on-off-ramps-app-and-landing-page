@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import logo from  '../../app/assets/logo/favicon.ico'
+import logo from  '@/app/assets/logo/favicon.ico'
 import Image from 'next/image'
 
 export default function Footer(){
