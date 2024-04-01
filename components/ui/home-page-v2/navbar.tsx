@@ -174,7 +174,7 @@ export default function NavbarPage2() {
                         <button 
                           //href="/register" 
                           className="bg-orange-600 text-white px-5 py-2 rounded-md hover:bg-orange-500  hidden sm:block md:hidden xl:block lg:block">
-                            Coming Soon
+                            Open Dashboard
                           </button>
                         {/* <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon> */}
                     </div>
@@ -258,7 +258,7 @@ export default function NavbarPage2() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-slate-900 hover:text-white',
+                    item.current ? 'bg-gray-900 text-slate-900' : 'text-slate-900 hover:bg-orange-600 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
