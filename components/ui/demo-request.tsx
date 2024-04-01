@@ -3,8 +3,8 @@ import React from 'react'
 export function DemoRequest(){
     return (
         <>
-<section className="relative z-10 h-full overflow-hidden bg-orange-600 shadow-md py-16 px-8 content-center" id="demo-request">
-    <div className="container ">
+<section className="relative z-10 h-full lg:h-[400px] overflow-hidden bg-orange-600 shadow-md py-16 px-8 content-center" id="demo-request">
+    <div className="container "> 
         <div className="-mx-4 flex flex-wrap items-center ">
             <div className="w-full px-4 lg:w-1/2">
                 <div className="text-center lg:text-left ">
