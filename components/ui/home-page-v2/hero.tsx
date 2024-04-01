@@ -21,6 +21,7 @@ import backgroundImage3 from '@/app/assets/backgrounds/183.jpg'
 import backgroundImage5 from '@/app/assets/backgrounds/oooscillate_4.svg'
 import homepagebglightwebpg from '@/app/assets/logo/backgroundImages/abstract-7561993_1280.png'
 import wave from '@/app/assets/backgrounds/website-curve-9.svg'
+import DashboardIllustration from '@/app/assets/backgrounds/dashboard-illustration-7.png'
 
 const HeroSubTextAnimationComponent = () => {
   return (
@@ -109,15 +110,20 @@ export default function HeroPage2(){
     Seamlessly buy, sell, send, receive BTC, USDT, USDC, cUSD, PYUSD, ETH, SOL and other supported crypto assets in 20+ jurisdictions across Africa using your local mobile money payment channel or bank transfer 
     {/* Create and manage crypto invoice and subscriptions with ease */}
   </h2>
-  <a className="bg-orange-600 dark:bg-gray-800 rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-gray-600 transition"
+  <a className="bg-orange-600 dark:bg-gray-800 mb-6  rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-gray-600 transition"
     href="">Coming Soon</a>
-</div>
-{/* <div className="flex justify-center mb-6">
-          <img
-            src="https://pagedone.io/asset/uploads/1691054543.png"
-            alt="Dashboard image"
+    <div className="flex justify-center bg-transparent shadow-2xl rounded-md">
+          <Image
+            //src="https://pagedone.io/asset/uploads/1691054543.png"
+            src={DashboardIllustration.src}
+            alt="Dashboard illustration"
+            width={1024}
+            height={320}
+            className="rounded-md"
           />
-        </div> */}
+        </div>
+</div>
+
         </>
         
         )

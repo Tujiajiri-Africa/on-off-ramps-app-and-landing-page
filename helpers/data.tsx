@@ -65,7 +65,7 @@ export const navItems: NavItem[] = [
     {
       title: "Invoice",
       href: "/dashboard/invoices",
-      icon: "list",
+      icon: "handCoins",
       label: "invoice",
     },
     // {
@@ -98,6 +98,12 @@ export const navItems: NavItem[] = [
     icon: 'wallet',
     label: 'wallet'
   },
+  // {
+  //   title: "Transactions",
+  //   href: "/dashboard/user/profile",
+  //   icon: "list",
+  //   label: "transactions",
+  // },
   {
     title: "Profile",
     href: "/dashboard/user/profile",
@@ -317,44 +323,44 @@ export const sampleWalletData:WaletChartData[] = [
   {
     asset: 'BTC',
     label: 'BTC',
-    total: 2000,
-    incoming: 1700,
-    outgoing:300
+    total: 9400,
+    incoming:4100 ,
+    outgoing:5300
   },
   {
     asset: 'USDT',
     label: 'USDT',
-    total: 3990,
-    incoming: 2000,
-    outgoing: 1999
+    total: 5184,
+    incoming: 3740,
+    outgoing: 1444
   },
   {
     asset: 'cUSD',
     label: 'cUSD',
-    total: 1600,
-    incoming: 327,
-    outgoing:3456
+    total: 2184,
+    incoming: 1973,
+    outgoing:211
   },
   {
     asset: 'USDC',
     label: 'USDC',
-    total: 300,
+    total: 8184,
     incoming: 6364,
-    outgoing: 6383
+    outgoing: 1820
   },
   {
     asset: 'SOL',
     label: 'SOL',
     total: 5344,
     incoming: 2452,
-    outgoing: 5672
+    outgoing: 2892
   },
   {
     asset: 'MATIC',
     label: 'MATIC',
     total: 7334,
-    incoming: 6353,
-    outgoing: 281
+    incoming: 981,
+    outgoing: 6353
   }
 ]
 

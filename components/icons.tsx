@@ -41,7 +41,8 @@ import {
     Wallet2Icon,
     BadgeCheck,
     ArrowDownCircle,
-    ArrowUpCircleIcon
+    ArrowUpCircleIcon,
+    HandCoins
   } from "lucide-react";
   
   export type Icon = LucideIcon;
@@ -84,6 +85,7 @@ import {
     badge_check:BadgeCheck,
     circle_arrow_down:ArrowDownCircle,
     circle_arrow_up:ArrowUpCircleIcon,
+    handCoins: HandCoins,
     gitHub: ({ ...props }: LucideProps) => (
       <svg
         aria-hidden="true"

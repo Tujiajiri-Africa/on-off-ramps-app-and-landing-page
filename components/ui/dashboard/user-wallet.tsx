@@ -59,7 +59,7 @@ export function UserWallet(){
     const form = useForm<z.infer<typeof DepositSchema>>({
         resolver: zodResolver(DepositSchema),
         defaultValues:{
-            amount: 0
+            amount: 100
         }
     })
 
@@ -128,7 +128,7 @@ export function UserWallet(){
                                             </p>
                                             <div className='flex flex-row gap-2'>
                                             <Button
-                                                className="w-full bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white"
+                                                className="w-full bg-orange-600 text-white"
                                             >
                                                 <Link href={`/dashboard/deposit`}>
                                                     Deposit
@@ -136,7 +136,7 @@ export function UserWallet(){
                                             </Button>
 
                                             <Button
-                                                className="w-full bg-[#4B49AC] text-primary-foreground dark:text-white dark:hover:bg-[#4B49AC]/30 hover:bg-[#4B49AC]/95 hover:text-white"
+                                                className="w-full bg-[#F00FDA] text-primary-foreground dark:text-white dark:hover:bg-[#4B49AC]/30 hover:bg-[#4B49AC]/95 hover:text-white"
                                             >
                                                 <Link href={`/dashboard/withdraw`}>
                                                     Withdraw
@@ -157,7 +157,7 @@ export function UserWallet(){
                                     
                                     </div>
                                     <Button 
-                                        className="content-start group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
+                                        className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-accent hover:text-accent-foreground"
                                         variant={'outline'}
                                     >
                                         View More
@@ -165,7 +165,7 @@ export function UserWallet(){
                                 </div>   
                             </CardHeader>
                             <CardContent className="pl-2">
-                                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4">
                                     <Card className=''
                                     //bg-[#9EBDFF]/60 dark:bg-[#9EBDFF]/20
                                     >
@@ -182,7 +182,7 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                KES 43,184.00
+                                                KES 9,400.00
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
@@ -308,7 +308,7 @@ export function UserWallet(){
                         </Card>
                     </div>
                     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
-                        <Card className="col-span-5">
+                        <Card className="col-span-5 lg:col-span-4 2xl:col-span-5">
                             <CardHeader>
                             <div className="flex items-center justify-between space-y-2">
                                 <div className="md:flex items-center space-x-2">
@@ -324,7 +324,7 @@ export function UserWallet(){
                              
                             </CardContent>
                         </Card>
-                        <Card className='col-span-2'>
+                        <Card className='col-span-2 lg:col-span-3 2xl:col-span-2'>
                         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
              
                             <Tabs defaultValue="deposit" className="w-full">
@@ -380,7 +380,7 @@ export function UserWallet(){
                 </Form>
             </CardContent>
             <CardFooter>
-                <Button className='w-full bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white'>
+                <Button className='w-full bg-orange-600 text-white'>
                     Deposit
                 </Button>
             </CardFooter>
@@ -439,7 +439,7 @@ export function UserWallet(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        Select Withdawal method
+                                        Select Withdrawal method
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -486,7 +486,7 @@ export function UserWallet(){
                 </Form>
             </CardContent>
             <CardFooter>
-                <Button className='w-full bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white'>
+                <Button className='w-full bg-orange-600 text-white'>
                     Withdraw
                 </Button>
             </CardFooter>
