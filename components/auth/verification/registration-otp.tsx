@@ -114,7 +114,7 @@ export function FirstTimePhoneVerification(){
                         <Button 
                             disabled={isPending}
                             type="submit"
-                            className="group w-full relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA]"
+                            className="group w-full relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500"
                             >
 
                             Verify Phone
