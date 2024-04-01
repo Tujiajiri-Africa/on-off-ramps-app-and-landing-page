@@ -23,6 +23,7 @@ import {FeatureListV2} from '@/components/ui/home-page-v2/feature-list'
 import {FaqV2} from '@/components/ui/home-page-v2/faq'
 import {ContactPageV2} from '@/components/ui/home-page-v2/contact'
 import {AboutPageV2} from '@/components/ui/home-page-v2/about'
+import {FooterV2} from '@/components/ui/home-page-v2/footer'
 
 export default function Home() {
   return (
@@ -59,7 +60,8 @@ export default function Home() {
           <FaqV2 />
           <DemoRequest />
           
-          <Footer />
+          {/* <Footer /> */}
+          <FooterV2 />
       </main>
 
     </>
