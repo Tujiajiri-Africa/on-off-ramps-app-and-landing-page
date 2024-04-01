@@ -37,8 +37,9 @@ export function FeatureListV2(){
      
         <p className="mt-1.5 text-sm leading-6 text-secondary-500">
        
-        We have challenged ourselves to bring blockchain technology and cryptocurrency to the unbanked and underbanked African community combining it with the existing local payment channels to connect the African continent to the global digital financial ecosystem with a strict focus on compliance and real-world usecase of these powerful technologies to positively impact the lives of our users and the communities around us
+        {/* We have challenged ourselves to bring blockchain technology and cryptocurrency to the unbanked and underbanked African community combining it with the existing local payment channels to connect the African continent to the global digital financial ecosystem with a strict focus on compliance and real-world usecase of these powerful technologies to positively impact the lives of our users and the communities around us */}
 
+        With NanaPay, you have a variety of options to chose from to aid your financial success journey in web3, empowering your crypto journey
         </p>
 
       {/* Buttons */}

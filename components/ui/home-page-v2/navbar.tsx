@@ -21,10 +21,10 @@ import {
 import {Button} from '@/components/ui/button'
 
 const navigation = [
-  { name: 'Home', href: '/', current: false }, //current: true
+  { name: 'Home', href: '#', current: false }, //current: true
   { name: 'About', href: '#about', current: false },
   { name: 'Features', href: '#features', current: false },
-  { name: 'How it Works', href: '#feature-list', current: false },
+  { name: 'How it Works', href: '#how-it-works', current: false },
   { name: "Products", href: "#products", current: false},
   { name: "Contact Us", href: "#contact", current: false},
   //{ name: 'Academy', href: "#", current: false},
@@ -114,14 +114,14 @@ export default function NavbarPage2() {
     //#001431
     //#010203
     className={`bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 sticky top-0 z-50 transition-shadow 
-    ${scrollPosition > 0 ? "shadow bg-opacity-70 backdrop-blur-3xl backdrop-filter" : "shadow-none"}`}
+    ${scrollPosition > 0 ? "shadow-lg bg-opacity-70 backdrop-blur-3xl backdrop-filter" : "shadow-none"}`}
     //className="bg-gradient-to-r from-slate-800 via-[#6d1dee] to-[#9A1AAF]"
     >
       {({ open }) => (
         <>
           <div 
             //className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
-            className='w-[98%] 2xl:w-[80%]  mx-auto px-2 sm:px-6 lg:px-8'
+            className='w-[98%] 2xl:w-[80%]  mx-auto px-2 sm:px-6 lg:px-8 '
             >
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -159,7 +159,7 @@ export default function NavbarPage2() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-slate-900' : 'text-slate-900 hover:bg-slate-900 hover:text-white',
+                          item.current ? 'bg-gray-900 text-slate-900' : 'text-slate-900 hover:bg-orange-600 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -173,7 +173,7 @@ export default function NavbarPage2() {
               <div className='flex items-center gap-6'>
                         <button 
                           //href="/register" 
-                          className="bg-gradient-to-r from-[#FDC707] to-[#F00FDA] text-white px-5 py-2 rounded-md hover:bg-green-700  hidden sm:block md:hidden xl:block lg:block">
+                          className="bg-orange-600 text-white px-5 py-2 rounded-md hover:bg-orange-500  hidden sm:block md:hidden xl:block lg:block">
                             Coming Soon
                           </button>
                         {/* <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon> */}
