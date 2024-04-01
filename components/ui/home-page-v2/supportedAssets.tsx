@@ -100,8 +100,8 @@ export function SupportedAssetsV2() {
                   </CarouselItem>
                 ))} */}
               </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="bg-orange-600 text-white hover:bg-orange-500 hover:text-white" />
+              <CarouselNext className="bg-orange-600 text-white hover:bg-orange-500 hover:text-white "/>
             </Carousel>
         </div>
     </div>
