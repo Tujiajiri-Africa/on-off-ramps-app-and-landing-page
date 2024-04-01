@@ -22,6 +22,7 @@ import { HowItWorksV2 } from '@/components/ui/home-page-v2/how-it-works'
 import {FeatureListV2} from '@/components/ui/home-page-v2/feature-list'
 import {FaqV2} from '@/components/ui/home-page-v2/faq'
 import {ContactPageV2} from '@/components/ui/home-page-v2/contact'
+import {AboutPageV2} from '@/components/ui/home-page-v2/about'
 
 export default function Home() {
   return (
@@ -32,10 +33,11 @@ export default function Home() {
         className="!scroll-smooth"
         >
           
-          <Navbar/>
-          {/* <NavbarV2 /> */}
+          {/* <Navbar/> */}
+          <NavbarPage2 />
           {/* <Hero /> */}
           <HeroPage2 />
+          {/* <AboutPageV2 /> */}
           <ProductsV2 />
           <HowItWorksV2 />
           <FeatureListV2 />

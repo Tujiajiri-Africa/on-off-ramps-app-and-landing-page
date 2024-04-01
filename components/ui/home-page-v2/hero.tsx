@@ -112,6 +112,12 @@ export default function HeroPage2(){
   <a className="bg-orange-600 dark:bg-gray-800 rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-gray-600 transition"
     href="">Coming Soon</a>
 </div>
+{/* <div className="flex justify-center mb-6">
+          <img
+            src="https://pagedone.io/asset/uploads/1691054543.png"
+            alt="Dashboard image"
+          />
+        </div> */}
         </>
         
         )
