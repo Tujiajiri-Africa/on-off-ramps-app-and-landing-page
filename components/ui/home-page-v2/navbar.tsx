@@ -22,7 +22,7 @@ import {Button} from '@/components/ui/button'
 
 const navigation = [
   { name: 'Home', href: '#', current: false }, //current: true
-  { name: 'About', href: '#about', current: false },
+  // { name: 'About', href: '#about', current: false },
   { name: 'Features', href: '#features', current: false },
   { name: 'How it Works', href: '#how-it-works', current: false },
   { name: "Products", href: "#products", current: false},
