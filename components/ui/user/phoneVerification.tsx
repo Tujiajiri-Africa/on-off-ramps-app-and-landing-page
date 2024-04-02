@@ -55,7 +55,7 @@ export const UserPhineVerificationForm = () => {
             addPhoneNumber(values, callbackUrl)
             .then((data:any) => {
                 if(data?.data.error){
-                    form.reset()
+                    //form.reset()
                     setError(data?.data.error)
                 }
                 if(data?.data.success){
@@ -138,7 +138,7 @@ export const UserPhineVerificationForm = () => {
                     <Button 
                         disabled={isPending}
                         type="submit"
-                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA] ">
+                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 ">
 
                         Add phone
                     </Button>

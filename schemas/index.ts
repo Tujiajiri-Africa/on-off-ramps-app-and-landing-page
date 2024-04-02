@@ -60,11 +60,27 @@ export const RegisterSchema = z.object({
 //       .or(z.literal("")),
 //   });
 export const PasswordResetSchema = z.object({
-    email: z.string().email({
-        message: "Email is required"
+    current_password: z.string().min(6,{
+        message: 'Current password is required!'
+    }),
+    new_password: z.string().min(6,{
+        message: 'Miminum 6 characters required!'
+    }),
+    confirm_password: z.string().min(6,{
+        message: 'Miminum 6 characters required!'
     })
+}).refine((value) => {
+    return value.new_password == value.confirm_password;
+},{
+    message: 'Passwords do not match!',
+    path: ['confirm_password']
 })
 
+export const ForgotPasswordSchema = z.object({
+    email: z.string().email({
+        message: "Invalid email address"
+    })
+})
 // const sender = {
 //     name: "Sample Name",
 //     country: "US",
@@ -151,7 +167,8 @@ export const UserPasswordChangeSchema = z.object({
     const isValid = values.new_password === values.confirm_password
     return isValid
 }, {
-    message: "Passwords do not match"
+    message: "Passwords do not match",
+    path: ['confirm_password']
 })
 
 export const UserPhoneVerificationSchema = z.object({

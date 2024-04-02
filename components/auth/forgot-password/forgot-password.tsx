@@ -15,24 +15,24 @@ FormItem,
 FormField,
 FormMessage
 } from '@/components/ui/form'
-import { PasswordResetSchema } from '@/schemas'
+import { ForgotPasswordSchema } from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
-import {resetPassword} from '@/actions/auth'
+import {handleForgotPassword} from '@/actions/auth'
 
 export const ForgotPasswordForm = () => {
     const [isPending, startTransition] = useTransition()
 
-    const form = useForm<z.infer<typeof PasswordResetSchema>>({
-        resolver: zodResolver(PasswordResetSchema),
+    const form = useForm<z.infer<typeof ForgotPasswordSchema>>({
+        resolver: zodResolver(ForgotPasswordSchema),
         defaultValues:{
             email: ""
         }
     })
 
-    const handleSubmit = (values: z.infer<typeof PasswordResetSchema>) =>{
+    const handleSubmit = (values: z.infer<typeof ForgotPasswordSchema>) =>{
         startTransition(() => {
-            resetPassword(values)
+            handleForgotPassword(values)
         })
     }
 
