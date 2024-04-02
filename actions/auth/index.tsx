@@ -8,7 +8,8 @@ import {
     PasswordResetSchema, 
     UserProfileSchema, 
     UserPasswordChangeSchema,
-    PhoneRegistrationOTPSchema 
+    PhoneRegistrationOTPSchema, 
+    ForgotPasswordSchema
 } from '@/schemas'
 import {UserResponseDataProps} from '@/lib/utils'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
@@ -241,4 +242,8 @@ export const verifyPhone = async(values: z.infer<typeof PhoneRegistrationOTPSche
         }
         return {data: dataInfo}
     }
+}
+
+export const handleForgotPassword = (values: z.infer<typeof ForgotPasswordSchema>) => {
+    console.log(values)
 }

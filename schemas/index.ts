@@ -76,6 +76,11 @@ export const PasswordResetSchema = z.object({
     path: ['confirm_password']
 })
 
+export const ForgotPasswordSchema = z.object({
+    email: z.string().email({
+        message: "Invalid email address"
+    })
+})
 // const sender = {
 //     name: "Sample Name",
 //     country: "US",
