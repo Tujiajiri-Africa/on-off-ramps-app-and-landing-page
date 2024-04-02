@@ -219,3 +219,39 @@ export const PhoneRegistrationOTPSchema = z.object({
         message: "Please enter the correct number of characters sent to your phone"
     })
 })
+
+export const InvoiceSchema = z.object({
+    client_email: z.string({
+        required_error: 'Provider email is required!'
+    }).email({
+        message: 'Client email must be valid email address'
+    }),
+    amount: z.number().min(1,{
+        message: 'Amount must be greator than 1'
+    }),
+    currency: z.string({
+        required_error: "Please enter currency!"
+    }),
+    quantity: z.number().min(1,{
+        message: 'Quanity must be at leats 1'
+    }),
+    item_name: z.string({
+        required_error: 'Itme name is required!'
+    }).min(3,{
+        message: 'Please provide item name'
+    }),
+    item_description: z.string({
+        required_error: 'Item description is required!'
+    }).min(6, {
+        message: 'Please some description of the item'
+    }),
+    payment_method: z.string({
+        required_error: 'Please select payment method!'
+    }),
+    due_date: z.date({
+        required_error: 'Enter invoice due date!',
+        invalid_type_error: 'Invalid date format!'
+    })//.min(new Date(),{message: 'Cannot use previous date!'})
+}).refine((value) => {
+    return value.due_date > new Date()
+})
