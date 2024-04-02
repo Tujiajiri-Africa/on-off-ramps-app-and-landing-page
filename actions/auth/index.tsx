@@ -163,9 +163,6 @@ export const login = async(
           }
 }
 
-export const resetPassword = async(values: z.infer<typeof PasswordResetSchema>) =>{
-    console.log(values)
-}
 
 export const verifyPhone = async(values: z.infer<typeof PhoneRegistrationOTPSchema>) =>{
     let dataInfo: UserResponseDataProps = {

@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import {
@@ -34,6 +36,7 @@ import {UserPasswordUpdateForm} from '@/app/(dashboard)/dashboard/user/passwordC
 import {UserAddPhoneForm} from '@/app/(dashboard)/dashboard/user/addPhoneForm'
 
 export function UserProfileComponent(){
+
     return (
         <>
         <ScrollArea className="h-full">
@@ -52,18 +55,18 @@ export function UserProfileComponent(){
             </Button> */}
 
                 <Sheet>
-                    <SheetTrigger asChild>
+                    {/* <SheetTrigger asChild>
                         <Button >Add Mobile Money Number</Button>
-                    </SheetTrigger>
+                    </SheetTrigger> */}
                     <SheetContent>
                         <UserAddPhoneForm />
                     </SheetContent>
                   </Sheet>
 
                   <Sheet>
-                    <SheetTrigger asChild>
+                    {/* <SheetTrigger asChild>
                         <Button>Edit Profile</Button>
-                    </SheetTrigger>
+                    </SheetTrigger> */}
                     <SheetContent>
                         <UserProfileUpdateForm />
                     </SheetContent>
@@ -82,18 +85,18 @@ export function UserProfileComponent(){
 
         <div className="sm:hidden grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"> 
         <Sheet>
-                    <SheetTrigger asChild>
+                    {/* <SheetTrigger asChild>
                         <Button >Add Mobile Money Number</Button>
-                    </SheetTrigger>
+                    </SheetTrigger> */}
                     <SheetContent>
                         <UserAddPhoneForm />
                     </SheetContent>
                   </Sheet>
 
                   <Sheet>
-                    <SheetTrigger asChild>
+                    {/* <SheetTrigger asChild>
                         <Button>Edit Profile</Button>
-                    </SheetTrigger>
+                    </SheetTrigger> */}
                     <SheetContent>
                         <UserProfileUpdateForm />
                     </SheetContent>

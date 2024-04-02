@@ -27,18 +27,21 @@ import {Button} from '@/components/ui/button'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 
-import { UserPasswordChangeSchema } from '@/schemas'
+import { PasswordResetSchema } from '@/schemas'
 import { changePassword } from '@/actions/settings'
+import { useSession } from 'next-auth/react';
+import {signOut} from '@/auth'
 
 export const UserPasswordChangeForm = () => {
+    const {data:userSessionData}= useSession()
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl");
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
 
-    const form = useForm<z.infer<typeof UserPasswordChangeSchema>>({
-        resolver: zodResolver(UserPasswordChangeSchema),
+    const form = useForm<z.infer<typeof PasswordResetSchema>>({
+        resolver: zodResolver(PasswordResetSchema),
         defaultValues: {
             current_password: "",
             new_password: "",
@@ -46,20 +49,21 @@ export const UserPasswordChangeForm = () => {
         }
     })
 
-    const onSubmit = (values: z.infer<typeof UserPasswordChangeSchema>) => {
+    const onSubmit = async(values: z.infer<typeof PasswordResetSchema>) => {
         setError("")
         setSuccess("")
 
         startTransition(async() => {
-            changePassword(values, callbackUrl)
-            .then((data:any) => {
+            changePassword(values, userSessionData?.user.accessToken.toString())
+            .then(async(data:any) => {
                 if(data?.data.error){
-                    form.reset()
+                    //form.reset()
                     setError(data?.data.error)
                 }
                 if(data?.data.success){
                     form.reset()
                     setSuccess(data?.data.success)
+                    //await signOut()
                 }
             }).catch(() => {
                 setError("Something went wrong")
@@ -82,7 +86,7 @@ export const UserPasswordChangeForm = () => {
                     <div>
                         <FormField 
                             control={form.control}
-                            name='new_password'
+                            name='current_password'
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel 
@@ -187,7 +191,7 @@ export const UserPasswordChangeForm = () => {
                     <Button 
                         disabled={isPending}
                         type="submit"
-                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA] ">
+                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 ">
 
                         Change password
                     </Button>

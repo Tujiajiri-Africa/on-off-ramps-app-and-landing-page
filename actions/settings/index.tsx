@@ -15,19 +15,19 @@ import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
 import {signIn} from '@/auth'
 import {DEFAULT_LOGIN_REDIRECT} from '@/routes'
 
-export const changePassword = async(
-    values: z.infer<typeof UserPasswordChangeSchema>,
-    callbackUrl?: string | null
-    ) => { 
 
+export const changePassword = async(
+    values: z.infer<typeof PasswordResetSchema>, 
+    bearerToken: string|undefined) =>{
+        
     let dataInfo: UserResponseDataProps = {
         data: "",
         error: "",
         success: ""
     }
 
-    const validatedFields = UserPasswordChangeSchema.safeParse(values)
-
+    const validatedFields = PasswordResetSchema.safeParse(values)
+    
     if(!validatedFields.success){
         dataInfo = {
             error: 'Invalid Credentials',
@@ -36,20 +36,20 @@ export const changePassword = async(
         }
         return  { data: dataInfo}
     }
-
-    const {current_password, new_password, confirm_password} = validatedFields.data
-
+        
     const payload = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
         },
         body: JSON.stringify(validatedFields.data)
     }
 
-    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/password/change' : PROD_BASE_URI + '/password/change'
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/settings/reset-password' : PROD_BASE_URI + '/settings/reset-password'
 
-    const sendUserPasswordUpdateRequest = fetch(endpoint,payload).then(async(response) =>{
+    const sendUserPasswordResetRequest = fetch(endpoint,payload).then(async(response) =>{
         if(response.status === 500){
             dataInfo = {
                 error: 'Something went wrong!',
@@ -88,7 +88,7 @@ export const changePassword = async(
         })
 
     try{
-        return sendUserPasswordUpdateRequest
+        return sendUserPasswordResetRequest
     }catch(error){
         dataInfo = {
             error: 'Something went wrong!',
