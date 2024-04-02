@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import { Button } from "@/components/ui/button";
 import {
@@ -45,6 +45,8 @@ import {
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
   import { Input } from "@/components/ui/input"
+  import { Label } from "@/components/ui/label"
+
   import {
     Table,
     TableBody,
@@ -66,6 +68,16 @@ import ADA_LOGO from '@/app/assets/logo/crypto/cardano-ada-logo.svg'
 import TETHER_GOLD_LOGO from '@/app/assets/logo/crypto/tether-gold-xaut-logo.svg'
 import { CounterClockwiseClockIcon } from '@radix-ui/react-icons';
 //import {samplePayments, Payment} from '@/helpers/data'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose
+} from "@/components/ui/dialog"
 
 const data: Payment[] = [
     {
@@ -73,7 +85,7 @@ const data: Payment[] = [
       amount: 316,
       status: "success",
       email: "ken99@yahoo.com",
-      settlement_method: 'SOL',
+      settlement_method: 'SOL (Solana)',
       type: 'Outgoing',
       icon: SOL_LOGO
     },
@@ -82,7 +94,7 @@ const data: Payment[] = [
       amount: 242,
       status: "success",
       email: "Abe45@gmail.com",
-      settlement_method: 'ETH',
+      settlement_method: 'ETH (Ethereum)',
       type: 'Outgoing',
       icon: ETH_LOGO
     },
@@ -100,7 +112,7 @@ const data: Payment[] = [
       amount: 874,
       status: "success",
       email: "Silas22@gmail.com",
-      settlement_method: 'ADA',
+      settlement_method: 'ADA (Cardano)',
       type: 'Outgoing',
       icon: ADA_LOGO
     },
@@ -128,7 +140,7 @@ const data: Payment[] = [
         amount: 241,
         status: "failed",
         email: "ncarmella@hotmail.com",
-        settlement_method: 'USDC',
+        settlement_method: 'USDC (Polygon)',
         type: 'Incoming',
         icon: USDC_LOGO
       },
@@ -137,7 +149,7 @@ const data: Payment[] = [
         amount: 421,
         status: "failed",
         email: "ycarmella@hotmail.com",
-        settlement_method: 'MATIC',
+        settlement_method: 'MATIC(Polygon)',
         type: 'Incoming',
         icon: MATIC_LOGO
       },
@@ -240,7 +252,7 @@ const columns: ColumnDef<Payment>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Email
+            Client Email
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         )
@@ -455,11 +467,13 @@ export function InvoiceComponent(){
                                     </CardTitle>
                                     
                                     </div>
-                                    <Button 
-                                        className="content-start group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
-                                        variant={'outline'}
-                                    >
-                                    <PlusCircleIcon className='h-4 w-4 mr-2 '/>  New Invoice
+                                    
+                                    <Button variant="outline" className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white content-start group  rounded-md px-3 py-2 text-sm font-medium'>
+                                          <Link href="/dashboard/invoices/new-invoice">
+                                            <div className='flex gap-2'>
+                                            <PlusCircleIcon className='h-4 w-4 mr-2 '/> Create New Invoice
+                                            </div>
+                                        </Link>
                                     </Button>
                                 </div>   
                         </CardHeader>

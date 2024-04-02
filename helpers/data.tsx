@@ -226,8 +226,10 @@ export const countries:CountryProps[] = [
 export type Asset = {
   value: string
   label: string
-  icon: ImageProps,
+  icon: ImageProps
   active: boolean
+  chain? : 'Ethereum'|'Polygon'|'Arbitrum'|'Bitcoin'|'Celo'|'Tron'|'Optimism'|'Solana',
+  address? : string
 }
  
 export const supportedAssets: Asset[] = [
@@ -236,36 +238,42 @@ export const supportedAssets: Asset[] = [
     label: "BTC",
     icon: BTC_LOGO,
     active: true,
+    chain: 'Bitcoin'
   },
   {
     value: "eth",
     label: "ETH",
     icon: ETH_LOGO,
     active: true,
+    chain: 'Ethereum'
   },
   {
     value: "usdt",
     label: "USDT",
     icon: USDT_LOGO,
     active: true,
+    chain: 'Ethereum'
   },
   {
     value: "solana",
     label: "SOL",
     icon: SOL_lOGO,
     active: true,
+    chain: 'Solana'
   },
   {
     value: "matic",
     label: "MATIC",
     icon: MATIC_LOGO,
     active: true,
+    chain: 'Polygon'
   },
   {
       value: 'usdc',
       label: 'USDC',
       icon: USDC_LOGO,
       active: true,
+      chain: 'Ethereum'
   },
   {
       value: 'pyusd',
