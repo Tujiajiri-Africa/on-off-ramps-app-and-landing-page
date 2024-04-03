@@ -494,3 +494,19 @@ export type PayrollProps = {
   paymentCurrency: string;
   recurringRule: string;// "DTSTART:20230601T074619Z\nRRULE:FREQ=MONTHLY;INTERVAL=1;COUNT=3"
 }
+
+//Nana Pay Invoices
+export type NanaPayInvoiceProps = {
+  user_id: number;
+  ref_no: string;
+  due_date: Date;
+  item_name: string;
+  unit_price: number;
+  item_quantity: number;
+  payment_method: string;
+  client_email: string;
+  item_description: string;
+  sub_total: number;
+  type: string;
+  status: string;
+}
