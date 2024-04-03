@@ -52,7 +52,7 @@ export const listInvoices = async(bearerToken: string|undefined) => {
     }
 }
 
-export const createInvoice = (values: z.infer<typeof InvoiceSchema>, bearerToken: string|undefined) =>{
+export const createInvoice = async(values: z.infer<typeof InvoiceSchema>, bearerToken: string|undefined) =>{
     const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/invoices/create-invoice' : PROD_BASE_URI + '/invoices/create-invoice'
 
     let dataInfo: UserResponseDataProps = {
@@ -82,7 +82,7 @@ export const createInvoice = (values: z.infer<typeof InvoiceSchema>, bearerToken
         body: JSON.stringify(validatedFields.data)
     }
 
-    const submitNewInvoice = fetch(endpoint, payload).then(async(response) => {
+    const submitNewInvoice = await fetch(endpoint, payload).then(async(response) => {
         if(response.status === 500){
             dataInfo = {
                 error: 'Something went wrong!',

@@ -226,24 +226,28 @@ export const InvoiceSchema = z.object({
     }).email({
         message: 'Client email must be valid email address'
     }),
-    amount: z.number().min(1,{
+    unit_price: z.string({
+        required_error: 'Unit price is required!'
+    }).min(1,{
         message: 'Amount must be greator than 1'
     }),
-    currency: z.string({
-        required_error: "Please enter currency!"
-    }),
-    quantity: z.number().min(1,{
-        message: 'Quanity must be at leats 1'
+    // currency: z.string({
+    //     required_error: "Please enter currency!"
+    // }),
+    item_quantity: z.string({
+        required_error: 'Please specify quantity!'
+    }).min(1,{
+        message: 'Quantity must be at leats 1'
     }),
     item_name: z.string({
         required_error: 'Itme name is required!'
     }).min(3,{
-        message: 'Please provide item name'
+        message: 'Please provide item name!'
     }),
     item_description: z.string({
         required_error: 'Item description is required!'
     }).min(6, {
-        message: 'Please some description of the item'
+        message: 'Description must be greator than 6 characters!'
     }),
     payment_method: z.string({
         required_error: 'Please select payment method!'
@@ -254,4 +258,4 @@ export const InvoiceSchema = z.object({
     })//.min(new Date(),{message: 'Cannot use previous date!'})
 }).refine((value) => {
     return value.due_date > new Date()
-})
+},{message: 'Due date must be a date greator than today!'})
