@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import { Button } from "@/components/ui/button";
 import {
@@ -78,6 +78,10 @@ import {
   DialogTrigger,
   DialogClose
 } from "@/components/ui/dialog"
+import {createInvoice, listInvoices} from '@/actions/invoices'
+import {useSession} from 'next-auth/react'
+//import InvoiceListComponent from './list-invoices';
+import { InvoiceList } from './invoiceList';
 
 const data: Payment[] = [
     {
@@ -304,7 +308,7 @@ const columns: ColumnDef<Payment>[] = [
     } 
 ]
 
-const  InvoicePaymentsDataFrame = () =>{
+const InvoicePaymentsDataFrame = () =>{
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
       []
@@ -449,6 +453,7 @@ const  InvoicePaymentsDataFrame = () =>{
   }
 
 export function InvoiceComponent(){
+  const {data: userSessionData} = useSession()
     return (<>
         <ScrollArea className='h-full'>
             <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
@@ -610,13 +615,13 @@ export function InvoiceComponent(){
               </Card>
               {/* <Card className="col-span-2">
                 <CardHeader>
-                  <CardTitle>Recent Transactions</CardTitle>
+                  <CardTitle>Recent Invoices</CardTitle>
                   <CardDescription>
-                      Your transactions history
+                      Your invoice history
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <RecentSales />
+                  <InvoiceList />
                 </CardContent>
               </Card> */}
             </div>
