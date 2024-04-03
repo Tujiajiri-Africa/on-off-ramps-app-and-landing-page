@@ -551,7 +551,7 @@ export function NewInvoiceForm(){
                                                     <Button 
                                                         disabled={isPending}
                                                         type='submit'
-                                                        className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                         >
                                                         Save
                                                     </Button>
@@ -559,7 +559,7 @@ export function NewInvoiceForm(){
                                                     {/* <Button  variant={'outline'} className='justify-end'>
                                                         Preview
                                                     </Button> */}
-                                        <NewInvoicePreview />
+                                        {/* <NewInvoicePreview /> */}
                                         </div>
                                     </form>
                                 </Form>
