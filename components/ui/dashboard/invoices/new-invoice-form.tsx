@@ -45,7 +45,10 @@ import {
 import { useSession } from 'next-auth/react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import dateFormat, { masks } from "dateformat";
-
+import { createInvoice } from '@/actions/invoices'
+import { useSearchParams } from "next/navigation";
+import { FormErrorMessage } from '@/components/form-errors'
+import { FormSuccessMessage } from '@/components/form-success'
 
 export function NewInvoiceForm(){
     const [clientEmail, setClientEmail] = useState<string>("")
@@ -53,7 +56,50 @@ export function NewInvoiceForm(){
     const [itemQty, setItemQty] = useState<number>(0)
     const [itemDescription, setItemDescription] = useState<string>("")
     const [itemAmount, setItemAmount] = useState<number>(0)
+    const [error, setError] = useState<string>("")
+    const [success, setSuccess] = useState<string>("")
 
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get("pathname");
+    const [isPending, startTransition] = useTransition()
+
+    const form = useForm<z.infer<typeof InvoiceSchema>>({
+        resolver: zodResolver(InvoiceSchema),
+        defaultValues: {
+            client_email: "",
+            item_name: "",
+            item_description: "",
+            unit_price: "",
+            item_quantity: "",
+            //currency: "",
+            payment_method: "",
+        }
+    })
+
+    const {data: userSessionData} = useSession()
+
+    const onSubmit = (values: z.infer<typeof InvoiceSchema>) => {
+        setError("")
+        setSuccess("")
+
+        startTransition(async() => {
+            createInvoice(values, userSessionData?.user.accessToken)
+            .then((data:any) => {
+                if(data?.data.error){
+                    //form.reset()
+                    setError(data?.data.error)
+                }
+                if(data?.data.success){
+                    form.reset()
+                    setSuccess(data?.data.success)
+                }
+            }).catch(() => {
+                setError("Something went wrong")
+                setSuccess("")
+            })
+        })
+    }
+    
     const NewInvoicePreview = () => {    
         const {data:userSessionData} = useSession()
         return (
@@ -209,20 +255,6 @@ export function NewInvoiceForm(){
       )
       }
 
-    const [isPending, startTransition] = useTransition()
-
-    const form = useForm<z.infer<typeof InvoiceSchema>>({
-        resolver: zodResolver(InvoiceSchema),
-        defaultValues: {
-            client_email: "",
-            item_name: "",
-            item_description: "",
-            amount: 1,
-            quantity: 1,
-            currency: "",
-            payment_method: "",
-        }
-    })
     return (
     <>
     <ScrollArea className="h-full">
@@ -238,13 +270,13 @@ export function NewInvoiceForm(){
             <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl space-y-4">
                 <Card>
                     <CardHeader>
-                        <CardTitle>Creat New Invoice</CardTitle>
+                        <CardTitle>Create New Invoice</CardTitle>
                         <CardDescription>Create a new invoice and chose how you get paid</CardDescription>
                     </CardHeader>
                         <CardContent>
                             
                                 <Form {...form}>
-                                    <form className='space-y-6'>
+                                    <form className='space-y-6' onSubmit={form.handleSubmit(onSubmit)}>
                                     <div>
                                         <FormField 
                                             control={form.control}
@@ -281,7 +313,7 @@ export function NewInvoiceForm(){
                                     <div className="w-full md:w-1/2 px-3">
                                         <FormField 
                                             control={form.control}
-                                            name='amount'
+                                            name='unit_price'
                                             render={({field}) => (
                                                 <FormItem>
                                                     <FormLabel 
@@ -296,10 +328,10 @@ export function NewInvoiceForm(){
                                                             <Input
                                                                 {...field}
                                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                                placeholder="Enter amount to deposit"
+                                                                placeholder="Enter unit price"
                                                                 type='number'
                                                                 //disabled={isPending}
-                                                                onChangeCapture={e => setItemAmount(field.value)}
+                                                                //onChangeCapture={e => setItemAmount(field.value)}
                                                                 min={1}
                                                                 
                                                             />
@@ -313,7 +345,7 @@ export function NewInvoiceForm(){
                                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                         <FormField 
                                             control={form.control}
-                                            name='quantity'
+                                            name='item_quantity'
                                             render={({field}) => (
                                                 <FormItem>
                                                     <FormLabel 
@@ -332,7 +364,7 @@ export function NewInvoiceForm(){
                                                                 type='number'
                                                                 //disabled={isPending}
                                                                 min={1}
-                                                                onChangeCapture={e => setItemQty(field.value)}
+                                                                //onChangeCapture={e => setItemQty(field.value)}
                                                                 
                                                             />
                                                         </FormControl>
@@ -513,24 +545,27 @@ export function NewInvoiceForm(){
                                             )}
                                         />
                                     </div>
+                                            <FormErrorMessage message={error}/>
+                                            <FormSuccessMessage message={success}/>
+                                                <div className='flex flex-1 sm:gap-40 gap-10'>
+                                                    <Button 
+                                                        disabled={isPending}
+                                                        type='submit'
+                                                        className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                        >
+                                                        Save
+                                                    </Button>
 
+                                                    {/* <Button  variant={'outline'} className='justify-end'>
+                                                        Preview
+                                                    </Button> */}
+                                        <NewInvoicePreview />
+                                        </div>
                                     </form>
                                 </Form>
-                            
+
                         </CardContent>      
-                    <CardFooter>
-                        <div className='flex flex-1 sm:gap-40 gap-10'>
-                            <Button className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
-                                Save
-                            </Button>
 
-                            {/* <Button  variant={'outline'} className='justify-end'>
-                                Preview
-                            </Button> */}
-                            <NewInvoicePreview />
-                        </div>
-
-                    </CardFooter>
                 </Card>
             </CardContent>
 
