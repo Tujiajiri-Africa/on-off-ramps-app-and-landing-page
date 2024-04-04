@@ -87,13 +87,13 @@ export function RecentSales() {
         </div>
         <div className="ml-auto font-medium">KES 3,039.00</div>
       </div>
-      <div className="flex items-center">
+      {/* <div className="flex items-center">
         <Button className=" bg-orange-600 text-white hover:bg-orange-500 hover:text-white">
           <div className="flex gap-2 items-center">
             View More <ArrowUpRight className="h-6 w-6" />
           </div>
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }
