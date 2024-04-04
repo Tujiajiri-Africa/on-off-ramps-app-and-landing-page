@@ -45,16 +45,16 @@ export const RegisterForm = () => {
     const DEFAULT_REGISTRATION_CALLBACK = '/account/verify-phone'
 
     const form = useForm<z.infer<typeof RegisterSchema>>({
-        resolver: zodResolver(RegisterSchema),
-        defaultValues: {
-            email: "",
-            password: "",
-            confirm_password: "",
-            first_name: "",
-            username: "",
-            phone: "",
-            last_name: ""
-        }
+        resolver: zodResolver(RegisterSchema)
+        // defaultValues: {
+        //     email: "",
+        //     password: "",
+        //     confirm_password: "",
+        //     first_name: "",
+        //     username: "",
+        //     phone: "",
+        //     last_name: ""
+        // }
     })
 
     const handleSubmit = (values: z.infer<typeof RegisterSchema>) => {

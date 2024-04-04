@@ -413,7 +413,7 @@ export function NewInvoiceForm(){
                                                         .filter((s) => s.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((asset) => (
-                                                                <SelectItem key={asset.value} value={asset.value}>
+                                                                <SelectItem key={asset.value} value={asset.label}>
                                                                         <div className='flex items-center content-center gap-2'>
                                                                             <Image src={asset.icon.src} width={18} height={18} alt={asset.label} />
                                                                             {asset.label}  { asset.chain != undefined ? `(${asset.chain})`: ''} 
