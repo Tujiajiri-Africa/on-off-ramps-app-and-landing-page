@@ -19,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {Button} from '@/components/ui/button'
+import {ArrowBigUpDashIcon, ArrowUpRight, ArrowUpRightFromCircle} from 'lucide-react'
 
 const navigation = [
   { name: 'Home', href: '#', current: false }, //current: true
@@ -174,8 +175,8 @@ export default function NavbarPage2() {
                         <button 
                           //href="/register" 
                           className="bg-orange-600 text-white px-5 py-2 rounded-md hover:bg-orange-500  hidden sm:block md:hidden xl:block lg:block">
-                            <Link href="#">
-                              Open Dashboard
+                            <Link href="#" className='flex gap-2 items-center'>
+                              Open Dashboard <ArrowUpRight className='h-6 w-6'/>
                             </Link>
                           </button>
                         {/* <MenuIcon className="md:hidden text-3xl cursor-pointer " onClick={(e) => handleMenuClose(e)}></MenuIcon> */}

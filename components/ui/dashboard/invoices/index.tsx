@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
-import {DollarSign, PlusCircleIcon} from 'lucide-react'
+import {DollarSign, PlusCircleIcon, PlusIcon} from 'lucide-react'
 import { RecentSales } from '@/components/recent-sales';
 import { UserBalanceChartAnalysis } from '../wallet/chart-metrics';
 import {
@@ -475,8 +475,8 @@ export function InvoiceComponent(){
                                     
                                     <Button variant="outline" className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white content-start group  rounded-md px-3 py-2 text-sm font-medium'>
                                           <Link href="/dashboard/invoices/new-invoice">
-                                            <div className='flex gap-2'>
-                                            <PlusCircleIcon className='h-4 w-4 mr-2 '/> Create New Invoice
+                                            <div className='flex gap-2 items-center'>
+                                              <PlusIcon className='h-6 w-6'/> Create New Invoice
                                             </div>
                                         </Link>
                                     </Button>
