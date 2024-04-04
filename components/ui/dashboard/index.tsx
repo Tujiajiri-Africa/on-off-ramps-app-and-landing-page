@@ -32,6 +32,7 @@ import {WithdrawForm} from '@/components/ui/dashboard/withdraw'
 import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart-metrics'
 import AboutPageIllustration from '@/app/assets/logo/about-section-illustration-svg.svg'
 import { DashboardIntro } from '@/components/ui/dashboard/getting-started'
+import { ArrowUpRight } from "lucide-react";
 
 export async function MainUserDashboard() {
   return (
@@ -338,7 +339,21 @@ export async function MainUserDashboard() {
               </Card>
               <Card className="col-span-4 md:col-span-3">
                 <CardHeader>
-                  <CardTitle>Recent Transactions</CardTitle>
+                <div className="flex items-center justify-between space-y-2">
+                                    <div className="md:flex items-center space-x-2">
+                                    <CardTitle>Recent Transactions</CardTitle>
+                                    
+                                    </div>
+                                    <Button 
+                                        className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-orange-500 hover:text-white"
+                                        variant={'outline'}
+                                    >
+                                      <div className='flex items-center gap-2'>
+                                             View More <ArrowUpRight className='h-6 w-6' />
+                                      </div>
+                                    </Button>
+                                </div> 
+                  
                   <CardDescription>
                       Your transactions history
                   </CardDescription>
