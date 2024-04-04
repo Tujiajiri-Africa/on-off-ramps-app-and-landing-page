@@ -138,7 +138,7 @@ export async function MainUserDashboard() {
                     }
                   </p>
                   <Button
-                    className="w-full"
+                    className="w-full dark:bg-[#4B49AC]/95 text-white"
                   >
                     <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
                         Buy/Sell
@@ -193,7 +193,7 @@ export async function MainUserDashboard() {
                     }
                   </p>
                   <Button
-                    className="w-full"
+                    className="w-full dark:bg-[#4B49AC]/95 text-white"
                   >
                    <Link href={`/dashboard/buy-sell-crypto?baseAsset=ETH&currency=KES`}>
                         Buy/Sell
@@ -246,7 +246,7 @@ export async function MainUserDashboard() {
                     }
                   </p>
                   <Button
-                    className="w-full"
+                    className="w-full dark:bg-[#4B49AC]/95 text-white"
                   >
                     <Link href={`/dashboard/buy-sell-crypto?baseAsset=SOL&currency=KES`}>
                         Buy/Sell
@@ -300,7 +300,7 @@ export async function MainUserDashboard() {
                     }
                   </p>
                   <Button
-                    className="w-full"
+                    className="w-full dark:bg-[#4B49AC]/95 text-white"
                   >
                     <Link href={`/dashboard/buy-sell-crypto?baseAsset=MATIC&currency=KES`}>
                         Buy/Sell

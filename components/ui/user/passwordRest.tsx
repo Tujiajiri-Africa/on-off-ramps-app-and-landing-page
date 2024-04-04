@@ -73,7 +73,7 @@ export const UserPasswordChangeForm = () => {
     }
 
     return (
-                <Card>
+                <Card className='dark:bg-[#191C24]/30'>
                     <CardHeader className='font-bold text-2xl dark:text-white'>
                         Change your password
                     </CardHeader>
