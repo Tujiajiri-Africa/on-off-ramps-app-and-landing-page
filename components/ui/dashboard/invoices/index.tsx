@@ -309,6 +309,7 @@ const columns: ColumnDef<Payment>[] = [
 ]
 
 const InvoicePaymentsDataFrame = () =>{
+
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
       []
@@ -453,7 +454,6 @@ const InvoicePaymentsDataFrame = () =>{
   }
 
 export function InvoiceComponent(){
-  const {data: userSessionData} = useSession()
     return (<>
         <ScrollArea className='h-full'>
             <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">

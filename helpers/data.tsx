@@ -510,3 +510,47 @@ export type NanaPayInvoiceProps = {
   type: string;
   status: string;
 }
+
+export type supportedInvoiceAssetProps = {
+  name: string;
+  symbol: string;
+  decimals: number;
+  address: string;
+  chain: "Ethereum"|'Solana'|'Celo'|'Optimism'|'Arbitrum'|'Avalanche'|'Linea'|'Kava'|'Polygon'
+}
+
+export type supportedChainProps = {
+  name: string;
+  icon?: ImageProps
+  assets?: supportedInvoiceAssetProps[]
+}
+
+export const supportedChains: supportedChainProps[] = [
+    {
+      name: 'Ethereum',
+      assets: [
+        {
+          name: "USDT",
+          address: "",
+          chain: "Ethereum",
+          decimals: 6,
+          symbol: ""
+        },
+        {
+          name: 'USDC',
+          address: "",
+          chain: "Ethereum",
+          decimals: 6,
+          symbol: "USDT"
+        },
+        {
+          name: "",
+          address: "",
+          chain: "Ethereum",
+          decimals: 18,
+          symbol: ''
+        }
+      ]
+    }
+]
+

@@ -24,10 +24,7 @@ export const ForgotPasswordForm = () => {
     const [isPending, startTransition] = useTransition()
 
     const form = useForm<z.infer<typeof ForgotPasswordSchema>>({
-        resolver: zodResolver(ForgotPasswordSchema),
-        defaultValues:{
-            email: ""
-        }
+        resolver: zodResolver(ForgotPasswordSchema)
     })
 
     const handleSubmit = (values: z.infer<typeof ForgotPasswordSchema>) =>{

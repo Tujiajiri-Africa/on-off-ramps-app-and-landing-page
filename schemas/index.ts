@@ -4,40 +4,56 @@ import {phoneRegex} from '@/lib/utils'
 import {isValidPhoneNumber} from 'react-phone-number-input'
 
 export const LoginSchema = z.object({
-    email: z.string().email({
-        message: "Email is required"
+    email: z.string({
+        required_error: "Email is required"
+    }).email({
+        message: "Email must be a valid email address"
     }),
-    password: z.string().min(1, {
-        message: "Password is required"
+    password: z.string({
+        required_error: "Password is required"
     })
 })
 
 export const RegisterSchema = z.object({
-    email: z.string().email({
-        message: "Email is required"
+    email: z.string({
+        required_error: "Email is required"
+    }).email({
+        message: "Email must be a valid email address"
     }),
-    password: z.string().min(6,{
+    password: z.string({
+        required_error: "Password is required"
+    }).min(6,{
         message: "Minimum 6 characters required"
     }),
-    confirm_password: z.string().min(6,{
+    confirm_password: z.string({
+        required_error: "Password confirmation is required"
+    }).min(6,{
         message: "Minimum 6 characters required"
     }),
-    username: z.string().min(4,{
+    username: z.string({
+        required_error: "Username is required"
+    }).min(4,{
         message: 'Minimum 4 characters required'
     }).max(8,{
         message: 'Maximum 8 characters required'
     }),
-    first_name: z.string().min(4, {
-        message: 'Minimum 4 caharacters required'
+    first_name: z.string({
+        required_error: "First name is required"
+    }).min(4, {
+        message: 'Minimum 4 characters required'
     }).max(11,{
         message: 'Maximum 11 characters required'
     }),
-    last_name: z.string().min(4, {
+    last_name: z.string({
+        required_error: "Last name is required"
+    }).min(4, {
         message: "Minimum 4 characters required"
     }).max(11,{
         message: 'Maximum 11 characters required'
     }),
-    phone: z.string().min(13, {
+    phone: z.string({
+        required_error: "Please provide phone number"
+    }).min(13, {
         message: 'Minimum 13 characters required'
     }).max(14,{
         message: 'Maximum 14 characters required'
@@ -77,10 +93,12 @@ export const PasswordResetSchema = z.object({
 })
 
 export const ForgotPasswordSchema = z.object({
-    email: z.string().email({
-        message: "Invalid email address"
-    })
-})
+    email: z.string({
+        required_error: 'Email is required!'
+    }).email({
+        message: "Invalid email address!"
+    }).trim()
+}).required()
 // const sender = {
 //     name: "Sample Name",
 //     country: "US",

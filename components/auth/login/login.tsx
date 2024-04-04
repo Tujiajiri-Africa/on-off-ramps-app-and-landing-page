@@ -33,11 +33,11 @@ export const LoginForm = () => {
     const [success, setSuccess] = useState<string>("")
 
     const form = useForm<z.infer<typeof LoginSchema>>({
-        resolver: zodResolver(LoginSchema),
-        defaultValues: {
-            email: "",
-            password: ""
-        }
+        resolver: zodResolver(LoginSchema)
+        // defaultValues: {
+        //     email: "",
+        //     password: ""
+        // }
     })
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
