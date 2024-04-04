@@ -174,7 +174,7 @@ export default function NavbarPage2() {
                         <button 
                           //href="/register" 
                           className="bg-orange-600 text-white px-5 py-2 rounded-md hover:bg-orange-500  hidden sm:block md:hidden xl:block lg:block">
-                            <Link href="/dashboard">
+                            <Link href="#">
                               Open Dashboard
                             </Link>
                           </button>
