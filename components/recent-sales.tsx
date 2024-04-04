@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {Button} from '@/components/ui/button'
 import {PlusIcon, MinusIcon, Cross1Icon} from '@radix-ui/react-icons'
+import { ArrowUpRight } from "lucide-react";
 
 export function RecentSales() {
   return (
@@ -87,8 +88,10 @@ export function RecentSales() {
         <div className="ml-auto font-medium">KES 3,039.00</div>
       </div>
       <div className="flex items-center">
-        <Button className=" bg-indigo-600 text-white dark:hover:bg-orange-600">
-          View More
+        <Button className=" bg-orange-600 text-white hover:bg-orange-500 hover:text-white">
+          <div className="flex gap-2 items-center">
+            View More <ArrowUpRight className="h-6 w-6" />
+          </div>
         </Button>
       </div>
     </div>

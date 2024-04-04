@@ -22,7 +22,7 @@ import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
 import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart-metrics'
 import {WalletIcon,MedalIcon,MagnifierIcon} from '@/components/icons/index'
-import {Wallet2Icon, Wallet2, WalletCardsIcon, Wallpaper, Bitcoin, BitcoinIcon} from 'lucide-react'
+import {Wallet2Icon, Wallet2, WalletCardsIcon, Wallpaper, Bitcoin, BitcoinIcon, ArrowUpRight} from 'lucide-react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {DepositForm} from '@/components/ui/dashboard/deposit'
 import {
@@ -128,7 +128,7 @@ export function UserWallet(){
                                             </p>
                                             <div className='flex flex-row gap-2'>
                                             <Button
-                                                className="w-full bg-orange-600 text-white"
+                                                className="w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white"
                                             >
                                                 <Link href={`/dashboard/deposit`}>
                                                     Deposit
@@ -136,7 +136,7 @@ export function UserWallet(){
                                             </Button>
 
                                             <Button
-                                                className="w-full bg-[#F00FDA] text-primary-foreground dark:text-white dark:hover:bg-[#4B49AC]/30 hover:bg-[#4B49AC]/95 hover:text-white"
+                                                className="w-full bg-[#F00FDA]/95 text-primary-foreground dark:text-white dark:hover:bg-[#4B49AC]/30 hover:bg-[#4B49AC]/95 hover:text-white"
                                             >
                                                 <Link href={`/dashboard/withdraw`}>
                                                     Withdraw
@@ -157,10 +157,12 @@ export function UserWallet(){
                                     
                                     </div>
                                     <Button 
-                                        className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-accent hover:text-accent-foreground"
+                                        className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-orange-500 hover:text-white"
                                         variant={'outline'}
                                     >
-                                        View More
+                                      <div className='flex items-center gap-2'>
+                                             View More <ArrowUpRight className='h-6 w-6' />
+                                      </div>
                                     </Button>
                                 </div>   
                             </CardHeader>
@@ -191,7 +193,7 @@ export function UserWallet(){
                                                 </span> <span className='dark:text-gray-300 text-black'>last 1 month</span>
                                             </p>
                                             <Button
-                                                className="w-full"
+                                                className="w-full dark:bg-[#4B49AC]/95 text-white"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=BTC&currency=KES`}>
                                                     Buy/Sell
@@ -225,7 +227,7 @@ export function UserWallet(){
                                                 </span> <span className='dark:text-gray-300 text-black'>last 1 month</span>
                                             </p>
                                             <Button
-                                                className="w-full"
+                                                className="w-full dark:bg-[#4B49AC]/95 text-white"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDT&currency=KES`}>
                                                     Buy/Sell
@@ -259,7 +261,7 @@ export function UserWallet(){
                                                 </span> <span className='dark:text-gray-300 text-black'>last 1 month</span>
                                             </p>
                                             <Button
-                                                className="w-full"
+                                                className="w-full dark:bg-[#4B49AC]/95 text-white"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDC&currency=KES`}>
                                                     Buy/Sell
@@ -293,7 +295,7 @@ export function UserWallet(){
                                                 </span> <span className='dark:text-gray-300 text-black'>last 1 month</span>
                                             </p>
                                             <Button
-                                                className="w-full"
+                                                className="w-full dark:bg-[#4B49AC]/95 text-white"
                                             >
                                                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=cUSD&currency=KES`}>
                                                     Buy/Sell
@@ -380,7 +382,7 @@ export function UserWallet(){
                 </Form>
             </CardContent>
             <CardFooter>
-                <Button className='w-full bg-orange-600 text-white'>
+                <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
                     Deposit
                 </Button>
             </CardFooter>
@@ -486,7 +488,7 @@ export function UserWallet(){
                 </Form>
             </CardContent>
             <CardFooter>
-                <Button className='w-full bg-orange-600 text-white'>
+                <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
                     Withdraw
                 </Button>
             </CardFooter>

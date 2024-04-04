@@ -74,7 +74,7 @@ export function UserProfileComponent(){
 
                     <Sheet>
                       <SheetTrigger asChild>
-                          <Button>Change Password</Button>
+                          <Button className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>Change Password</Button>
                       </SheetTrigger>
                       <SheetContent>
                           <UserPasswordUpdateForm />

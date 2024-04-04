@@ -164,7 +164,7 @@ export function WithdrawForm(){
                 </Form>
             </CardContent>
             <CardFooter>
-                <Button className='w-full'>
+                <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
                     Withdraw
                 </Button>
             </CardFooter>
