@@ -83,7 +83,7 @@ export function UserWallet(){
                         </h2>
                     </div>
                     <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7'>
-                        <Card className='col-span-2 '>
+                        <Card className='col-span-5 sm:col-span-2'>
                             <CardHeader>
                                     <div className="flex items-center justify-between space-y-2">
                                         <div className="md:flex items-center space-x-2">
@@ -326,7 +326,9 @@ export function UserWallet(){
                              
                             </CardContent>
                         </Card>
-                        <Card className='col-span-2 lg:col-span-3 2xl:col-span-2'>
+                        <Card 
+                            className='col-span-5 sm:col-span-2 lg:col-span-3 2xl:col-span-2'
+                        >
                         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
              
                             <Tabs defaultValue="deposit" className="w-full">
