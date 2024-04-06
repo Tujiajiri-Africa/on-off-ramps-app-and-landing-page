@@ -24,6 +24,8 @@ import {FaqV2} from '@/components/ui/home-page-v2/faq'
 import {ContactPageV2} from '@/components/ui/home-page-v2/contact'
 import {AboutPageV2} from '@/components/ui/home-page-v2/about'
 import {FooterV2} from '@/components/ui/home-page-v2/footer'
+import {Team} from '@/components/ui/home-page-v2/team'
+
 import {SellWithdrawIllustrationPage} from '@/components/ui/home-page-v2/sell-withdraw-illustration'
 
 export default function Home() {
@@ -57,6 +59,7 @@ export default function Home() {
           {/* <Products /> */}
           {/* <SupportedAssets /> */}
           {/* <Contact /> */}
+          <Team />
           <ContactPageV2 />
           {/* <WaitListBanner /> */}
           <FaqV2 />
