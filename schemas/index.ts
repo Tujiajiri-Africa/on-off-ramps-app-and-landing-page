@@ -239,7 +239,9 @@ export const SellAssetSchema = z.object({
 })
 
 export const PhoneRegistrationOTPSchema = z.object({
-    registration_otp: z.string().min(6,{
+    registration_otp: z.string({
+        required_error: "OTP is required!"
+    }).min(6,{
         message: "Please enter the correct number of characters sent to your phone"
     })
 })

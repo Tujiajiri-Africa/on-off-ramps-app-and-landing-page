@@ -35,10 +35,10 @@ export function FirstTimePhoneVerification(){
 
     
     const form = useForm<z.infer<typeof PhoneRegistrationOTPSchema>>({
-        resolver: zodResolver(PhoneRegistrationOTPSchema),
-        defaultValues: {
-            registration_otp: ""
-        }
+        resolver: zodResolver(PhoneRegistrationOTPSchema)
+        // defaultValues: {
+        //     registration_otp: ""
+        // }
     })
 
     const handleSubmit = (values: z.infer<typeof PhoneRegistrationOTPSchema>) => {
