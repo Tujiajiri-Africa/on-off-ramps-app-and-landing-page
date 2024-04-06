@@ -42,7 +42,7 @@ export default function PageNotFound(){
     </h1>
 
     <p className="mt-4 text-gray-500 dark:text-gray-400 mb-6">We can&apos;t find that page.</p>
-    <Button className='border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA]'>
+    <Button className='border-transparent text-sm font-medium rounded-md text-white bg-orange-600'>
             <Link href='/'>
                 Take me back to home page
             </Link>
