@@ -574,7 +574,7 @@ export const teamMembers: TeamProps[] = [
   {
     id: 1,
     name: "Dickens Odera",
-    designation: "CEO, Founder",
+    designation: "CEO, Co-Founder",
     description: "",
     active: true,
     photo: Dickens_Image,
