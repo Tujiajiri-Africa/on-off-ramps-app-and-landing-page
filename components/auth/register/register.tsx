@@ -206,7 +206,7 @@ export const RegisterForm = () => {
                                                     render={({field}) => (
                                                         <FormItem>
                                                         <FormLabel 
-                                                            //className="block text-sm font-medium text-gray-700"
+                                                            className="block text-sm font-medium text-gray-700"
                                                             >
                                                             Country 
                                                         </FormLabel>

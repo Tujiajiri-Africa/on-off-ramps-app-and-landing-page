@@ -76,13 +76,19 @@ export const RegisterSchema = z.object({
 //       .or(z.literal("")),
 //   });
 export const PasswordResetSchema = z.object({
-    current_password: z.string().min(6,{
-        message: 'Current password is required!'
+    current_password: z.string({
+        required_error: "Current password is required!"
+    }).min(6,{
+        message: 'Minimum 6 characters required!'
     }),
-    new_password: z.string().min(6,{
+    new_password: z.string({
+        required_error: "Passsword is required!"
+    }).min(6,{
         message: 'Miminum 6 characters required!'
     }),
-    confirm_password: z.string().min(6,{
+    confirm_password: z.string({
+        required_error: "Password confirmation is required!"
+    }).min(6,{
         message: 'Miminum 6 characters required!'
     })
 }).refine((value) => {
@@ -233,7 +239,9 @@ export const SellAssetSchema = z.object({
 })
 
 export const PhoneRegistrationOTPSchema = z.object({
-    registration_otp: z.string().min(6,{
+    registration_otp: z.string({
+        required_error: "OTP is required!"
+    }).min(6,{
         message: "Please enter the correct number of characters sent to your phone"
     })
 })
