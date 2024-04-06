@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 export default function PageNotFound(){
     return (<>
-<div className="grid h-screen place-content-center bg-white px-4 dark:bg-gray-900">
+<div className="grid h-screen place-content-center bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50">
   <div className="text-center">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1024 768"
-      className="mx-auto h-56 w-auto text-black sm:h-64 dark:text-gray-100"
+      className="mx-auto h-56 w-auto text-slate-900 sm:h-64 dark:text-gray-100"
     >
       <g fill="none" fill-rule="evenodd">
         <g fill="#FF5678">
@@ -41,8 +41,8 @@ export default function PageNotFound(){
       Oops!
     </h1>
 
-    <p className="mt-4 text-gray-500 dark:text-gray-400 mb-6">We can&apos;t find that page.</p>
-    <Button className='border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-[#FDC707] to-[#F00FDA]'>
+    <p className="mt-4 text-slate-900 dark:text-slate-900 mb-6">We can&apos;t find that page.</p>
+    <Button className='border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500 hover:text-white'>
             <Link href='/'>
                 Take me back to home page
             </Link>
