@@ -14,6 +14,14 @@ export function Team() {
   <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
     Meet Our Core Team
   </h2>
+        <div className="max-w-2xl mx-auto text-center">
+        <p className="mt-1.5 text-sm leading-6 text-secondary-500">
+            We have challenged ourselves to bring blockchain technology and cryptocurrency to the unbanked and underbanked African community 
+            combining it with the existing local payment channels to connect the African continent to the global digital financial ecosystem with a strict 
+            focus on compliance and real-world usecase of these powerful technologies to positively impact the lives of our users and the communities around us
+        </p>
+        </div>
+
         </div>
             </div>
             <div className="w-full bg-gray-100 px-10 pt-10 bg-inherit">
