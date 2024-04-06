@@ -29,9 +29,9 @@ const navigation = [
   { name: 'Features', href: '#features', current: false },
   { name: "Team", href: "#team", current: false},
 
-  { name: "Contact Us", href: "#contact", current: false},
+  { name: "Contact Us", href: "#contact-us", current: false},
   //{ name: 'Academy', href: "#", current: false},
-  { name: "Faq", href: "#faqs", current: false},
+  { name: "Faq", href: "#frequently-asked-questions", current: false},
 ]
 
 function classNames(...classes:any) {
