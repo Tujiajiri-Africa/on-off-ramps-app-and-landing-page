@@ -41,12 +41,12 @@ export const UserPasswordChangeForm = () => {
     const [success, setSuccess] = useState<string>("")
 
     const form = useForm<z.infer<typeof PasswordResetSchema>>({
-        resolver: zodResolver(PasswordResetSchema),
-        defaultValues: {
-            current_password: "",
-            new_password: "",
-            confirm_password: ""
-        }
+        resolver: zodResolver(PasswordResetSchema)
+        // defaultValues: {
+        //     current_password: "",
+        //     new_password: "",
+        //     confirm_password: ""
+        // }
     })
 
     const onSubmit = async(values: z.infer<typeof PasswordResetSchema>) => {
@@ -160,7 +160,7 @@ export const UserPasswordChangeForm = () => {
                                             <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="*************"
+                                                placeholder="**********"
                                                 type='password'
                                                 disabled={isPending}
                                             />
