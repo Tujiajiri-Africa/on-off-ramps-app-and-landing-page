@@ -5,7 +5,7 @@ import { CreditCard } from 'lucide-react'
 export function FaqV2(){
     return (<>
     <div
-    className="bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 h-full content-center">
+    className="bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 h-full content-center" id="faqs">
         <div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
         <p className="text-center text-base font-semibold leading-7 text-primary-500">Faq</p>
        <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">

@@ -24,9 +24,10 @@ export function ProductsV2(){
         //src="https://www.svgrepo.com/show/530438/ddos-protection.svg" 
         src={WalletVector2.src}
         alt="" 
-        width={40}
-        height={40}
-        className="mx-auto h-10 w-10"/>
+        width={64}
+        height={64}
+        className="mx-auto h-16 w-16"
+        />
       <h3 className="my-3 font-display font-medium">Crypto On Ramp</h3>
       <p className="mt-1.5 text-sm leading-6 text-secondary-500">
       Buy USDT, USDC, cUSD, PYUSD, BTC, ETH, SOL, DAI and other supported crypto assets with your local currency using either mobile money or bank transfer.
@@ -40,9 +41,11 @@ export function ProductsV2(){
       <Image 
         //src="https://www.svgrepo.com/show/530442/port-detection.svg"
             src={WalletVector2.src}
-            width={40}
-            height={40}
-            alt="" className="mx-auto h-10 w-10"/>
+            width={64}
+            height={64}
+            className="mx-auto h-16 w-16"
+            alt=""
+            />
       <h3 className="my-3 font-display font-medium">Crypto Off Ramp</h3>
       <p className="mt-1.5 text-sm leading-6 text-secondary-500">
       Sell USDT, USDC, cUSD, PYUSD, BTC, ETH, SOL, DAI and other supported crypto assets at market rates with minimal fee and cash out into your local currency for use in your day to day utilities.
@@ -55,9 +58,9 @@ export function ProductsV2(){
         <Image 
             src={InvoiceVector.src} 
             alt="" 
-            width={40}
-            height={40}
-            className="mx-auto h-10 w-10"
+            width={64}
+            height={64}
+            className="mx-auto h-16 w-16"
         />
         <h3 className="my-3 font-display font-medium group-hover:text-primary-500">Crypto Invoicing</h3>
         <p className="mt-1.5 text-sm leading-6 text-secondary-500">
@@ -71,9 +74,9 @@ export function ProductsV2(){
       <Image 
         src={WalletVector1.src} 
         alt="" 
-        width={40}
-        height={40}
-        className="mx-auto h-10 w-10"
+        width={64}
+        height={64}
+        className="mx-auto h-16 w-16"
     />
       <h3 className="my-3 font-display font-medium">Realtime Crypto Payments</h3>
       <p className="mt-1.5 text-sm leading-6 text-secondary-500">

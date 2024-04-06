@@ -34,8 +34,12 @@ import CAMEROON_FLAG from '@/app/assets/icons/countries/flags/cm.svg'
 import GHANA_FLAG from '@/app/assets/icons/countries/flags/gh.svg'
 import NIGERIAN_FLAG from '@/app/assets/icons/countries/flags/ng.svg'
 
+//Team
+import Dickens_Image from '@/app/assets/team/dickens_2.jpg'
+import David_Leon_Image from '@/app/assets/team/david_leon.jpg'
+import Centrine_Image from '@/app/assets/team/centrine_zakari.jpg'
 
-import Image, { ImageProps } from 'next/image'
+import Image, { ImageProps, StaticImageData } from 'next/image'
 
 export const PROD_BASE_URI = process.env.PROD_BASE_URI
 export const DEV_BASE_URI = process.env.DEV_BASE_URI
@@ -554,3 +558,48 @@ export const supportedChains: supportedChainProps[] = [
     }
 ]
 
+export type TeamProps = {
+  id: number;
+  name: string;
+  photo?: StaticImageData;
+  twitterUrl?: string;
+  linkedinUrl?: string;
+  githubUrl?: string;
+  designation: string;
+  description: string;
+  active: boolean
+}
+
+export const teamMembers: TeamProps[] = [
+  {
+    id: 1,
+    name: "Dickens Odera",
+    designation: "CEO, Founder",
+    description: "",
+    active: true,
+    photo: Dickens_Image,
+    linkedinUrl: "https://www.linkedin.com/in/dickens-odera-135782167/",
+    twitterUrl: "https://twitter.com/dickensodera",
+    githubUrl: "https://github.com/dickensodera"
+  },
+  {
+    id: 2,
+    name: "David Leon",
+    designation: "BDM, Co-Founder",
+    description: "",
+    active: true,
+    photo: David_Leon_Image,
+    twitterUrl: "https://twitter.com/dleonmeyo",
+    linkedinUrl: "https://www.linkedin.com/in/david-leon-489405191/"
+  },
+  {
+    id: 3,
+    name: "Centrine Zakari",
+    designation: "Co-Founder",
+    description: "",
+    active: true,
+    photo: Centrine_Image,
+    //: "https://twitter.com/CentrineZakari",
+    linkedinUrl: "https://www.linkedin.com/in/centrine-zakari-4a5935213/"
+  }
+]

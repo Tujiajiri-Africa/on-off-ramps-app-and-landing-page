@@ -24,12 +24,14 @@ import {ArrowBigUpDashIcon, ArrowUpRight, ArrowUpRightFromCircle} from 'lucide-r
 const navigation = [
   { name: 'Home', href: '#', current: false }, //current: true
   // { name: 'About', href: '#about', current: false },
-  { name: 'Features', href: '#features', current: false },
-  { name: 'How it Works', href: '#how-it-works', current: false },
   { name: "Products", href: "#products", current: false},
+  { name: 'How it Works', href: '#how-it-works', current: false },
+  { name: 'Features', href: '#features', current: false },
+  { name: "Team", href: "#team", current: false},
+
   { name: "Contact Us", href: "#contact", current: false},
   //{ name: 'Academy', href: "#", current: false},
-  
+  { name: "Faq", href: "#faqs", current: false},
 ]
 
 function classNames(...classes:any) {
