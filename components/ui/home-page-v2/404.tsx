@@ -13,10 +13,12 @@ export default function PageNotFoundV2() {
                         <div className="absolute">
                             <div >
                                 <h1 className="my-2 text-slate-900 font-bold text-2xl">
-                                    Looks like you've found the
-                                    doorway to the great nothing
+                                    {/* Looks like you&apos;ve found the
+                                    doorway to the great nothing */}
+
+                                    Oops! we can&apos;t find that page
                                 </h1>
-                                <p className="my-2 text-slate-900">Sorry about that! Please visit our hompage to get where you need to go.</p>
+                                <p className="my-2 text-slate-900">Sorry about that! Please visit our homepage to get where you need to go.</p>
                                 <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-orange-600 text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
                                     
                                     <Link href="/">
