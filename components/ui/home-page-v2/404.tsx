@@ -22,7 +22,7 @@ export default function PageNotFoundV2() {
                                 <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-orange-600 text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
                                     
                                     <Link href="/">
-                                        Take me back home
+                                        Take me back to the home page
                                     </Link>
                                 </button>
                             </div>
