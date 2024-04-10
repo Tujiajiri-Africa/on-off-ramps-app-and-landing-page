@@ -564,7 +564,7 @@ export const supportedChains: supportedChainProps[] = [
 export type TeamProps = {
   id: number;
   name: string;
-  photo?: StaticImageData;
+  photo?: StaticImageData; //ImageProps;
   twitterUrl?: string;
   linkedinUrl?: string;
   githubUrl?: string;

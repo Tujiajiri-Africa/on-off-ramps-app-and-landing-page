@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Link from 'next/link'
+import _404_Image from '@/app/assets/backgrounds/404-2.png'
+import GroupImage from '@/app/assets/backgrounds/Group.png'
+import Image from 'next/image'
 
 export default function PageNotFoundV2() {
 
@@ -28,12 +31,15 @@ export default function PageNotFoundV2() {
                             </div>
                         </div>
                         <div>
-                            <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                            {/* <img src="https://i.ibb.co/G9DC8S0/404-2.png" /> */}
+                            <Image src={_404_Image.src} alt={'404'} width={360} height={132} /> 
                         </div>
                     </div>
                 </div>
                 <div>
-                    <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+                    {/* <img src="https://i.ibb.co/ck1SGFJ/Group.png" /> */}
+                    <Image src={GroupImage.src} alt={'404'} width={360} height={267} /> 
+
                 </div>
             </div>
         </div>
