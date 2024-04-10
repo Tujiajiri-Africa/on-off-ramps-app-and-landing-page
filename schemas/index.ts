@@ -254,9 +254,10 @@ export const InvoiceSchema = z.object({
     }),
     unit_price: z.string({
         required_error: 'Unit price is required!'
-    }).min(1,{
-        message: 'Amount must be greator than 1'
     }),
+    // }).min(1,{
+    //     message: 'Amount must be greator than 1'
+    // }),
     // currency: z.string({
     //     required_error: "Please enter currency!"
     // }),

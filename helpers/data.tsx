@@ -501,6 +501,7 @@ export type PayrollProps = {
 
 //Nana Pay Invoices
 export type NanaPayInvoiceProps = {
+  id: number;
   user_id: number;
   ref_no: string;
   due_date: Date;
@@ -513,6 +514,7 @@ export type NanaPayInvoiceProps = {
   sub_total: number;
   type: string;
   status: string;
+  icon? : ImageProps
 }
 
 export type supportedInvoiceAssetProps = {
@@ -521,6 +523,7 @@ export type supportedInvoiceAssetProps = {
   decimals: number;
   address: string;
   chain: "Ethereum"|'Solana'|'Celo'|'Optimism'|'Arbitrum'|'Avalanche'|'Linea'|'Kava'|'Polygon'
+  icon?: ImageProps
 }
 
 export type supportedChainProps = {
@@ -534,18 +537,18 @@ export const supportedChains: supportedChainProps[] = [
       name: 'Ethereum',
       assets: [
         {
-          name: "USDT",
+          name: "USD Tether",
           address: "",
           chain: "Ethereum",
           decimals: 6,
-          symbol: ""
+          symbol: "USDT"
         },
         {
           name: 'USDC',
           address: "",
           chain: "Ethereum",
           decimals: 6,
-          symbol: "USDT"
+          symbol: "USDC"
         },
         {
           name: "",
