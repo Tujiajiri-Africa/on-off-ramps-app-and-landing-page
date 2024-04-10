@@ -114,6 +114,7 @@ import { FormErrorMessage } from '@/components/form-errors'
 import { FormSuccessMessage } from '@/components/form-success'
 import { Textarea } from "@/components/ui/textarea"
 import {getAssetImage} from '@/lib/utils'
+import { toast } from 'react-toastify';
 
 const InvoiceForm = () => {
   const [clientEmail, setClientEmail] = useState<string>("")
@@ -686,7 +687,7 @@ const columns: ColumnDef<Payment>[] = [
       id: "actions",
       enableHiding: false,
       cell: ({ row }) => {
-        const payment = row.original
+        const invoice = row.original
         return (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -698,13 +699,15 @@ const columns: ColumnDef<Payment>[] = [
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
                 <DropdownMenuItem
-                  onClick={() => navigator.clipboard.writeText(payment.id)}
+                  onClick={() => navigator.clipboard.writeText(invoice.id)}
                 >
                   Copy invoice ID
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>View client</DropdownMenuItem>
-                <DropdownMenuItem>View invoice details</DropdownMenuItem>
+                <DropdownMenuItem>View client/vendor details</DropdownMenuItem>
+                <DropdownMenuItem>
+                  View invoice details
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )
@@ -871,7 +874,7 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
         id: "actions",
         enableHiding: false,
         cell: ({ row }) => {
-          const payment = row.original
+          const invoice = row.original
           return (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -883,12 +886,44 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>Actions</DropdownMenuLabel>
                   <DropdownMenuItem
-                    onClick={() => navigator.clipboard.writeText(payment?.ref_no)}
+                    onClick={
+                      () => {
+                        navigator.clipboard.writeText(invoice?.ref_no).then(() => {
+                          toast.success("Invoice reference successfully copied",
+                          {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "dark",
+                            //transition: Bounce,
+                          }
+                          );
+                        }).catch((error) => {
+                          toast.error("Failed to copy!",{
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "dark",
+                            //transition: Bounce,
+                          })
+                        })
+                        
+                      }
+                    }
                   >
                     Copy invoice Reference No
+                   
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>View client</DropdownMenuItem>
+                  <DropdownMenuItem>View client/vendor details</DropdownMenuItem>
                   <DropdownMenuItem>View invoice details</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 //import ThemeProvider from "@/components/layout/ThemeToggle/theme-provider";
 import Providers from "@/components/layout/providers";
 import {auth} from '@/auth'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata: Metadata = {
   title: "NanaPay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond, cash out in your local currency",
@@ -53,6 +55,7 @@ export default async function DashboardLayout({
                 className="w-full pt-16 dark:bg-[#191C24]/30 bg-white/50"
                 >
                     {children}
+                    <ToastContainer />
             </main>
         </div>
         </Providers>
