@@ -113,6 +113,7 @@ import { format } from "date-fns"
 import { FormErrorMessage } from '@/components/form-errors'
 import { FormSuccessMessage } from '@/components/form-success'
 import { Textarea } from "@/components/ui/textarea"
+import {getAssetImage} from '@/lib/utils'
 
 const InvoiceForm = () => {
   const [clientEmail, setClientEmail] = useState<string>("")
@@ -796,7 +797,9 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
         <div 
             className="flex gap-2"
         >
-            {/* <Image src={`${row?.original?.icon?.src}`} width={25} height={24} alt={'asset-logo'} /> */}
+            <img src={`${getAssetImage(row?.getValue('payment_method'))?.src}`} width={25} height={24} alt={'asset-logo'} 
+            //${row?.original?.icon?.src}
+            />
             {row?.getValue("payment_method")} 
         </div>
       ), 

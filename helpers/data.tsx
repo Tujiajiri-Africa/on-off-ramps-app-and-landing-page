@@ -284,6 +284,7 @@ export const supportedAssets: Asset[] = [
       label: 'PYUSD',
       icon: PAYPAL_USD_LOGO,
       active: true,
+      chain: 'Ethereum'
   },
   {
       value: 'cUSD',
