@@ -457,7 +457,7 @@ export function NewInvoiceForm(){
                                                                 type='email'
                                                                 //onChange={() => setClientEmail(field.value)}
                                                                 //value={clientEmail}
-                                                                onChangeCapture={e =>setClientEmail(field.value.toString())}
+                                                                //onChangeCapture={e =>setClientEmail(field.value.toString())}
                                                             
                                                                 disabled={isPending}
                                                                 //min={0}
