@@ -51,6 +51,8 @@ export function Team() {
                                             src={member.photo?.src}
                                             alt="team-image" 
                                             className="rounded-full object-cover h-full w-full shadow-md" 
+                                            //width={360}
+                                            //height={398}
                                             />
                                     </div>
                                 </div>

@@ -49,6 +49,7 @@ import { createInvoice } from '@/actions/invoices'
 import { useSearchParams } from "next/navigation";
 import { FormErrorMessage } from '@/components/form-errors'
 import { FormSuccessMessage } from '@/components/form-success'
+import Link from 'next/link'
 
 export function NewInvoiceForm(){
     const [clientEmail, setClientEmail] = useState<string>("")
@@ -62,18 +63,19 @@ export function NewInvoiceForm(){
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("pathname");
     const [isPending, startTransition] = useTransition()
+    const [shouldShowViewButton, setShouldShoViewButton] = useState<boolean>(false)
 
     const form = useForm<z.infer<typeof InvoiceSchema>>({
-        resolver: zodResolver(InvoiceSchema),
-        defaultValues: {
-            client_email: "",
-            item_name: "",
-            item_description: "",
-            unit_price: "",
-            item_quantity: "",
-            //currency: "",
-            payment_method: "",
-        }
+        resolver: zodResolver(InvoiceSchema)
+        // defaultValues: {
+        //     client_email: "",
+        //     item_name: "",
+        //     item_description: "",
+        //     unit_price: "",
+        //     item_quantity: "",
+        //     //currency: "",
+        //     payment_method: "",
+        // }
     })
 
     const {data: userSessionData} = useSession()
@@ -88,14 +90,17 @@ export function NewInvoiceForm(){
                 if(data?.data.error){
                     //form.reset()
                     setError(data?.data.error)
+                    setShouldShoViewButton(false)
                 }
                 if(data?.data.success){
                     form.reset()
                     setSuccess(data?.data.success)
+                    setShouldShoViewButton(true)
                 }
             }).catch(() => {
                 setError("Something went wrong")
                 setSuccess("")
+                setShouldShoViewButton(false)
             })
         })
     }
@@ -555,10 +560,16 @@ export function NewInvoiceForm(){
                                                         >
                                                         Save
                                                     </Button>
+                                                      {
+                                                        shouldShowViewButton && (
+                                                            <Button  variant={'outline'} className='justify-end'>
+                                                            <Link href="/dashboard/invoices">
+                                                               View Invoices
+                                                            </Link>
+                                                        </Button>
+                                                        )
+                                                    }
 
-                                                    {/* <Button  variant={'outline'} className='justify-end'>
-                                                        Preview
-                                                    </Button> */}
                                         {/* <NewInvoicePreview /> */}
                                         </div>
                                     </form>
