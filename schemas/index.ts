@@ -267,20 +267,24 @@ export const InvoiceSchema = z.object({
         message: 'Quantity must be at leats 1'
     }),
     item_name: z.string({
-        required_error: 'Itme name is required!'
+        required_error: 'Item name is required!'
     }).min(3,{
-        message: 'Please provide item name!'
+        message: 'Minimum 3 characters required!'
+    }).max(10, {
+        message: "Maximum 10 characters required!"
     }),
     item_description: z.string({
         required_error: 'Item description is required!'
     }).min(6, {
-        message: 'Description must be greator than 6 characters!'
+        message: 'Minimum 6 characters required!'
+    }).max(50, {
+        message: "Only 50 characters required!"
     }),
     payment_method: z.string({
         required_error: 'Please select payment method!'
     }),
     due_date: z.date({
-        required_error: 'Enter invoice due date!',
+        required_error: 'Due date is required!',
         invalid_type_error: 'Invalid date format!'
     })//.min(new Date(),{message: 'Cannot use previous date!'})
 }).refine((value) => {
