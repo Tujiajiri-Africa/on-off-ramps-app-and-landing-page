@@ -82,7 +82,7 @@ export default function HeroPage2(){
         <>
   <div
   className="flex  w-full h-screen sm:h-full flex-col items-center justify-center text-center px-4 py-20 bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
-  <a href=""
+  <a href="#"
     className="border border-white-700 dark:border-gray-300 rounded-lg py-2 px-4 text-white-400 dark:text-gray-300 text-sm mb-5 transition duration-300 ease-in-out hover:text-gray-500 dark:hover:text-gray-400">
     {/* Forget about spending hundreds $  flex justify-center items-center  overflow-hidden*/}
     Enhancing crypto adoption across Africa 

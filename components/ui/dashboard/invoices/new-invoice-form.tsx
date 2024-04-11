@@ -496,7 +496,7 @@ export function NewInvoiceForm(){
                                                                 )}
                                                                 >
                                                                 {field.value ? (
-                                                                    format(field.value, "PPPPpppp")
+                                                                    format(field.value, "PPP")
                                                                 ) : (
                                                                     <span>Pick due date</span>
                                                                 )}
