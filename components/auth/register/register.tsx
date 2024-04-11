@@ -290,7 +290,7 @@ export const RegisterForm = () => {
                                             <FormLabel 
                                                 className="block text-sm font-medium text-gray-700"
                                                 >
-                                                Username(used in login)
+                                                Username
                                             </FormLabel>
                                             <div 
                                                 className='mt-1'

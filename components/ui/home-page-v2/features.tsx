@@ -80,10 +80,12 @@ export function ProductsV2(){
     />
       <h3 className="my-3 font-display font-medium">Realtime Crypto Payments</h3>
       <p className="mt-1.5 text-sm leading-6 text-secondary-500">
-      Harness the power of real-time token transfers popularly known as token streaming to empower your friends and family to access liquidity in real-time giving them the flexibility to explore and invest in other profitable DeFi products or cash out in local currency.
+      Harness the power of real-time token transfers popularly known as token streaming to empower your friends and family to access liquidity in real-time giving them the flexibility to explore and invest in other profitable DeFi products or cash out in local currency(coming soon).
       </p>
       <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 px-4 py-3 sm:mt-10 mt-8'>
-            Coming Soon
+            <a href='https://app.ajirapay.finance' target='_blank'>
+              Open App
+            </a>
         </Button>
     </li>
 

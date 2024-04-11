@@ -248,7 +248,7 @@ export const PhoneRegistrationOTPSchema = z.object({
 
 export const InvoiceSchema = z.object({
     client_email: z.string({
-        required_error: 'Provider email is required!'
+        required_error: 'Client or vendor email is required!'
     }).email({
         message: 'Client email must be valid email address'
     }),

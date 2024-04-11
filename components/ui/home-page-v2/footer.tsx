@@ -20,7 +20,7 @@ export function FooterV2(){
    <div className="mx-auto w-full p-4 py-6 lg:py-8 2xl:w-[80%]">
        <div className="md:flex md:justify-between">
          <div className="mb-6 md:mb-0">
-             <a href="https://ajirapay.finance/" className="flex items-center">
+             <a href="#" className="flex items-center">
                  {/* <img
                    className="h-8 me-3"
                    src={logo.src}
@@ -66,16 +66,16 @@ export function FooterV2(){
                          <a href="#">On/Off Ramps</a>
                      </li>
                      <li className="mb-4">
-                         <a href="https://app.ajirapay.finance/" >Token Streaming</a>
+                         <a href="https://app.ajirapay.finance/" target='_blank' >Token Streaming</a>
                      </li>
                      <li className="mb-4">
-                         <a href="https://app.ajirapay.finance/" >Crypto Invoices</a>
+                         <a href="#" >Crypto Invoices</a>
                      </li>
                      <li className="mb-4">
-                         <a href="https://app.ajirapay.finance/" >Crypto Subscriptions</a>
+                         <a href="#" >Crypto Subscriptions</a>
                      </li>
                      <li className="mb-4">
-                         <a href="https://app.ajirapay.finance/" >Documentation</a>
+                         <a href="https://docs.ajirapay.finance/" target='_blank'>Documentation</a>
                      </li>
                  </ul>
              </div>
@@ -86,10 +86,10 @@ export function FooterV2(){
                          <a href="#" >Privacy Policy</a>
                      </li>
                      <li className="mb-4">
-                         <a href="#">Terms &amp; Conditions</a>
+                         <a href="https://docs.ajirapay.finance/legal" target='_blank'>Terms &amp; Conditions</a>
                      </li>
                      <li className="mb-4">
-                         <a href="#" >Legal and Compliance</a>
+                         <a href="https://docs.ajirapay.finance/legal" target='_blank' >Legal and Compliance</a>
                      </li>
                      <li className="mb-4">
                          <a href="#">Audits</a>
@@ -101,7 +101,7 @@ export function FooterV2(){
      </div>
      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
      <div className="sm:flex sm:items-center sm:justify-between">
-         <span className="text-sm mt-1.5 leading-6 text-secondary-500 sm:text-center dark:text-gray-400">© {date} <a href="https://ajirapay.finance" target="_blank">NanaPay LTD</a>. All Rights Reserved.
+         <span className="text-sm mt-1.5 leading-6 text-secondary-500 sm:text-center dark:text-gray-400">© {date} <a href="#">NanaPay LTD</a>. All Rights Reserved.
          </span>
          <div className="flex mt-4 sm:justify-center sm:mt-0">
              {/* <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
