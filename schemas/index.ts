@@ -270,15 +270,15 @@ export const InvoiceSchema = z.object({
         required_error: 'Item name is required!'
     }).min(3,{
         message: 'Minimum 3 characters required!'
-    }).max(10, {
-        message: "Maximum 10 characters required!"
+    }).max(50, {
+        message: "Maximum 50 characters required!"
     }),
     item_description: z.string({
         required_error: 'Item description is required!'
-    }).min(6, {
-        message: 'Minimum 6 characters required!'
-    }).max(50, {
-        message: "Only 50 characters required!"
+    }).min(3, {
+        message: 'Minimum 3 characters required!'
+    }).max(180, {
+        message: "Only 180 characters required!"
     }),
     payment_method: z.string({
         required_error: 'Please select payment method!'
