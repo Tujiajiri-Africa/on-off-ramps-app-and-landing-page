@@ -137,3 +137,84 @@ export const createInvoice = async(values: z.infer<typeof InvoiceSchema>, bearer
 export const updateInvoice = () => {
 
 }
+
+
+export const getInvoiceDetails = async(bearerToken: string|undefined, reference_no:string|null) =>{
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + `/invoices/invoice-detail?ref_no=${reference_no}` : PROD_BASE_URI + `/invoices/invoice-detail?ref_no=${reference_no}`
+
+    let invoice;//: NanaPayInvoiceProps|undefined|null = undefined
+    
+    let dataInfo: UserResponseDataProps = {
+        data: "",
+        error: "",
+        success: ""
+    }
+    const payloadData = {
+        ref_no: reference_no
+    }
+
+    const payload = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        },
+        //body: JSON.stringify(payloadData)
+    }
+
+    const fetchInvoiceInfo = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            dataInfo = {
+                data: "",
+                error: "Something went wrong",
+                success: ""
+            }
+
+            return {dataInfo}
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            dataInfo = {
+                data: "",
+                error: "Something went wrong",
+                success: ""
+            }
+
+            return {dataInfo}
+        }
+
+        if(data['status'] == true){
+            dataInfo = {
+                data: data['data'],
+                error: "Something went wrong",
+                success: ""
+            }
+
+            return {dataInfo}
+        }
+       // return response
+    }).catch((error) =>{
+        dataInfo = {
+            data: "",
+            error: "Something went wrong",
+            success: ""
+        }
+
+        return {dataInfo}
+    })
+
+    try{
+        return fetchInvoiceInfo
+    }catch(error){
+        dataInfo = {
+            data: "",
+            error: "Something went wrong",
+            success: ""
+        }
+
+        return {dataInfo}
+    }
+}

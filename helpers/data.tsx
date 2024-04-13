@@ -506,6 +506,8 @@ export type NanaPayInvoiceProps = {
   user_id: number;
   ref_no: string;
   due_date: Date;
+  created_at? :Date;
+  updated_at? :Date;
   item_name: string;
   unit_price: number;
   item_quantity: number;

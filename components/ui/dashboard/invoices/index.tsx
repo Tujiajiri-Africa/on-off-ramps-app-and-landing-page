@@ -109,7 +109,7 @@ import {
 import { Calendar as CalendarIcon } from "lucide-react"
 import { Calendar } from "@/components/ui/calendar"
 import { cn } from "@/lib/utils"
-import { format } from "date-fns"
+import { format,formatDistance, subDays } from "date-fns"
 import { FormErrorMessage } from '@/components/form-errors'
 import { FormSuccessMessage } from '@/components/form-success'
 import { Textarea } from "@/components/ui/textarea"
@@ -763,18 +763,44 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
     };
 
     const invoiceDataColumns: ColumnDef<NanaPayInvoiceProps>[] = useMemo(() => [
+      // {
+      //   accessorKey: 'id',
+      //   header: ({column}) => {
+      //      return (
+      //          <Button variant={'ghost'}
+      //          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      //          >
+      //                  ID
+      //              <ArrowUpDown className="ml-2 h-4 w-4" />
+      //          </Button>
+      //      )
+      //   }
+      // },
+
       {
-        accessorKey: 'id',
+        accessorKey: 'created_at',
         header: ({column}) => {
-           return (
-               <Button variant={'ghost'}
-               onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-               >
-                       ID
-                   <ArrowUpDown className="ml-2 h-4 w-4" />
-               </Button>
-           )
-        }
+          return (
+              <Button variant={'ghost'}
+              onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+              >
+                      Date Created
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+          )
+       },
+       cell: ({ row }) => {
+        //const dateDiff = new Date(row.getValue('created_at')).getTime() - new Date().getTime()
+        return (
+          <div 
+          className="flex gap-2"
+      >
+          {formatDistance(new Date(row.getValue('created_at')).getTime(), new Date().getTime(),{ addSuffix: true })}
+         {/* {formatDistance(subDays(row.getValue('created_at'), new Date(), {addSufix: true}))}  */}
+         {/* {row?.getValue("created_at")} */}
+      </div>
+        )
+       }, 
       },
       {
         accessorKey: 'type',
@@ -980,7 +1006,12 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
                     Download PDF
                   </DropdownMenuItem>
                   <DropdownMenuItem>View client/vendor details</DropdownMenuItem>
-                  <DropdownMenuItem>View invoice details</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href={`/dashboard/invoices/${invoice.id}?ref=${invoice.ref_no}`}>
+                      View invoice details
+                    </Link>
+                      
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             )
