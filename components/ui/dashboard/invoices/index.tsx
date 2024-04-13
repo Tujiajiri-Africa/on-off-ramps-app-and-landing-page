@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useMemo, useState, useTransition } from 'react'
+import React, { useCallback, useEffect, useMemo, useState, useTransition, useRef } from 'react'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import { Button } from "@/components/ui/button";
 import {
@@ -115,6 +115,10 @@ import { FormSuccessMessage } from '@/components/form-success'
 import { Textarea } from "@/components/ui/textarea"
 import {getAssetImage} from '@/lib/utils'
 import { toast } from 'react-toastify';
+import {convertInvoiceToPdf,generatePdf} from '@/lib/utils'
+import jsPDF from "jspdf";
+//import html2canvas  from 'html2canvas'
+import html2canvas from 'html2canvas-pro';
 
 const InvoiceForm = () => {
   const [clientEmail, setClientEmail] = useState<string>("")
@@ -742,6 +746,22 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
       React.useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = React.useState({})
    
+    const convertToPdf = () => {  
+      const options = {
+        filename: 'my-document.pdf',
+        margin: 1,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: {
+          unit: 'in',
+          format: 'letter',
+          orientation: 'portrait',
+        },
+      };
+  
+      //html2pdf().set(options).from(content).save();
+    };
+
     const invoiceDataColumns: ColumnDef<NanaPayInvoiceProps>[] = useMemo(() => [
       {
         accessorKey: 'id',
@@ -821,11 +841,6 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
         },
       //header: "Status",
       cell: ({ row }) => (
-        // const INVOICE_STATUS_CREATED = 'Created';
-        // const INVOICE_STATUS_PENDING = 'Pending';
-        // const INVOICE_STATUS_PAID = 'Paid';
-        // const INVOICE_STATUS_REJECTED = 'Rejected';
-        // const INVOICE_STATUS_EXPIRED = 'Expired';
         <div className="px-6 py-4 whitespace-nowrap">
               {
               row?.getValue("status") === "Pending" && (
@@ -954,6 +969,16 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
                    
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    onClick={() => {
+                      convertInvoiceToPdf(invoice,`invoice-#${invoice.id}-${new Date().getFullYear()}`)
+                      //generateInvoiceAsPDF()
+                      //generatePdf(invoice)
+                      //convertToPdf()
+                    }}
+                  >
+                    Download PDF
+                  </DropdownMenuItem>
                   <DropdownMenuItem>View client/vendor details</DropdownMenuItem>
                   <DropdownMenuItem>View invoice details</DropdownMenuItem>
                 </DropdownMenuContent>
@@ -1115,9 +1140,38 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
   }
 
 export function InvoiceComponent(){
+  const invoiceRef  = useRef<any>();
+
+  const downloadPdf = async() => {
+    const inputData = invoiceRef.current
+    //const invoiceDiv:React.ElementRef = document.querySelector('#invoice-div');
+
+    try{
+      await html2canvas(inputData).then((canvas) => {
+        const imageData = canvas.toDataURL('image/png')// toDataURL()
+        const pdf = new jsPDF('p','mm','a4', true)
+        const pdfWidth = pdf.internal.pageSize.getWidth()
+        const pdfHeight = pdf.internal.pageSize.getHeight()
+        const imgWidth = canvas.width
+        const imgHeight = canvas.height
+        const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+        const imgX = (pdfWidth - imgWidth * ratio) /2
+        const imgY = 30
+        pdf.addImage(imageData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio)
+        pdf.save('invoice.pdf')
+      })
+    }catch(error){
+      console.log
+    }
+  }
+
     return (<>
         <ScrollArea className='h-full'>
-            <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
+            <div 
+              ref={invoiceRef} 
+              className="flex-1 space-y-4 p-4 md:p-8 pt-6"
+              id="invoice-div"
+              >
                 <div className="flex items-center justify-between space-y-2">
                     <h2 className="text-3xl font-bold tracking-tight">
                         Invoice
@@ -1154,6 +1208,9 @@ export function InvoiceComponent(){
                                             </div>
                                         </Link>
                                     </Button>
+                                    {/* <Button  onClick={downloadPdf}>
+                                      Download PDF
+                                    </Button> */}
                                 </div>   
                         </CardHeader>
                         <CardContent className='pl-2'>
