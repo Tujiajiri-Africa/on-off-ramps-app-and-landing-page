@@ -821,19 +821,50 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
         },
       //header: "Status",
       cell: ({ row }) => (
-        <div className="capitalize justify-center">
-            {row?.getValue("status")}
-            {/* {
-              row?.getValue("status") === "Created" && (
-                 <div 
-                    className='bg-orange-300 text-white p-1.5 rounded-md'>
-                      <div className='flex items-center justify-between'>
-                      {row?.getValue("status")}
-                      </div>
-                      
-                  </div>
+        // const INVOICE_STATUS_CREATED = 'Created';
+        // const INVOICE_STATUS_PENDING = 'Pending';
+        // const INVOICE_STATUS_PAID = 'Paid';
+        // const INVOICE_STATUS_REJECTED = 'Rejected';
+        // const INVOICE_STATUS_EXPIRED = 'Expired';
+        <div className="px-6 py-4 whitespace-nowrap">
+              {
+              row?.getValue("status") === "Pending" && (
+                 
+                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                          {row?.getValue("status")}
+                        </span>
               )
-            } */}
+            } 
+            {
+              row?.getValue("status") === "Created" && (
+                 
+                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                          {row?.getValue("status")}
+                        </span>
+              )
+            } 
+            {
+              row?.getValue('status') === "Rejected" && (
+                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                  {row?.getValue("status")}
+                </span>
+              )
+            }
+            {
+              row?.getValue('status') === "Expired" && (
+                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                  {row?.getValue("status")}
+                </span>
+              )
+            }
+
+            {
+              row?.getValue('status') === "Paid" && (
+                <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  {row?.getValue("status")}
+                </span>
+              )
+            }
         </div>
       ),
     
@@ -862,8 +893,8 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
           // Format the amount as a dollar amount
           const formatted = new Intl.NumberFormat("en-US", {
             style: "currency",
-            //currency: "USD",
-            currency: "KES",
+            currency: "USD",
+            //currency: "KES",
             //currencySign: "KES"
           }).format(amount)
      
