@@ -13,6 +13,8 @@ import jsPDF from "jspdf";
 //import html2canvas  from 'html2canvas'
 import html2canvas from 'html2canvas-pro';
 import { Button } from '@/components/ui/button';
+import InvoiceInfo from '@/app/(dashboard)/dashboard/invoices/[id]/page';
+import { getAssetImage } from '@/lib/utils';
 
 export function InvoiceDetail(){
     const {data: userSessionData} = useSession()
@@ -73,11 +75,11 @@ export function InvoiceDetail(){
             <h2 className="text-3xl font-bold tracking-tight">
                 Invoice Details
             </h2>
-            <Button onClick={() => generatePDF()}>Download PDF</Button>
+            <Button className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white' onClick={() => generatePDF()}>Download PDF</Button>
             <div className="md:flex items-center space-x-2">
             </div>
             </div>
-            <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none'>
+            <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none '>
                 {
                     isLoading ?
                     <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl space-y-4 content-center items-center">
@@ -91,13 +93,17 @@ export function InvoiceDetail(){
                     </CardContent>
                     :
                     <CardContent 
-                        className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl space-y-4"
-                        
+                        className="mt-8 mx-auto w-full  space-y-4 shadow-2xl dark:shadow-none sm:max-w-[800px]"
+                        //sm:max-w-xl
                         >
                     <div
                          ref={invoiceRef}
-                        className="bg-white rounded-lg shadow-none px-8 py-10 w-full sm:max-w-xl mx-auto"
+                        className="bg-white rounded-lg shadow-none px-8 py-10 w-full sm:max-w-[800px] 2xl:max-w-[800px] mx-auto"
                         >
+                            <div className='flex items-center justify-center p-6'>
+                                 <img className="h-8 w-8 mr-2 rounded-full" src="https://tailwindflex.com/public/images/logos/favicon-32x32.png"
+                    alt="Logo" /> 
+                            </div>
         <div 
             className="flex items-center justify-between mb-8"
             
@@ -110,7 +116,7 @@ export function InvoiceDetail(){
                     //className="text-gray-700 font-semibold text-lg"
                     className='text-gray-700 gap-1'
                     >
-                        <h2 className='font-bold text-xl mb-2'>From:</h2> <br />
+                        <h2 className='font-bold text-xl mb-1'>From</h2>
                     {`${userSessionData?.user.first_name} ${userSessionData?.user.last_name}` } <br />
                     {`${userSessionData?.user.email}`} <br/>
                     {`${userSessionData?.user.phone}`}
@@ -129,17 +135,23 @@ export function InvoiceDetail(){
             <div className="text-gray-700">
                 <div className="font-bold text-xl mb-2">INVOICE</div>
                 {/* <div className="text-sm">Date Created: { format(new Date(invoiceInfo?.created_at.toString()),'PPP')} */}
-                <div className="text-sm">Date Created: 04/03/2024</div>
+                <div className="text-sm">Invoice number: {`${invoiceInfo?.id}`}</div>
+                <div className="text-sm">Date of issue: {format(new Date(), 'PP')}</div>
+                {/* <div className="text-sm">Date Created: 04/03/2024</div> */}
+                <div className="flex text-sm gap-2">Payment due on: { invoiceInfo ? format(new Date(`${invoiceInfo?.due_date.toString()}`), 'PP') : '' }</div>
+                {/* <div className="text-sm">Ref:{invoiceInfo?.ref_no.toString()}</div> */}
+                
                 {/* 01/05/2023 */}
                 {/* </div> */}
                 <div className='text-sm'>
                     {/* Date Due: { format(invoiceInfo?.due_date.toString(),'PPP')} */}
                 </div>
-                <div className="text-sm">Invoice #: {`${invoiceInfo?.id}`}</div>
+                
             </div>
         </div>
-        <div className="border-b-2 border-gray-300 pb-8 mb-8">
-            <h2 className="text-2xl font-bold mb-4">Bill To:</h2>
+        <div className="text-gray-700 gap-1 pb-6 mb-6">
+            {/* <h2 className="text-2xl font-bold mb-4">Bill To:</h2> */}
+            <h2 className='font-bold text-xl mb-1'>Billing Details</h2>
             {/* <div className="text-gray-700 mb-2">John Doe</div>
             <div className="text-gray-700 mb-2">123 Main St.</div>
             <div className="text-gray-700 mb-2">Anytown, USA 12345</div> */}
@@ -151,7 +163,8 @@ export function InvoiceDetail(){
                     {/* <th className="text-gray-700 font-bold uppercase py-2">Description</th> */}
                     <th className="text-gray-700 font-bold uppercase py-2">Item</th>
                     <th className="text-gray-700 font-bold uppercase py-2">Quantity</th>
-                    <th className="text-gray-700 font-bold uppercase py-2">Price</th>
+                    <th className="text-gray-700 font-bold uppercase py-2">Unit Price</th>
+                    {/* <th className="text-gray-700 font-bold uppercase py-2">Asset</th> */}
                     <th className="text-gray-700 font-bold uppercase py-2">Total</th>
                 </tr>
             </thead>
@@ -160,6 +173,9 @@ export function InvoiceDetail(){
                     <td className="py-4 text-gray-700">{invoiceInfo?.item_name.trim()}</td>
                     <td className="py-4 text-gray-700">{invoiceInfo?.item_quantity.toString()}</td>
                     <td className="py-4 text-gray-700">{`$${invoiceInfo?.unit_price.toString()}`}</td>
+                    {/* <td className="py-4 text-gray-700">
+                        <img src={`${getAssetImage(invoiceInfo?.payment_method)}`} width={25} height={24} alt={'asset-logo'} />
+                    </td> */}
                     <td className="py-4 text-gray-700">{`$${invoiceInfo?.sub_total.toString()}`}</td>
                 </tr>
                 {/* <tr>
