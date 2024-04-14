@@ -129,8 +129,8 @@ export function InvoiceDetail(){
                     alt="Logo" />  */}
 
                     <Image
-                        height={80}
-                        width={80}
+                        height={60}
+                        width={60}
                         src={logo.src}
                         alt='Logo'
                         //className='mb-4'
@@ -183,7 +183,7 @@ export function InvoiceDetail(){
                             <>
                                  <div className='flex gap-2'>
                                     Payment status:
-                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-yellow-800 uppercase">
+                                    <span className="inline-flex text-xs leading-5 font-semibold rounded-full text-yellow-800 uppercase">
                                         {invoiceInfo?.status}
                                     </span>
                                 </div>
@@ -196,7 +196,7 @@ export function InvoiceDetail(){
                             <>
                                  <div className='flex gap-2'>
                                     Payment status:
-                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-yellow-800 uppercase">
+                                    <span className="inline-flex text-xs leading-5 font-semibold rounded-full  text-yellow-800 uppercase">
                                         {invoiceInfo?.status}
                                     </span>
                                 </div>
@@ -209,7 +209,7 @@ export function InvoiceDetail(){
                             <>
                                  <div className='flex gap-2'>
                                     Payment status:
-                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-red-800 uppercase">
+                                    <span className="inline-flex text-xs leading-5 font-semibold rounded-full  text-red-800 uppercase">
                                         {invoiceInfo?.status}
                                     </span>
                                 </div>
@@ -222,7 +222,7 @@ export function InvoiceDetail(){
                             <>
                                  <div className='flex gap-2'>
                                     Payment status:
-                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-red-800 uppercase">
+                                    <span className="inline-flex text-xs leading-5 font-semibold rounded-full  text-red-800 uppercase">
                                         {invoiceInfo?.status}
                                     </span>
                                 </div>
@@ -234,7 +234,7 @@ export function InvoiceDetail(){
                             <>
                                  <div className='flex gap-2'>
                                     Payment status:
-                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-green-800 uppercase">
+                                    <span className="inline-flex text-xs leading-5 font-semibold rounded-full  text-green-800 uppercase">
                                         {invoiceInfo?.status}
                                     </span>
                                 </div>
