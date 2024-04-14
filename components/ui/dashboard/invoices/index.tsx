@@ -731,10 +731,18 @@ const InvoicePaymentsDataFrame = () =>{
     setInvoices(invoceData)
 },[userSessionData])
 
-const {error, status, data:invoiceData, isLoading } = useQuery({
+const {error, status, data:invoiceData, isLoading, isError } = useQuery({
     queryKey: 'invoicesInfo',
     queryFn: fetchInvoiceData
 })
+
+{
+  isError && (
+      <>
+          <p>Something went wrong</p>
+      </>
+  )
+}
 
    const filteredData = useMemo(() => _data?.filter(d => d.type === "Outgoing" || d.type === "Incoming") ?? [], [_data]);
     //console.log(filteredData)

@@ -67,11 +67,18 @@ export function InvoiceDetail(){
     //   }
   },[userSessionData, ref_no])
   
-  const {error, status, data:invoiceData, isLoading } = useQuery({
+  const {error, status, data:invoiceData, isLoading, isError } = useQuery({
       queryKey: 'invoice',
       queryFn: fetchInvoiceDetails
   })
 
+  {
+    isError && (
+        <>
+            <p>Something went wrong</p>
+        </>
+    )
+ }
     return (
     <>
     <ScrollArea className="h-full">
@@ -104,6 +111,7 @@ export function InvoiceDetail(){
                             </div>
 
             <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none '>
+
                 {
                     isLoading ?
                     <CardContent className="mt-8 mx-auto sm:w-full sm:max-w-xl space-y-4 content-center items-center">
@@ -144,7 +152,6 @@ export function InvoiceDetail(){
                         className="mt-8 mx-auto w-full  space-y-4 shadow-2xl dark:shadow-none sm:max-w-[800px]"
                         //sm:max-w-xl
                         >
-
                     <div
                          ref={invoiceRef}
                         className="bg-white rounded-lg shadow-none px-8 py-10 w-full sm:max-w-[800px] 2xl:max-w-[800px] mx-auto"
@@ -283,7 +290,7 @@ export function InvoiceDetail(){
             {/* <div className="text-gray-700 mb-2">John Doe</div>
             <div className="text-gray-700 mb-2">123 Main St.</div>
             <div className="text-gray-700 mb-2">Anytown, USA 12345</div> */}
-            <div className="text-gray-700">{invoiceInfo?.client_email.trim()}</div>
+            <div className="text-gray-700">{invoiceInfo?.client_email?.trim()}</div>
         </div>
         <table className="w-full text-left mb-8 table-zebra-zebra">
             <thead>
@@ -298,13 +305,13 @@ export function InvoiceDetail(){
             </thead>
             <tbody>
                 <tr>
-                    <td className="py-4 text-gray-700">{invoiceInfo?.item_name.trim()}</td>
-                    <td className="py-4 text-gray-700">{invoiceInfo?.item_quantity.toString()}</td>
-                    <td className="py-4 text-gray-700">{`$${invoiceInfo?.unit_price.toString()}`}</td>
+                    <td className="py-4 text-gray-700">{invoiceInfo?.item_name?.trim()}</td>
+                    <td className="py-4 text-gray-700">{invoiceInfo?.item_quantity?.toString()}</td>
+                    <td className="py-4 text-gray-700">{`$${invoiceInfo?.unit_price?.toString()}`}</td>
                     {/* <td className="py-4 text-gray-700">
                         <img src={`${getAssetImage(invoiceInfo?.payment_method)}`} width={25} height={24} alt={'asset-logo'} />
                     </td> */}
-                    <td className="py-4 text-gray-700">{`$${invoiceInfo?.sub_total.toString()}`}</td>
+                    <td className="py-4 text-gray-700">{`$${invoiceInfo?.sub_total?.toString()}`}</td>
                 </tr>
                 {/* <tr>
                     <td className="py-4 text-gray-700">Product 2</td>
@@ -322,7 +329,7 @@ export function InvoiceDetail(){
         </table>
         <div className="flex justify-end mb-8">
             <div className="text-gray-700 mr-2">Subtotal:</div>
-            <div className="text-gray-700">{`$${invoiceInfo?.sub_total.toString()}`}</div>
+            <div className="text-gray-700">{`$${invoiceInfo?.sub_total?.toString()}`}</div>
         </div>
         <div className="text-right mb-8">
             <div className="text-gray-700 mr-2">Tax:</div>
@@ -331,13 +338,13 @@ export function InvoiceDetail(){
         </div>
         <div className="flex justify-end mb-8">
             <div className="text-gray-700 mr-2">Total:</div>
-            <div className="text-gray-700 font-bold text-xl">{`$${invoiceInfo?.sub_total.toString()}`}</div>
+            <div className="text-gray-700 font-bold text-xl">{`$${invoiceInfo?.sub_total?.toString()}`}</div>
         </div>
         <div className="border-t-2 border-gray-300 pt-8 mb-8">
             {/* <div className="text-gray-700 mb-2">Payment is due within 30 days. Late payments are subject to fees.</div> */}
             {/* <div className="text-gray-700 mb-2">Please make checks payable to Your Company Name and mail to:</div>
             <div className="text-gray-700">123 Main St., Anytown, USA 12345</div> */}
-            <div className="text-gray-700 mb-1"><span className='font-medium'>Invoice Reference Number:</span> {invoiceInfo?.ref_no.trim()}</div>
+            <div className="text-gray-700 mb-1"><span className='font-medium'>Invoice Reference Number:</span> {invoiceInfo?.ref_no?.trim()}</div>
             <div className="text-gray-700"><span className='font-medium'>System generated on:</span> {format(new Date(), 'PPPPpppp')}</div>
              
         </div>
