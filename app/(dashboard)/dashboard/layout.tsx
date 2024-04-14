@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata: Metadata = {
-  title: "NanaPay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond, cash out in your local currency",
+  title: "Ajira Pay |Buy and Sell USDT, USDC, Bitcoin, cUSD, ETH, SOL, ADA, at market rates across 20+ African countries and beyond, cash out in your local currency",
   description: "Buy and Sell your favourite crypto with instant settlement in your local currency across 20+ compliant jurisdictions across Africa and beyond",
 };
 
