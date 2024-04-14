@@ -927,7 +927,16 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
       },
       {
         accessorKey: "sub_total",
-        header: () => <div className="text-right">Sub Total</div>,
+        header: ({column}) => {
+          return (
+              <Button variant={'ghost'}
+              onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+              >
+                      Sub Total
+                  <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+          )
+       },
         cell: ({ row }) => {
           const amount = parseFloat(row?.getValue("sub_total"))
      
@@ -995,7 +1004,7 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
                    
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem
+                  {/* <DropdownMenuItem
                     onClick={() => {
                       convertInvoiceToPdf(invoice,`invoice-#${invoice.id}-${new Date().getFullYear()}`)
                       //generateInvoiceAsPDF()
@@ -1004,14 +1013,28 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
                     }}
                   >
                     Download PDF
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>View client/vendor details</DropdownMenuItem>
+                  </DropdownMenuItem> */}
+                  {/* <DropdownMenuItem>View client/vendor details</DropdownMenuItem> */}
                   <DropdownMenuItem>
                     <Link href={`/dashboard/invoices/${invoice.id}?ref=${invoice.ref_no}`}>
-                      View invoice details
+                      Expand to download PDF 
                     </Link>
                       
                   </DropdownMenuItem>
+                  {
+                    invoice.status !== 'Paid' && (
+                      <DropdownMenuItem>
+                          Send Email Reminder
+                      </DropdownMenuItem>
+                    )
+                  }
+                  {
+                    invoice.status !== 'Paid' || 'Rejected' && invoice.client_email.trim() !== userSessionData?.user.email.trim() && (
+                      <DropdownMenuItem>
+                          Proceed to Pay
+                      </DropdownMenuItem>
+                    )
+                  }
                 </DropdownMenuContent>
               </DropdownMenu>
             )

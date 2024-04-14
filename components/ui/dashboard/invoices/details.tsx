@@ -15,6 +15,8 @@ import html2canvas from 'html2canvas-pro';
 import { Button } from '@/components/ui/button';
 import InvoiceInfo from '@/app/(dashboard)/dashboard/invoices/[id]/page';
 import { getAssetImage } from '@/lib/utils';
+import Image from 'next/image';
+import logo from  '@/app/assets/logo/favicon.ico'
 
 export function InvoiceDetail(){
     const {data: userSessionData} = useSession()
@@ -60,7 +62,7 @@ export function InvoiceDetail(){
     //     setInvoiceInfo(invoceData?.dataInfo.data)
     //     console.log("result", result)
     //   }
-  },[userSessionData])
+  },[userSessionData, ref_no])
   
   const {error, status, data:invoiceData, isLoading } = useQuery({
       queryKey: 'invoice',
@@ -100,10 +102,23 @@ export function InvoiceDetail(){
                          ref={invoiceRef}
                         className="bg-white rounded-lg shadow-none px-8 py-10 w-full sm:max-w-[800px] 2xl:max-w-[800px] mx-auto"
                         >
-                            <div className='flex items-center justify-center p-6'>
-                                 <img className="h-8 w-8 mr-2 rounded-full" src="https://tailwindflex.com/public/images/logos/favicon-32x32.png"
-                    alt="Logo" /> 
+                            <div className='flex flex-row items-center justify-center p-6 gap-2'>
+                                 {/* <img className="h-8 w-8 mr-2 rounded-full" src="https://tailwindflex.com/public/images/logos/favicon-32x32.png"
+                    alt="Logo" />  */}
+
+                    <Image
+                        height={80}
+                        width={80}
+                        src={logo.src}
+                        alt='Logo'
+                        //className='mb-4'
+                  />
+                  <div className='text-gray-700 gap-1'>
+                  <h2 className='font-bold text-xl mb-4 mt-1'>Ajira Pay Finance</h2>
+                  </div>
+                  
                             </div>
+                            <hr className='mb-2 text-gray-700'></hr>
         <div 
             className="flex items-center justify-between mb-8"
             
@@ -119,7 +134,7 @@ export function InvoiceDetail(){
                         <h2 className='font-bold text-xl mb-1'>From</h2>
                     {`${userSessionData?.user.first_name} ${userSessionData?.user.last_name}` } <br />
                     {`${userSessionData?.user.email}`} <br/>
-                    {`${userSessionData?.user.phone}`}
+                    {`+${userSessionData?.user.phone}`}
                     {/* Nana Pay LTD */}
                 </div>
             </div> 
@@ -136,9 +151,74 @@ export function InvoiceDetail(){
                 <div className="font-bold text-xl mb-2">INVOICE</div>
                 {/* <div className="text-sm">Date Created: { format(new Date(invoiceInfo?.created_at.toString()),'PPP')} */}
                 <div className="text-sm">Invoice number: {`${invoiceInfo?.id}`}</div>
-                <div className="text-sm">Date of issue: {format(new Date(), 'PP')}</div>
+                <div className="text-sm">Date of issue: { invoiceInfo ? format(new Date(`${invoiceInfo?.created_at.toString()}`), 'PP') : '' }</div>
                 {/* <div className="text-sm">Date Created: 04/03/2024</div> */}
-                <div className="flex text-sm gap-2">Payment due on: { invoiceInfo ? format(new Date(`${invoiceInfo?.due_date.toString()}`), 'PP') : '' }</div>
+                <div className="text-sm">Payment due on: { invoiceInfo ? format(new Date(`${invoiceInfo?.due_date.toString()}`), 'PP') : '' }</div>
+                <div className="text-sm">
+                    {
+                        invoiceInfo?.status === "Pending" && (
+                            <>
+                                 <div className='flex gap-2'>
+                                    Payment status:
+                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full text-yellow-800 uppercase">
+                                        {invoiceInfo?.status}
+                                    </span>
+                                </div>
+                            </>
+
+                        )
+                    }
+                    {
+                        invoiceInfo?.status === "Created" && (
+                            <>
+                                 <div className='flex gap-2'>
+                                    Payment status:
+                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-yellow-800 uppercase">
+                                        {invoiceInfo?.status}
+                                    </span>
+                                </div>
+                            </>
+                      )
+                    }
+
+                    {
+                        invoiceInfo?.status === "Rejected" && (
+                            <>
+                                 <div className='flex gap-2'>
+                                    Payment status:
+                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-red-800 uppercase">
+                                        {invoiceInfo?.status}
+                                    </span>
+                                </div>
+                            </>
+                      )
+                    }
+
+                    {
+                        invoiceInfo?.status === "Expired" && (
+                            <>
+                                 <div className='flex gap-2'>
+                                    Payment status:
+                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-red-800 uppercase">
+                                        {invoiceInfo?.status}
+                                    </span>
+                                </div>
+                            </>
+                      )
+                    }
+                    {
+                        invoiceInfo?.status === "Paid" && (
+                            <>
+                                 <div className='flex gap-2'>
+                                    Payment status:
+                                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full  text-green-800 uppercase">
+                                        {invoiceInfo?.status}
+                                    </span>
+                                </div>
+                            </>
+                      )
+                    }
+                </div>
                 {/* <div className="text-sm">Ref:{invoiceInfo?.ref_no.toString()}</div> */}
                 
                 {/* 01/05/2023 */}
@@ -151,7 +231,7 @@ export function InvoiceDetail(){
         </div>
         <div className="text-gray-700 gap-1 pb-6 mb-6">
             {/* <h2 className="text-2xl font-bold mb-4">Bill To:</h2> */}
-            <h2 className='font-bold text-xl mb-1'>Billing Details</h2>
+            <h2 className='font-bold text-xl mb-1'>Billed To</h2>
             {/* <div className="text-gray-700 mb-2">John Doe</div>
             <div className="text-gray-700 mb-2">123 Main St.</div>
             <div className="text-gray-700 mb-2">Anytown, USA 12345</div> */}
@@ -209,6 +289,7 @@ export function InvoiceDetail(){
             {/* <div className="text-gray-700 mb-2">Payment is due within 30 days. Late payments are subject to fees.</div> */}
             {/* <div className="text-gray-700 mb-2">Please make checks payable to Your Company Name and mail to:</div>
             <div className="text-gray-700">123 Main St., Anytown, USA 12345</div> */}
+            <div className="text-gray-700">System generated on {format(new Date(), 'PPPPpppp')}</div>
         </div>
     </div>
             </CardContent>
