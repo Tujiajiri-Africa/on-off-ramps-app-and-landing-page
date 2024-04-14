@@ -119,6 +119,7 @@ import {convertInvoiceToPdf,generatePdf} from '@/lib/utils'
 import jsPDF from "jspdf";
 //import html2canvas  from 'html2canvas'
 import html2canvas from 'html2canvas-pro';
+import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
 
 const InvoiceForm = () => {
   const [clientEmail, setClientEmail] = useState<string>("")
@@ -1067,10 +1068,26 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
    
     return (
       <div className="w-full">
-        <div className="flex items-center py-4 gap-2">
+                  {
+            isLoading  ?
+              <>
+              <div className='flex items-center gap-2'>
+                <Image 
+                width={60}
+                height={60}
+                className="w-16 h-16 animate-spin" src={GreenLoader.src} alt="Loading icon"
+                />
+            <span className="text-2xl font-medium text-gray-400 dark:text-gray-200">Fetching your invoices, please wait...</span>
+              </div>
+
+              </>
+            :
+            <>
+                    <div className="flex items-center py-4 gap-2">
           {/* <p>
             Filter by client email
           </p> <br /> */}
+
           <Input
             placeholder="Search by client email..."
             value={(table.getColumn("client_email")?.getFilterValue() as string) ?? ""}
@@ -1211,6 +1228,9 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
           </Button>
           </div>
         </div>
+            </>
+          }
+
       </div>
     )
   }
