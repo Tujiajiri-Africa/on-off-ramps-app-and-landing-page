@@ -195,6 +195,52 @@ export const UserProfileSchema = z.object({
     }),
 })
 
+export const UserProfileAddressInfo = z.object({
+    address_line_1: z.string({
+        required_error: "Address is required!"
+    }).max(50, {
+        message: 'Maximum 50 characters required!'
+    }),
+    address_line_2: z.string({
+        required_error: "Address is required!"
+    }).max(50, {
+        message: 'Maximum 50 characters required!'
+    }),
+    zip_code: z.string({
+        required_error: "Zip code is required!"
+    }).min(4,{
+        message: "Minimum 4 characters required!"
+    }).max(10,{
+        message: 'Maximum 10 characters required!'
+    }),
+    street: z.string({
+        required_error: "Street is required!"
+    }).min(3, {
+        message: "Minimum 3 characters required!"
+    }).max(16,{
+        message: "Maximum 16 characters required!"
+    }),
+    building: z.string({
+        required_error: "Building is required!"
+    }).min(3,{
+        message: "Minimum 3 characters required!"
+    }).max(16,{
+        message: "Maximum 16 characters required!"
+    }),
+    city: z.string({
+        required_error: "City is required!"
+    }).min(3,{
+        message: 'Minimum 3 characters required!'
+    }).max(16,{
+        message: 'Maximum 16 characters required!'
+    }),
+    state: z.string().min(3,{
+        message: "Minimum 3 characters required!"
+    }).max(10, {
+        message: 'Maximum 10 characters required!'
+    })
+});
+
 export const UserPasswordChangeSchema = z.object({
     current_password: z.string().min(6,{
         message: "Minimum 6 characters required"
