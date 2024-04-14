@@ -66,16 +66,16 @@ export function NewInvoiceForm(){
     const [shouldShowViewButton, setShouldShoViewButton] = useState<boolean>(false)
 
     const form = useForm<z.infer<typeof InvoiceSchema>>({
-        resolver: zodResolver(InvoiceSchema)
-        // defaultValues: {
-        //     client_email: "",
-        //     item_name: "",
-        //     item_description: "",
-        //     unit_price: "",
-        //     item_quantity: "",
-        //     //currency: "",
-        //     payment_method: "",
-        // }
+        resolver: zodResolver(InvoiceSchema),
+        defaultValues: {
+            client_email: "",
+            item_name: "",
+            item_description: "",
+            unit_price: "",
+            item_quantity: "",
+            //currency: "",
+            payment_method: "",
+        }
     })
 
     const {data: userSessionData} = useSession()
