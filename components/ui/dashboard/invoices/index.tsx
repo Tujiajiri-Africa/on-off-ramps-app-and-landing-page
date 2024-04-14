@@ -1196,15 +1196,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
             {table.getFilteredRowModel().rows.length} row(s) selected.
           </div> */}
           <div className="space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => table.previousPage()}
-              disabled={!table.getCanPreviousPage()}
-            >
-              Previous
-            </Button>
-            <Button
+          <Button
             variant="outline"
             //className="hidden h-8 w-8 p-0 lg:flex"
             onClick={() => table.firstPage()}
@@ -1213,6 +1205,15 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
             First Page
            
           </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            >
+              Previous
+            </Button>
+
           {" "}
               Page {table.getState().pagination.pageIndex + 1} of{" "}
               {table.getPageCount()} 
