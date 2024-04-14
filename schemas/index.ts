@@ -173,6 +173,18 @@ export const UserProfileSchema = z.object({
     }),
     last_name: z.string().min(3,{
         message: "Minimum 3 characters required"
+    }),
+    username: z.string({
+        required_error: "Username is requried!"
+    }).min(3,{
+        message: "Mimimum 3 characters required!"
+    }).max(10,{
+        message: "Maximum 10 characters required"
+    }),
+    email: z.string({
+        required_error: "Email is required!"
+    }).email({
+        message: "Invalid email address!"
     })
 })
 
