@@ -61,7 +61,8 @@ export function UserProfileComponent(){
           email: userSessionData?.user.email,
           username: userSessionData?.user.username,
           first_name: userSessionData?.user.first_name,
-          last_name: userSessionData?.user.last_name
+          last_name: userSessionData?.user.last_name,
+          phone: `+${userSessionData?.user.phone}`//userSessionData?.user.phone
       }
   })
 
@@ -297,6 +298,36 @@ export function UserProfileComponent(){
                                     />
                                 </div>
                             </div>
+                            <div>
+                        <FormField 
+                            control={form.control}
+                            name='phone'
+                            render={({field}) => (
+                                <FormItem>
+                                    <FormLabel 
+                                        className="block text-sm font-medium text-gray-700"
+                                        >
+                                        Phone
+                                    </FormLabel>
+                                    <div 
+                                        className='mt-1'
+                                        >
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                placeholder="Mobile Money Number"
+                                                type='text'
+                                                //disabled={isPending}
+                                                disabled
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
                       </form>
                     </Form>
                 </CardContent>
