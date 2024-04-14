@@ -1178,7 +1178,9 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
               disabled={!table.getCanPreviousPage()}
             >
               Previous
-            </Button>
+            </Button>{" "}
+              Page {table.getState().pagination.pageIndex + 1} of{" "}
+              {table.getPageCount()}
             <Button
               variant="outline"
               size="sm"
@@ -1187,6 +1189,15 @@ const {error, status, data:invoiceData, isLoading } = useQuery({
             >
               Next
             </Button>
+            {/* <Button
+            //variant="outline"
+            className="hidden h-8 w-8 p-0 lg:flex"
+            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+            disabled={!table.getCanNextPage()}
+          >
+            <span className="sr-only">Go to last page</span>
+            <DoubleArrowRightIcon className="h-4 w-4" />
+          </Button> */}
           </div>
         </div>
       </div>
