@@ -307,7 +307,7 @@ export function UserProfileComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700"
                                         >
-                                        Phone
+                                        Phone number
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
