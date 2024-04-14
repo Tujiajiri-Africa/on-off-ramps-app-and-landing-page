@@ -17,6 +17,8 @@ import InvoiceInfo from '@/app/(dashboard)/dashboard/invoices/[id]/page';
 import { getAssetImage } from '@/lib/utils';
 import Image from 'next/image';
 import logo from  '@/app/assets/logo/favicon.ico'
+import Link from 'next/link'
+import { ArrowDownCircle, ArrowLeftCircle } from 'lucide-react'
 
 export function InvoiceDetail(){
     const {data: userSessionData} = useSession()
@@ -74,17 +76,33 @@ export function InvoiceDetail(){
     <ScrollArea className="h-full">
         <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
             <div className="flex items-center justify-between space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight">
-                Invoice Details
-            </h2>
-            <Button className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white' onClick={() => generatePDF()}>Download PDF</Button>
-            <div className="md:flex items-center space-x-2">
+                <h2 className="text-3xl font-bold tracking-tight">
+                    Invoice Details
+                </h2>
             </div>
-            </div>
+            <div className="flex items-center justify-normal gap-2">
+                                    <Button className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white' onClick={() => generatePDF()}>
+                                        <div className='flex items-center gap-2'>
+                                            <ArrowDownCircle className='h-6 w-6'/> Download PDF
+                                        </div>
+                                            
+                                    </Button>
+                                    <Button 
+                                        //variant='secondary' 
+                                        className='dark:bg-[#4B49AC]/95 text-white'
+                                        >
+                                        <Link href="/dashboard/invoices">
+                                            <div className='flex items-center gap-2'>
+                                                <ArrowLeftCircle className='h-6 w-6' /> Back to invoices
+                                            </div>
+                                        </Link>
+                                    </Button>
+                            </div>
+
             <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none '>
                 {
                     isLoading ?
-                    <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl space-y-4 content-center items-center">
+                    <CardContent className="mt-8 mx-auto sm:w-full sm:max-w-xl space-y-4 content-center items-center">
                             <div className='flex gap-2 items-center'>
                                 <svg width="20" height="20" fill="currentColor" className="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
@@ -98,6 +116,7 @@ export function InvoiceDetail(){
                         className="mt-8 mx-auto w-full  space-y-4 shadow-2xl dark:shadow-none sm:max-w-[800px]"
                         //sm:max-w-xl
                         >
+
                     <div
                          ref={invoiceRef}
                         className="bg-white rounded-lg shadow-none px-8 py-10 w-full sm:max-w-[800px] 2xl:max-w-[800px] mx-auto"
@@ -154,6 +173,7 @@ export function InvoiceDetail(){
                 <div className="text-sm">Date of issue: { invoiceInfo ? format(new Date(`${invoiceInfo?.created_at.toString()}`), 'PP') : '' }</div>
                 {/* <div className="text-sm">Date Created: 04/03/2024</div> */}
                 <div className="text-sm">Payment due on: { invoiceInfo ? format(new Date(`${invoiceInfo?.due_date.toString()}`), 'PP') : '' }</div>
+                {/* <div className="text-sm">Ref: { invoiceInfo?.ref_no.trim() }</div> */}
                 <div className="text-sm">
                     {
                         invoiceInfo?.status === "Pending" && (
@@ -289,7 +309,9 @@ export function InvoiceDetail(){
             {/* <div className="text-gray-700 mb-2">Payment is due within 30 days. Late payments are subject to fees.</div> */}
             {/* <div className="text-gray-700 mb-2">Please make checks payable to Your Company Name and mail to:</div>
             <div className="text-gray-700">123 Main St., Anytown, USA 12345</div> */}
-            <div className="text-gray-700">System generated on {format(new Date(), 'PPPPpppp')}</div>
+            <div className="text-gray-700 mb-1"><span className='font-medium'>Invoice Reference Number:</span> {invoiceInfo?.ref_no.trim()}</div>
+            <div className="text-gray-700"><span className='font-medium'>System generated on:</span> {format(new Date(), 'PPPPpppp')}</div>
+             
         </div>
     </div>
             </CardContent>
