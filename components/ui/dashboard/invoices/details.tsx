@@ -19,6 +19,7 @@ import Image from 'next/image';
 import logo from  '@/app/assets/logo/favicon.ico'
 import Link from 'next/link'
 import { ArrowDownCircle, ArrowLeftCircle } from 'lucide-react'
+import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
 
 export function InvoiceDetail(){
     const {data: userSessionData} = useSession()
@@ -106,13 +107,37 @@ export function InvoiceDetail(){
                 {
                     isLoading ?
                     <CardContent className="mt-8 mx-auto sm:w-full sm:max-w-xl space-y-4 content-center items-center">
-                            <div className='flex gap-2 items-center'>
+                            {/* <div className='flex gap-2 items-center'>
                                 <svg width="20" height="20" fill="currentColor" className="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
                                 </path>
                             </svg>
                             Loading ...
-                            </div>
+                            </div> */}
+                            <div aria-label="Loading..." role="status" className="flex items-center space-x-2">
+    {/* <svg className="h-20 w-20 animate-spin stroke-gray-500" viewBox="0 0 256 256">
+        <line x1="128" y1="32" x2="128" y2="64" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>
+        <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" strokeLinecap="round" strokeLinejoin="round"
+            strokeWidth="24"></line>
+        <line x1="224" y1="128" x2="192" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+        </line>
+        <line x1="195.9" y1="195.9" x2="173.3" y2="173.3" strokeLinecap="round" strokeLinejoin="round"
+            strokeWidth="24"></line>
+        <line x1="128" y1="224" x2="128" y2="192" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+        </line>
+        <line x1="60.1" y1="195.9" x2="82.7" y2="173.3" strokeLinecap="round" strokeLinejoin="round"
+            strokeWidth="24"></line>
+        <line x1="32" y1="128" x2="64" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24"></line>
+        <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+        </line>
+    </svg> */}
+    <Image 
+        width={60}
+        height={60}
+        className="w-16 h-16 animate-spin" src={GreenLoader.src} alt="Loading icon"
+        />
+    <span className="text-2xl font-medium text-gray-400 dark:text-gray-200">Generating invoice, please wait...</span>
+</div>
                     </CardContent>
                     :
                     <CardContent 
