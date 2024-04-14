@@ -31,7 +31,7 @@ export function InvoiceDetail(){
 
     const invoiceRef  = useRef<any>();
 
-    const generatePDF = async() => {
+    const generatePDF = async(invoice_id:string) => {
       const inputData = invoiceRef.current
       //const invoiceDiv:React.ElementRef = document.querySelector('#invoice-div');
       try{
@@ -46,7 +46,7 @@ export function InvoiceDetail(){
           const imgX = (pdfWidth - imgWidth * ratio) /2
           const imgY = 30
           pdf.addImage(imageData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio)
-          pdf.save('invoice.pdf')
+          pdf.save(`AjiraPayFinance Invoice-${invoice_id}-Of-${format(new Date(), 'PPPP')}.pdf`)
         })
       }catch(error){
         console.log
@@ -81,7 +81,10 @@ export function InvoiceDetail(){
                 </h2>
             </div>
             <div className="flex items-center justify-normal gap-2">
-                                    <Button className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white' onClick={() => generatePDF()}>
+                                    <Button 
+                                        className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white' 
+                                        onClick={() => generatePDF(`${invoiceInfo?.id}`)}
+                                        >
                                         <div className='flex items-center gap-2'>
                                             <ArrowDownCircle className='h-6 w-6'/> Download PDF
                                         </div>
