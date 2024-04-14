@@ -185,7 +185,14 @@ export const UserProfileSchema = z.object({
         required_error: "Email is required!"
     }).email({
         message: "Invalid email address!"
-    })
+    }),
+    phone: z.string({
+        required_error: "Please provide phone number, ensure it is your mobile money number!"
+    }).min(13, {
+        message: 'Minimum 13 characters required!'
+    }).max(14,{
+        message: 'Maximum 14 characters required!'
+    }),
 })
 
 export const UserPasswordChangeSchema = z.object({
