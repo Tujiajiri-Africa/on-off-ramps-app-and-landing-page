@@ -42,7 +42,7 @@ export const {
       //console.log("LOGGED IN USER DETAILS", user)
       return true;
     },
-    async jwt({ token, user, account }) {
+    async jwt({ token, user, account, trigger }) {
       if (account && user) {
         return {
           ...token,
@@ -59,11 +59,14 @@ export const {
           address: user['user']['address']
         };
       }
-
+      // if(trigger === 'update' && user){
+      //   token.address = user['user']['address']
+      // }
       //console.log('USER JWT', token)
       return token;
     },
-    async session({ session, token }) {
+    
+    async session({ session, token, trigger }) {
       session.user.accessToken = token.accessToken;
       //session.user.refreshToken = token.refreshToken;
       session.user.accessTokenExpires = token.accessTokenExpires;
@@ -74,7 +77,9 @@ export const {
       session.user.phone = token.phone;
       session.user.name = token.first_name + ' ' + token.last_name;
       session.user.address = token.address
-      //console.log("USER SESSION", session)
+      // if(trigger === 'update' && token.address){
+      //   session.user.address = token.address
+      // }
       return session;
     },
 

@@ -13,7 +13,7 @@ import {
 } from '@/schemas'
 import {UserResponseDataProps} from '@/lib/utils'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
-import {signIn} from '@/auth'
+import {update} from '@/auth'
 import {DEFAULT_LOGIN_REDIRECT} from '@/routes'
 
 
