@@ -417,6 +417,27 @@ export const samplePayments: Payment[] = [
   },
 ]
 
+//User Address:Session Data
+export type UserProfileProps = {
+  email: string;
+  last_login: Date;
+  username: string;
+  first_name: string;
+  last_name: string;
+  phone: string;
+}
+
+export type UserAddressProps = {
+    address_line_1: string;
+    address_line_2?: string;
+    street?: string;
+    city: string;
+    state: string;
+    zip_code: string;
+    building?: string;
+    user:UserProfileProps
+}
+
 //INVOICE
 export type InvoicePaymentTermProps = {
   dueDate: string;

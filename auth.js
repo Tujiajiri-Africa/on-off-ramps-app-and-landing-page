@@ -43,6 +43,9 @@ export const {
       return true;
     },
     async jwt({ token, user, account, trigger, session }) {
+      // if(trigger === 'update' && user){
+      //   token.address = user['address']
+      // }
       if (account && user) {
         return {
           ...token,
@@ -59,9 +62,7 @@ export const {
           address: user['user']['address']
         };
       }
-      // if(trigger === 'update' && session.user.address){
-      //   token.address = session.user.address
-      // }
+
       //console.log('USER JWT', token)
       return token;
     },
