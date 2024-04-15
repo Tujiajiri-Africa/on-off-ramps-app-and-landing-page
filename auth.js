@@ -55,7 +55,8 @@ export const {
           username: user['user']['username'],
           first_name: user['user']['first_name'],
           last_name: user['user']['last_name'],
-          phone: user['user']['phone']
+          phone: user['user']['phone'],
+          address: user['user']['address']
         };
       }
 
@@ -72,6 +73,7 @@ export const {
       session.user.username = token.username;
       session.user.phone = token.phone;
       session.user.name = token.first_name + ' ' + token.last_name;
+      session.user.address = token.address
       //console.log("USER SESSION", session)
       return session;
     },
