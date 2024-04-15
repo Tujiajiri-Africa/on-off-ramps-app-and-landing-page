@@ -218,11 +218,11 @@ export const UserProfileAddressInfo = z.object({
     }).max(20,{
         message: "Maximum 20 characters required!"
     }),
-    building: z.string().min(3,{
-        message: "Minimum 3 characters required!"
-    }).max(20,{
-        message: "Maximum 20 characters required!"
-    }).optional(),
+    // building: z.string().min(3,{
+    //     message: "Minimum 3 characters required!"
+    // }).max(20,{
+    //     message: "Maximum 20 characters required!"
+    // }).optional(),
     city: z.string({
         required_error: "City is required!"
     }).min(3,{
