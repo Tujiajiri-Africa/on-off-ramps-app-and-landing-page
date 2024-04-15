@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useTransition, useState} from 'react'
+import React,{useTransition, useState, useMemo, useCallback} from 'react'
 import { UserProfileSchema, UserProfileAddressInfo } from '@/schemas'
 import {addUserAddressToProfile} from '@/actions/settings'
 import * as z from 'zod'
@@ -25,7 +25,7 @@ export function UseAddressForm(){
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
-    const {data: userSessionData} = useSession()
+    const {data: userSessionData, update} = useSession()
 
     const form = useForm<z.infer<typeof UserProfileAddressInfo>>({
         resolver: zodResolver(UserProfileAddressInfo),
@@ -61,6 +61,18 @@ export function UseAddressForm(){
             })
         })
       }
+
+    const shouldDisableSubmitButton = useMemo(() => {
+        if(userSessionData?.user.address.address_line_1 != null && 
+            userSessionData?.user.address.city != null &&
+            userSessionData?.user.address.state != null &&
+            userSessionData?.user.address.zip_code != null &&
+            userSessionData?.user.address.street != null
+        ){
+            return true
+        }
+        return false
+    },[userSessionData])
 
     return (
         <>
@@ -266,7 +278,8 @@ export function UseAddressForm(){
                                 </Button>
 
                                 :
-                                <Button 
+                                <Button
+                                    disabled={shouldDisableSubmitButton} 
                                     //disabled={isPending}
                                     type="submit"
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500">
