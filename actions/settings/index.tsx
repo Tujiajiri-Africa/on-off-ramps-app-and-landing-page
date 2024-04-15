@@ -8,7 +8,8 @@ import {
     PasswordResetSchema, 
     UserProfileSchema, 
     UserPasswordChangeSchema,
-    UserPhoneVerificationSchema 
+    UserPhoneVerificationSchema, 
+    UserProfileAddressInfo
 } from '@/schemas'
 import {UserResponseDataProps} from '@/lib/utils'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
@@ -257,6 +258,90 @@ export const updateProfile = async(
 
     try{
         return sendUserProfileUpdateRequest
+    }catch(error){
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    }
+}
+
+export const addUserAddressToProfile = async(
+    bearerToken:string|undefined,
+    values: z.infer<typeof UserProfileAddressInfo>
+) => {
+
+    let dataInfo: UserResponseDataProps = {
+        data: "",
+        error: "",
+        success: ""
+    }
+
+    const validatedFields = UserProfileAddressInfo.safeParse(values)
+    
+    if(!validatedFields.success){
+        dataInfo = {
+            error: 'Invalid Credentials',
+            success: '',
+            data: ''
+        }
+        return  { data: dataInfo}
+    }
+        
+    const payload = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        },
+        body: JSON.stringify(validatedFields.data)
+    }
+
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/profile/address' : PROD_BASE_URI + '/profile/address'
+
+    const sendUserProfileAddressUpdateRequest = fetch(endpoint,payload).then(async(response) =>{
+        if(response.status === 500){
+            dataInfo = {
+                error: 'Something went wrong!',
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+        const data = await response.json()
+        if(data['status'] == false){
+            dataInfo = {
+                error: data['message'],
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+        if(data['status'] == true){
+            dataInfo = {
+                error: "",
+                success: data['message'],
+                data: data['data']
+            }
+
+            return { data: dataInfo}
+        }
+        }).catch(()=>{
+            dataInfo = {
+                error: "Something went wrong!",
+                success: '',
+                data: ''
+            }
+            return {data: dataInfo}
+        })
+
+    try{
+        return sendUserProfileAddressUpdateRequest
     }catch(error){
         dataInfo = {
             error: 'Something went wrong!',
