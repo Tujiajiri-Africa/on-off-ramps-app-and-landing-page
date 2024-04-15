@@ -63,11 +63,11 @@ export function UseAddressForm(){
       }
 
     const shouldDisableSubmitButton = useMemo(() => {
-        if(userSessionData?.user.address.address_line_1 != null && 
-            userSessionData?.user.address.city != null &&
-            userSessionData?.user.address.state != null &&
-            userSessionData?.user.address.zip_code != null &&
-            userSessionData?.user.address.street != null
+        if(userSessionData?.user?.address?.address_line_1 != null && 
+            userSessionData?.user?.address?.city != null &&
+            userSessionData?.user?.address?.state != null &&
+            userSessionData?.user?.address?.zip_code != null &&
+            userSessionData?.user?.address?.street != null
         ){
             return true
         }
