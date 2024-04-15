@@ -51,12 +51,17 @@ import {FormSuccessMessage} from '@/components/form-success'
 import {useSession} from 'next-auth/react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UserProfileSchema, UserProfileAddressInfo } from '@/schemas'
+import {addUserAddressToProfile} from '@/actions/settings'
 
 export function UserProfileComponent(){
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+
+    const [isAddressSubmissionPending, startAddressSubmitTransition] = useTransition()
+    const [addressError, setAddressError] = useState<string>("")
+    const [addressSuccess, setAddressSuccess] = useState<string>("")
 
     const form = useForm<z.infer<typeof UserProfileSchema>>({
       resolver: zodResolver(UserProfileSchema),
@@ -71,14 +76,39 @@ export function UserProfileComponent(){
 
   const addressFormObj = useForm<z.infer<typeof UserProfileAddressInfo>>({
     resolver: zodResolver(UserProfileAddressInfo),
-    defaultValues: {
-      address_line_1: "",
-      zip_code: "",
-      building: "",
-      street: ""
-    }
+    // defaultValues: {
+    //   address_line_1: "",
+    //   address_line_2: "",
+    //   zip_code: "",
+    //   building: "",
+    //   street: "",
+    //   city: "",
+    //   state: ""
+    // }
 })
-  
+
+  const handleUserAddressSubmission = (values: z.infer<typeof UserProfileAddressInfo>) => {
+    setAddressError("")
+    setAddressSuccess("")
+
+    startAddressSubmitTransition(async() => {
+      await addUserAddressToProfile(userSessionData?.user.accessToken, values)
+        .then((data:any) => {
+            if(data?.data.error){
+                //addressFormObj.reset()
+                setAddressError(data?.data.error)
+            }
+            if(data?.data.success){
+                addressFormObj.reset()
+                setAddressSuccess(data?.data.success)
+            }
+        }).catch(() => {
+          setAddressError("Something went wrong")
+          setAddressSuccess("")
+        })
+    })
+  }
+
     return (
         <>
         <ScrollArea className="h-full">
@@ -397,6 +427,7 @@ export function UserProfileComponent(){
                 <CardContent>
                 <Form {...addressFormObj}>  
                       <form
+                        onSubmit={addressFormObj.handleSubmit(handleUserAddressSubmission)}
                         className='space-y-6'
                       >
                                 <div className="flex flex-wrap -mx-3 mb-6">
@@ -413,7 +444,7 @@ export function UserProfileComponent(){
                                                 <FormControl>
                                                     <Input
                                                         //value={userSessionData?.user.first_name}
-                                                        disabled={isPending}
+                                                        disabled={isAddressSubmissionPending}
                                                         //disabled
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
@@ -452,7 +483,7 @@ export function UserProfileComponent(){
                                                     <Input
                                                       //disabled
                                                         //value={userSessionData?.user.last_name}
-                                                        disabled={isPending}
+                                                        disabled={isAddressSubmissionPending}
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                         placeholder="Address Line 2"
@@ -483,7 +514,7 @@ export function UserProfileComponent(){
                                                     <Input
                                                       //disabled
                                                       //value={userSessionData?.user.username}
-                                                        disabled={isPending}
+                                                        disabled={isAddressSubmissionPending}
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                         placeholder="City"
@@ -520,7 +551,7 @@ export function UserProfileComponent(){
                                                 <FormControl>
                                                     <Input
                                                        // value={userSessionData?.user.email}
-                                                        disabled={isPending}
+                                                        disabled={isAddressSubmissionPending}
                                                         //disabled
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
@@ -553,7 +584,7 @@ export function UserProfileComponent(){
                                                     <Input
                                                       //disabled
                                                       //value={userSessionData?.user.username}
-                                                        disabled={isPending}
+                                                        disabled={isAddressSubmissionPending}
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                         placeholder="Street"
@@ -590,7 +621,7 @@ export function UserProfileComponent(){
                                                 <FormControl>
                                                     <Input
                                                        // value={userSessionData?.user.email}
-                                                        disabled={isPending}
+                                                        disabled={isAddressSubmissionPending}
                                                         //disabled
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
@@ -608,11 +639,11 @@ export function UserProfileComponent(){
                                     />
                                 </div>
                             </div>
-                            <FormErrorMessage message={error}/>
-                            <FormSuccessMessage message={success}/>
+                            <FormErrorMessage message={addressError}/>
+                            <FormSuccessMessage message={addressSuccess}/>
                             <div>
                                 {
-                                    isPending ? 
+                                    isAddressSubmissionPending ? 
 
                                     <Button 
                                         type="button" 
@@ -629,8 +660,8 @@ export function UserProfileComponent(){
 
                                 :
                                 <Button 
-                                    //disabled={isPending}
-                                    disabled
+                                    disabled={isAddressSubmissionPending}
+                                    //disabled
                                     type="submit"
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500">
 

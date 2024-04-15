@@ -268,11 +268,11 @@ export const updateProfile = async(
     }
 }
 
-const addUserAddresToProfile = async(
+export const addUserAddressToProfile = async(
     bearerToken:string|undefined,
     values: z.infer<typeof UserProfileAddressInfo>
 ) => {
-    
+
     let dataInfo: UserResponseDataProps = {
         data: "",
         error: "",

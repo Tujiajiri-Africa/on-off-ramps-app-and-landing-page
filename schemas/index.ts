@@ -201,11 +201,9 @@ export const UserProfileAddressInfo = z.object({
     }).max(50, {
         message: 'Maximum 50 characters required!'
     }),
-    address_line_2: z.string({
-        required_error: "Address is required!"
-    }).max(50, {
+    address_line_2: z.string().max(50, {
         message: 'Maximum 50 characters required!'
-    }),
+    }).optional(),
     zip_code: z.string({
         required_error: "Zip code is required!"
     }).min(4,{
@@ -217,27 +215,27 @@ export const UserProfileAddressInfo = z.object({
         required_error: "Street is required!"
     }).min(3, {
         message: "Minimum 3 characters required!"
-    }).max(16,{
-        message: "Maximum 16 characters required!"
+    }).max(20,{
+        message: "Maximum 20 characters required!"
     }),
-    building: z.string({
-        required_error: "Building is required!"
-    }).min(3,{
+    building: z.string().min(3,{
         message: "Minimum 3 characters required!"
-    }).max(16,{
-        message: "Maximum 16 characters required!"
-    }),
+    }).max(20,{
+        message: "Maximum 20 characters required!"
+    }).optional(),
     city: z.string({
         required_error: "City is required!"
     }).min(3,{
         message: 'Minimum 3 characters required!'
-    }).max(16,{
-        message: 'Maximum 16 characters required!'
+    }).max(20,{
+        message: 'Maximum 20 characters required!'
     }),
-    state: z.string().min(3,{
+    state: z.string({
+        required_error: "State is required!"
+    }).min(3,{
         message: "Minimum 3 characters required!"
-    }).max(10, {
-        message: 'Maximum 10 characters required!'
+    }).max(20, {
+        message: 'Maximum 20 characters required!'
     })
 });
 
