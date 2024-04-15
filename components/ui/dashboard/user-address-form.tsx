@@ -30,13 +30,13 @@ export function UseAddressForm(){
     const form = useForm<z.infer<typeof UserProfileAddressInfo>>({
         resolver: zodResolver(UserProfileAddressInfo),
         defaultValues: {
-          address_line_1: "",
-          address_line_2: "",
-          zip_code: "",
+          address_line_1: userSessionData?.user?.address?.address_line_1,
+          address_line_2: userSessionData?.user?.address?.address_line_2,
+          zip_code: userSessionData?.user?.address?.zip_code,
           //building: "",
-          street: "",
-          city: "",
-          state: ""
+          street: userSessionData?.user?.address?.street,
+          city: userSessionData?.user?.address?.city,
+          state: userSessionData?.user?.address?.state
         }
     })
 
