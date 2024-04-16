@@ -67,7 +67,7 @@ export const UserLoginWithProductIntro = () =>{
         <>
             <AuthCardWrapperWithIntroBackground 
                 backButtonHref='/account/register'
-                headerLabel='Sign in to your account'
+                headerLabel='Sign In' //Sign in to your account
                 backButtonLabel="Don't have an account? Create account"
                 showSocial={false} 
                 >
