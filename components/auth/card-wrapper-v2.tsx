@@ -2,6 +2,7 @@
 import { 
     CardContent, 
     CardHeader, 
+    CardTitle
 }from '@/components/ui/card'
 import { Header } from '@/components/auth/header';
 import { Social } from '@/components/auth/social';
@@ -81,9 +82,12 @@ export const AuthCardWrapperWithIntroBackground = ({
             </div>
                     {/* </div> */}
                     <div className="mt-12 flex flex-col items-center">
-                        <h1 className="text-2xl xl:text-3xl font-extrabold">
-                            {headerLabel}
-                        </h1>
+                        <CardHeader className='w-full '>
+                            <CardTitle className='text-2xl sm:text-3xl mt-2 font-extrabold text-center items-center'>
+                                {headerLabel}
+                            </CardTitle>
+                        </CardHeader>
+
                 <div className="w-full flex-1 mt-8">
                     {/* <div className="flex flex-col items-center">
                         <button
