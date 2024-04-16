@@ -81,12 +81,17 @@ export const AuthCardWrapperWithIntroBackground = ({
                     />
             </div>
                     {/* </div> */}
+                    <CardHeader className='w-full'>
+                        <CardTitle className='text-2xl sm:text-3xl mt-2 font-extrabold text-center items-center'>
+                            {headerLabel}
+                        </CardTitle>
+                    </CardHeader>
                     <div className="mt-12 flex flex-col items-center">
-                        <CardHeader className='w-full '>
+                        {/* <CardHeader className='w-full'>
                             <CardTitle className='text-2xl sm:text-3xl mt-2 font-extrabold text-center items-center'>
                                 {headerLabel}
                             </CardTitle>
-                        </CardHeader>
+                        </CardHeader> */}
 
                 <div className="w-full flex-1 mt-8">
                     {/* <div className="flex flex-col items-center">
