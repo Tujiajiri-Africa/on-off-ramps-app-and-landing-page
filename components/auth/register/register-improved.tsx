@@ -1,25 +1,25 @@
 'use client'
 
 import React, {useState, useTransition} from 'react'
-import * as z from 'zod'
-import { RegisterSchema} from '@/schemas'
-import {useForm, Controller} from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { CardWrapper } from '@/components/auth/card-wrapper'
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
 import {
-Form,
-FormControl,
-FormField,
-FormLabel,
-FormMessage,
-FormItem
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+    CardFooter
+} from '@/components/ui/card'
+import {
+    Form,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormControl,
+    FormMessage
 } from '@/components/ui/form'
-import {Input} from '@/components/ui/input'
-import {Button} from '@/components/ui/button'
-import { FormErrorMessage } from '@/components/form-errors'
-import {FormSuccessMessage} from '@/components/form-success'
-import { register } from '@/actions/auth'
-import {countries,CountryProps} from '@/helpers/data'
 import {
     Select, 
     SelectContent, 
@@ -30,12 +30,20 @@ import {
     SelectSeparator, 
     SelectTrigger, 
     SelectValue} from '@/components/ui/select'
-import Image from 'next/image'
-import { redirect } from 'next/navigation'
-//import { useRouter } from 'next/router'
-import {FirstTimePhoneVerification} from '@/components/auth/verification/registration-otp'
+import { FormErrorMessage } from '@/components/form-errors'
+import {FormSuccessMessage} from '@/components/form-success'
 
-export const RegisterForm = () => {
+import * as z from 'zod'
+import { RegisterSchema} from '@/schemas'
+import {useForm, Controller} from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import Image from 'next/image'
+
+import { register } from '@/actions/auth'
+import {countries,CountryProps} from '@/helpers/data'
+import { AuthCardWrapperWithIntroBackground } from '@/components/auth/card-wrapper-v2'
+
+export function UserRegistrationWithProductIntro(){
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
@@ -76,17 +84,18 @@ export const RegisterForm = () => {
             })
         })
     }
-    
+
     return (
-        <>
-       
-                <CardWrapper 
+    <>
+
+            <AuthCardWrapperWithIntroBackground 
                 backButtonHref='/account/login'
-                headerLabel='Create a new account'
+                headerLabel='Create Account'
                 backButtonLabel="Have an account? Sign in"
                 showSocial={false} 
                 >
-                    <Form {...form}>
+
+<Form {...form}>
                         <form 
                             onSubmit={form.handleSubmit(handleSubmit)} 
                             className="space-y-6"
@@ -106,6 +115,7 @@ export const RegisterForm = () => {
                                                     <Input
                                                         disabled={isPending}
                                                         {...field}
+                                                        //className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                         placeholder="Enter your first name"
                                                         type='text'
@@ -391,43 +401,7 @@ export const RegisterForm = () => {
                     </div>
                         </form>
                     </Form>
-          {/* <form className="space-y-6" action="#" method="POST">
-                    <div>
-                        <label  className="block text-sm font-medium text-gray-700">
-                            Email address
-                        </label>
-                        <div className="mt-1">
-                            <input id="email" name="email" type="email" autoComplete="email" required
-                                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                placeholder="Enter your email address"/>
-                        </div>
-                    </div>
-    
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">
-                            Password
-                        </label>
-                        <div className="mt-1">
-                            <input id="password" name="password" type="password" autoComplete="current-password" required
-                                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                placeholder="Enter your password"/>
-                        </div>
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">
-                            Confirm Password
-                        </label>
-                        <div className="mt-1">
-                            <input id="confirm_password" name="confirm_password" type="password" autoComplete="current-password" required
-                                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                placeholder="Confirm Password"/>
-                        </div>
-                    </div>
-    
-    
-                
-                </form> */}
-            </CardWrapper>
-        </>
+            </AuthCardWrapperWithIntroBackground>
+    </>
     )
 }
