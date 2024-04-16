@@ -395,7 +395,17 @@ export function UserRegistrationWithProductIntro(){
                         type="submit"
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-500">
 
-                        Create account
+                        {/* Create account */}
+                        <svg 
+                            className="w-6 h-6 -ml-2 text-white " fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                <circle cx="8.5" cy="7" r="4" />
+                                <path d="M20 8v6M23 11h-6" />
+                            </svg>
+                            <span className="ml-2 text-white">
+                                Create account
+                            </span>
                     </Button>
                     }
                     </div>
