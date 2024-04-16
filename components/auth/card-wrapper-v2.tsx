@@ -59,7 +59,9 @@ export const AuthCardWrapperWithIntroBackground = ({
                 <div className="min-h-screen flex justify-center text-gray-700"
         //bg-gray-100 text-gray-900
         >
-            <div className="2xl:max-w-screen-2xl max-w-screen-xl m-0 sm:m-10 bg-white shadow-md sm:rounded-lg flex justify-center flex-1">
+            <div className="2xl:max-w-screen-2xl max-w-screen-xl mx-auto m-0 sm:m-10 bg-white shadow-none sm:shadow-2xl sm:rounded-lg flex justify-center flex-1"
+            //2xl:max-w-screen-2xl 
+            >
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     {/* <div> */}
                         {/* <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
