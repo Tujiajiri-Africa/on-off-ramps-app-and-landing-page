@@ -59,7 +59,7 @@ export const AuthCardWrapperWithIntroBackground = ({
             </CardContent>
         </div> */}
                 <CardContent className="min-h-screen flex justify-center text-gray-700"
-        //bg-gray-100 text-gray-900
+        //bg-gray-100 text-gray-900 h-full lg:min-h-screen
         >
             <div className="2xl:max-w-screen-2xl max-w-screen-xl mx-auto m-0 sm:m-10 bg-white shadow-2xl rounded-lg flex justify-center flex-1"
             //2xl:max-w-screen-2xl 
@@ -75,18 +75,18 @@ export const AuthCardWrapperWithIntroBackground = ({
                         src={Logo.src} 
                         width={80} 
                         height={80}  
-                        className="rounded-full mx-auto" 
+                        className="rounded-full mx-auto mb-2" 
                         alt="logo"
                         //w-28
                     />
             </div>
                     {/* </div> */}
-                    <CardHeader className='w-full'>
+                    {/* <CardHeader className='w-full'> */}
                         <CardTitle className='text-2xl sm:text-3xl mt-2 font-extrabold text-center items-center'>
                             {headerLabel}
                         </CardTitle>
-                    </CardHeader>
-                    <div className="mt-12 flex flex-col items-center">
+                    {/* </CardHeader> */}
+                    <div className="mt-4 flex flex-col items-center">
                         {/* <CardHeader className='w-full'>
                             <CardTitle className='text-2xl sm:text-3xl mt-2 font-extrabold text-center items-center'>
                                 {headerLabel}
