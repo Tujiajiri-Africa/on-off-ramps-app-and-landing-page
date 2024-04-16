@@ -8,6 +8,7 @@ import { Social } from '@/components/auth/social';
 import Link from 'next/link'
 import Logo from '@/app/assets/logo/nana-pay-logo-color.png'
 import Image from "next/image";
+import BackgroundIntroImage from '@/app/assets/backgrounds/auth/intro-page-image-1-svg.svg'
 
 interface CardWrapperProps{
     children: React.ReactNode;
@@ -168,7 +169,7 @@ export const AuthCardWrapperWithIntroBackground = ({
                 <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
             <div className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: `url('https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg')`
+                    backgroundImage: `url(${BackgroundIntroImage.src})`
                 }}>
             </div>
         </div>
