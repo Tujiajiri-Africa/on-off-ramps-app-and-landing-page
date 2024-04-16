@@ -95,7 +95,7 @@ export function UserRegistrationWithProductIntro(){
                 showSocial={false} 
                 >
 
-<Form {...form}>
+                    <Form {...form}>
                         <form 
                             onSubmit={form.handleSubmit(handleSubmit)} 
                             className="space-y-6"
