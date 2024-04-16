@@ -67,7 +67,7 @@ export const UserLoginWithProductIntro = () =>{
         <>
             <AuthCardWrapperWithIntroBackground 
                 backButtonHref='/account/register'
-                headerLabel='Sign In' //Sign in to your account
+                headerLabel='Sign in to your account'
                 backButtonLabel="Don't have an account? Create account"
                 showSocial={false} 
                 >
@@ -93,6 +93,7 @@ export const UserLoginWithProductIntro = () =>{
                                         <FormControl>
                                             <Input
                                                 {...field}
+                                                //className='w-full px-8 py-4 rounded-lg font-medium bg-gray-50 border border-gray-200 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5'
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="Enter your email address"
                                                 type='email'
