@@ -52,6 +52,52 @@ export const listInvoices = async(bearerToken: string|undefined) => {
     }
 }
 
+export const listIncomingInvoices = async(bearerToken: string|undefined) => {
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/invoices/incoming' : PROD_BASE_URI + '/invoices/incoming'
+
+    let invoices: NanaPayInvoiceProps[] = []
+   
+    const payload = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        }
+    }
+
+    const fetchUserIncomingInvoices = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            invoices = []
+            return invoices
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            invoices = []
+            return invoices
+        }
+
+        if(data['status'] == true){
+            invoices = data['data']
+            return invoices
+        }
+    }).catch((error) =>{
+        console.log(error)
+        invoices = []
+        return invoices
+    })
+
+    try{
+        return fetchUserIncomingInvoices
+    }catch(error){
+        console.log(error)
+        invoices = []
+        return invoices
+    }
+}
+
 export const createInvoice = async(values: z.infer<typeof InvoiceSchema>, bearerToken: string|undefined) =>{
     const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/invoices/create-invoice' : PROD_BASE_URI + '/invoices/create-invoice'
 
