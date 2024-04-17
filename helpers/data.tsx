@@ -521,6 +521,13 @@ export type PayrollProps = {
   recurringRule: string;// "DTSTART:20230601T074619Z\nRRULE:FREQ=MONTHLY;INTERVAL=1;COUNT=3"
 }
 
+export type InvoiceOwnerDataProps = {
+    email: string;
+    username: string;
+    first_name: string;
+    last_name: string;
+    phone: string;
+}
 //Nana Pay Invoices
 export type NanaPayInvoiceProps = {
   id: number;
@@ -538,7 +545,12 @@ export type NanaPayInvoiceProps = {
   sub_total: number;
   type: string;
   status: string;
-  icon? : ImageProps
+  icon? : ImageProps;
+  owner_email?: string;//InvoiceOwnerDataProps
+  owner_first_name?: string;
+  owner_last_name?: string;
+  owner_username?: string;
+  owner_phone?:string;
 }
 
 export type supportedInvoiceAssetProps = {

@@ -254,20 +254,66 @@ export function IncomingInvoicePaymentsDataFrame(){
       
         },
         {
-          accessorKey: "client_email",
+          accessorKey: "owner_first_name",
           header: ({ column }) => {
             return (
               <Button
                 variant="ghost"
                 onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
               >
-                Client Email
+                  Sender Name
                 <ArrowUpDown className="ml-2 h-4 w-4" />
               </Button>
             )
           },
-          cell: ({ row }) => <div className="lowercase">{row.getValue("client_email")}</div>,    
+          cell: ({ row }) =>  <div className="">{`${row.getValue("owner_first_name")} ${row.getValue('owner_last_name')}`}</div>,    
         },
+        {
+          accessorKey: "owner_last_name",
+          header: ({ column }) => {
+            return (
+              <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                className='hidden'
+              >
+                  Owner Last Name
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+            )
+          },
+          cell: ({ row }) =>  <div className="hidden">{row.getValue("owner_last_name")}</div>,    
+        },
+        {
+          accessorKey: "owner_email",
+          header: ({ column }) => {
+            return (
+              <Button
+                variant="ghost"
+                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+              >
+                Sender Email
+                <ArrowUpDown className="ml-2 h-4 w-4" />
+              </Button>
+            )
+          },
+          cell: ({ row }) => <div className="lowercase">{row.getValue("owner_email")}</div>,    
+        },
+        // {
+        //   accessorKey: "client_email",
+        //   header: ({ column }) => {
+        //     return (
+        //       <Button
+        //         variant="ghost"
+        //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        //       >
+        //         Client Email
+        //         <ArrowUpDown className="ml-2 h-4 w-4" />
+        //       </Button>
+        //     )
+        //   },
+        //   cell: ({ row }) => <div className="lowercase">{row.getValue("client_email")}</div>,    
+        // },
         {
           accessorKey: "sub_total",
           header: ({column}) => {
