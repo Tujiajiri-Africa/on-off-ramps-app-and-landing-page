@@ -391,7 +391,9 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
   )
 }
 
-   const filteredData = useMemo(() => _data?.filter(d => d.type === "Outgoing" || d.type === "Incoming") ?? [], [_data]);
+   const filteredData = useMemo(() => _data?.filter(
+      d => d.type === "Outgoing" && 
+      d.client_email != userSessionData?.user.email) ?? [], [_data]); //|| d.type === "Incoming"
     //console.log(filteredData)
 
     const [sorting, setSorting] = React.useState<SortingState>([])
