@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-
+//const withMT = require("@material-tailwind/react/utils/withMT");
 const config = {
   darkMode: ["class"],
   content: [
@@ -90,7 +90,10 @@ const config = {
       // => @media (min-width: 1536px) { ... }
     }
   },
-  plugins: [require("tailwindcss-animate"), require("daisyui")],
+  plugins: [
+    require("tailwindcss-animate"), 
+    require("daisyui")
+  ],
 } satisfies Config
 
 export default config

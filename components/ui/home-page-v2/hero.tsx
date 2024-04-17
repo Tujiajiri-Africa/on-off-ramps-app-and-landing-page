@@ -1,64 +1,9 @@
 'use client'
-import React from "react";
-import BuyCryptoDesignSVG from '@/app/assets/logo/buy-crypto-design-svg.svg'
-//import HomeBgElementImage from '../../app/assets/logo/backgroundImages/home-bg-element-1.svg'
-//import HomeBgElementImage2 from '../../app/assets/logo/backgroundImages/home-page-bg-lights.webp'
-//import HomeBgElementImage3 from '../../app/assets/logo/backgroundImages/3.avif'
-import BuyDashboardPage from '@/app/assets/logo/backgroundImages/sell-on-dashboard.svg'
-import BuySellDashboardPage from '@/app/assets/logo/backgroundImages/buy-sell-with-dashboard.png'
-import BuySellDashboardPageSVG from '@/app/assets/logo/backgroundImages/buy-sell-hero-page-svg.svg'
 
-import curve from '@/app/assets/hero/curve.png'
-import Link from "next/link";
-import { ReactTyped } from "react-typed";
+import React from "react";
 import { TypeAnimation } from 'react-type-animation';
 import Image from 'next/image'
-import {Button} from '@/components/ui/button'
-import backgroundImage from '@/app/assets/backgrounds/oooscillate_3.svg'
-import backgroundImage2 from '@/app/assets/backgrounds/rrrepeat.svg'
-import backgroundImage4 from '@/app/assets/backgrounds/rrreflection.svg'
-import backgroundImage3 from '@/app/assets/backgrounds/183.jpg'
-import backgroundImage5 from '@/app/assets/backgrounds/oooscillate_4.svg'
-import homepagebglightwebpg from '@/app/assets/logo/backgroundImages/abstract-7561993_1280.png'
-import wave from '@/app/assets/backgrounds/website-curve-9.svg'
 import DashboardIllustration from '@/app/assets/backgrounds/dashboard-illustration-7.png'
-
-const HeroSubTextAnimationComponent = () => {
-  return (
-  <>
-   <TypeAnimation
-  sequence={['fiat to crypto', 3000, 'crypto to fiat', 3000]}
-  //style={{ fontSize: '1em' }}
-  cursor={false}
-  repeat={Infinity}
-  speed={10}
-  //key={}
-  preRenderFirstString
-/>
-    {/* // <div> */}
-    {/* <ReactTyped strings={["Here you can find anything"]} typeSpeed={40} />
-    <br /> */}
-
-    {/* <ReactTyped
-      strings={[
-        "fiat to crypto",
-        "crypto to fiat"
-      ]}
-      typeSpeed={60}
-      backSpeed={50}
-      showCursor={true}
-      //fadeOut
-      //attr="placeholder"
-      loop
-      //className="text-wrap"
-    >
-    
-    </ReactTyped> */}
-  {/* </div> */}
-  </>
-
-  )
-}
 
 const ProductOffering = () => {
   return (
@@ -123,7 +68,6 @@ export default function HeroPage2(){
           />
         </div>
 </div>
-
         </>
         
         )
