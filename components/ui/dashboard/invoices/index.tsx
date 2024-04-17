@@ -121,6 +121,7 @@ import jsPDF from "jspdf";
 import html2canvas from 'html2canvas-pro';
 import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CalendarDateRangePicker } from '@/components/date-range-picker';
 
 const InvoiceForm = () => {
   const [clientEmail, setClientEmail] = useState<string>("")
@@ -812,20 +813,20 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
         )
        }, 
       },
-      {
-        accessorKey: 'type',
-        header: ({column}) => {
-          return (
-            <Button 
-              variant={'ghost'}
-              onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-            >
-              Type
-              <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
-          )
-        }
-      },
+      // {
+      //   accessorKey: 'type',
+      //   header: ({column}) => {
+      //     return (
+      //       <Button 
+      //         variant={'ghost'}
+      //         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+      //       >
+      //         Type
+      //         <ArrowUpDown className="ml-2 h-4 w-4" />
+      //       </Button>
+      //     )
+      //   }
+      // },
       {
         accessorKey: 'item_name',
         header: ({column}) => {
@@ -1446,20 +1447,19 @@ export function InvoiceComponent(){
                   </div>   
                 </CardHeader>
                 <CardContent className="pl-2">
-                  {/* <Overview />  */}
-                  {/* <InvoicePaymentsDataFrame /> */}
                   <Tabs defaultValue="outgoing" className="space-y-4">
-                      {/* <DashboardIntro /> */}
                     <TabsList>
                       <TabsTrigger value="outgoing">
-                          {/* <div className='flex items-center gap-1'>
-                              <ArrowUpRightFromCircleIcon className='h-4 w-4'/>
-                              Outgoing Invoices
-                          </div> */}
-                            Outgoing Invoices
+                          <div className='flex items-center gap-2'>
+                              <ArrowUpRightFromCircleIcon className='hidden sm:block w-4 h-4 text-orange-600'/>
+                              Outgoing
+                          </div>
                       </TabsTrigger>
                       <TabsTrigger value="incoming">
-                          Incoming Invoices
+                      <div className='flex items-center gap-2'>
+                              <ArrowDownLeftFromCircleIcon className='hidden sm:block w-4 h-4 text-orange-600'/>
+                              Incoming
+                          </div>
                       </TabsTrigger>
                     </TabsList>
                     <TabsContent value="outgoing" className="space-y-4">
@@ -1471,17 +1471,6 @@ export function InvoiceComponent(){
                   </Tabs>
                 </CardContent>
               </Card>
-              {/* <Card className="col-span-2">
-                <CardHeader>
-                  <CardTitle>Recent Invoices</CardTitle>
-                  <CardDescription>
-                      Your invoice history
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <InvoiceList />
-                </CardContent>
-              </Card> */}
             </div>
             </div>
         </ScrollArea>
