@@ -410,15 +410,15 @@ export function IncomingInvoicePaymentsDataFrame(){
                       </Link>
                         
                     </DropdownMenuItem>
-                    {
+                    {/* {
                       invoice.status !== 'Paid' && (
                         <DropdownMenuItem>
                             Send Email Reminder
                         </DropdownMenuItem>
-                      )
-                    }
+                      )&& invoice.client_email.trim() !== userSessionData?.user.email.trim()
+                    } */}
                     {
-                      invoice.status !== 'Paid' || 'Rejected' && invoice.client_email.trim() !== userSessionData?.user.email.trim() && (
+                      invoice.status !== 'Paid' && invoice.status !== 'Rejected' && (
                         <DropdownMenuItem>
                             Proceed to Pay
                         </DropdownMenuItem>

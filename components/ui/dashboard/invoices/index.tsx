@@ -686,13 +686,13 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
                       </DropdownMenuItem>
                     )
                   }
-                  {
+                  {/* {
                     invoice.status !== 'Paid' || 'Rejected' && invoice.client_email.trim() !== userSessionData?.user.email.trim() && (
                       <DropdownMenuItem>
                           Proceed to Pay
                       </DropdownMenuItem>
                     )
-                  }
+                  } */}
                 </DropdownMenuContent>
               </DropdownMenu>
             )
