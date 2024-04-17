@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React,{useRef} from 'react'
 import Image from 'next/image'
 
 import InvoiceVector from '@/app/assets/icons/products/invoice/invoice-ticket-svgrepo-com.svg'
@@ -6,13 +8,31 @@ import WalletVector1 from '@/app/assets/icons/products/invoice/wallet-svgrepo-co
 import WalletVector2 from '@/app/assets/icons/products/invoice/wallet-money-svgrepo-com.svg'
 
 import {Button} from '@/components/ui/button'
+import { motion, useScroll, useTransform } from "framer-motion"
 
 export function ProductsV2(){
+  const ref = useRef(null)
+
+  const { scrollYProgress, scrollXProgress } = useScroll({
+    target: ref,
+    offset: ['0 1', '1.33 1'] //'0 1', '1.33 1'
+  });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1])
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1])
     return (
         <>
-        <div id="products" className=" bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 ">
+        <div 
 
-<div className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
+        id="products" className=" bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50  px-2 py-10 ">
+
+<motion.div 
+        ref={ref}
+        style={{
+          scale: scaleProgress,//scrollYProgress,
+          opacity: opacityProgress,//scrollYProgress,
+        }}
+className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
   <p className="text-center text-base font-semibold leading-7 text-primary-500">Products</p>
   <h2 className="text-center font-display text-4xl sm:text-7xl font-bold leading-tight text-slate-900 md:text-4xl ">
     Explore Our Core Products
@@ -130,7 +150,7 @@ export function ProductsV2(){
       </a>
     </li> */}
   </ul>
-</div>
+</motion.div>
     <span className="absolute top-0 right-0 -z-10">
         <svg 
             width="388" 
