@@ -35,7 +35,7 @@ export default function RootLayout({
       <body 
       //className="bg-[#191F22]"
       className={inter.className}
-      //className=" bg-gradient-to-r from-[#010a2b] to-[#01b5ce] via-[#7931e2]"
+      //className=" bg-gradient-to-r from-green-50/50 via-teal-50 to-green-50/50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800"
       //className="bg-[#010203]"
       // style={{
       //   backgroundColor: '#141041',
