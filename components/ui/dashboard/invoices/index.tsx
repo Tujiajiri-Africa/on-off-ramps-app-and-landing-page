@@ -122,362 +122,7 @@ import html2canvas from 'html2canvas-pro';
 import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CalendarDateRangePicker } from '@/components/date-range-picker';
-
-const InvoiceForm = () => {
-  const [clientEmail, setClientEmail] = useState<string>("")
-  const [itemName, setItemName] = useState<string>("")
-  const [itemQty, setItemQty] = useState<number>(0)
-  const [itemDescription, setItemDescription] = useState<string>("")
-  const [itemAmount, setItemAmount] = useState<number>(0)
-  const [error, setError] = useState<string>("")
-  const [success, setSuccess] = useState<string>("")
-
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("pathname");
-  const [isPending, startTransition] = useTransition()
-
-  const form = useForm<z.infer<typeof InvoiceSchema>>({
-      resolver: zodResolver(InvoiceSchema),
-      defaultValues: {
-          client_email: "",
-          item_name: "",
-          item_description: "",
-          unit_price: "",
-          item_quantity: "",
-          //currency: "",
-          payment_method: "",
-      }
-  })
-
-  const {data: userSessionData} = useSession()
-
-  const onSubmit = (values: z.infer<typeof InvoiceSchema>) => {
-      setError("")
-      setSuccess("")
-
-      startTransition(async() => {
-          createInvoice(values, userSessionData?.user.accessToken)
-          .then((data:any) => {
-              if(data?.data.error){
-                  //form.reset()
-                  setError(data?.data.error)
-              }
-              if(data?.data.success){
-                  form.reset()
-                  setSuccess(data?.data.success)
-              }
-          }).catch(() => {
-              setError("Something went wrong")
-              setSuccess("")
-          })
-      })
-  }
-  return (
-  <>
-              <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl space-y-4">
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Create New Invoice</CardTitle>
-                        <CardDescription>Create a new invoice and chose how you get paid</CardDescription>
-                    </CardHeader>
-                        <CardContent>
-                            
-                                <Form {...form}>
-                                    <form className='space-y-6' onSubmit={form.handleSubmit(onSubmit)}>
-                                    <div>
-                                        <FormField 
-                                            control={form.control}
-                                            name='item_name'
-                                            render={({field}) => (
-                                                <FormItem>
-                                                    <FormLabel 
-                                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                                        >
-                                                        Item name
-                                                    </FormLabel>
-                                                    <div 
-                                                        className='mt-1'
-                                                        >
-                                                        <FormControl>
-                                                            <Input
-                                                                {...field}
-                                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                                placeholder="Enter item name"
-                                                                type='text'
-                                                                onChangeCapture={e => setItemName(field.value)}
-                                                                //disabled={isPending}
-                                                                //min={0}
-                                                                
-                                                            />
-                                                        </FormControl>
-                                                        <FormMessage/>
-                                                    </div>
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
-                                    <div className="flex flex-wrap -mx-3 mb-6">
-                                    <div className="w-full md:w-1/2 px-3">
-                                        <FormField 
-                                            control={form.control}
-                                            name='unit_price'
-                                            render={({field}) => (
-                                                <FormItem>
-                                                    <FormLabel 
-                                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                                        >
-                                                        Unit price
-                                                    </FormLabel>
-                                                    <div 
-                                                        className='mt-1'
-                                                        >
-                                                        <FormControl>
-                                                            <Input
-                                                                {...field}
-                                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                                placeholder="Enter unit price"
-                                                                type='number'
-                                                                //disabled={isPending}
-                                                                //onChangeCapture={e => setItemAmount(field.value)}
-                                                                min={1}
-                                                                
-                                                            />
-                                                        </FormControl>
-                                                        <FormMessage/>
-                                                    </div>
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
-                                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                        <FormField 
-                                            control={form.control}
-                                            name='item_quantity'
-                                            render={({field}) => (
-                                                <FormItem>
-                                                    <FormLabel 
-                                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                                        >
-                                                        Item quantity
-                                                    </FormLabel>
-                                                    <div 
-                                                        className='mt-1'
-                                                        >
-                                                        <FormControl>
-                                                            <Input
-                                                                {...field}
-                                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                                placeholder="Enter the quantity of items"
-                                                                type='number'
-                                                                //disabled={isPending}
-                                                                min={1}
-                                                                //onChangeCapture={e => setItemQty(field.value)}
-                                                                
-                                                            />
-                                                        </FormControl>
-                                                        <FormMessage/>
-                                                    </div>
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
-                            </div>
-                            <div>
-                        <FormField 
-                            control={form.control}
-                            name='payment_method'
-                            render={({field}) => (
-                                <FormItem>
-                                    <FormLabel 
-                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                        >
-                                        Select payment method by chain
-                                    </FormLabel>
-                                    <div 
-                                        className='mt-1'
-                                        >
-                                        <FormControl>
-                                            {/* <Input
-                                                {...field}
-                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="Enter amount to deposit"
-                                                type='number'
-                                                //disabled={isPending}
-                                                min={0}
-                                                
-                                            /> */}
-                                            <Select
-                                            {...field}
-                                            onValueChange={field.onChange}
-                                            defaultValue={field.value}
-                                            >
-                                                <SelectTrigger className="w-full">
-                                                  <SelectValue placeholder="select settlement method" />
-                                                </SelectTrigger>
-                                                <SelectContent position="popper">
-                                                    {
-                                                        supportedAssets
-                                                        .filter((s) => s.active == true)
-                                                        .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
-                                                        .map((asset) => (
-                                                                <SelectItem key={asset.value} value={asset.label}>
-                                                                        <div className='flex items-center content-center gap-2'>
-                                                                            <Image src={asset.icon.src} width={18} height={18} alt={asset.label} />
-                                                                            {asset.label}  { asset.chain != undefined ? `(${asset.chain})`: ''} 
-                                                                        </div>
-                                                                </SelectItem>
-                                                        ))
-                                                    }
-                                                </SelectContent>
-                                            </Select>
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </div>
-                                </FormItem>
-                            )}
-                        />
-                    </div>
-                                    <div>
-                                        <FormField 
-                                            control={form.control}
-                                            name='client_email'
-                                            render={({field}) => (
-                                                <FormItem>
-                                                    <FormLabel 
-                                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                                        >
-                                                        Client email
-                                                    </FormLabel>
-                                                    <div 
-                                                        className='mt-1'
-                                                        >
-                                                        <FormControl>
-                                                            <Input
-                                                                {...field}
-                                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                                placeholder="Enter vendor email address"
-                                                                type='email'
-                                                                //onChange={() => setClientEmail(field.value)}
-                                                                //value={clientEmail}
-                                                                onChangeCapture={e =>setClientEmail(field.value.toString())}
-                                                            
-                                                                disabled={isPending}
-                                                                //min={0}
-                                                                //() => setClientEmail(field.value)
-                                                                
-                                                            />
-                                                        </FormControl>
-                                                        <FormMessage/>
-                                                    </div>
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
-                                    <div>
-                                        <FormField 
-                                            control={form.control}
-                                            name='due_date'
-                                            render={({field}) => (
-                                                <FormItem>
-                                                    <FormLabel 
-                                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                                        >
-                                                        Due date
-                                                    </FormLabel>
-                                                    <div 
-                                                        className='mt-1'
-                                                        >
-                                                          <Popover >
-                                                            <PopoverTrigger asChild>
-                                                            <FormControl>
-                                                                <Button
-                                                                variant={"outline"}
-                                                                className={cn(
-                                                                    "w-full pl-3 text-left font-normal",
-                                                                    !field.value && "text-muted-foreground"
-                                                                )}
-                                                                >
-                                                                {field.value ? (
-                                                                    format(field.value, "PPPPpppp")
-                                                                ) : (
-                                                                    <span>Pick due date</span>
-                                                                )}
-                                                                <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                                                                </Button>
-                                                            </FormControl>
-                                                            </PopoverTrigger>
-                                                            <PopoverContent className="p-0" align="start">
-                                                            <Calendar
-                                                                mode="single"
-                                                                selected={field.value}
-                                                                onSelect={field.onChange}
-                                                                disabled={(date) =>
-                                                                date < new Date(Date.now() - 1) //|| date < new Date("1900-01-01")
-                                                                }
-                                                                initialFocus
-                                                                className='w-full'
-                                                                //showWeekNumber
-                                                            />
-                                                            </PopoverContent>
-                                                        </Popover>
-                                                        <FormMessage/>
-                                                    </div>
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
-                                    <div>
-                                        <FormField 
-                                            control={form.control}
-                                            name='item_description'
-                                            render={({field}) => (
-                                                <FormItem>
-                                                    <FormLabel 
-                                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                                        >
-                                                        Item description
-                                                    </FormLabel>
-                                                    <div 
-                                                        className='mt-1'
-                                                        >
-                                                        <FormControl>
-                                                            <Textarea 
-                                                                {...field}
-                                                                placeholder="Enter some brief description of the item..." 
-                                                            />
-                                                        </FormControl>
-                                                        <FormMessage/>
-                                                    </div>
-                                                </FormItem>
-                                            )}
-                                        />
-                                    </div>
-                                            <FormErrorMessage message={error}/>
-                                            <FormSuccessMessage message={success}/>
-                                                <div className='flex flex-1 sm:gap-40 gap-10'>
-                                                    <Button 
-                                                        disabled={isPending}
-                                                        type='submit'
-                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
-                                                        >
-                                                        Save
-                                                    </Button>
-
-                                                    {/* <Button  variant={'outline'} className='justify-end'>
-                                                        Preview
-                                                    </Button> */}
-                                        {/* <NewInvoicePreview /> */}
-                                        </div>
-                                    </form>
-                                </Form>
-
-                        </CardContent>      
-
-                </Card>
-            </CardContent>
-  </>
-  )
-}
+import {IncomingInvoicePaymentsDataFrame} from '@/components/ui/dashboard/invoices/incoming-invoice-list'
 
 const data: Payment[] = [
     {
@@ -1173,7 +818,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
               ) : (
                 <TableRow>
                   <TableCell
-                    colSpan={columns.length}
+                    colSpan={table.getAllColumns().length} //columns.length
                     className="h-24 text-center"
                   >
                     No results.
@@ -1448,17 +1093,17 @@ export function InvoiceComponent(){
                 </CardHeader>
                 <CardContent className="pl-2">
                   <Tabs defaultValue="outgoing" className="space-y-4">
-                    <TabsList>
+                    <TabsList className="">
                       <TabsTrigger value="outgoing">
                           <div className='flex items-center gap-2'>
-                              <ArrowUpRightFromCircleIcon className='hidden sm:block w-4 h-4 text-orange-600'/>
-                              Outgoing
+                              <ArrowUpRightFromCircleIcon className='w-4 h-4 text-orange-600'/>
+                              Outgoing 
                           </div>
                       </TabsTrigger>
                       <TabsTrigger value="incoming">
                       <div className='flex items-center gap-2'>
-                              <ArrowDownLeftFromCircleIcon className='hidden sm:block w-4 h-4 text-orange-600'/>
-                              Incoming
+                              <ArrowDownLeftFromCircleIcon className='w-4 h-4 text-orange-600'/>
+                              Incoming 
                           </div>
                       </TabsTrigger>
                     </TabsList>
@@ -1466,7 +1111,7 @@ export function InvoiceComponent(){
                             <InvoicePaymentsDataFrame />
                     </TabsContent>
                     <TabsContent value="incoming" className="space-y-4">
-
+                          <IncomingInvoicePaymentsDataFrame />
                     </TabsContent>
                   </Tabs>
                 </CardContent>
