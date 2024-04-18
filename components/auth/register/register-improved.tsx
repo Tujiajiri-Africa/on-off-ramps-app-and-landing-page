@@ -365,7 +365,7 @@ export function UserRegistrationWithProductIntro(){
                                                             //className='absolute'
                                                             
                                                         >
-                                                            {isPasswordVisible ? (
+                                                            {!isPasswordVisible ? (
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 fill="none"
@@ -448,7 +448,7 @@ export function UserRegistrationWithProductIntro(){
                                                             //className='absolute'
                                                             
                                                         >
-                                                            {isConfirmPasswordVisible ? (
+                                                            {!isConfirmPasswordVisible ? (
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 fill="none"
