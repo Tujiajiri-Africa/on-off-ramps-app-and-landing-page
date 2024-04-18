@@ -60,8 +60,9 @@ export const generatePdf = (content:any) =>{
 
   //html2pdf().set(options).from(content).save();
 }
+//TODO handle South Africa with +27 country.coce.slice(1) == phone.slice(0,2)
 
 export const getCountryFromPhone = (phone:string) =>{
-  const searchCountryByCode = countries.find((country) => country.code.slice(1) == phone.slice(0, 3));
+  const searchCountryByCode = countries.find((country) => country.code.slice(1) == phone.slice(0, 3)); 
   return searchCountryByCode?.name
 }
