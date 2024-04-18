@@ -540,7 +540,7 @@ export type NanaPayInvoiceProps = {
   unit_price: number;
   item_quantity: number;
   payment_method: string;
-  client_email: string;
+  client_email?: string;
   item_description: string;
   sub_total: number;
   type: string;
@@ -551,6 +551,12 @@ export type NanaPayInvoiceProps = {
   owner_last_name?: string;
   owner_username?: string;
   owner_phone?:string;
+  owner_address_address_line_1?: string;
+  owner_address_address_line_2?: string;
+  owner_address_city?: string;
+  owner_address_state?: string;
+  owner_address_street?: string;
+  owner_address_zip_code?: number;
 }
 
 export type supportedInvoiceAssetProps = {

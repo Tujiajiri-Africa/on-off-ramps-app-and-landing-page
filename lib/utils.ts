@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import {supportedAssets} from '@/helpers/data'
 import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
+import {countries} from '@/helpers/data'
 //import jsPDF from "jspdf";
 //import html2canvas  from 'html2canvas'
 
@@ -58,4 +59,9 @@ export const generatePdf = (content:any) =>{
   };
 
   //html2pdf().set(options).from(content).save();
+}
+
+export const getCountryFromPhone = (phone:string) =>{
+  const searchCountryByCode = countries.find((country) => country.code.slice(1) == phone.slice(0, 3));
+  return searchCountryByCode?.name
 }

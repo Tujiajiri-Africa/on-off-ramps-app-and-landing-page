@@ -20,6 +20,7 @@ import logo from  '@/app/assets/logo/favicon.ico'
 import Link from 'next/link'
 import { ArrowDownCircle, ArrowLeftCircle } from 'lucide-react'
 import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
+import {getCountryFromPhone} from '@/lib/utils'
 
 export function InvoiceDetail(){
     const {data: userSessionData} = useSession()
@@ -186,10 +187,40 @@ export function InvoiceDetail(){
                     className='text-gray-700 gap-1'
                     >
                         <h2 className='font-bold text-xl mb-1'>From</h2>
-                    {`${userSessionData?.user.first_name} ${userSessionData?.user.last_name}` } <br />
-                    {`${userSessionData?.user.email}`} <br/>
-                    {`+${userSessionData?.user.phone}`}
+                    {`${invoiceInfo?.owner_first_name} ${invoiceInfo?.owner_last_name}` } <br />
+                    {`${invoiceInfo?.owner_email}`} <br/>
+                    {
+                        invoiceInfo?.owner_address_address_line_1 != null && (
+                            <div>
+                                {`${invoiceInfo?.owner_address_address_line_1}`} <br/>
+                            </div>
+                        )
+                    }
+                    {
+                        invoiceInfo?.owner_address_state != null && 
+                        invoiceInfo.owner_address_city != null && 
+                        invoiceInfo.owner_address_zip_code !== null &&
+                        (
+                            <div>
+                                {`${invoiceInfo?.owner_address_city} ${invoiceInfo?.owner_address_state} ${invoiceInfo.owner_address_zip_code?.toString()}`} <br />
+                            </div>
+                        )
+                    }
+                    {
+                        invoiceInfo?.owner_phone != null && (
+                            <div>
+                                {getCountryFromPhone(invoiceInfo?.owner_phone)}
+                            </div>
+                        )
+                    }
+                    {`+${invoiceInfo?.owner_phone}`} <br />
                     {/* Nana Pay LTD */}
+                    {/* {invoiceInfo?.owner_first_name}
+  owner_address_address_line_2?: string;
+  owner_address_city?: string;
+  owner_address_state?: string;
+  owner_address_street?: string;
+  owner_address_zip_code?: number; */}
                 </div>
             </div> 
             {/* <div className='className="border-b-2 border-gray-300 pb-8 mb-8"'>
@@ -290,7 +321,9 @@ export function InvoiceDetail(){
             {/* <div className="text-gray-700 mb-2">John Doe</div>
             <div className="text-gray-700 mb-2">123 Main St.</div>
             <div className="text-gray-700 mb-2">Anytown, USA 12345</div> */}
-            <div className="text-gray-700">{invoiceInfo?.client_email?.trim()}</div>
+            <div className="text-gray-700">
+                {invoiceInfo?.client_email?.trim()}
+            </div>
         </div>
         <table className="w-full text-left mb-8 table-zebra-zebra">
             <thead>
