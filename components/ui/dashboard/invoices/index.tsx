@@ -123,6 +123,9 @@ import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CalendarDateRangePicker } from '@/components/date-range-picker';
 import {IncomingInvoicePaymentsDataFrame} from '@/components/ui/dashboard/invoices/incoming-invoice-list'
+import InvoiceVector1 from '@/app/assets/backgrounds/invoices/invoice_vector_1-transparent.png'
+import InvoiceVector3 from '@/app/assets/backgrounds/invoices/invoice_vector_3-transparent.png'
+import WomanCheckingInvoiceIllustration from '@/app/assets/backgrounds/invoices/woman-checking-invoice-colored.svg'
 
 const data: Payment[] = [
     {
@@ -397,11 +400,8 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
     //console.log(filteredData)
 
     const [sorting, setSorting] = React.useState<SortingState>([])
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-      []
-    )
-    const [columnVisibility, setColumnVisibility] =
-      React.useState<VisibilityState>({})
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = React.useState({})
    
     const convertToPdf = () => {  
@@ -730,21 +730,23 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
               <>
               <div className='flex items-center gap-2'>
                 <Image 
-                width={60}
-                height={60}
-                className="w-16 h-16 animate-spin" src={GreenLoader.src} alt="Loading icon"
+                width={40}
+                height={40}
+                className="animate-spin" //w-16 h-16 
+                src={GreenLoader.src} 
+                alt="Loading icon"
                 />
-            <span className="text-2xl font-medium text-gray-400 dark:text-gray-200">Fetching your invoices, please wait...</span>
+            <span className="text-md font-medium text-gray-400 dark:text-gray-200">Fetching your invoices, please wait...</span>
               </div>
 
               </>
             :
             <>
-                    <div className="flex items-center py-4 gap-2">
-          {/* <p>
-            Filter by client email
-          </p> <br /> */}
+            {
+              filteredData && filteredData.length? 
 
+              <>
+     <div className="flex items-center py-4 gap-2">
           <Input
             placeholder="Search by client email..."
             value={(table.getColumn("client_email")?.getFilterValue() as string) ?? ""}
@@ -823,7 +825,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
                     colSpan={table.getAllColumns().length} //columns.length
                     className="h-24 text-center"
                   >
-                    No results.
+                    {/* No results. */}
                     {/* <br />
                     <br />
                                   <Button variant="outline" className='bg-orange-600 text-white hover:bg-orange-500 hover:text-white content-start group  rounded-md px-3 py-2 text-sm font-medium'>
@@ -833,6 +835,19 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
                                             </div>
                                         </Link>
                                     </Button> */}
+                                            <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+                                              <div className="flex flex-col items-center gap-1 text-center">
+                                                    <h3 className="text-2xl font-bold tracking-tight">
+                                                      You have no invoices
+                                                    </h3>
+                                                    <p className="text-sm text-muted-foreground">
+                                                        You can start creating invoices and get paid in your preffered crypto asset.
+                                                    </p>
+                                                    <Button className="mt-4">
+                                                      <Link href="/dashboard/invoices/new-invoice">Create Invoice</Link>
+                                                    </Button>
+                                                  </div>
+                                            </main>
                   </TableCell>
                 </TableRow>
               )}
@@ -885,7 +900,48 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
             {/* <DoubleArrowRightIcon className="h-4 w-4" /> */}
           </Button>
           </div>
-        </div>
+        </div>      
+
+              </>
+
+              :
+
+              <div className="flex flex-col items-center gap-1 text-center">
+                {/* <h3 className="text-2xl font-bold tracking-tight">
+                  You have not sent out any invoices yet
+                </h3> */}
+                {/* <Image 
+                  src={InvoiceVector1.src} 
+                  //src={WomanCheckingInvoiceIllustration.src}
+                  height={320} 
+                  width={320} 
+                  alt="invoice-vector-1" 
+                  className='w-80 h-80 dark:hidden'//dark:hidden w-80 h-80
+                  //w-80 h-80 
+                /> */}
+                <Image 
+                  //src={InvoiceVector3.src} 
+                  src={WomanCheckingInvoiceIllustration.src}
+                  height={320} 
+                  width={320} 
+                  alt="invoice-vector-2" 
+                  className='w-80 h-80'//hidden dark:block
+                />
+
+                <h3 className="text-2xl font-bold tracking-tight">
+                  You are yet to send out any invoices
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  You can start creating invoices seamlessly. <br/> Unlock the power of crypto invoicing today, get paid in your prefered crypto or stablecoins.
+                </p>
+                <Button className="mt-4 mb-6">
+                  <Link href="/dashboard/invoices/new-invoice">
+                      Create Invoice
+                  </Link>
+                </Button>
+            </div>
+            }
+
             </>
           }
 
