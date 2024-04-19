@@ -17,7 +17,7 @@ export function DashboardIntro(){
               <p className="text-lg text-white mb-8">
                   Submit verification documents to our compliance team for approval and unlock more features including crypto/fiat transactions.
               </p>
-              <Link href="/dashboard/deposit" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
+              <Link href="/dashboard/verification" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Get verified
               </Link>
           </div>
