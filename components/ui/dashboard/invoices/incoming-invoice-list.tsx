@@ -477,10 +477,10 @@ export function IncomingInvoicePaymentsDataFrame(){
             </p> <br /> */}
   
             <Input
-              placeholder="Search by client email..."
-              value={(table.getColumn("client_email")?.getFilterValue() as string) ?? ""}
+              placeholder="Search by sender email..."
+              value={(table.getColumn("owner_email")?.getFilterValue() as string) ?? ""}
               onChange={(event) =>
-                table.getColumn("client_email")?.setFilterValue(event.target.value)
+                table.getColumn("owner_email")?.setFilterValue(event.target.value)
               }
               className="max-w-sm"
             />
