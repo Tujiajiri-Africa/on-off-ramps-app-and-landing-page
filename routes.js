@@ -5,6 +5,7 @@
  */
 export const publicRoutes = [
     "/",
+    '/onboarding'
     //"/account/new-verification"
     //"/account/verify-phone"
   ];
