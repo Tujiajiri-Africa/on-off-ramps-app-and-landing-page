@@ -16,8 +16,6 @@ export function YCWidget(){
             id="YCWidget">
                 <iframe
                   src={`${SANDBOX_BASE_URL}/${API_KEY}`}
-                  
-                  
                   style={{
                     overflow: "hidden",
                     width: 800,

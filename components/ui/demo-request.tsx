@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export function DemoRequest(){
     return (
@@ -11,7 +12,9 @@ export function DemoRequest(){
                     <div className="mb-10 lg:mb-0 ">
                         <h1
                             className="mt-0 mb-3 text-4xl font-bold leading-tight sm:text-7xl sm:leading-tight md:text-[40px] md:leading-tight text-white ">
-                                Ready to get started and expand your global reach with crypto?</h1>
+                                {/* Ready to get started and expand your global reach with crypto? */}
+                                Ready to unlock the power of stablecoins to power your financial journey?
+                        </h1>
                         <p
                             className="w-full text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed text-white">
                         </p>
@@ -19,9 +22,13 @@ export function DemoRequest(){
                 </div>
             </div>
             <div className="w-full px-4 lg:w-1/2">
-                <div className="text-center lg:text-right"><a
+                <div className="text-center lg:text-right">
+                    <Link
                         className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-yellow-500 text-slate-900 py-4 px-9"
-                        href="#">Get Started With Our Partner Widget</a>
+                        href="/widget"
+                    >
+                        Get Started With Our Partner Widget
+                    </Link>
                 </div>
             </div>
         </div>
