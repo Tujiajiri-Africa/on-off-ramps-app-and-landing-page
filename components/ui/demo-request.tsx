@@ -24,7 +24,7 @@ export function DemoRequest(){
             <div className="w-full px-4 lg:w-1/2">
                 <div className="text-center lg:text-right">
                     <Link
-                        className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-yellow-300 text-slate-900 hover:bg-yellow-300 py-4 px-9"
+                        className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-yellow-300 text-slate-900 hover:bg-yellow-200 py-4 px-9"
                         href="/widget"
                     >
                         Get Started With Our Partner Widget
