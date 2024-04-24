@@ -16,6 +16,7 @@ export function YCWidget(){
             id="YCWidget">
                 <iframe
                   src={`${SANDBOX_BASE_URL}/${API_KEY}`}
+                  title="Buy Crypto with Ajira Pay Finance"
                   style={{
                     overflow: "hidden",
                     width: 800,
