@@ -365,3 +365,46 @@
 .wave .shape-fill {
   fill: #9013FE;
 }
+
+.YCWidgetContainer{
+  @media (width <= 430px){
+    width: 100%;
+    height: 100%;
+    margin: 'auto';
+    padding: 0;
+    display: flex;
+  }
+}
+
+.YCWidgetContainer{
+  @media (width <= 540px){
+    width: 100%;
+    height: 100%;
+    margin: 'auto';
+    padding: 0;
+    display: flex;
+  }
+}
+
+
+.YCWidgetContainer #YCWidget{
+  @media (width <= 430px) {
+    width: 96%;
+    height: 100%;
+    margin: 'auto';
+    padding: 0;
+    overflow: hidden;
+    scroll-padding: 0;
+  }
+}
+
+.YCWidgetContainer #YCWidget{
+  @media (width <= 540px) {
+    width: 96%;
+    height: 100%;
+    margin: 'auto';
+    padding: 0;
+    overflow: hidden;
+    scroll-padding: 0;
+  }
+}
