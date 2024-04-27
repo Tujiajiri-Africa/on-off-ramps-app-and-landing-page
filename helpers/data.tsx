@@ -85,10 +85,10 @@ export const navItems: NavItem[] = [
     //     label: "kanban",
     // },
     {
-        title: "Deposit",
-        href: "/dashboard/deposit",
-        icon: "circle_arrow_up",
-        label: "deposit",
+      title: "Deposit",
+      href: "/dashboard/deposit",
+      icon: "circle_arrow_up",
+      label: "deposit",
     },
     {
       title: "Withdraw",
@@ -128,6 +128,15 @@ export type TimeSeriesApiResponse  = {
     rate_close: BigNumber; //3925.2395386860276
 }
 
+export type StateProps = {
+  name: string;
+}
+
+export type CityProps = {
+  name: string;
+  states?: StateProps[]
+}
+
 export type CountryProps = {
   name: string;
   code: string;
@@ -135,6 +144,7 @@ export type CountryProps = {
   currency: string;
   flag : ImageProps;
   href?: string;
+  cities?: CityProps
 }
 
 export const COIN_API_PERIOD_DATA =

@@ -38,7 +38,7 @@ className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
     Explore Our Core Products
   </h2>
   <ul className="mt-16 grid grid-cols-1 gap-6 text-center text-slate-700 lg:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4">
-    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md hover:scale-105 duration-300">
 
       <Image 
         //src="https://www.svgrepo.com/show/530438/ddos-protection.svg" 
@@ -56,7 +56,7 @@ className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
             Coming Soon
         </Button>
     </li>
-    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md hover:scale-105 duration-300">
 
       <Image 
         //src="https://www.svgrepo.com/show/530442/port-detection.svg"
@@ -74,7 +74,7 @@ className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
             Coming Soon
         </Button>
     </li>
-    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md hover:scale-105 duration-300">
         <Image 
             src={InvoiceVector.src} 
             alt="" 
@@ -90,7 +90,7 @@ className="2xl:w-[80%] md:pt-1.5  lg:pt-1.5 w-[98%] mx-auto bg-inherit">
                 Coming Soon
         </Button>
     </li>
-    <li className="rounded-xl bg-white px-6 py-8 shadow-md">
+    <li className="rounded-xl bg-white px-6 py-8 shadow-md hover:scale-105 duration-300">
       <Image 
         src={WalletVector1.src} 
         alt="" 
