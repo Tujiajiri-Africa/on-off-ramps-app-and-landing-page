@@ -85,10 +85,10 @@ export const navItems: NavItem[] = [
     //     label: "kanban",
     // },
     {
-        title: "Deposit",
-        href: "/dashboard/deposit",
-        icon: "circle_arrow_up",
-        label: "deposit",
+      title: "Deposit",
+      href: "/dashboard/deposit",
+      icon: "circle_arrow_up",
+      label: "deposit",
     },
     {
       title: "Withdraw",

@@ -84,7 +84,9 @@ export default function HeroPage2(){
         {/* Create and manage crypto invoice and subscriptions with ease */}
       </h2>
       <a className="bg-orange-600 dark:bg-gray-800 mb-6  rounded-xl text-white dark:text-gray-300 font-medium px-4 py-3 sm:mt-10 mt-8 hover:bg-orange-500 dark:hover:bg-gray-600 transition"
-        href="">Coming Soon</a>
+        href="">
+        Coming Soon
+      </a>
         <div className="flex justify-center bg-transparent shadow-2xl rounded-md">
               <Image
                 //src="https://pagedone.io/asset/uploads/1691054543.png"
