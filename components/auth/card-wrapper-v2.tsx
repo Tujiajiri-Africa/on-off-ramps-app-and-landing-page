@@ -41,6 +41,7 @@ interface CardWrapperProps{
     showSocial?: boolean;
     headerDescription? : string;
     shouldPositionDescriptionAtCenter? : boolean;
+    shouldExtendLargeScreen?: boolean;
 }
 
 export type ProductIntroItemProps = {
@@ -230,14 +231,15 @@ export const AuthCardWrapperWithIntroBackground = ({
     backButtonHref,
     showSocial,
     headerDescription,
-    shouldPositionDescriptionAtCenter
+    shouldPositionDescriptionAtCenter,
+    shouldExtendLargeScreen
     }: CardWrapperProps)=>{
     return (
         <>
                 <CardContent className="flex justify-center text-gray-700"
         //bg-gray-100 text-gray-900 h-full lg:min-h-screen min-h-screen 
         >
-            <div className="2xl:max-w-screen-2xl max-w-screen-xl mx-auto m-0 sm:m-10 bg-white shadow-2xl rounded-lg flex justify-center flex-1"
+            <div className={`${shouldExtendLargeScreen ? '2xl:max-w-screen-2xl' : ""}  max-w-screen-xl mx-auto m-0 sm:m-10 bg-white shadow-2xl rounded-lg flex justify-center flex-1`}
             //2xl:max-w-screen-2xl 
             >
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
