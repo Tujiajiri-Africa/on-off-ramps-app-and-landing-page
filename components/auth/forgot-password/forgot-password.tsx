@@ -40,6 +40,7 @@ export const ForgotPasswordForm = () => {
                 headerLabel='Forgot password'
                 backButtonLabel="Sign in instead"
                 showSocial={false} 
+                //headerDescription="Enter your email address and we'll send you instructions on how to change your password"
             >
                 <Form {...form}>
                     <form 
