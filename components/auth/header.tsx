@@ -21,7 +21,7 @@ export const Header = ({label, description}:HeaderProps) =>{
                 <h2 className="mt-2 text-center md:text-center text-1xl font-bold">
                     {label}
                 </h2>
-                <p className="text-center font-normal text-sm">{description}</p>
+                <p className="text-sm text-muted-foreground">{description}</p>
             </div>
         </>
         )

@@ -14,7 +14,7 @@ interface CardWrapperProps{
     backButtonLabel: string;
     backButtonHref: string;
     showSocial?: boolean;
-    //headerDescription?: string;
+    headerDescription?: string;
 }
 
 export const CardWrapper = ({
@@ -23,7 +23,7 @@ export const CardWrapper = ({
     backButtonLabel,
     backButtonHref,
     showSocial,
-    //headerDescription
+    headerDescription
     }: CardWrapperProps)=>{
     return (
         <>
@@ -37,7 +37,7 @@ export const CardWrapper = ({
             >
             <div className="w-[98%] sm:w-full mx-auto  bg-white py-8 px-4 shadow-2xl rounded-lg sm:rounded-lg sm:px-4">
             <CardHeader>
-                <Header label={headerLabel} description="Enter your email address and we'll send you instructions on how to change your password"/>
+                <Header label={headerLabel} description={headerDescription}/>
                 {/* <CardDescription className="text-start">
                     {headerDescription}
                 </CardDescription> */}
