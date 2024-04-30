@@ -5,7 +5,8 @@ import {
     Card,
     CardContent, 
     CardHeader, 
-    CardTitle
+    CardTitle,
+    CardDescription
 }from '@/components/ui/card'
 import Autoplay from "embla-carousel-autoplay"
 import {
@@ -38,6 +39,7 @@ interface CardWrapperProps{
     backButtonLabel: string;
     backButtonHref: string;
     showSocial?: boolean;
+    headerDescription? : string;
 }
 
 export type ProductIntroItemProps = {
@@ -225,7 +227,8 @@ export const AuthCardWrapperWithIntroBackground = ({
     headerLabel,
     backButtonLabel,
     backButtonHref,
-    showSocial
+    showSocial,
+    headerDescription
     }: CardWrapperProps)=>{
     return (
         <>
@@ -246,9 +249,17 @@ export const AuthCardWrapperWithIntroBackground = ({
                         //w-28
                     />
             </div>
-                <CardTitle className='text-2xl sm:text-3xl mt-2 font-extrabold text-center items-center'>
-                    {headerLabel}
-                </CardTitle>
+                  <CardTitle className='text-lg sm:text-3xl mt-2 font-extrabold text-start sm:text-center items-center'
+                  //sm:text-center 
+                  >
+                      {headerLabel}
+                  </CardTitle>
+                  <CardDescription className='text-start sm:text-center'
+                  //sm:text-center
+                  >
+                      {headerDescription}
+                  </CardDescription>
+
             <div className="mt-4 flex flex-col items-center">
                 <div className="w-full flex-1 mt-8">
                     <div className="mx-auto max-w-[600px]"
