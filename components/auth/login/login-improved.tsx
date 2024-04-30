@@ -76,6 +76,7 @@ export const UserLoginWithProductIntro = () =>{
                 backButtonLabel="Don't have an account? Create account"
                 showSocial={false} 
                 headerDescription='Please sign in to your account to continue.'
+                shouldPositionDescriptionAtCenter={true}
                 >
             <Form {...form}>
                 <form 

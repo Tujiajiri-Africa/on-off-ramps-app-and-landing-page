@@ -110,6 +110,7 @@ export function UserRegistrationWithProductIntro(){
                 showSocial={false} 
                 headerDescription="Let's get you started by creating an account, unlock the power of cryptocurrencies and stablecoins to supercharge 🚀 
                 your financial success journey with us today." //. Buy, sell, send, receive BTC, USDT, USDC, cUSD, PYUSD plus many more assets seamlessly
+                shouldPositionDescriptionAtCenter={false}
                 >
 
                     <Form {...form}>

@@ -40,6 +40,7 @@ interface CardWrapperProps{
     backButtonHref: string;
     showSocial?: boolean;
     headerDescription? : string;
+    shouldPositionDescriptionAtCenter? : boolean;
 }
 
 export type ProductIntroItemProps = {
@@ -228,12 +229,13 @@ export const AuthCardWrapperWithIntroBackground = ({
     backButtonLabel,
     backButtonHref,
     showSocial,
-    headerDescription
+    headerDescription,
+    shouldPositionDescriptionAtCenter
     }: CardWrapperProps)=>{
     return (
         <>
-                <CardContent className="min-h-screen flex justify-center text-gray-700"
-        //bg-gray-100 text-gray-900 h-full lg:min-h-screen
+                <CardContent className="flex justify-center text-gray-700"
+        //bg-gray-100 text-gray-900 h-full lg:min-h-screen min-h-screen 
         >
             <div className="2xl:max-w-screen-2xl max-w-screen-xl mx-auto m-0 sm:m-10 bg-white shadow-2xl rounded-lg flex justify-center flex-1"
             //2xl:max-w-screen-2xl 
@@ -249,13 +251,13 @@ export const AuthCardWrapperWithIntroBackground = ({
                         //w-28
                     />
             </div>
-                  <CardTitle className='text-lg sm:text-3xl mt-2 font-extrabold text-start sm:text-center items-center'
+                  <CardTitle className='text-lg sm:text-2xl  mt-2 font-extrabold text-start sm:text-center items-center'
                   //sm:text-center 
                   >
                       {headerLabel}
                   </CardTitle>
-                  <CardDescription className='text-start sm:text-center'
-                  //sm:text-center
+                  <CardDescription className={`text-sm text-muted-foreground ${shouldPositionDescriptionAtCenter ? 'sm:text-center' : 'text-start'} 2xl:text-center`}
+                  //sm:text-center sm:text-center
                   >
                       {headerDescription}
                   </CardDescription>
