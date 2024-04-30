@@ -78,7 +78,7 @@ export function IncomingInvoicePaymentsDataFrame(){
     )
   }
   
-     const filteredData = useMemo(() => _data?.filter(d => d.client_email == userSessionData?.user.email) ?? [], [_data]);
+     const filteredData = useMemo(() => _data?.filter(d => d.client_email == userSessionData?.user.email) ?? [], [_data, userSessionData]);
       //console.log(filteredData)
   
       const [sorting, setSorting] = React.useState<SortingState>([])
