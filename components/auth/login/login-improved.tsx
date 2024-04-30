@@ -77,6 +77,7 @@ export const UserLoginWithProductIntro = () =>{
                 showSocial={false} 
                 headerDescription='Please sign in to your account to continue.'
                 shouldPositionDescriptionAtCenter={true}
+                shouldExtendLargeScreen={false}
                 >
             <Form {...form}>
                 <form 
