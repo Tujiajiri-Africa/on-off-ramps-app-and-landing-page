@@ -1,6 +1,7 @@
 'use client'
 import { 
     CardContent, 
+    CardDescription, 
     CardHeader, 
 }from '@/components/ui/card'
 import { Header } from '@/components/auth/header';
@@ -13,6 +14,7 @@ interface CardWrapperProps{
     backButtonLabel: string;
     backButtonHref: string;
     showSocial?: boolean;
+    headerDescription?: string;
 }
 
 export const CardWrapper = ({
@@ -20,7 +22,8 @@ export const CardWrapper = ({
     headerLabel,
     backButtonLabel,
     backButtonHref,
-    showSocial
+    showSocial,
+    headerDescription
     }: CardWrapperProps)=>{
     return (
         <>
@@ -34,7 +37,7 @@ export const CardWrapper = ({
             >
             <div className="w-[98%] sm:w-full mx-auto  bg-white py-8 px-4 shadow-2xl rounded-lg sm:rounded-lg sm:px-4">
             <CardHeader>
-                <Header label={headerLabel}/>
+                <Header label={headerLabel} description={headerDescription}/>
             </CardHeader>
                 {children}
                 <div className="mt-6">

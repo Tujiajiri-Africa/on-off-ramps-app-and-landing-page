@@ -4,9 +4,10 @@ import Image from "next/image";
 
 interface HeaderProps{
     label: string
+    description? : string
 }
 
-export const Header = ({label}:HeaderProps) =>{
+export const Header = ({label, description}:HeaderProps) =>{
     return (
         <>
             <div className="flex text-center justify-center ">
@@ -14,11 +15,13 @@ export const Header = ({label}:HeaderProps) =>{
             </div>
             <div 
             //className="w-[92%] sm:w-[86%] mx-auto sm:max-w-md"
-            className="w-full space-y-4"
+            className="w-full "
+            //space-y-4
             >
                 <h2 className="mt-2 text-center md:text-center text-1xl font-bold">
                     {label}
                 </h2>
+                <p className="text-sm text-muted-foreground">{description}</p>
             </div>
         </>
         )
