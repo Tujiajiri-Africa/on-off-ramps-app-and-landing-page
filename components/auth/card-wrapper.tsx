@@ -38,9 +38,6 @@ export const CardWrapper = ({
             <div className="w-[98%] sm:w-full mx-auto  bg-white py-8 px-4 shadow-2xl rounded-lg sm:rounded-lg sm:px-4">
             <CardHeader>
                 <Header label={headerLabel} description={headerDescription}/>
-                {/* <CardDescription className="text-start">
-                    {headerDescription}
-                </CardDescription> */}
             </CardHeader>
                 {children}
                 <div className="mt-6">
