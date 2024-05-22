@@ -27,7 +27,7 @@ const navigation = [
   { name: "Products", href: "#products", current: false},
   { name: 'How it Works', href: '#how-it-works', current: false },
   { name: 'Features', href: '#features', current: false },
-  { name: "Team", href: "#team", current: false},
+  // { name: "Team", href: "#team", current: false},
 
   { name: "Contact Us", href: "#contact-us", current: false},
   //{ name: 'Academy', href: "#", current: false},
