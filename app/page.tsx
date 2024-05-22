@@ -59,7 +59,7 @@ export default function Home() {
           {/* <Products /> */}
           {/* <SupportedAssets /> */}
           {/* <Contact /> */}
-          <Team />
+          {/* <Team /> */}
           <ContactPageV2 />
           {/* <WaitListBanner /> */}
           <FaqV2 />
