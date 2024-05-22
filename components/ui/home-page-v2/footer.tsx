@@ -82,18 +82,18 @@ export function FooterV2(){
              <div>
                  <h2 className="mb-6 text-sm font-semibold text-slate-900 uppercase dark:text-white">Company</h2>
                  <ul className="mt-1.5 text-sm leading-6 text-secondary-500 font-medium">
-                     <li className="mb-4">
+                     {/* <li className="mb-4">
                          <a href="#" >Privacy Policy</a>
-                     </li>
+                     </li> */}
                      <li className="mb-4">
                          <a href="https://docs.ajirapay.finance/legal" target='_blank'>Terms &amp; Conditions</a>
                      </li>
                      <li className="mb-4">
                          <a href="https://docs.ajirapay.finance/legal" target='_blank' >Legal and Compliance</a>
                      </li>
-                     <li className="mb-4">
+                     {/* <li className="mb-4">
                          <a href="#">Audits</a>
-                     </li>
+                     </li> */}
                  </ul>
              </div>
              

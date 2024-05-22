@@ -45,8 +45,14 @@ export function FeatureListV2(){
       {/* Buttons */}
       <div className="mt-4 ">
         <button className=" ">
-            <a href="#" className="inline-flex  gap-4 justify-start items-center px-3 py-2 font-medium rounded leading-5 bg-orange-600 text-primary-100 text-white hover:text-white hover:bg-orange-500">
-                Learn More <ArrowRightCircleIcon className="h-6 w-6 text-3xl cursor-pointer"/>
+            <a 
+            //href="#" 
+            href="https://forms.gle/MtE9EiK2L9aDYKVW9"
+            target="_blank"
+            className="inline-flex  gap-4 justify-start items-center px-3 py-2 font-medium rounded leading-5 bg-orange-600 text-primary-100 text-white hover:text-white hover:bg-orange-500">
+                Join Waitlist <ArrowRightCircleIcon className="h-6 w-6 text-3xl cursor-pointer"
+                //Learn More
+                />
             </a>
            
         </button>

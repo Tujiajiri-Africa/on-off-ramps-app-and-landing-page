@@ -13,7 +13,8 @@ export function DemoRequest(){
                         <h1
                             className="mt-0 mb-3 text-4xl font-bold text-start sm:text-7xl sm:leading-tight md:text-[40px] md:leading-tight text-white ">
                                 {/* Ready to get started and expand your global reach with crypto? */}
-                                Ready to unlock the power of stablecoins to power your financial success journey?
+                                Ready to unlock the power of Bitcoin and stablecoins to supercharge your financial success journey?
+                                {/* Ready to unlock the power of Bitcoin and stablecoins to power your financial success journey? */}
                         </h1>
                         <p
                             className="w-full text-base font-medium leading-relaxed sm:text-lg sm:leading-relaxed text-white">
@@ -25,9 +26,12 @@ export function DemoRequest(){
                 <div className="text-center lg:text-right">
                     <Link
                         className="font-semibold rounded-lg mx-auto inline-flex items-center justify-center bg-yellow-300 text-slate-900 hover:bg-yellow-200 py-4 px-9"
-                        href="/widget"
+                        //href="/widget"
+                        href="https://forms.gle/MtE9EiK2L9aDYKVW9"
+                        target='_blank'
                     >
-                        Get Started With Our Partner Widget
+                        {/* Get Started With Our Partner Widget */}
+                        Join Waitlist
                     </Link>
                 </div>
             </div>
