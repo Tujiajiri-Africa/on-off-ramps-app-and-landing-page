@@ -58,7 +58,9 @@ export const RegisterSchema = z.object({
     }).max(14,{
         message: 'Maximum 14 characters required'
     }),
-    //country:z.string()
+    iso_code: z.string({
+        required_error: "Country is required!"
+    })
 }).refine(
     (values) => {
       return values.password === values.confirm_password;
