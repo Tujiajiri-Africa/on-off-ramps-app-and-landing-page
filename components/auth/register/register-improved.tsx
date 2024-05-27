@@ -126,7 +126,7 @@ export function UserRegistrationWithProductIntro(){
                                         name='first_name'
                                         render={({field}) => (
                                             <FormItem>
-                                                <FormLabel className='block text-sm font-medium text-gray-700'>First name</FormLabel>
+                                                <FormLabel className='block text-sm font-medium text-gray-700'>Legal First Name</FormLabel>
                                                 <div 
                                                 className='mt-1'
                                                 >
@@ -163,7 +163,7 @@ export function UserRegistrationWithProductIntro(){
                                         name='last_name'
                                         render={({field}) => (
                                             <FormItem>
-                                                <FormLabel className='block text-sm font-medium text-gray-700'>Last name</FormLabel>
+                                                <FormLabel className='block text-sm font-medium text-gray-700'>Legal Last Name</FormLabel>
                                                 <div 
                                                 className='mt-1'
                                                 >
@@ -301,7 +301,7 @@ export function UserRegistrationWithProductIntro(){
                                     )}
                                 />
                             </div>
-                            <div>
+                            {/* <div>
                                 <FormField 
                                     control={form.control}
                                     name='username'
@@ -330,7 +330,7 @@ export function UserRegistrationWithProductIntro(){
                                         </FormItem>
                                     )}
                                 />
-                            </div>
+                            </div> */}
                             <div>
                             <FormField 
                                 control={form.control}
