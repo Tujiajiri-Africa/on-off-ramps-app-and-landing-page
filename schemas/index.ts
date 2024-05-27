@@ -30,13 +30,13 @@ export const RegisterSchema = z.object({
     }).min(6,{
         message: "Minimum 6 characters required"
     }),
-    username: z.string({
-        required_error: "Username is required"
-    }).min(4,{
-        message: 'Minimum 4 characters required'
-    }).max(8,{
-        message: 'Maximum 8 characters required'
-    }),
+    // username: z.string({
+    //     required_error: "Username is required"
+    // }).min(4,{
+    //     message: 'Minimum 4 characters required'
+    // }).max(8,{
+    //     message: 'Maximum 8 characters required'
+    // }),
     first_name: z.string({
         required_error: "First name is required"
     }).min(4, {
