@@ -126,7 +126,7 @@ export function UserRegistrationWithProductIntro(){
                                         name='first_name'
                                         render={({field}) => (
                                             <FormItem>
-                                                <FormLabel className='block text-sm font-medium text-gray-700'>Legal First Name</FormLabel>
+                                                <FormLabel className='block text-sm font-medium text-gray-700'>Legal first name</FormLabel>
                                                 <div 
                                                 className='mt-1'
                                                 >
@@ -163,7 +163,7 @@ export function UserRegistrationWithProductIntro(){
                                         name='last_name'
                                         render={({field}) => (
                                             <FormItem>
-                                                <FormLabel className='block text-sm font-medium text-gray-700'>Legal Last Name</FormLabel>
+                                                <FormLabel className='block text-sm font-medium text-gray-700'>Legal last name</FormLabel>
                                                 <div 
                                                 className='mt-1'
                                                 >
