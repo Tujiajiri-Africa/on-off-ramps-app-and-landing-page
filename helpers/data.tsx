@@ -138,13 +138,15 @@ export type CityProps = {
 }
 
 export type CountryProps = {
+  id: number;
   name: string;
   code: string;
   active: boolean;
   currency: string;
   flag : ImageProps;
   href?: string;
-  cities?: CityProps
+  cities?: CityProps;
+  iso_code: string;
 }
 
 export const COIN_API_PERIOD_DATA =
@@ -158,82 +160,104 @@ export const COIN_API_PERIOD_DATA =
 
 export const countries:CountryProps[] = [
   {
+    id: 1,
     name: 'Kenya',
     code: "+254",
     active: true,
     currency: "KES",
     href: "https://www.freepik.com/icon/flag_14009694#fromView=search&page=1&position=31&uuid=2ce58cdf-77c1-4a08-8c28-9ba1caf9799c",
-    flag: KE_FLAG
+    flag: KE_FLAG,
+    iso_code: "KE"
   },
   {
+    id: 2,
     name: "Nigeria",
     code: "+234",
     active: true,
     currency: "NGN",
-    flag: NIGERIAN_FLAG
+    flag: NIGERIAN_FLAG,
+    iso_code: "NG"
   },
   {
+    id: 5,
     name: 'Uganda',
     code: "+256",
     active: true,
     currency: 'UGX',
-    flag: UG_FLAG
+    flag: UG_FLAG,
+    iso_code: "UG"
   },
   {
+    id: 6,
     name: 'Tanzania',
     code: '+255',
     active: true,
     currency: 'TZS',
-    flag: TZ_FLAG
+    flag: TZ_FLAG,
+    iso_code: "TZ"
   },
   {
+    id: 3,
     name: 'Ghana',
     code: '+233',
     active: true,
     currency: 'GHS',
-    flag: GHANA_FLAG
+    flag: GHANA_FLAG,
+    iso_code: "GH"
   },
   {
+    id: 7,
     name: 'Cameroon',
     code: '+237',
     active: true,
     currency: 'XAF',
-    flag: CAMEROON_FLAG
+    flag: CAMEROON_FLAG,
+    iso_code: "CM"
   },
   {
+    id: 8,
     name: 'Zambia',
     code: '+260',
     active: true,
     currency: 'ZMW',
-    flag: ZAMBIA_FLAG
+    flag: ZAMBIA_FLAG,
+    iso_code: "ZM"
   },
   {
+    id: 4,
     name: 'South Africa',
     code: '+27',
     active: true,
     currency: 'ZAR',
-    flag: SOUTH_AFRICAN_LOGO
+    flag: SOUTH_AFRICAN_LOGO,
+    iso_code: "ZA"
   },
   {
+    id: 9,
     name: 'Rwanda',
     code: '+250',
     active: true,
     currency: 'RWF',
-    flag: RWANDA_FLAG
+    flag: RWANDA_FLAG,
+    iso_code: "RW"
   },
   {
+    id: 10,
     name: 'Botswana',
     code: '+267',
     active: true,
     currency: 'BWP',
-    flag: BOTSWANA_FLAG
+    flag: BOTSWANA_FLAG,
+    iso_code: "BW"
   },
   {
+    id: 11,
     name: 'Malawi',
     code: '+265',
     active: true,
     currency: 'MWK',
-    flag: MALAWI_FLAG
+    flag: MALAWI_FLAG,
+    iso_code: "MW"
   }
 ]
 

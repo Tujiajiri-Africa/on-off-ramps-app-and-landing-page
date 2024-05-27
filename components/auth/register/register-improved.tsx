@@ -218,11 +218,10 @@ export function UserRegistrationWithProductIntro(){
     
                             <div>
                             </div>
-                            
                                         <div>
                                             <FormField
                                                     control={form.control}
-                                                    name='phone'
+                                                    name='iso_code'
                                                     render={({field}) => (
                                                         <FormItem>
                                                         <FormLabel 
@@ -248,7 +247,7 @@ export function UserRegistrationWithProductIntro(){
                                                                                 .filter((s) => s.active == true)
                                                                                 .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
                                                                                 .map((country) => (
-                                                                                    <SelectItem key={country.code} value={country.code}>
+                                                                                    <SelectItem key={country.id} value={country.iso_code}>
                                                                                         <div className='flex items-center content-center gap-2'>
                                                                                         
                                                                                            <Image 
