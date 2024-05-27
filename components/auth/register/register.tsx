@@ -272,7 +272,7 @@ export const RegisterForm = () => {
                                     )}
                                 />
                             </div>
-                            <div>
+                            {/* <div>
                                 <FormField 
                                     control={form.control}
                                     name='username'
@@ -301,7 +301,7 @@ export const RegisterForm = () => {
                                         </FormItem>
                                     )}
                                 />
-                            </div>
+                            </div> */}
                             <div>
                             <FormField 
                                 control={form.control}
