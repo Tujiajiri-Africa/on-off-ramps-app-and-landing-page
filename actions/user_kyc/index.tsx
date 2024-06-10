@@ -6,17 +6,15 @@ import {
     UserIdVerificationSchema
 } from '@/schemas'
 import {UserResponseDataProps} from '@/lib/utils'
-import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
+import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT, UserKYCIDTypeProps } from '@/helpers/data'
 import {signIn} from '@/auth'
 import {DEFAULT_LOGIN_REDIRECT} from '@/routes'
 
 export const sendIdVerificationRequest = async(
     values: z.infer<typeof UserIdVerificationSchema>,
     bearerToken: string|undefined,
-    firs_name: string|undefined,
+    first_name: string|undefined,
     last_name: string|undefined,
-    dob: string|undefined,
-    gender: string|undefined,
     phone_number: string|undefined,
     iso_code: string|undefined 
 ){
@@ -40,12 +38,13 @@ export const sendIdVerificationRequest = async(
     }
 
     const body = {
-        validatedFields.data,
+        middle_name: validatedFields.data.middle_name,
+        id_number: validatedFields.data.id_number,
+        id_type: validatedFields.data.id_type,
+        dob: validatedFields.data.dob,
+        phone_number: phone_number,
         first_name: first_name,
         last_name: last_name,
-        dob: dob,
-        gender: gender,
-        phone_number: phone_number,
         iso_code: iso_code
     }
 
@@ -108,5 +107,51 @@ export const sendIdVerificationRequest = async(
             data: ''
         }
         return {data: dataInfo}
+    }
+}
+
+export const fetchIdVerificationTypes = async(bearerToken: string|undefined, isoCode: string|undefined) => {
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + `/kyc/country-verification-types?iso_code=${isoCode}` : PROD_BASE_URI + `/kyc/country-verification-types?iso_code=${isoCode}`
+
+    let idTypes: UserKYCIDTypeProps[] = []
+   
+    const payload = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        }
+    }
+
+    const fetchVerificationTypes = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            idTypes = []
+            return idTypes
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            idTypes = []
+            return idTypes
+        }
+
+        if(data['status'] == true){
+            idTypes = data['data']
+            return idTypes
+        }
+    }).catch((error) =>{
+        console.log(error)
+        idTypes = []
+        return idTypes
+    })
+
+    try{
+        return fetchVerificationTypes
+    }catch(error){
+        console.log(error)
+        idTypes = []
+        return idTypes
     }
 }
