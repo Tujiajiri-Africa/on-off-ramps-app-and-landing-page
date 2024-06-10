@@ -59,7 +59,11 @@ export const {
           first_name: user['user']['first_name'],
           last_name: user['user']['last_name'],
           phone: user['user']['phone'],
-          address: user['user']['address']
+          address: user['user']['address'],
+          currency: user['user']['country']['currency'],
+          iso_code: user['user']['country']['iso_code'],
+          country_name: user['user']['country']['name'],
+          phone_code: user['user']['country']['phone_code']
         };
       }
 
@@ -78,6 +82,10 @@ export const {
       session.user.phone = token.phone;
       session.user.name = token.first_name + ' ' + token.last_name;
       session.user.address = token.address
+      session.user.currency = token.currency;
+      session.user.iso_code = token.iso_code;
+      session.user.country_name = token.country_name;
+      session.user.phone_code = token.phone_code;
       // if(trigger === 'update' && token.address){
       //   session.user.address = token.address
       // }
