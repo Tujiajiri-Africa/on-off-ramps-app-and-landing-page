@@ -368,5 +368,8 @@ export const UserIdVerificationSchema = z.object({
     }),
     gender: z.string({
         required_error: "Please specify your gender!"
+    }),
+    middle_name: z.string({
+        required_error: "Legal middle name is required!"
     })
 })

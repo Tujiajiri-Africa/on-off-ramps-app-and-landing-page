@@ -10,7 +10,16 @@ import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT } from '@/helpers/data'
 import {signIn} from '@/auth'
 import {DEFAULT_LOGIN_REDIRECT} from '@/routes'
 
-export const sendIdVerificationRequest = async(values: z.infer<typeof UserIdVerificationSchema>){
+export const sendIdVerificationRequest = async(
+    values: z.infer<typeof UserIdVerificationSchema>,
+    bearerToken: string|undefined,
+    firs_name: string|undefined,
+    last_name: string|undefined,
+    dob: string|undefined,
+    gender: string|undefined,
+    phone_number: string|undefined,
+    iso_code: string|undefined 
+){
     const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/kyc/send-enhanced-id-verification-request' : PROD_BASE_URI + '/kyc/send-enhanced-id-verification-request'
 
     let dataInfo: UserResponseDataProps = {
@@ -30,6 +39,16 @@ export const sendIdVerificationRequest = async(values: z.infer<typeof UserIdVeri
         return  { data: dataInfo}
     }
 
+    const body = {
+        validatedFields.data,
+        first_name: first_name,
+        last_name: last_name,
+        dob: dob,
+        gender: gender,
+        phone_number: phone_number,
+        iso_code: iso_code
+    }
+
     const payload = {
         method: 'POST',
         headers: {
@@ -37,7 +56,7 @@ export const sendIdVerificationRequest = async(values: z.infer<typeof UserIdVeri
             'Accept': 'application/json',
             'Authorization': `Bearer ${bearerToken}`
         },
-        body: JSON.stringify(validatedFields.data)
+        body: JSON.stringify(body)
     }
 
     const submitIdVerificationRequest = await fetch(endpoint, payload).then(async(response) => {
