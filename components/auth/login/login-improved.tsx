@@ -72,7 +72,7 @@ export const UserLoginWithProductIntro = () =>{
         <>
             <AuthCardWrapperWithIntroBackground 
                 backButtonHref='/account/register'
-                headerLabel='Welcome back to NanaPay👋' //Sign in to your account
+                headerLabel='Welcome back to AjiraPay👋' //Sign in to your account
                 backButtonLabel="Don't have an account? Create account"
                 showSocial={false} 
                 headerDescription='Please sign in to your account to continue.'

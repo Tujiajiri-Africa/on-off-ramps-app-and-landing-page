@@ -105,7 +105,7 @@ export function UserRegistrationWithProductIntro(){
 
             <AuthCardWrapperWithIntroBackground 
                 backButtonHref='/account/login'
-                headerLabel='Welcome to NanaPay👋' //Create Account
+                headerLabel='Welcome to AjiraPay👋' //Create Account
                 backButtonLabel="Have an account? Sign in"
                 showSocial={false} 
                 headerDescription="Let's get you started by creating an account to unlock the power of cryptocurrencies and stablecoins to supercharge 🚀 
