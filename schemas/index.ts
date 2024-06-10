@@ -355,3 +355,18 @@ export const InvoiceSchema = z.object({
 }).refine((value) => {
     return value.due_date > new Date()
 },{message: 'Due date must be a date greator than today!'})
+
+export const UserIdVerificationSchema = z.object({
+    id_type: z.string({
+        required_error: "ID type is required!"
+    }),
+    id_number: z.string({
+        required_error: "ID number is required!"
+    }),
+    dob: z.string({
+        required_error: "Please provide your date of birth!"
+    }),
+    gender: z.string({
+        required_error: "Please specify your gender!"
+    })
+})
