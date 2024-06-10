@@ -17,7 +17,7 @@ export const sendIdVerificationRequest = async(
     last_name: string|undefined,
     phone_number: string|undefined,
     iso_code: string|undefined 
-){
+) => {
     const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/kyc/send-enhanced-id-verification-request' : PROD_BASE_URI + '/kyc/send-enhanced-id-verification-request'
 
     let dataInfo: UserResponseDataProps = {
