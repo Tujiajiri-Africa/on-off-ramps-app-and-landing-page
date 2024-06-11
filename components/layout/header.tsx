@@ -5,6 +5,7 @@ import { UserNav } from "./user-nav";
 import Link from "next/link";
 import logo from '@/app/assets/logo/nana-pay/logo-no-background.svg'
 import Image from 'next/image'
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
   return (
@@ -29,6 +30,9 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2">
+          <Button>
+            Connect Wallet
+          </Button>
           <UserNav />
           <ThemeToggle />
         </div>
