@@ -10,14 +10,14 @@ import Link from "next/link";
 import logo from '@/app/assets/logo/nana-pay/logo-no-background.svg'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button";
-//import { getConnectedMiniPayAddress } from '@/hooks/useGetMiniPayAddress';
+import { getConnectedMiniPayAddress } from '@/hooks/useGetMiniPayAddress';
 
 export default function Header() {
-  // const [connectedMiniPayAddress, setConnectedMiniPayAddress] = useState<string|undefined>("")
+  const [connectedMiniPayAddress, setConnectedMiniPayAddress] = useState<string|undefined>("")
 
-  // getConnectedMiniPayAddress().then((value) => {
-  //   setConnectedMiniPayAddress(value);
-  // })
+  getConnectedMiniPayAddress().then((value) => {
+    setConnectedMiniPayAddress(value);
+  })
 
   return (
     <div className="fixed top-0 left-0 right-0 supports-backdrop-blur:bg-background/60 border-b bg-background/95 backdrop-blur z-20">
@@ -44,7 +44,7 @@ export default function Header() {
           <Button>
             Connect Wallet
           </Button>
-          {/* {connectedMiniPayAddress} */}
+          {connectedMiniPayAddress}
 
           <UserNav />
           <ThemeToggle />

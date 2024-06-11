@@ -3,7 +3,9 @@ import { useState } from "react"
 export const getConnectedMiniPayAddress = async() => {
     const [miniPayAddress, setMiniPayAddress] = useState();
       
-    if (window && window.ethereum) {
+    if(typeof window !== "undefined") {
+
+      if(window.ethereum){
         // User has a injected wallet
       
         if (window.ethereum.isMinipay) {
@@ -20,8 +22,8 @@ export const getConnectedMiniPayAddress = async() => {
           console.log(accounts[0]);
           setMiniPayAddress(accounts[0]);
         }
-      
         // User is not using MiniPay
+      }
       }
 
       return miniPayAddress;
