@@ -682,3 +682,13 @@ export const teamMembers: TeamProps[] = [
     linkedinUrl: "https://www.linkedin.com/in/centrine-zakari-4a5935213/"
   }
 ]
+
+export type UserKYCIDTypeProps = {
+  country_id: string;
+  id_type: string;
+  is_active: boolean;
+}
+
+export const IdVerificationTypes: UserKYCIDTypeProps[] = [
+
+]

@@ -39,15 +39,15 @@ export const RegisterSchema = z.object({
     // }),
     first_name: z.string({
         required_error: "First name is required"
-    }).min(4, {
-        message: 'Minimum 4 characters required'
+    }).min(3, {
+        message: 'Minimum 3 characters required'
     }).max(11,{
         message: 'Maximum 11 characters required'
     }),
     last_name: z.string({
         required_error: "Last name is required"
-    }).min(4, {
-        message: "Minimum 4 characters required"
+    }).min(3, {
+        message: "Minimum 3 characters required"
     }).max(11,{
         message: 'Maximum 11 characters required'
     }),
@@ -355,3 +355,21 @@ export const InvoiceSchema = z.object({
 }).refine((value) => {
     return value.due_date > new Date()
 },{message: 'Due date must be a date greator than today!'})
+
+export const UserIdVerificationSchema = z.object({
+    id_type: z.string({
+        required_error: "ID type is required!"
+    }),
+    id_number: z.string({
+        required_error: "ID number is required!"
+    }),
+    dob: z.string({
+        required_error: "Please provide your date of birth!"
+    }),
+    gender: z.string({
+        required_error: "Please specify your gender!"
+    }),
+    middle_name: z.string({
+        required_error: "Legal middle name is required!"
+    })
+})
