@@ -1,14 +1,11 @@
 "use server"
 
-import { AuthError } from "next-auth";
 import  * as z from 'zod'
 import { 
     UserIdVerificationSchema
 } from '@/schemas'
 import {UserResponseDataProps} from '@/lib/utils'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT, UserKYCIDTypeProps } from '@/helpers/data'
-import {signIn} from '@/auth'
-import {DEFAULT_LOGIN_REDIRECT} from '@/routes'
 
 export const sendIdVerificationRequest = async(
     values: z.infer<typeof UserIdVerificationSchema>,
