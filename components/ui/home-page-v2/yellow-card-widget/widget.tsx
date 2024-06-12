@@ -7,6 +7,10 @@ export function YCWidget(){
     const API_SECRET = process.env.YC_WIDGET_SANDBOX_API_SECRET
     const SANDBOX_BASE_URL = process.env.YC_WIDGET_SANDBOX_BASE_URL
 
+    const PROD_API_KEY = process.env.YC_WIDGET_PROD_API_KEY
+    const PROD_API_SECRET = process.env.YC_WIDGET_PROD_API_SECRET
+    const PROD_BASE_URL = process.env.YC_WIDGET_PROD_BASE_URL
+
     return (
       <>
         <div
@@ -15,7 +19,7 @@ export function YCWidget(){
           <div className="flex justify-center bg-transparent shadow-2xl rounded-md" 
             id="YCWidget">
                 <iframe
-                  src={`${SANDBOX_BASE_URL}/${API_KEY}`}
+                  src={`${PROD_BASE_URL}/${PROD_API_KEY}`}
                   title="Buy Crypto with Ajira Pay Finance"
                   style={{
                     overflow: "hidden",
