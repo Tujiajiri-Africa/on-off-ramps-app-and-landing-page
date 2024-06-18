@@ -13,7 +13,7 @@ import {MinusIcon, Cross1Icon} from '@radix-ui/react-icons'
 
 export function RecentSales() {
   const {data: userSessionData} = useSession()
-  const [_data, setTransactionData] = useState<TransactionHistoryProps[]|undefined>([]) //TransactionHistoryProps[]|undefined>([]
+  const [transansactionHistoryData, setTransactionData] = useState<TransactionHistoryProps[]|undefined>([]) //TransactionHistoryProps[]|undefined>([]
 
   const fetchTransactionData = useCallback(async() => {
     const result = await fetchTransactionHistory(userSessionData?.user.accessToken)
@@ -27,9 +27,38 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
     queryFn: fetchTransactionData
 })
 
+{
+  isError && (
+      <>
+          <p>Something went wrong</p>
+      </>
+  )
+}
+
   return (
     <div className="space-y-8">
-      <div className="flex items-center">
+      {
+        transansactionHistoryData?.map((transansactionItem, index) => (
+          <div key={index} className="flex items-center">
+          <Avatar className="h-9 w-9">
+            <AvatarImage src="/avatars/01.png" alt="Avatar" />
+            <AvatarFallback>
+                <PlusIcon className="w-4 h-4"  />
+            </AvatarFallback>
+          </Avatar>
+          <div className="ml-4 space-y-1">
+            <p className="text-sm font-medium leading-none">{transansactionItem.description}</p>
+            <p className="text-sm  text-green-600"
+            //text-muted-foreground
+            >
+              {transansactionItem.status}
+            </p>
+          </div>
+          <div className="ml-auto font-medium">{transansactionItem.asset_name} {transansactionItem.amount}</div>
+        </div>
+        ))
+      }
+      {/* <div className="flex items-center">
         <Avatar className="h-9 w-9">
           <AvatarImage src="/avatars/01.png" alt="Avatar" />
           <AvatarFallback>
@@ -45,7 +74,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
           </p>
         </div>
         <div className="ml-auto font-medium">KES 1,999.00</div>
-      </div>
+      </div> */}
       <div className="flex items-center">
         <Avatar className="flex h-9 w-9 items-center justify-center space-y-0 border">
           <AvatarImage src="/avatars/02.png" alt="Avatar" />
