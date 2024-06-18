@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useTransition, useState } from 'react'
+import React,{useTransition, useState, useCallback } from 'react'
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import {
@@ -48,13 +48,30 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
-  import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
-  
-export function UserWallet(){
+import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
+import { useQuery } from 'react-query';
+import {useSession} from 'next-auth/react'
+import { fetchFiatBalance } from '@/actions/payments'
 
+export function UserWallet(){
+    const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+
+    const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+
+    const fetchBalance = useCallback(async() => {
+        const result = await fetchFiatBalance(userSessionData?.user.accessToken)
+        const balance = result
+        //console.log(transactions)
+        setFiatBalance(balance)
+    },[userSessionData])
+
+    const {error: balanceLoadError, status, data:invoiceData, isLoading: balanceIsLoading, isError } = useQuery({
+        queryKey: 'balance',
+        queryFn: fetchBalance
+    })
 
     const form = useForm<z.infer<typeof DepositSchema>>({
         resolver: zodResolver(DepositSchema),
@@ -71,6 +88,9 @@ export function UserWallet(){
         }
     })
 
+    {
+        isError && <div>Error</div>
+    }
     return (
         <>
             <ScrollArea className="h-full"
@@ -118,14 +138,30 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                KES 73,424.00
+                                                {/* KES 73,424.00 */}
+                                                
+
+                                                {
+                                                    balanceIsLoading ? 
+
+                                                    <svg width="20" height="20" fill="currentColor" className="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
+                                                        </path>
+                                                    </svg>
+
+                                                    :
+                                                    
+                                                    `KES ${fiatBalance?.toString()}`
+                                                }
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
-                                            <p className="text-xs text-muted-foreground mb-6">
+                                            {/* <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="text-green-600">
                                                     156.19%
                                                 </span> <span className='dark:text-gray-300 text-black'>last 1 month</span>
-                                            </p>
+                                            </p> */}
+                                            <br></br>
+                                            <hr></hr>
                                             <div className='flex flex-row gap-2'>
                                             <Button
                                                 className="w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white"
