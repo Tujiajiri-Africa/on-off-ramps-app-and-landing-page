@@ -692,3 +692,20 @@ export type UserKYCIDTypeProps = {
 export const IdVerificationTypes: UserKYCIDTypeProps[] = [
 
 ]
+
+export type TransactionHistoryProps = {
+  id: number;
+  user_id: number;
+  asset_name: string;
+  amount: number;
+  status: string;
+  transaction_type: string;
+  reference_id: string;
+  description: string;
+  fail_reason: string;
+  created_at: string;
+}
+
+export const TransactionHistory: TransactionHistoryProps[] = [
+ 
+]
