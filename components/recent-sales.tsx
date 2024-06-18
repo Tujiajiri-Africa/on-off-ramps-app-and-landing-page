@@ -39,7 +39,7 @@ const setStatusColor = (status: string|undefined) => {
       statusColor = "text-green-600";
       break;
 
-    case "Pending":
+    case "Processing":
       statusColor = "text-grey-600";
       break;
 
