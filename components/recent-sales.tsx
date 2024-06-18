@@ -35,7 +35,28 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
 {
   isError && (
       <>
-          <p>Something went wrong</p>
+          <div className="flex flex-col items-center gap-1 text-center">
+          <Image 
+            //src={InvoiceVector3.src} 
+            src={ItmesNotFoundIllustration.src}
+            height={320} 
+            width={320} 
+            alt="invoice-vector-2" 
+            className='w-80 h-80'//hidden dark:block
+          />
+
+          <h3 className="text-2xl font-bold tracking-tight">
+            Sorry we could not fetch transansaction history.
+          </h3>
+          <p className="text-sm text-muted-foreground">
+              Please reload page
+          </p>
+          <Button className="mt-4 mb-6">
+            <Link href="/dashboard">
+                Refresh Page
+            </Link>
+          </Button>
+          </div>
       </>
   )
 }
