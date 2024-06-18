@@ -39,7 +39,7 @@ export function DepositForm(){
     const form = useForm<z.infer<typeof DepositSchema>>({
         resolver: zodResolver(DepositSchema),
         defaultValues:{
-            amount: 0
+            amount: ""
         }
     })
 
