@@ -10,6 +10,8 @@ import { TransactionHistoryProps } from '@/helpers/data';
 import { useQuery } from 'react-query';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {MinusIcon, Cross1Icon} from '@radix-ui/react-icons'
+import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
+import Image from 'next/image';
 
 export function RecentSales() {
   const {data: userSessionData} = useSession()
@@ -38,7 +40,21 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
   return (
     <div className="space-y-8">
       {
-        transansactionHistoryData?.slice(0, 10).map((transansactionItem, index) => (
+          isLoading ?
+                    
+              <div className='flex items-center gap-2'>
+                <Image 
+                width={40}
+                height={40}
+                className="animate-spin" //w-16 h-16 
+                src={GreenLoader.src} 
+                alt="Loading icon"
+                />
+            <span className="text-md font-medium text-gray-400 dark:text-gray-200">Fetching transactions, please wait...</span>
+              </div>
+      :
+      
+        transansactionHistoryData?.slice(0, 5).map((transansactionItem, index) => (
           <div key={index} className="flex items-center">
           <Avatar className="h-9 w-9">
             <AvatarImage src="/avatars/01.png" alt="Avatar" />
