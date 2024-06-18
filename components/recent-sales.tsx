@@ -1,9 +1,32 @@
+'use client'
+
+import React, { useCallback, useEffect, useMemo, useState, useTransition, useRef } from 'react'
+import {ArrowDownLeftFromCircle, ArrowDownRightFromCircle, DollarSign, PlusCircleIcon, PlusIcon} from 'lucide-react'
+
+import { fetchTransactionHistory } from '@/actions/payments';
+import {useSession} from 'next-auth/react'
+
+import { TransactionHistoryProps } from '@/helpers/data';
+import { useQuery } from 'react-query';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {Button} from '@/components/ui/button'
-import {PlusIcon, MinusIcon, Cross1Icon} from '@radix-ui/react-icons'
-import { ArrowUpRight } from "lucide-react";
+import {MinusIcon, Cross1Icon} from '@radix-ui/react-icons'
 
 export function RecentSales() {
+  const {data: userSessionData} = useSession()
+  const [_data, setTransactionData] = useState<TransactionHistoryProps[]|undefined>([]) //TransactionHistoryProps[]|undefined>([]
+
+  const fetchTransactionData = useCallback(async() => {
+    const result = await fetchTransactionHistory(userSessionData?.user.accessToken)
+    const transactions = result
+    console.log(transactions)
+    setTransactionData(transactions)
+},[userSessionData])
+
+const {error, status, data:invoiceData, isLoading, isError } = useQuery({
+    queryKey: 'transactions',
+    queryFn: fetchTransactionData
+})
+
   return (
     <div className="space-y-8">
       <div className="flex items-center">
