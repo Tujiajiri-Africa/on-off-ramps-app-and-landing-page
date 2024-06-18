@@ -11,7 +11,10 @@ import { useQuery } from 'react-query';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {MinusIcon, Cross1Icon} from '@radix-ui/react-icons'
 import GreenLoader from '@/app/assets/icons/loaders/loading-green.svg'
+import ItmesNotFoundIllustration from '@/app/assets/backgrounds/items-not-found-illustration.png';
 import Image from 'next/image';
+import {Button} from '@/components/ui/button';
+import Link from 'next/link';
 
 export function RecentSales() {
   const {data: userSessionData} = useSession()
@@ -54,7 +57,45 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
               </div>
       :
       
-        transansactionHistoryData?.slice(0, 5).map((transansactionItem, index) => (
+      transansactionHistoryData  && transansactionHistoryData?.length < 1 ?
+
+          <div className="flex flex-col items-center gap-1 text-center">
+          {/* <h3 className="text-2xl font-bold tracking-tight">
+            You have not sent out any invoices yet
+          </h3> */}
+          {/* <Image 
+            src={InvoiceVector1.src} 
+            //src={WomanCheckingInvoiceIllustration.src}
+            height={320} 
+            width={320} 
+            alt="invoice-vector-1" 
+            className='w-80 h-80 dark:hidden'//dark:hidden w-80 h-80
+            //w-80 h-80 
+          /> */}
+          <Image 
+            //src={InvoiceVector3.src} 
+            src={ItmesNotFoundIllustration.src}
+            height={320} 
+            width={320} 
+            alt="invoice-vector-2" 
+            className='w-80 h-80'//hidden dark:block
+          />
+
+          <h3 className="text-2xl font-bold tracking-tight">
+            You do not have any transactions yet
+          </h3>
+          <p className="text-sm text-muted-foreground">
+              Once you verify your account and top up your AjiraPay account, <br/> you can start investing in cUSD and or send out invoices and get paid seamlessly in cUSD
+          </p>
+          <Button className="mt-4 mb-6">
+            <Link href="/dashboard/deposit">
+                Get Started
+            </Link>
+          </Button>
+      </div>
+      
+      : 
+      transansactionHistoryData && transansactionHistoryData.length > 1 && transansactionHistoryData?.slice(0, 5).map((transansactionItem, index) => (
           <div key={index} className="flex items-center">
           <Avatar className="h-9 w-9">
             <AvatarImage src="/avatars/01.png" alt="Avatar" />
