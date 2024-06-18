@@ -53,6 +53,48 @@ export const fetchTransactionHistory = async(bearerToken: string|undefined) =>{
     }
 }
 
+export const fetchFiatBalance = async(bearerToken: string|undefined) =>{
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/balances/user-mpesa-balance' : PROD_BASE_URI + '/payments/balances/user-mpesa-balance'
+    
+    let balance = 0;
+   
+    const payload = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        }
+    }
+
+    const fetchMpesaBalance = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            return balance
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            return balance
+        }
+
+        if(data['status'] == true){
+            balance += data['data']
+            return balance
+        }
+    }).catch((error) =>{
+        console.log(error)
+        return balance
+    })
+
+    try{
+        return fetchMpesaBalance
+    }catch(error){
+        console.log(error)
+        return balance
+    }
+}
+
 export const buyCrypto = async() =>{
 
 }
