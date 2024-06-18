@@ -75,7 +75,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
         </div>
         <div className="ml-auto font-medium">KES 1,999.00</div>
       </div> */}
-      <div className="flex items-center">
+      {/* <div className="flex items-center">
         <Avatar className="flex h-9 w-9 items-center justify-center space-y-0 border">
           <AvatarImage src="/avatars/02.png" alt="Avatar" />
           <AvatarFallback>
@@ -91,8 +91,8 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
             </p>
         </div>
         <div className="ml-auto font-medium">KES 39.00</div>
-      </div>
-      <div className="flex items-center">
+      </div> */}
+      {/* <div className="flex items-center">
         <Avatar className="h-9 w-9">
           <AvatarImage src="/avatars/03.png" alt="Avatar" />
           <AvatarFallback>
@@ -108,8 +108,8 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
           </p>
         </div>
         <div className="ml-auto font-medium">KES 299.00</div>
-      </div>
-      <div className="flex items-center">
+      </div> */}
+      {/* <div className="flex items-center">
         <Avatar className="h-9 w-9">
           <AvatarImage src="/avatars/04.png" alt="Avatar" />
           <AvatarFallback>
@@ -125,8 +125,8 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
             </p>
         </div>
         <div className="ml-auto font-medium">KES 5,300.00</div>
-      </div>
-      <div className="flex items-center">
+      </div> */}
+      {/* <div className="flex items-center">
         <Avatar className="h-9 w-9">
           <AvatarImage src="/avatars/05.png" alt="Avatar" />
           <AvatarFallback>
@@ -138,7 +138,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
           <p className="text-sm text-red-700">Insufficient Balance</p>
         </div>
         <div className="ml-auto font-medium">KES 3,039.00</div>
-      </div>
+      </div> */}
       {/* <div className="flex items-center">
         <Button className=" bg-orange-600 text-white hover:bg-orange-500 hover:text-white">
           <div className="flex gap-2 items-center">
