@@ -18,7 +18,7 @@ export function RecentSales() {
   const fetchTransactionData = useCallback(async() => {
     const result = await fetchTransactionHistory(userSessionData?.user.accessToken)
     const transactions = result
-    console.log(transactions)
+    //console.log(transactions)
     setTransactionData(transactions)
 },[userSessionData])
 
