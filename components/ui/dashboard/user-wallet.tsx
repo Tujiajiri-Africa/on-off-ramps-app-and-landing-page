@@ -76,7 +76,7 @@ export function UserWallet(){
     const form = useForm<z.infer<typeof DepositSchema>>({
         resolver: zodResolver(DepositSchema),
         defaultValues:{
-            amount: 100
+            amount: ""
         }
     })
 
