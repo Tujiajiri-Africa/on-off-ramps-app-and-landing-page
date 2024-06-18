@@ -32,6 +32,33 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
     queryFn: fetchTransactionData
 })
 
+const setStatusColor = (status: string|undefined) => {
+  let statusColor = "";
+  switch(status){
+    case "Success":
+      statusColor = "text-green-600";
+      break;
+
+    case "Pending":
+      statusColor = "text-grey-600";
+      break;
+
+    case "Failed":
+      statusColor = "text-red-600";
+      break;
+      
+    case "Cancelled":
+      statusColor = "text-yellow-600";
+      break;
+      
+     default:
+      statusColor = "text-green-600";
+      break; 
+  }
+
+  return statusColor;
+}
+
 {
   isError && (
       <>
@@ -126,7 +153,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
           </Avatar>
           <div className="ml-4 space-y-1">
             <p className="text-sm font-medium leading-none">{transansactionItem.description}</p>
-            <p className="text-sm  text-green-600"
+            <p className={`text-sm  ${setStatusColor(transansactionItem.status)}`}
             //text-muted-foreground
             >
               {transansactionItem.status}
