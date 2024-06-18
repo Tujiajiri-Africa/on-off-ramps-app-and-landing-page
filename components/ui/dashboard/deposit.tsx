@@ -27,12 +27,11 @@ import {DepositSchema} from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import { ScrollArea } from "@/components/ui/scroll-area";
-
-const handleDeposit = () => {
-
-}
+import { depositFiat } from '@/actions/payments'
+import {useSession} from 'next-auth/react'
 
 export function DepositForm(){
+    const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
@@ -44,6 +43,28 @@ export function DepositForm(){
         }
     })
 
+    const handleDeposit = (values: z.infer<typeof DepositSchema>) => {
+        setError("")
+        setSuccess("")
+    
+        startTransition(async() => {
+            depositFiat(values, userSessionData?.user.accessToken)
+            .then((data:any) => {
+                if(data?.data.error){
+                    //form.reset()
+                    setError(data?.data.error)
+                }
+                if(data?.data.success){
+                    form.reset()
+                    setSuccess(data?.data.success)
+                }
+            }).catch(() => {
+                setError("Something went wrong")
+                setSuccess("")
+            })
+        })
+    }
+    
     return (<>
     <ScrollArea className='h-full'>
         <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
@@ -56,7 +77,10 @@ export function DepositForm(){
         <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none'>
         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
             <Form {...form}>
-                <form>
+                <form
+                    onSubmit={form.handleSubmit(handleDeposit)} 
+                    className="space-y-6"
+                >
                 <Card>
             <CardHeader>
                 <CardTitle>Deposit</CardTitle>
