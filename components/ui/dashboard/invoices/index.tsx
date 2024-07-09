@@ -951,7 +951,7 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
 
 export function InvoiceComponent(){
   const invoiceRef  = useRef<any>();
-
+  const {data: userSessionData} = useSession()
   const downloadPdf = async() => {
     const inputData = invoiceRef.current
     //const invoiceDiv:React.ElementRef = document.querySelector('#invoice-div');
@@ -1034,7 +1034,8 @@ export function InvoiceComponent(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                KES 43,184.00
+                                                {/* KES 43,184.00 */}
+                                                { `${userSessionData?.user.currency} 43,184.00`}
                                             </div>
                                             {/* <p className='text-sm font-normal'>Available Balance</p> */}
                                             <p className="text-xs text-muted-foreground mb-6">
