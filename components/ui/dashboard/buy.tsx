@@ -46,8 +46,10 @@ import {supportedAssets, supportedPaymentMethods} from '@/helpers/data'
 import {Clock8Icon} from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import {useSession} from 'next-auth/react'
 
 export function BuyComponent(){
+    const {data: userSessionData} = useSession()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
   
@@ -217,7 +219,7 @@ export function BuyComponent(){
                     <AccordionItem value="item-1">
                         <AccordionTrigger className='text-[14px] text-gray-700 dark:text-gray-400'>Expand to view quote details</AccordionTrigger>
                         <AccordionContent>
-                            <p className='text-gray-700 dark:text-gray-400'>You will receive ~2.26 USDT for KES 300.00</p>
+                            <p className='text-gray-700 dark:text-gray-400'>You will receive ~2.26 USDT for {`${userSessionData?.user.currency } 300.00`}</p>
                             <br/>
                             <Table className='text-sm'>
                             {/* <TableCaption>Quote details</TableCaption> */}
@@ -231,8 +233,8 @@ export function BuyComponent(){
                                     </TableHeader>
                                     <TableBody>
                                         <TableRow>
-                                        <TableCell className="font-medium">~KES 132.00</TableCell>
-                                        <TableCell>KES 3.00</TableCell>
+                                        <TableCell className="font-medium">{`~ ${userSessionData?.user.currency } 132.00`}</TableCell>
+                                        <TableCell>{`${userSessionData?.user.currency } 3.00`}</TableCell>
                                         {/* <TableCell>Credit Card</TableCell>
                                         <TableCell className="text-right">$250.00</TableCell> */}
                                         </TableRow>
