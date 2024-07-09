@@ -162,6 +162,7 @@ export function UserWallet(){
                                             </p> */}
                                             <br></br>
                                             <hr></hr>
+                                            <br></br>
                                             <div className='flex flex-row gap-2'>
                                             <Button
                                                 className="w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white"
