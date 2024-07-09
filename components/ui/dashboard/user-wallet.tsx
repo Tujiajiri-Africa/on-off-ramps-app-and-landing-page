@@ -126,7 +126,7 @@ export function UserWallet(){
                                 >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                         <CardTitle className="text-sm font-medium">
-                                            KES
+                                            { userSessionData?.user.currency }
                                         </CardTitle>
                                         {/* <Image
                                             src={BTC_LOGO.src}
@@ -220,7 +220,8 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                KES 9,400.00
+                                                {/* KES 9,400.00 */}
+                                                { `${ userSessionData?.user.currency } 9,400.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
@@ -254,7 +255,8 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                KES 5,184.00
+                                                {/* KES 5,184.00 */}
+                                                { `${ userSessionData?.user.currency } 5,184.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
@@ -288,7 +290,8 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                KES 8,184.00
+                                                {/* KES 8,184.00 */}
+                                                { `${ userSessionData?.user.currency } 8,184.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
@@ -322,7 +325,8 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                KES 2,184.00
+                                                {/* KES 2,184.00 */}
+                                                { `${ userSessionData?.user.currency } 2,184.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
