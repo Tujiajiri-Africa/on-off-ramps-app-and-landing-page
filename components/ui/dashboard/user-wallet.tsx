@@ -151,7 +151,7 @@ export function UserWallet(){
 
                                                     :
                                                     
-                                                    `KES ${fiatBalance?.toString()}`
+                                                    `${userSessionData?.user.currency} ${fiatBalance?.toString()}`
                                                 }
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
