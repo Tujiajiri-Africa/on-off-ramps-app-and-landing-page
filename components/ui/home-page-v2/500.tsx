@@ -5,6 +5,7 @@ import Link from 'next/link'
 import _404_Image from '@/app/assets/backgrounds/404-2.png'
 import GroupImage from '@/app/assets/backgrounds/Group.png'
 import Image from 'next/image'
+import {Button} from '@/components/ui/button'
 
 export default function ServerErrorPageV2() {
 
@@ -24,11 +25,14 @@ export default function ServerErrorPageV2() {
                                     Oops! Something wen&apos;t wrong
                                 </h1>
                                 <p className="my-2 text-slate-900">Sorry about that! Please click the button below to reload the page</p>
-                                <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-orange-600 text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
-                                    
-                                    <Link href="/">
+                                <button 
+                                    className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-orange-600 text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
+                                    onClick={() => window.location.reload()}
+                                    >
+                                        Reload Page
+                                    {/* <Link href="/">
                                         Refresh Page
-                                    </Link>
+                                    </Link> */}
                                 </button>
                             </div>
                         </div>
