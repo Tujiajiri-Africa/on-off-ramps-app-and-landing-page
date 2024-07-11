@@ -77,14 +77,14 @@ export async function MainUserDashboard() {
                     </Link>
           </Button> */}
 
-        <Tabs defaultValue="overview" className="space-y-4">
+        <Tabs defaultValue="main_wallet" className="space-y-4">
             <DashboardIntro />
           <TabsList className="w-full">
-            <TabsTrigger value="overview">Trending 🔥</TabsTrigger>
             <TabsTrigger value="main_wallet">Wallet</TabsTrigger>
+            <TabsTrigger value="trending_assets">Trending 🔥</TabsTrigger>
             <TabsTrigger value="transaction_history">Transaction History</TabsTrigger>
           </TabsList>
-          <TabsContent value="overview" className="space-y-4"
+          <TabsContent value="trending_assets" className="space-y-4"
           //
           >
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
