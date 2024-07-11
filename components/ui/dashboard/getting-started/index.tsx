@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useSession } from "next-auth/react";
 
 export function DashboardIntro(){
-    const session = useSession()
+    const {data: userSessionData} = useSession()
 
     return (
         <div className="w-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg p-8 h-45">
@@ -21,23 +21,23 @@ export function DashboardIntro(){
                   Get verified
               </Link>
           </div> */}
-          <div className="col-span-2">
-              {/* <h1 className="text-4xl font-bold text-white mb-4">
+          {/* <div className="col-span-2">
+              <h1 className="text-4xl font-bold text-white mb-4">
                   Top Up Account
-              </h1> */}
+              </h1>
               <h1 className="text-3xl font-bold text-white mb-4">
                   Top Up Account
               </h1>
               <p className="text-md text-white mb-8">
                   We&apos;re happy to see you join us, start by topping up your account with M-Pesa to get started.
               </p>
-              {/* <p className="text-lg text-white mb-8">
+              <p className="text-lg text-white mb-8">
                   After verification, you are now ready to top up your account and seamlessly manage transactions.
-              </p> */}
+              </p>
               <Link href="/dashboard/deposit" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Deposit
               </Link>
-          </div>
+          </div> */}
           <div className="col-span-2">
             {/* <Image src={AboutPageIllustration.src} width={150} height={20} alt='d' className="h-auto"/> */}
             <h1 className="text-3xl font-bold text-white mb-4">
@@ -51,7 +51,7 @@ export function DashboardIntro(){
               </p> */}
                 <p className="text-md text-white mb-8">
                   {/* Start buying and selling crypto, create and manage invoices with ease. */}
-                  You accumulate rewards in KES and cUSD when you buy and sell cUSD from us.
+                  Start accumulating rewards in cUSD and {userSessionData?.user.currency} when you buy and sell cUSD from us
               </p>
               <Link href="/dashboard/buy-sell-crypto" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Get started
