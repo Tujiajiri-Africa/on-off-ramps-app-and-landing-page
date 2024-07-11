@@ -15,6 +15,7 @@ import ItmesNotFoundIllustration from '@/app/assets/backgrounds/items-not-found-
 import Image from 'next/image';
 import {Button} from '@/components/ui/button';
 import Link from 'next/link';
+import WomanCheckingInvoiceIllustration from '@/app/assets/backgrounds/invoices/woman-checking-invoice-colored.svg'
 
 export function RecentSales() {
   const {data: userSessionData} = useSession()
@@ -122,9 +123,10 @@ const setStatusColor = (status: string|undefined) => {
           /> */}
           <Image 
             //src={InvoiceVector3.src} 
-            src={ItmesNotFoundIllustration.src}
-            height={50} 
-            width={50} //320
+            //src={ItmesNotFoundIllustration.src}
+            src={WomanCheckingInvoiceIllustration.src}
+            height={320} 
+            width={320} //320
             // height={320} 
             // width={320} //320
             alt="invoice-vector-2" 
