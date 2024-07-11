@@ -39,6 +39,7 @@ import { DashboardIntro } from '@/components/ui/dashboard/getting-started'
 import { ArrowUpRight } from "lucide-react";
 import {useSession} from 'next-auth/react'
 import {UserWallet} from '@/components/ui/dashboard/user-wallet'
+//Emohis https://emojidb.org/wallet-emojis
 
 export async function MainUserDashboard() {
   const {data: userSessionData} = useSession()
