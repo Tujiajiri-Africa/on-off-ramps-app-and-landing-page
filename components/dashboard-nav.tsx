@@ -65,11 +65,11 @@ export function DashboardNav({ items, setOpen }: DashboardNavProps) {
 
       <Separator className="max-xl:my-6 my-1 2xl:my-6" />
 
-      <span className="cursor-pointer group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
+      {/* <span className="cursor-pointer group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
         <Settings className="mr-2 h-4 w-4" />
         Settings
         
-      </span>
+      </span> */}
       
       <span className="group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground">
       {/* <Button
