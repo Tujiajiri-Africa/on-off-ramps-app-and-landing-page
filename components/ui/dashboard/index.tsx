@@ -84,7 +84,7 @@ export async function MainUserDashboard() {
             <TabsTrigger value="main_wallet">Wallet 💸</TabsTrigger>
             <TabsTrigger value="trending_assets">Trending 🔥</TabsTrigger>
             <TabsTrigger value="transaction_history">Transactions 🔁</TabsTrigger>
-            <TabsTrigger value="rewards" disabled>Rewards 🎁</TabsTrigger>
+            <TabsTrigger value="rewards" disabled>Rewards 🤑</TabsTrigger>
           </TabsList>
           <TabsContent value="trending_assets" className="space-y-4"
           //
