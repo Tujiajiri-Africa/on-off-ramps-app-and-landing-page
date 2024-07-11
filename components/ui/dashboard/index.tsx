@@ -94,7 +94,7 @@ export async function MainUserDashboard() {
            //className="w-full"
           
           >
-            <TabsTrigger value="rewards">Rewards 🤑</TabsTrigger>
+            <TabsTrigger value="rewards">Rewards and Earnings 🤑</TabsTrigger>
           </TabsList>
           <TabsContent value="trending_assets" className="space-y-4"
           //
