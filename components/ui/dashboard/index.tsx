@@ -16,6 +16,8 @@ import BTC_LOGO from '@/app/assets/logo/bitcoin-btc-logo.svg'
 import ETH_LOGO from '@/app/assets/logo/ethereum-eth-logo.svg'
 import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
 import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
+import cUSD_LOGO from '@/app/assets/logo/celo-dolar.png'
+
 import Image from 'next/image'
 import {
   getBtcLatestAssetPrice,
@@ -92,7 +94,7 @@ export async function MainUserDashboard() {
                 </CardHeader>
                 <CardContent className="pl-2">
                   <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                  <Card>
+                  {/* <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     BTC
@@ -147,9 +149,9 @@ export async function MainUserDashboard() {
                     </Link>
                   </Button>
                 </CardContent>
-              </Card> 
+              </Card>  */}
               
-              <Card>
+              {/* <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
                     ETH
@@ -202,8 +204,8 @@ export async function MainUserDashboard() {
                     </Link>
                   </Button>
                 </CardContent>
-              </Card>
-              <Card>
+              </Card> */}
+              {/* <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">SOL</CardTitle>
                      <Image
@@ -255,30 +257,33 @@ export async function MainUserDashboard() {
                     </Link>
                   </Button>
                 </CardContent>
-              </Card>
+              </Card> */}
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
-                    MATIC
+                    cUSD
+                    {/* MATIC */}
                   </CardTitle>
                    <Image
-                      src={MATIC_LOGO.src}
+                      //src={MATIC_LOGO.src}
+                      src={cUSD_LOGO.src}
                       width={30}
                       height={30}
-                      alt={'matic-logo'}
+                      // alt={'matic-logo'}
+                      alt={'celo-dollar-logo'}
                   />
                 </CardHeader>
                 <CardContent>
                 <div className="text-2xl font-bold">$ 
-                    {
+                    {/* {
                       //await getAssetTimeSeriesData('BTC','USDT')
                       (await getMaticLatestAssetPrice()).price
-                    }
-
+                    } */}
+                      1
                   </div>
                   
                   <p className="text-xs text-muted-foreground mb-6">
-                    { 
+                    {/* { 
                       parseFloat((await getMaticLatestAssetPrice())._1hr_change) < 0 && 
                     (
                       <>
@@ -288,8 +293,8 @@ export async function MainUserDashboard() {
                       </>
                       
                       )
-                    } 
-                     { 
+                    }  */}
+                     {/* { 
                       parseFloat((await getMaticLatestAssetPrice())._1hr_change) > 0 && 
                     (
                       <>
@@ -299,7 +304,10 @@ export async function MainUserDashboard() {
                       </>
                       
                       )
-                    }
+                    } */}
+                        <span className="text-green-600">
+                          0.02%
+                        </span> 1hr Change
                   </p>
                   <Button
                     className="w-full dark:bg-[#4B49AC]/95 text-white"
@@ -322,22 +330,22 @@ export async function MainUserDashboard() {
               <WithdrawForm />
             </div> */}
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
-              <Card className="col-span-4">
+              {/* <Card className="col-span-4">
                 <CardHeader>
                 <div className="flex items-center justify-between space-y-2">
                     <div className="md:flex items-center space-x-2">
                     <CardTitle>
                       Balance Overview
                     </CardTitle>
-                    {/* <CalendarDateRangePicker /> */}
+                    <CalendarDateRangePicker />
                     </div>
                   </div>   
                 </CardHeader>
                 <CardContent className="pl-2">
-                  {/* <Overview />  */}
+                  <Overview /> 
                   <UserBalanceChartAnalysis />
                 </CardContent>
-              </Card>
+              </Card> */}
               <Card className="col-span-4 md:col-span-3">
                 <CardHeader>
                 <div className="flex items-center justify-between space-y-2">
