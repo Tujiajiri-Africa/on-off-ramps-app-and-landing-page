@@ -264,7 +264,7 @@ export const countries:CountryProps[] = [
 export type Asset = {
   value: string
   label: string
-  icon: ImageProps
+  icon?: ImageProps | StaticImageData
   active: boolean
   chain? : 'Ethereum'|'Polygon'|'Arbitrum'|'Bitcoin'|'Celo'|'Tron'|'Optimism'|'Solana',
   address? : string
