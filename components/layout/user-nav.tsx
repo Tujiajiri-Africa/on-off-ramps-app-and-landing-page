@@ -60,11 +60,11 @@ export function UserNav() {
               Billing
               <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> 
             </DropdownMenuItem> */}
-            <DropdownMenuItem className="cursor-pointer">
+            {/* <DropdownMenuItem className="cursor-pointer">
               <Settings className="mr-2 h-4 w-4" />
               Settings
-              {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>  */}
-            </DropdownMenuItem>
+              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> 
+            </DropdownMenuItem> */}
             {/* <DropdownMenuItem>
               Support
             </DropdownMenuItem> */}

@@ -66,12 +66,12 @@ export const navItems: NavItem[] = [
       icon: "dolarSign",
       label: "Buy/Sell",
     },
-    {
-      title: "Invoice",
-      href: "/dashboard/invoices",
-      icon: "handCoins",
-      label: "invoice",
-    },
+    // {
+    //   title: "Invoice",
+    //   href: "/dashboard/invoices",
+    //   icon: "handCoins",
+    //   label: "invoice",
+    // },
     // {
     //   title: "Withdraw",
     //   href: "/dashboard/withdrawals",
