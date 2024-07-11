@@ -119,7 +119,8 @@ export const THEME_CONFIG = {
 export const SOCIAL_TWITTER = 'ajirapayDefi'
 export const SOCIAL_GITHUB = 'Tujiajiri-Africa'
 
-export const ETH_CHAINS = [linea, polygon, arbitrum, bsc, celo]//lineaTestnet,linea,kava, mainnet, arbitrum, optimism, polygon, bsc, kava, avalanche, kavaTestNet, bscTestnet]
+//linea, polygon, arbitrum, bsc, 
+export const ETH_CHAINS = [celo]//lineaTestnet,linea,kava, mainnet, arbitrum, optimism, polygon, bsc, kava, avalanche, kavaTestNet, bscTestnet]
 export const SERVER_SESSION_SETTINGS = {
   cookieName: SITE_NAME,
   password: process.env.SESSION_PASSWORD ?? 'UPDATE_TO_complex_password_at_least_32_characters_long',

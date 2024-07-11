@@ -37,7 +37,7 @@ const infuraKey = "9a05b8761bf046b1b808f748d6567107"//process.env.NEXT_PUBLIC_IN
 const { chains, publicClient } = configureChains(
   ETH_CHAINS, 
   [
-    publicProvider(), 
+    //publicProvider(), 
     w3mProvider({ projectId: projectId }),
     infuraProvider({apiKey: infuraKey }),
    // alchemyProvider({apiKey: projectId })
@@ -88,7 +88,7 @@ export const connectors = connectorsForWallets([
 //   throwForSwitchChainNotSupported: true
 // })
 
-export const wagmiConfig = createConfig({
+export const web3WagmiConfig = createConfig({
     autoConnect: true,
     connectors,
     publicClient,
