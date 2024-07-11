@@ -124,7 +124,7 @@ const setStatusColor = (status: string|undefined) => {
             //src={InvoiceVector3.src} 
             src={ItmesNotFoundIllustration.src}
             height={200} 
-            width={100} //320
+            width={200} //320
             // height={320} 
             // width={320} //320
             alt="invoice-vector-2" 
@@ -135,7 +135,8 @@ const setStatusColor = (status: string|undefined) => {
             You do not have any transactions yet
           </h3>
           <p className="text-sm text-muted-foreground">
-              Once you verify your account and top up your AjiraPay account, <br/> you can start investing in cUSD and or send out invoices and get paid seamlessly in cUSD
+              {/* Once you verify your account and top up your AjiraPay account, <br/> you can start investing in cUSD and or send out invoices and get paid seamlessly in cUSD */}
+              You can start investing in cUSD with as little as 1 {userSessionData?.user.currency} from M-Pesa and earn cash rewards in either {userSessionData?.user.currency} and cUSD
           </p>
           <Button className="mt-4 mb-6">
             <Link href="/dashboard/deposit">
