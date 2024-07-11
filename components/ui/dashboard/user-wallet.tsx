@@ -102,8 +102,15 @@ export function UserWallet(){
                             My Wallet
                         </h2>
                     </div> */}
-                    <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7'>
-                        <Card className='col-span-5 sm:col-span-2'>
+                    <div 
+                        className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
+                    //className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7'
+                    >
+                        <Card 
+                            className='col-span-5 sm:col-span-1 lg:col-span-5'
+                            //className='col-span-5 sm:col-span-2'
+                            
+                            >
                             <CardHeader>
                                     <div className="flex items-center justify-between space-y-2">
                                         <div className="md:flex items-center space-x-2">
@@ -205,7 +212,7 @@ export function UserWallet(){
                                 </div>   
                             </CardHeader>
                             <CardContent className="pl-2">
-                                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4">
+                                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-1">
                                     {/* <Card className=''
                                     //bg-[#9EBDFF]/60 dark:bg-[#9EBDFF]/20
                                     >
