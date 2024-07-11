@@ -1,6 +1,8 @@
+declare var window: any
+
 'use client'
 
-import React, {useState } from 'react';
+import React, {useEffect, useState } from 'react';
 
 import ThemeToggle from "@/components/layout/ThemeToggle/theme-toggle";
 import { cn } from "@/lib/utils";
@@ -11,13 +13,40 @@ import logo from '@/app/assets/logo/nana-pay/logo-no-background.svg'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button";
 import { getConnectedMiniPayAddress } from '@/hooks/useGetMiniPayAddress';
+import {useConnect, useAccount} from 'wagmi'
+import { InjectedConnector } from "wagmi/connectors/injected";
 
 export default function Header() {
-  const [connectedMiniPayAddress, setConnectedMiniPayAddress] = useState<string|undefined>("")
+  const {address, isConnected} = useAccount()
 
-  getConnectedMiniPayAddress().then((value) => {
-    setConnectedMiniPayAddress(value);
-  })
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  });
+
+  const checkMiniPayExists = () => {
+    if (typeof window.ethereum !== 'undefined') {
+      
+    }
+  }
+
+  useEffect(() => {
+    connect();
+  }, [connect]);
+  
+  // useEffect(() => {
+  //   if (window.ethereum && window.ethereum.isMiniPay) {
+  //     // User is using MiniPay wallet
+  
+  //     connect({ 
+  //       // connector: injected({ 
+  //       //   target: "metaMask" 
+  //       // }) 
+  //       connector: injected({ 
+  //         target: "metaMask" 
+  //       }) 
+  //     });
+  //   }
+  // }, []);
 
   return (
     <div className="fixed top-0 left-0 right-0 supports-backdrop-blur:bg-background/60 border-b bg-background/95 backdrop-blur z-20">
@@ -41,10 +70,15 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button>
+          {/* {window == undefined && window?.ethereum.isMiniPay ? <p></p> : <p></p>} */}
+          {
+            isConnected ? address : ''
+          }
+
+          {/* <Button>
             Connect Wallet
-          </Button>
-          {connectedMiniPayAddress}
+          </Button> */}
+          
 
           <UserNav />
           <ThemeToggle />
