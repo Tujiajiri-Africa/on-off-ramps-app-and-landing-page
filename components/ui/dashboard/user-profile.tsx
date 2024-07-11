@@ -74,32 +74,32 @@ export function UserProfileComponent(){
         <>
         <ScrollArea className="h-full">
         <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-        <div className="flex items-center justify-between space-y-2">
+        {/* <div className="flex items-center justify-between space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">
             Profile
           </h2>
           
           <div className="hidden sm:flex items-center space-x-2 ">
-            {/* <CalendarDateRangePicker /> */}
-            {/* <Button
+            
+            <Button
                 className="bg-[#16a34a] dark:text-white"
             >
                 Send/Receive
-            </Button> */}
+            </Button>
 
                 <Sheet>
-                    {/* <SheetTrigger asChild>
+                    <SheetTrigger asChild>
                         <Button >Add Mobile Money Number</Button>
-                    </SheetTrigger> */}
+                    </SheetTrigger>
                     <SheetContent>
                         <UserAddPhoneForm />
                     </SheetContent>
                   </Sheet>
 
                   <Sheet>
-                    {/* <SheetTrigger asChild>
+                    <SheetTrigger asChild>
                         <Button>Edit Profile</Button>
-                    </SheetTrigger> */}
+                    </SheetTrigger>
                     <SheetContent>
                         <UserProfileUpdateForm />
                     </SheetContent>
@@ -114,22 +114,22 @@ export function UserProfileComponent(){
                       </SheetContent>
                     </Sheet>
           </div>
-        </div>
+        </div> */}
 
-        <div className="sm:hidden grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"> 
+        {/* <div className="sm:hidden grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3"> 
         <Sheet>
-                    {/* <SheetTrigger asChild>
+                    <SheetTrigger asChild>
                         <Button >Add Mobile Money Number</Button>
-                    </SheetTrigger> */}
+                    </SheetTrigger>
                     <SheetContent>
                         <UserAddPhoneForm />
                     </SheetContent>
                   </Sheet>
 
                   <Sheet>
-                    {/* <SheetTrigger asChild>
+                    <SheetTrigger asChild>
                         <Button>Edit Profile</Button>
-                    </SheetTrigger> */}
+                    </SheetTrigger>
                     <SheetContent>
                         <UserProfileUpdateForm />
                     </SheetContent>
@@ -144,7 +144,7 @@ export function UserProfileComponent(){
                       </SheetContent>
                     </Sheet>
           
-        </div>
+        </div> */}
         <Tabs defaultValue="personal_info" className="space-y-4 w-full">
             {/* <DashboardIntro /> */}
           <TabsList>

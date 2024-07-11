@@ -53,13 +53,13 @@ export const navItems: NavItem[] = [
       icon: "dashboard",
       label: "Dashboard",
     },
-    {
-      title: "Verification",
-      href: "/dashboard/verification",
-      icon: "check_circle_icon",
-      //icon: 'badge_check'
-      label: "Verification",
-    },
+    // {
+    //   title: "Verification",
+    //   href: "/dashboard/verification",
+    //   icon: "check_circle_icon",
+    //   //icon: 'badge_check'
+    //   label: "Verification",
+    // },
     {
       title: "Buy/Sell Crypto",
       href: "/dashboard/buy-sell-crypto",
