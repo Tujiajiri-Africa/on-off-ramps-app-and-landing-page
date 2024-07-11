@@ -1,3 +1,5 @@
+'use client'
+
 import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
 import { RecentSales } from "@/components/recent-sales";
@@ -35,8 +37,11 @@ import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart
 import AboutPageIllustration from '@/app/assets/logo/about-section-illustration-svg.svg'
 import { DashboardIntro } from '@/components/ui/dashboard/getting-started'
 import { ArrowUpRight } from "lucide-react";
+import {useSession} from 'next-auth/react'
 
 export async function MainUserDashboard() {
+  const {data: userSessionData} = useSession()
+
   return (
  <ScrollArea className="h-full">
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
@@ -63,13 +68,13 @@ export async function MainUserDashboard() {
           </div>
         </div>
         
-          <Button
+          {/* <Button
                 className="sm:hidden bg-[#16a34a] dark:text-white"
             >
                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDT&currency=KES`}>
                         Buy/Sell
                     </Link>
-          </Button>
+          </Button> */}
 
         <Tabs defaultValue="overview" className="space-y-4">
             <DashboardIntro />
@@ -86,7 +91,8 @@ export async function MainUserDashboard() {
                 <div className="flex items-center justify-between space-y-2">
                     <div className="md:flex items-center space-x-2">
                     <CardTitle>
-                      Popular Assets
+                      {/* Popular Assets */}
+                      Trending Assets 🔥
                     </CardTitle>
                    
                     </div>
@@ -261,7 +267,7 @@ export async function MainUserDashboard() {
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">
-                    cUSD
+                    cUSD 
                     {/* MATIC */}
                   </CardTitle>
                    <Image
@@ -279,7 +285,7 @@ export async function MainUserDashboard() {
                       //await getAssetTimeSeriesData('BTC','USDT')
                       (await getMaticLatestAssetPrice()).price
                     } */}
-                      1
+                      1 {`(~${userSessionData?.user.currency} 129.00)`}
                   </div>
                   
                   <p className="text-xs text-muted-foreground mb-6">
