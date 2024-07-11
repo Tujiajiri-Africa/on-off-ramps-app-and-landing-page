@@ -35,13 +35,14 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
-
+import {useSession} from 'next-auth/react'
 
 const handleWithdraw = () => {
 
 }
 
 export function WithdrawForm(){
+    const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
@@ -68,7 +69,8 @@ export function WithdrawForm(){
         <Card>
             <CardHeader>
                 <CardTitle>Withdraw</CardTitle>
-                <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription>
+                <CardDescription className="mb-10">Withdraw {userSessionData?.user.currency} from your AjiraPay wallet to your M-Pesa</CardDescription>
+                {/* <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription> */}
             </CardHeader>
             <CardContent>
             
@@ -86,7 +88,8 @@ export function WithdrawForm(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        Amount
+                                        {/* Amount */}
+                                        Amount in {userSessionData?.user.currency}
                                     </FormLabel>
                                     <div 
                                         className='mt-1'

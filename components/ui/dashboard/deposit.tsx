@@ -84,7 +84,8 @@ export function DepositForm(){
                 <Card>
             <CardHeader>
                 <CardTitle>Deposit</CardTitle>
-                <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription>
+                <CardDescription className="mb-10">Top up your AjiraPay wallet with {userSessionData?.user.currency} from M-Pesa and start making money buying and selling cUSD seamlessly</CardDescription>
+                {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
             <CardContent>
                     <div>
@@ -96,7 +97,7 @@ export function DepositForm(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        Amount
+                                        Amount in {userSessionData?.user.currency}
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -105,7 +106,8 @@ export function DepositForm(){
                                             <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="Enter amount to deposit"
+                                                placeholder="Enter KES amount to deposit"
+                                                // placeholder="Enter amount to deposit"
                                                 type='number'
                                                 disabled={isPending}
                                                 min={0}

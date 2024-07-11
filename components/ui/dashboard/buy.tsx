@@ -42,7 +42,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {BuyAssetSchema} from '@/schemas'
-import {supportedAssets, supportedPaymentMethods} from '@/helpers/data'
+import {supportedAssets, supportedPaymentMethods, supportedMiniPayAssets} from '@/helpers/data'
 import {Clock8Icon} from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -71,7 +71,8 @@ export function BuyComponent(){
                 <Card>
                     <CardHeader>
                       <CardTitle>Buy</CardTitle>
-                      <CardDescription>Buy crypto and pay with either mobile money or from your bank account</CardDescription>
+                      {/* <CardDescription>Buy crypto and pay with either mobile money or from your bank account</CardDescription> */}
+                      <CardDescription>Buy cUSD with {userSessionData?.user.currency} from M-Pesa</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>
@@ -112,7 +113,8 @@ export function BuyComponent(){
                                                 </SelectTrigger>
                                                 <SelectContent position="popper">
                                                     {
-                                                        supportedAssets
+                                                        // supportedAssets
+                                                        supportedMiniPayAssets
                                                         .filter((s) => s.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((asset) => (
@@ -142,7 +144,8 @@ export function BuyComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        Amount
+                                        {/* Amount */}
+                                        Amount in { userSessionData?.user.currency}
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -219,7 +222,10 @@ export function BuyComponent(){
                     <AccordionItem value="item-1">
                         <AccordionTrigger className='text-[14px] text-gray-700 dark:text-gray-400'>Expand to view quote details</AccordionTrigger>
                         <AccordionContent>
-                            <p className='text-gray-700 dark:text-gray-400'>You will receive ~2.26 USDT for {`${userSessionData?.user.currency } 300.00`}</p>
+                            <p className='text-gray-700 dark:text-gray-400'>
+                                {/* You will receive ~2.26 USDT for {`${userSessionData?.user.currency } 300.00`} */}
+                                You will receive ~2.26 cUSD for {`${userSessionData?.user.currency } 300.00`}
+                            </p>
                             <br/>
                             <Table className='text-sm'>
                             {/* <TableCaption>Quote details</TableCaption> */}
