@@ -10,7 +10,7 @@ export function DashboardIntro(){
     return (
         <div className="w-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg p-8 h-45">
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
-          <div className="col-span-3">
+          {/* <div className="col-span-3">
               <h1 className="text-4xl font-bold text-white mb-4">
                   Complete Account Verification
               </h1>
@@ -20,25 +20,38 @@ export function DashboardIntro(){
               <Link href="/dashboard/verification" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Get verified
               </Link>
-          </div>
+          </div> */}
           <div className="col-span-2">
-              <h1 className="text-4xl font-bold text-white mb-4">
+              {/* <h1 className="text-4xl font-bold text-white mb-4">
+                  Top Up Account
+              </h1> */}
+              <h1 className="text-3xl font-bold text-white mb-4">
                   Top Up Account
               </h1>
-              <p className="text-lg text-white mb-8">
-                  After verification, you are now ready to top up your account and seamlessly manage transactions.
+              <p className="text-md text-white mb-8">
+                  Top up your account with M-Pesa and start managing your account seamlessly.
               </p>
+              {/* <p className="text-lg text-white mb-8">
+                  After verification, you are now ready to top up your account and seamlessly manage transactions.
+              </p> */}
               <Link href="/dashboard/deposit" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Deposit
               </Link>
           </div>
           <div className="col-span-2">
             {/* <Image src={AboutPageIllustration.src} width={150} height={20} alt='d' className="h-auto"/> */}
-            <h1 className="text-4xl font-bold text-white mb-4">
+            <h1 className="text-3xl font-bold text-white mb-4">
                   Buy/Sell
               </h1>
-              <p className="text-lg text-white mb-8">
+              {/* <h1 className="text-4xl font-bold text-white mb-4">
+                  Buy/Sell
+              </h1> */}
+              {/* <p className="text-lg text-white mb-8">
                   Start buying and selling crypto, create and manage invoices with ease.
+              </p> */}
+                <p className="text-md text-white mb-8">
+                  {/* Start buying and selling crypto, create and manage invoices with ease. */}
+                  Start accumulating rewards when you buy and sell cUSD from us.
               </p>
               <Link href="/dashboard/buy-sell-crypto" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Get started
