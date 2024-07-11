@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 export const getConnectedMiniPayAddress = async() => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [miniPayAddress, setMiniPayAddress] = useState();
       
     if(typeof window !== "undefined") {

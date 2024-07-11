@@ -52,12 +52,16 @@ import {useSession} from 'next-auth/react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UserProfileSchema } from '@/schemas'
 import {UseAddressForm} from '@/components/ui/dashboard/user-address-form'
+import {useMiniPay} from '@/hooks/web3/useConnectWallet'
+import {truncateAddress} from '@/helpers/addresses'
 
 export function UserProfileComponent(){
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+    
+    const miniPayWallet = useMiniPay()
     
     const form = useForm<z.infer<typeof UserProfileSchema>>({
       resolver: zodResolver(UserProfileSchema),
@@ -245,7 +249,7 @@ export function UserProfileComponent(){
                                         name='username'
                                         render={({field}) => (
                                             <FormItem>
-                                                <FormLabel className='block text-sm font-medium text-gray-700'>Username</FormLabel>
+                                                <FormLabel className='block text-sm font-medium text-gray-700'>Wallet</FormLabel>
                                                 <div 
                                                 className='mt-1'
                                                 >
@@ -256,8 +260,9 @@ export function UserProfileComponent(){
                                                         //disabled={isPending}
                                                         {...field}
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                        placeholder="Username"
+                                                        placeholder="wallet"
                                                         type='text'
+                                                        value={truncateAddress(miniPayWallet)}
                                                         
                                                     />
                                                 </FormControl>
