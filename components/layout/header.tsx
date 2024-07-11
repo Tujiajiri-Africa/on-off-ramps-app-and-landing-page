@@ -71,9 +71,9 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           {/* {window == undefined && window?.ethereum.isMiniPay ? <p></p> : <p></p>} */}
-          {
+          {/* {
             isConnected ? address : ''
-          }
+          } */}
 
           {/* <Button>
             Connect Wallet
