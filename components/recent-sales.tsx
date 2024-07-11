@@ -123,8 +123,10 @@ const setStatusColor = (status: string|undefined) => {
           <Image 
             //src={InvoiceVector3.src} 
             src={ItmesNotFoundIllustration.src}
-            height={320} 
-            width={320} 
+            height={200} 
+            width={200} //320
+            // height={320} 
+            // width={320} //320
             alt="invoice-vector-2" 
             className='w-80 h-80'//hidden dark:block
           />
