@@ -93,8 +93,12 @@
     "tailwindcss-animate": "^1.0.7",
     "use-debounce": "^10.0.0",
     "viem": "2.x",
-    "wagmi": "^2.9.11",
-    "zod": "^3.22.4"
+    "wagmi": "^1.1.1",
+    "zod": "^3.22.4",
+    "@rainbow-me/rainbowkit": "^1.0.1",
+    "@chakra-ui/icons": "2.0.14",
+    "@web3modal/ethereum": "^2.4.1",
+    "@chakra-ui/react": "2.4.4"
   },
   "devDependencies": {
     "@types/dateformat": "^5.0.2",
