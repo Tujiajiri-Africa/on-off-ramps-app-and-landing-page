@@ -123,8 +123,8 @@ const setStatusColor = (status: string|undefined) => {
           /> */}
           <Image 
             //src={InvoiceVector3.src} 
-            //src={ItmesNotFoundIllustration.src}
-            src={WomanCheckingInvoiceIllustration.src}
+            src={ItmesNotFoundIllustration.src}
+            //src={WomanCheckingInvoiceIllustration.src}
             height={320} 
             width={320} //320
             // height={320} 
