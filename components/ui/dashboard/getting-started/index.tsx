@@ -29,7 +29,7 @@ export function DashboardIntro(){
                   Top Up Account
               </h1>
               <p className="text-md text-white mb-8">
-                  Top up your account with M-Pesa and start managing your account seamlessly.
+                  We&apos;re happy to see you join us, start by topping up your account with M-Pesa to get started.
               </p>
               {/* <p className="text-lg text-white mb-8">
                   After verification, you are now ready to top up your account and seamlessly manage transactions.
@@ -51,7 +51,7 @@ export function DashboardIntro(){
               </p> */}
                 <p className="text-md text-white mb-8">
                   {/* Start buying and selling crypto, create and manage invoices with ease. */}
-                  Start accumulating rewards when you buy and sell cUSD from us.
+                  You accumulate rewards in KES and cUSD when you buy and sell cUSD from us.
               </p>
               <Link href="/dashboard/buy-sell-crypto" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Get started
