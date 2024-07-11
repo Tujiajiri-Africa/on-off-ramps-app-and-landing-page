@@ -79,7 +79,7 @@ export async function MainUserDashboard() {
 
         <Tabs defaultValue="overview" className="space-y-4">
             <DashboardIntro />
-          <TabsList>
+          <TabsList className="w-full">
             <TabsTrigger value="overview">Trending 🔥</TabsTrigger>
             <TabsTrigger value="main_wallet">Wallet</TabsTrigger>
             <TabsTrigger value="transaction_history">Transaction History</TabsTrigger>
