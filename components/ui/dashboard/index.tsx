@@ -83,7 +83,7 @@ export async function MainUserDashboard() {
           <TabsList className="w-full">
             <TabsTrigger value="main_wallet">Wallet 💸</TabsTrigger>
             <TabsTrigger value="trending_assets">Trending 🔥</TabsTrigger>
-            <TabsTrigger value="transaction_history">Transaction History</TabsTrigger>
+            <TabsTrigger value="transaction_history">Transactions 🔁</TabsTrigger>
           </TabsList>
           <TabsContent value="trending_assets" className="space-y-4"
           //
