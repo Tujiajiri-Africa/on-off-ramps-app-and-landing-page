@@ -108,7 +108,8 @@ export function UserWallet(){
                                     <div className="flex items-center justify-between space-y-2">
                                         <div className="md:flex items-center space-x-2">
                                         <CardTitle>
-                                            Fiat Wallet
+                                            {/* Fiat Wallet */}
+                                            {userSessionData?.user.currency}  Wallet
                                         </CardTitle>
                                         
                                         </div>
@@ -205,7 +206,7 @@ export function UserWallet(){
                             </CardHeader>
                             <CardContent className="pl-2">
                                 <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4">
-                                    <Card className=''
+                                    {/* <Card className=''
                                     //bg-[#9EBDFF]/60 dark:bg-[#9EBDFF]/20
                                     >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -221,7 +222,7 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                {/* KES 9,400.00 */}
+                                                KES 9,400.00
                                                 { `${ userSessionData?.user.currency } 9,400.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
@@ -238,9 +239,9 @@ export function UserWallet(){
                                                 </Link>
                                             </Button>
                                         </CardContent>
-                                    </Card>
+                                    </Card> */}
 
-                                    <Card className=''
+                                    {/* <Card className=''
                                     //bg-orange-600/20 dark:bg-orange-800/20
                                     >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -256,7 +257,7 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                {/* KES 5,184.00 */}
+                                                KES 5,184.00
                                                 { `${ userSessionData?.user.currency } 5,184.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
@@ -273,9 +274,9 @@ export function UserWallet(){
                                                 </Link>
                                             </Button>
                                         </CardContent>
-                                    </Card>
+                                    </Card> */}
 
-                                    <Card className=''
+                                    {/* <Card className=''
                                     //bg-[#7978E9]/60 dark:bg-[#7978E9]/80
                                     >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -291,7 +292,7 @@ export function UserWallet(){
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
-                                                {/* KES 8,184.00 */}
+                                                KES 8,184.00
                                                 { `${ userSessionData?.user.currency } 8,184.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
@@ -308,7 +309,7 @@ export function UserWallet(){
                                                 </Link>
                                             </Button>
                                         </CardContent>
-                                    </Card>
+                                    </Card> */}
 
                                     <Card className=''
                                     //bg-[#F3797E]/20 dark:bg-teal-800/60
@@ -351,14 +352,14 @@ export function UserWallet(){
                         </Card>
                     </div>
                     <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
-                        <Card className="col-span-5 lg:col-span-4 2xl:col-span-5">
+                        {/* <Card className="col-span-5 lg:col-span-4 2xl:col-span-5">
                             <CardHeader>
                             <div className="flex items-center justify-between space-y-2">
                                 <div className="md:flex items-center space-x-2">
                                 <CardTitle>
                                     Balance Analysis
                                 </CardTitle>
-                                {/* <CalendarDateRangePicker /> */}
+                                <CalendarDateRangePicker />
                                 </div>
                             </div>   
                             </CardHeader>
@@ -366,11 +367,11 @@ export function UserWallet(){
                                 <UserBalanceChartAnalysis /> 
                              
                             </CardContent>
-                        </Card>
+                        </Card> */}
                         <Card 
                             className='col-span-5 sm:col-span-2 lg:col-span-3 2xl:col-span-2'
                         >
-                        <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
+                        {/* <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
              
                             <Tabs defaultValue="deposit" className="w-full">
                             <TabsList className='w-full'>
@@ -490,7 +491,7 @@ export function UserWallet(){
                                         className='mt-1'
                                         >
                                         <FormControl>
-                                            {/* <Input
+                                            <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="Enter amount to deposit"
@@ -498,7 +499,7 @@ export function UserWallet(){
                                                 //disabled={isPending}
                                                 min={0}
                                                 
-                                            /> */}
+                                            />
                                             <Select
                                             {...field}
                                             onValueChange={field.onChange}
@@ -539,7 +540,7 @@ export function UserWallet(){
                             </TabsContent>
                             </Tabs>
             
-           </CardContent>
+           </CardContent> */}
                         </Card>
                     </div>
                 </div>

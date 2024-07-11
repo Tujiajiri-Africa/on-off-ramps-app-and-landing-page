@@ -42,7 +42,7 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {SellAssetSchema} from '@/schemas'
-import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
+import {supportedAssets,supportedPaymentMethods, supportedMiniPayAssets} from '@/helpers/data'
 import Link from 'next/link'
 import { Clock8Icon } from 'lucide-react'
 import Image from 'next/image'
@@ -67,7 +67,8 @@ export function SellComponent(){
                         <Card>
                     <CardHeader>
                       <CardTitle>Sell</CardTitle>
-                      <CardDescription>Sell your crypto for fiat and receive your money into your mobile money or directly to your bank account</CardDescription>
+                      <CardDescription>Sell your cUSD for {userSessionData?.user.currency} and receive your money directly to your M-Pesa</CardDescription>
+                      {/* <CardDescription>Sell your cUSD for {userSessionData?.user.currency} and receive your money into your mobile money or directly to your bank account</CardDescription> */}
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>
@@ -108,7 +109,8 @@ export function SellComponent(){
                                                 </SelectTrigger>
                                                 <SelectContent position="popper">
                                                     {
-                                                        supportedAssets
+                                                        //supportedAssets
+                                                        supportedMiniPayAssets
                                                         .filter((s) => s.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((asset) => (
@@ -138,7 +140,8 @@ export function SellComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        Amount
+                                        {/* Amount */}
+                                        Amount in cUSD
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -169,7 +172,8 @@ export function SellComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        Select how you want to receive the pay
+                                        {/* Select how you want to receive the pay */}
+                                        Select how you want to receive your money
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -214,7 +218,8 @@ export function SellComponent(){
                     <AccordionItem value="item-1">
                         <AccordionTrigger className='text-[14px] text-gray-700 dark:text-gray-400'>Expand to view quote details</AccordionTrigger>
                         <AccordionContent>
-                            You will receive ~300.00 {userSessionData?.user.currency} for 2.26 USDT
+                            {/* You will receive ~300.00 {userSessionData?.user.currency} for 2.26 USDT */}
+                            You will receive ~300.00 {userSessionData?.user.currency} for 2.26 cUSD
                             <br/>
                             <Table className='text-sm'>
                             {/* <TableCaption>Quote details</TableCaption> */}

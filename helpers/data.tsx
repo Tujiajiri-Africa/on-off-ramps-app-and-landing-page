@@ -264,7 +264,7 @@ export const countries:CountryProps[] = [
 export type Asset = {
   value: string
   label: string
-  icon: ImageProps
+  icon: ImageProps | StaticImageData
   active: boolean
   chain? : 'Ethereum'|'Polygon'|'Arbitrum'|'Bitcoin'|'Celo'|'Tron'|'Optimism'|'Solana',
   address? : string
@@ -339,6 +339,75 @@ export const supportedAssets: Asset[] = [
   }
 ] 
 
+export const supportedMiniPayAssets: Asset[] = [
+  {
+    value: "bitcoin",
+    label: "BTC",
+    icon: BTC_LOGO,
+    active: false,
+    chain: 'Bitcoin'
+  },
+  {
+    value: "eth",
+    label: "ETH",
+    icon: ETH_LOGO,
+    active: false,
+    chain: 'Ethereum'
+  },
+  {
+    value: "usdt",
+    label: "USDT",
+    icon: USDT_LOGO,
+    active: false,
+    chain: 'Ethereum'
+  },
+  {
+    value: "solana",
+    label: "SOL",
+    icon: SOL_lOGO,
+    active: false,
+    chain: 'Solana'
+  },
+  {
+    value: "matic",
+    label: "MATIC",
+    icon: MATIC_LOGO,
+    active: false,
+    chain: 'Polygon'
+  },
+  {
+      value: 'usdc',
+      label: 'USDC',
+      icon: USDC_LOGO,
+      active: false,
+      chain: 'Ethereum'
+  },
+  {
+      value: 'pyusd',
+      label: 'PYUSD',
+      icon: PAYPAL_USD_LOGO,
+      active: false,
+      chain: 'Ethereum'
+  },
+  {
+      value: 'cUSD',
+      label: 'cUSD',
+      icon: cUSD_LOGO,
+      active: true,
+  },
+  {
+    value: 'cardano',
+    label: 'ADA',
+    icon: ADA_LOGO,
+    active: false
+  },{
+    value: 'tether_gold',
+    label: 'XAUT',
+    icon: TETHER_GOLD_LOGO,
+    active: false
+  }
+] 
+
 export type SupportedPaymentMethods = {
   value: string;
   label: string;
@@ -348,13 +417,14 @@ export type SupportedPaymentMethods = {
 export const supportedPaymentMethods:SupportedPaymentMethods[] = [
   {
     value: 'mobile_money',
-    label: 'Mobile Money',
+    label: 'M-Pesa',
+    //label: 'Mobile Money',
     active: true,
   },
   {
     value: 'bank',
     label: 'Bank Transfer',
-    active: true
+    active: false
   }
 ]
 
