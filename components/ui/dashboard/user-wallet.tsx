@@ -368,7 +368,7 @@ export function UserWallet(){
                              
                             </CardContent>
                         </Card> */}
-                        <Card 
+                        <div 
                             className='col-span-5 sm:col-span-2 lg:col-span-3 2xl:col-span-2'
                         >
                         {/* <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
@@ -541,7 +541,7 @@ export function UserWallet(){
                             </Tabs>
             
            </CardContent> */}
-                        </Card>
+                        </div>
                     </div>
                 </div>
             </ScrollArea>
