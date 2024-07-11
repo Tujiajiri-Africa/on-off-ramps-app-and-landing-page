@@ -385,9 +385,12 @@ export async function MainUserDashboard() {
 
           <TabsContent value="main_wallet" className="space-y-4">
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
-              <Card className="col-span-4 md:col-span-3">
+              {/* <Card className="col-span-4 md:col-span-3">
                   <UserWallet/>
-              </Card>
+              </Card> */}
+              <div className="col-span-4 md:col-span-3">
+                  <UserWallet/>
+              </div>
             </div>
           </TabsContent>
 
