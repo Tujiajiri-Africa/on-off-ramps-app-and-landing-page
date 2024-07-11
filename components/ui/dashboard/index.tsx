@@ -78,7 +78,12 @@ export async function MainUserDashboard() {
                     </Link>
           </Button> */}
 
-        <Tabs defaultValue="main_wallet" className="space-y-4">
+        <Tabs 
+          defaultValue="main_wallet" 
+          className="space-y-2"
+          //className="space-y-4"
+          
+          >
             <DashboardIntro />
           <TabsList className="w-full">
             <TabsTrigger value="main_wallet">Wallet 💸</TabsTrigger>
