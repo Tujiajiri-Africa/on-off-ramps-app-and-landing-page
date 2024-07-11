@@ -41,7 +41,7 @@ import {useSession} from 'next-auth/react'
 import {UserWallet} from '@/components/ui/dashboard/user-wallet'
 //Emohis https://emojidb.org/wallet-emojis
 
-export async function MainUserDashboard() {
+export function MainUserDashboard() {
   const {data: userSessionData} = useSession()
 
   return (
