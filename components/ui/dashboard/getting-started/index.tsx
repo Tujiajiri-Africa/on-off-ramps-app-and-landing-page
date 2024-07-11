@@ -51,7 +51,7 @@ export function DashboardIntro(){
               </p> */}
                 <p className="text-md text-white mb-8">
                   {/* Start buying and selling crypto, create and manage invoices with ease. */}
-                  Start accumulating rewards in cUSD and {userSessionData?.user.currency} when you buy and sell cUSD from us
+                  Start accumulating rewards in cUSD and {userSessionData?.user.currency} when you buy and sell cUSD from us via MiniPay
               </p>
               <Link href="/dashboard/buy-sell-crypto" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
                   Get started
