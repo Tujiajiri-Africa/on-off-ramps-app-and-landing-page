@@ -79,8 +79,9 @@ export async function MainUserDashboard() {
         <Tabs defaultValue="overview" className="space-y-4">
             <DashboardIntro />
           <TabsList>
-            <TabsTrigger value="overview">Dashboard</TabsTrigger>
-            <TabsTrigger value="analytics" disabled>Analytics</TabsTrigger>
+            <TabsTrigger value="overview">Trending</TabsTrigger>
+            <TabsTrigger value="main_wallet" disabled>Wallet</TabsTrigger>
+            <TabsTrigger value="transaction_history" disabled>Transaction History</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="space-y-4"
           //
@@ -352,7 +353,7 @@ export async function MainUserDashboard() {
                   <UserBalanceChartAnalysis />
                 </CardContent>
               </Card> */}
-              <Card className="col-span-4 md:col-span-3">
+              {/* <Card className="col-span-4 md:col-span-3">
                 <CardHeader>
                 <div className="flex items-center justify-between space-y-2">
                                     <div className="md:flex items-center space-x-2">
@@ -376,8 +377,44 @@ export async function MainUserDashboard() {
                 <CardContent>
                   <RecentSales />
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
+          </TabsContent>
+
+
+          <TabsContent value="main_wallet" className="space-y-4">
+
+          </TabsContent>
+
+          <TabsContent value="transaction_history" className="space-y-4">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
+              <Card className="col-span-4 md:col-span-3">
+                    <CardHeader>
+                    <div className="flex items-center justify-between space-y-2">
+                                        <div className="md:flex items-center space-x-2">
+                                        <CardTitle>Recent Transactions</CardTitle>
+                                        
+                                        </div>
+                                        <Button 
+                                            className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-orange-500 hover:text-white"
+                                            variant={'outline'}
+                                        >
+                                          <div className='flex items-center gap-2'>
+                                                View More <ArrowUpRight className='h-6 w-6' />
+                                          </div>
+                                        </Button>
+                                    </div> 
+                      
+                      <CardDescription>
+                          Your transactions history
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <RecentSales />
+                    </CardContent>
+                  </Card>
+            </div>
+
           </TabsContent>
         </Tabs>
         
