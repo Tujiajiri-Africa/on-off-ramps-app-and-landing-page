@@ -68,13 +68,13 @@ export async function MainUserDashboard() {
           </div>
         </div>
         
-          <Button
+          {/* <Button
                 className="sm:hidden bg-[#16a34a] dark:text-white"
             >
                 <Link href={`/dashboard/buy-sell-crypto?baseAsset=USDT&currency=KES`}>
                         Buy/Sell
                     </Link>
-          </Button>
+          </Button> */}
 
         <Tabs defaultValue="overview" className="space-y-4">
             <DashboardIntro />
