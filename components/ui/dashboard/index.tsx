@@ -90,7 +90,10 @@ export async function MainUserDashboard() {
             <TabsTrigger value="trending_assets">Trending 🔥</TabsTrigger>
             <TabsTrigger value="transaction_history">Transactions 🔁</TabsTrigger>
           </TabsList>
-          <TabsList className="w-full">
+          <TabsList 
+           //className="w-full"
+          
+          >
             <TabsTrigger value="rewards">Rewards 🤑</TabsTrigger>
           </TabsList>
           <TabsContent value="trending_assets" className="space-y-4"
