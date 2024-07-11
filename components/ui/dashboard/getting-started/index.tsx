@@ -29,7 +29,7 @@ export function DashboardIntro(){
                   Top Up Account
               </h1>
               <p className="text-md text-white mb-8">
-                  We're happy to see you join us, start by topping up your account with M-Pesa to get started.
+                  We&apos;re happy to see you join us, start by topping up your account with M-Pesa to get started.
               </p>
               {/* <p className="text-lg text-white mb-8">
                   After verification, you are now ready to top up your account and seamlessly manage transactions.
