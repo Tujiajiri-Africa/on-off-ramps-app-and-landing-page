@@ -217,6 +217,7 @@ export function BuyComponent(){
                                                 //onChange={(value:any) => handleAmount(value, onChange)}
                                                 //value={value}
                                                 onChangeCapture={e => handleAmountChange(e.currentTarget.value)}
+                                                { ...form.register('amount', { valueAsNumber: true } ) }
                                                 
                                             /> 
                                         </FormControl>
