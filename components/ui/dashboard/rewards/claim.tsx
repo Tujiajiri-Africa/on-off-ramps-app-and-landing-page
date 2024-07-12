@@ -111,14 +111,19 @@ export function RewardClaimsForm(){
                     </div>
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
+                    <Button 
+                        type='submit'
+                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
+                        Claim
+                    </Button>
                     </form>
                 </Form>
             </CardContent>
-            <CardFooter>
+            {/* <CardFooter>
                 <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
                     Claim
                 </Button>
-            </CardFooter>
+            </CardFooter> */}
         </Card>
         </CardContent>
 
