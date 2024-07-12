@@ -18,6 +18,13 @@ import {
     FormLabel,
     FormMessage
 } from '@/components/ui/form'
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
 import {Input} from '@/components/ui/input'
 import {Button} from '@/components/ui/button'
 import * as z from 'zod'
@@ -29,6 +36,14 @@ import {FormSuccessMessage} from '@/components/form-success'
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { depositFiat } from '@/actions/payments'
 import {useSession} from 'next-auth/react'
+import {   
+    supportedAssets, 
+    supportedPaymentMethods, 
+    supportedMiniPayAssets, 
+    getAssetNameFromAssetAddress,
+    cUSD_MAINNET_CONTRACT_ADDRESS
+} from '@/helpers/data'
+import Image from 'next/image'
 
 export function DepositForm(){
     const {data: userSessionData} = useSession()
@@ -39,7 +54,8 @@ export function DepositForm(){
     const form = useForm<z.infer<typeof DepositSchema>>({
         resolver: zodResolver(DepositSchema),
         defaultValues:{
-            amount: ""
+            amount: "",
+            payment_method: ""
         }
     })
 
@@ -88,6 +104,63 @@ export function DepositForm(){
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
             <CardContent>
+            <div>
+                        <FormField 
+                            control={form.control}
+                            name='payment_method'
+                            render={({field}) => (
+                                <FormItem>
+                                    <FormLabel 
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
+                                        >
+                                        Select how you want to deposit
+                                    </FormLabel>
+                                    <div 
+                                        className='mt-1'
+                                        >
+                                        <FormControl>
+                                            {/* <Input
+                                                {...field}
+                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                placeholder="Enter amount to deposit"
+                                                type='number'
+                                                //disabled={isPending}
+                                                min={0}
+                                                
+                                            /> */}
+                                            <Select
+                                            {...field}
+                                            onValueChange={field.onChange}
+                                            defaultValue={field.value}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                  <SelectValue placeholder="payment network" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {
+                                                        supportedPaymentMethods
+                                                        .filter((p) => p.active == true)
+                                                        .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
+                                                        .map((channel) => (
+                                                            <SelectItem key={channel.value} value={channel.value}>
+                                                                
+                                                                <div className='flex items-center content-center gap-2'>
+                                                                            <Image src={channel.iconUrl?.src} width={30} height={30} alt={channel.value} />
+                                                                            {channel.label}
+                                                                </div>
+                                                            </SelectItem>
+                                                        ))
+                                                    }
+                                                </SelectContent>
+                                            </Select>
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    
                     <div>
                         <FormField 
                             control={form.control}
