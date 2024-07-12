@@ -73,8 +73,12 @@ export function BuyComponent(){
       }
     })
 
+    const handleAssetChange = useCallback((value: string) => {
+        setSelectedCryptoAsset(value)
+    },[setSelectedCryptoAsset])
+
     const handleAmountChange = useCallback((amount:string) => {
-        const buyRate = 129.00
+        const buyRate = 129.76
         setFiatAmountLocal(amount)
 
         const assetAmount = parseFloat(amount) / buyRate;
@@ -150,8 +154,10 @@ export function BuyComponent(){
                                             /> */}
                                             <Select
                                             {...field}
-                                            onValueChange={field.onChange}
+                                            //onValueChange={field.onChange}
+                                            onValueChange={value => handleAssetChange(value)}
                                             defaultValue={field.value}
+                                            //onOpenChange={e => handleAssetChange(e.)}
                                             >
                                                 <SelectTrigger className="w-full">
                                                   <SelectValue placeholder="select asset" />
