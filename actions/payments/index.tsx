@@ -183,7 +183,7 @@ export const buyCrypto = async(
     values: z.infer<typeof BuyAssetSchema>,
     bearerToken: string|undefined,
     userWalletAddress: string|undefined,
-    fiatAmountLocal: string|undefined
+    assetAmount: string|undefined
 ) => {
     const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/onramp/buy-crypto' : PROD_BASE_URI + '/payments/onramp/buy-crypto'
 
@@ -208,10 +208,10 @@ export const buyCrypto = async(
 
     const onrampPayload = {
         asset_address: validatedFields.data.asset_address,
-        amount: validatedFields.data.amount,
+        amount: assetAmount,
         chain: chainId,
         recipient_address: userWalletAddress,
-        fiat_amount_local: fiatAmountLocal
+        fiat_amount_local: validatedFields.data.amount
     }
 
     const payload = {

@@ -104,7 +104,7 @@ export function BuyComponent(){
                 values, 
                 userSessionData?.user.accessToken,
                 miniPayWallet,
-                fiatAmountLocal
+                calculatedCryptoAmount
             )
             .then((data:any) => {
                 if(data?.data.error){
