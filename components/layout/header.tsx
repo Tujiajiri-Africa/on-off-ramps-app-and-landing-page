@@ -17,21 +17,21 @@ import {useConnect, useAccount} from 'wagmi'
 import { InjectedConnector } from "wagmi/connectors/injected";
 
 export default function Header() {
-  const {address, isConnected} = useAccount()
+  // const {address, isConnected} = useAccount()
 
-  const { connect } = useConnect({
-    connector: new InjectedConnector(),
-  });
+  // const { connect } = useConnect({
+  //   connector: new InjectedConnector(),
+  // });
 
-  const checkMiniPayExists = () => {
-    if (typeof window.ethereum !== 'undefined') {
+  // const checkMiniPayExists = () => {
+  //   if (typeof window.ethereum !== 'undefined') {
       
-    }
-  }
+  //   }
+  // }
 
-  useEffect(() => {
-    connect();
-  }, [connect]);
+  // useEffect(() => {
+  //   //connect();
+  // }, [connect]);
   
   // useEffect(() => {
   //   if (window.ethereum && window.ethereum.isMiniPay) {

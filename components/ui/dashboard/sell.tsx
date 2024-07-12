@@ -57,7 +57,7 @@ export function SellComponent(){
       resolver: zodResolver(SellAssetSchema),
       defaultValues:{
           asset: "",
-          amount: 2.26,
+          amount: 1,
           payment_method: ""
       }
     })

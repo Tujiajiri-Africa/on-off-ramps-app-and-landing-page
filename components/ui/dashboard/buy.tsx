@@ -58,6 +58,8 @@ export function BuyComponent(){
     const [success, setSuccess] = useState<string>("")
     const [isPending, startTransition] = useTransition()
     const [ fiatAmountLocal, setFiatAmountLocal ] = useState<string>("")
+    const [ calculatedCryptoAmount, setCalculatedCryptoAmount ] = useState<string>("")
+    const [ selectedCryptoAsset, setSelectedCryptoAsset ] = useState<string>("")
 
     const form = useForm<z.infer<typeof BuyAssetSchema>>({
       resolver: zodResolver(BuyAssetSchema),
@@ -68,10 +70,10 @@ export function BuyComponent(){
       }
     })
 
-    const handleAmountChange = useCallback(() => {
-        const buyRate = 129.00;
+    const handleAmountChange = useCallback((amount:string) => {
+        setFiatAmountLocal(amount)
         
-    },[])
+    },[setFiatAmountLocal])
 
     const processOnramp = (values: z.infer<typeof BuyAssetSchema>) => {
         setError("")
@@ -193,6 +195,7 @@ export function BuyComponent(){
                                                 type='number'
                                                 //disabled={isPending}
                                                 min={0}
+                                                //onChange={(amount:any) => handleAmountChange(amount)}
                                                 
                                             />
                                         </FormControl>
@@ -265,7 +268,7 @@ export function BuyComponent(){
                         <AccordionContent>
                             <p className='text-gray-700 dark:text-gray-400'>
                                 {/* You will receive ~2.26 USDT for {`${userSessionData?.user.currency } 300.00`} */}
-                                You will receive ~2.26 cUSD for {`${userSessionData?.user.currency } 300.00`}
+                                You will receive {`~${calculatedCryptoAmount}`} cUSD for {`${userSessionData?.user.currency } ${fiatAmountLocal}`}
                             </p>
                             <br/>
                             <Table className='text-sm'>
@@ -324,7 +327,8 @@ export function BuyComponent(){
                                                                          <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
                                                                         </path>
                                                                    </svg>
-                                                                   Buying
+                                                                   {/* Buying  */}
+                                                                   {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"}
                                                             </Button>
                                                        )
 
@@ -334,7 +338,7 @@ export function BuyComponent(){
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
-                                                       Buy
+                                                       {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"}
                                                    </Button>
                                                     }
                     </CardFooter>
