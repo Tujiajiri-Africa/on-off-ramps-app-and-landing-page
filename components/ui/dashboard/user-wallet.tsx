@@ -20,6 +20,8 @@ import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
 import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
 import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
 import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
+import KESH_LOGO from '@/app/assets/icons/currencies/KES.png'
+
 import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart-metrics'
 import {WalletIcon,MedalIcon,MagnifierIcon} from '@/components/icons/index'
 import {Wallet2Icon, Wallet2, WalletCardsIcon, Wallpaper, Bitcoin, BitcoinIcon, ArrowUpRight} from 'lucide-react'
@@ -126,6 +128,7 @@ export function UserWallet(){
                                         >
                                             View More
                                         </Button> */}
+                                        <Wallet2Icon className='w-10 h-10 rounded-full' />
                                     </div>   
                                 </CardHeader>
                                 <CardContent className="pl-2 gap-4">
@@ -133,16 +136,16 @@ export function UserWallet(){
                                 //bg-[#00BF63]/60 dark:bg-[#00BF63]/20
                                 >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                        <CardTitle className="text-sm font-medium">
+                                        <CardTitle className="text-lg font-medium">
                                             { userSessionData?.user.currency }
                                         </CardTitle>
-                                        {/* <Image
-                                            src={BTC_LOGO.src}
-                                            width={30}
-                                            height={30}
-                                            alt={'btc-logo'}
-                                        /> */}
-                                            <Wallet2Icon className='w-10 h-10 rounded-full' />
+                                        <Image
+                                            src={KESH_LOGO.src}
+                                            width={40}
+                                            height={40}
+                                            alt={'kes-logo'}
+                                        />
+                                            {/* <Wallet2Icon className='w-10 h-10 rounded-full' /> */}
                                         </CardHeader>
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
@@ -201,6 +204,7 @@ export function UserWallet(){
                                     </CardTitle>
                                     
                                     </div>
+                                    <Wallet2Icon className='w-10 h-10 rounded-full' />
                                     {/* <Button 
                                         className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-orange-500 hover:text-white"
                                         variant={'outline'}
@@ -322,7 +326,7 @@ export function UserWallet(){
                                     //bg-[#F3797E]/20 dark:bg-teal-800/60
                                     >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                        <CardTitle className="text-sm font-medium">
+                                        <CardTitle className="text-lg font-medium">
                                             cUSD
                                         </CardTitle>
                                         <Image
