@@ -18,6 +18,7 @@ import { useQuery } from 'react-query';
 import {useSession} from 'next-auth/react'
 import { fetchUserCryptoRewardBalance } from '@/actions/payments'
 import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance';
+import { Trophy } from 'lucide-react'
 
 export function UserRewardInfoPage(){
     const balance = useUserCryptoRewardBalance();
@@ -69,7 +70,7 @@ export function UserRewardInfoPage(){
                                         >
                                             View More
                                         </Button> */}
-                                        {/* <Wallet2Icon className='w-10 h-10 rounded-full' /> */}
+                                        <Trophy className='w-10 h-10 rounded-full' />
                                     </div>   
                                 </CardHeader>
                                 <CardContent className="pl-2 gap-4">
