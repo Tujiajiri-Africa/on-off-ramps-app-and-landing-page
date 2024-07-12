@@ -164,7 +164,7 @@ export function UserRewardInfoPage(){
                                             <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="dark:text-gray-300 text-black">
                                                     Claimable 
-                                                </span> <span className='dark:text-gray-300 text-black'>now</span>
+                                                </span> <span className='dark:text-gray-300 text-black'>in 7 days</span>
                                             </p>
                                             <br></br>
                                             <hr></hr>
