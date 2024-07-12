@@ -328,7 +328,8 @@ export function BuyComponent(){
                                                                         </path>
                                                                    </svg>
                                                                    {/* Buying  */}
-                                                                   {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"}
+                                                                   Buying
+                                                                   {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"} */}
                                                             </Button>
                                                        )
 
@@ -338,7 +339,8 @@ export function BuyComponent(){
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
-                                                       {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"}
+                                                       {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"} */}
+                                                       Buy
                                                    </Button>
                                                     }
                     </CardFooter>
