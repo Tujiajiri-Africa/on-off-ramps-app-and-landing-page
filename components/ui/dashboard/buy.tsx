@@ -195,7 +195,7 @@ export function BuyComponent(){
                                                 type='number'
                                                 //disabled={isPending}
                                                 min={0}
-                                                onChange={(amount) => handleAmountChange(amount)}
+                                                onChange={(amount:any) => handleAmountChange(amount)}
                                                 
                                             />
                                         </FormControl>
