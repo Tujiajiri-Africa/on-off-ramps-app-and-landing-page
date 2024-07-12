@@ -205,7 +205,7 @@ export function BuyComponent(){
                                                 //onChange={(amount:any) => handleAmountChange(amount)}
                                                 //onChange={(value:any) => handleAmount(value, onChange)}
                                                 //value={value}
-                                                //onChangeCapture={e => handleAmountChange(e.currentTarget.value)}
+                                                onChangeCapture={e => handleAmountChange(e.currentTarget.value)}
                                                 
                                             /> 
                                         </FormControl>
