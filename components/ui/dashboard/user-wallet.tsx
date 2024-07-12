@@ -128,7 +128,7 @@ export function UserWallet(){
                                         >
                                             View More
                                         </Button> */}
-                                        <Wallet2Icon className='w-10 h-10 rounded-full' />
+                                        {/* <Wallet2Icon className='w-10 h-10 rounded-full' /> */}
                                     </div>   
                                 </CardHeader>
                                 <CardContent className="pl-2 gap-4">
@@ -136,7 +136,7 @@ export function UserWallet(){
                                 //bg-[#00BF63]/60 dark:bg-[#00BF63]/20
                                 >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                        <CardTitle className="text-lg font-medium">
+                                        <CardTitle className="text-sm font-medium">
                                             { userSessionData?.user.currency }
                                         </CardTitle>
                                         <Image
@@ -204,7 +204,7 @@ export function UserWallet(){
                                     </CardTitle>
                                     
                                     </div>
-                                    <Wallet2Icon className='w-10 h-10 rounded-full' />
+                                    {/* <Wallet2Icon className='w-10 h-10 rounded-full' /> */}
                                     {/* <Button 
                                         className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-orange-500 hover:text-white"
                                         variant={'outline'}
@@ -326,7 +326,7 @@ export function UserWallet(){
                                     //bg-[#F3797E]/20 dark:bg-teal-800/60
                                     >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                        <CardTitle className="text-lg font-medium">
+                                        <CardTitle className="text-sm font-medium">
                                             cUSD
                                         </CardTitle>
                                         <Image
