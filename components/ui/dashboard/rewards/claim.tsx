@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition, useState } from 'react'
+import React, { useTransition, useState, useCallback } from 'react'
 import {
     Card,
     CardHeader,
@@ -39,6 +39,7 @@ export function RewardClaimsForm(){
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+    const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState<boolean>(true)
 
     const form = useForm<z.infer<typeof CryptoRewardClaimSchema>>({
         resolver: zodResolver(CryptoRewardClaimSchema),
@@ -47,6 +48,17 @@ export function RewardClaimsForm(){
             payment_method: ""
         }
     })
+
+    const handleInputAmountChange = useCallback((amount:string) => {
+        if(!cryptoRewardBalance) return;
+        
+        let formatedAmount = parseFloat(amount)
+        if(formatedAmount > cryptoRewardBalance){
+            setError("Amount exceeds available balance")
+        }else{
+            setIsSubmitButtonDisabled(false)
+        }
+    },[cryptoRewardBalance, setIsSubmitButtonDisabled, setError])
 
     const processRewardClaim = (values: z.infer<typeof CryptoRewardClaimSchema>) => {
         setError("")
@@ -123,7 +135,7 @@ export function RewardClaimsForm(){
                                                 type='number'
                                                 disabled={isPending}
                                                 min={0}
-                                                
+                                                onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
                                             />
                                         </FormControl>
                                         <FormLabel
@@ -161,7 +173,7 @@ export function RewardClaimsForm(){
 
                                                        :
                                                        <Button 
-                                                       //disabled={isPending}
+                                                       disabled={isPending || isSubmitButtonDisabled}
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
