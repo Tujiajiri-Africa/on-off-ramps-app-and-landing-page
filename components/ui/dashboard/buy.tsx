@@ -49,9 +49,6 @@ import Image from 'next/image'
 import {useSession} from 'next-auth/react'
 import { buyCrypto } from '@/actions/payments'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
-//import { NumberInput } from '@chakra-ui/react'
-//https://medium.com/@mobileatexxeta/conditional-form-validation-with-react-hook-form-and-zod-46b0b29080a3
-//https://github.com/orgs/react-hook-form/discussions/2194
 
 export function BuyComponent(){
     const miniPayWallet = useMiniPay()
@@ -191,10 +188,6 @@ export function BuyComponent(){
                                         className='mt-1'
                                         >
                                         <FormControl>
-                                            {/* <NumberInput 
-                                                
-                                                onChange={(value: any) => handleAmount(value, onChange)}
-                                            /> */}
                                             <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
@@ -203,11 +196,8 @@ export function BuyComponent(){
                                                 //disabled={isPending}
                                                 min={0}
                                                 //onChange={(amount:any) => handleAmountChange(amount)}
-                                                //onChange={(value:any) => handleAmount(value, onChange)}
-                                                //value={value}
-                                                onChangeCapture={e => handleAmountChange(e.currentTarget.value)}
                                                 
-                                            /> 
+                                            />
                                         </FormControl>
                                         <FormMessage/>
                                     </div>
