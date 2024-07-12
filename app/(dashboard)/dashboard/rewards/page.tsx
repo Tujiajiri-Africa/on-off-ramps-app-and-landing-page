@@ -1,7 +1,7 @@
 import React from "react";
 import {UserRewardInfoPage} from '@/components/ui/dashboard/rewards'
 
-export function UserRewardPage(){
+export default function UserRewardPage(){
     return (<>
         <UserRewardInfoPage />
     </>)

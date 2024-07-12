@@ -172,7 +172,7 @@ export function UserRewardInfoPage(){
                                             <Button
                                                 className="w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white"
                                             >
-                                                <Link href={`/dashboard/deposit`}>
+                                                <Link href={`/dashboard/rewards/claim`}>
                                                     Claim
                                                 </Link>
                                             </Button>
