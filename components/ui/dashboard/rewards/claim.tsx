@@ -12,7 +12,6 @@ import {
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -27,18 +26,13 @@ import {CryptoRewardClaimSchema} from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
-import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
 import {useSession} from 'next-auth/react'
-import Image from 'next/image'
+import { claimCryptoReward } from '@/actions/payments'
+import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 
 export function RewardClaimsForm(){
+    const miniPayWallet = useMiniPay()
+
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
@@ -51,6 +45,32 @@ export function RewardClaimsForm(){
             payment_method: ""
         }
     })
+
+    const processRewardClaim = (values: z.infer<typeof CryptoRewardClaimSchema>) => {
+        setError("")
+        setSuccess("")
+
+        startTransition(async() => {
+            claimCryptoReward(
+                values, 
+                userSessionData?.user.accessToken,
+                miniPayWallet
+            )
+            .then((data:any) => {
+                if(data?.data.error){
+                    //form.reset()
+                    setError(data?.data.error)
+                }
+                if(data?.data.success){
+                    form.reset()
+                    setSuccess(data?.data.success)
+                }
+            }).catch(() => {
+                setError("Something went wrong")
+                setSuccess("")
+            })
+        })
+    }
 
     return (<>
         <ScrollArea className='h-full'>
@@ -75,6 +95,7 @@ export function RewardClaimsForm(){
 
                     <form 
                         className="space-y-6"
+                        onSubmit={form.handleSubmit(processRewardClaim)}
                     >
                     <div>
                         <FormField 
