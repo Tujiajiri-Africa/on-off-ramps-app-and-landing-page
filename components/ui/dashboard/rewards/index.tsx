@@ -17,8 +17,11 @@ import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 import { useQuery } from 'react-query';
 import {useSession} from 'next-auth/react'
 import { fetchUserCryptoRewardBalance } from '@/actions/payments'
+import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance';
 
 export function UserRewardInfoPage(){
+    const balance = useUserCryptoRewardBalance();
+
     const {data: userSessionData} = useSession()
     const [ rewardBalance, setRewardBalance ] = useState<number|undefined>(0);
 
@@ -32,8 +35,7 @@ export function UserRewardInfoPage(){
         queryKey: 'balance',
         queryFn: fetchBalance
     })
-
-
+    
     {
         isError && <div>Error</div>
     }
@@ -43,11 +45,6 @@ export function UserRewardInfoPage(){
             
             >
                 <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-                    {/* <div className="flex items-center justify-between space-y-2">
-                        <h2 className="text-3xl font-bold tracking-tight">
-                            My Wallet
-                        </h2>
-                    </div> */}
                     <div 
                         className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
                     //className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7'
@@ -107,6 +104,7 @@ export function UserRewardInfoPage(){
                                                     :
                                                     
                                                     // `${userSessionData?.user.currency} ${rewardBalance?.toString()}`
+                                                    // `$ ${balance?.toString()}`
                                                     `$ ${rewardBalance?.toString()}`
                                                 }
                                             </div>
