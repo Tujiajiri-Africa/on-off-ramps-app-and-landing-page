@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useState} from 'react'
+import React,{useCallback, useState, useTransition} from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -47,23 +47,57 @@ import {Clock8Icon} from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {useSession} from 'next-auth/react'
+import { buyCrypto } from '@/actions/payments'
+import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 
 export function BuyComponent(){
+    const miniPayWallet = useMiniPay()
+
     const {data: userSessionData} = useSession()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
-  
+    const [isPending, startTransition] = useTransition()
+    const [ fiatAmountLocal, setFiatAmountLocal ] = useState<string>("")
+
     const form = useForm<z.infer<typeof BuyAssetSchema>>({
       resolver: zodResolver(BuyAssetSchema),
       defaultValues:{
           asset_address: "",
-          amount: 300,
+          amount: 1,
           payment_method: ""
       }
     })
 
-    const handleValueChange = () => {
+    const handleAmountChange = useCallback(() => {
+        const buyRate = 129.00;
+        
+    },[])
 
+    const processOnramp = (values: z.infer<typeof BuyAssetSchema>) => {
+        setError("")
+        setSuccess("")
+
+        startTransition(async() => {
+            buyCrypto(
+                values, 
+                userSessionData?.user.accessToken,
+                miniPayWallet,
+                fiatAmountLocal
+            )
+            .then((data:any) => {
+                if(data?.data.error){
+                    //form.reset()
+                    setError(data?.data.error)
+                }
+                if(data?.data.success){
+                    form.reset()
+                    setSuccess(data?.data.success)
+                }
+            }).catch(() => {
+                setError("Something went wrong")
+                setSuccess("")
+            })
+        })
     }
 
     return (
@@ -78,6 +112,7 @@ export function BuyComponent(){
                         <Form {...form}>
                           <form
                             className="space-y-6"
+                            onSubmit={form.handleSubmit(processOnramp)}
                           >
                           <div>
                         <FormField 
@@ -208,7 +243,7 @@ export function BuyComponent(){
                                                             <SelectItem key={channel.value} value={channel.value}>
                                                                 
                                                                 <div className='flex items-center content-center gap-2'>
-                                                                            <Image src={channel.iconUrl?.src} width={18} height={18} alt={channel.value} />
+                                                                            <Image src={channel.iconUrl?.src} width={30} height={30} alt={channel.value} />
                                                                             {channel.label}
                                                                 </div>
                                                             </SelectItem>
@@ -273,10 +308,35 @@ export function BuyComponent(){
                         </Form>
                     </CardContent>
                     <CardFooter>
-                      <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
+                      {/* <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
                         Buy
-                      </Button>
-                      
+                      </Button> */}
+                                 {
+                                                       isPending ? (
+                                                            <Button 
+                                                                type="button" 
+                                                                disabled
+                                                                className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                                //className="py-2 px-4 flex justify-center items-center  bg-orange-600  hover:bg-orange-500 hover:text-white focus:ring-orange-500 focus:ring-offset-orange-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
+                                                                >
+                                                                
+                                                                <svg width="20" height="20" fill="currentColor" className="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                                         <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
+                                                                        </path>
+                                                                   </svg>
+                                                                   Buying
+                                                            </Button>
+                                                       )
+
+                                                       :
+                                                       <Button 
+                                                       //disabled={isPending}
+                                                       type='submit'
+                                                       className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                       >
+                                                       Buy
+                                                   </Button>
+                                                    }
                     </CardFooter>
                     <CardFooter>
                     <div className='text-sm text-gray-500'>
