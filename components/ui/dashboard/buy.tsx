@@ -268,7 +268,7 @@ export function BuyComponent(){
                         <AccordionContent>
                             <p className='text-gray-700 dark:text-gray-400'>
                                 {/* You will receive ~2.26 USDT for {`${userSessionData?.user.currency } 300.00`} */}
-                                You will receive ~{calculatedCryptoAmount} cUSD for {`${userSessionData?.user.currency } ${fiatAmountLocal}`}
+                                You will receive {`~${calculatedCryptoAmount}`} cUSD for {`${userSessionData?.user.currency } ${fiatAmountLocal}`}
                             </p>
                             <br/>
                             <Table className='text-sm'>
