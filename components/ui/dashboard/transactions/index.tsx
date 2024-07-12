@@ -19,7 +19,7 @@ import {useSession} from 'next-auth/react'
 import { fetchUserCryptoRewardBalance } from '@/actions/payments'
 import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance';
 import { Trophy } from 'lucide-react'
-import { RecentTransactions } from "@/components/recent-transactions"
+import { RecentTransactions } from '@/components/recent-transactions'
 
 export function TransactionHistory(){
     return (

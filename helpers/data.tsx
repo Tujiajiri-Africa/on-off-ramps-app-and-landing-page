@@ -113,6 +113,13 @@ export const navItems: NavItem[] = [
     icon: 'money',
     label: 'money'
   },
+  {
+    title: 'Transactions',
+    href: '/dashboard/transactions',
+    icon: 'transaction_list',
+    label: 'transaction_list'
+  },
+
   // {
   //   title: "Transactions",
   //   href: "/dashboard/user/profile",
