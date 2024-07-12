@@ -13,7 +13,7 @@ import {
 import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
 import {ArrowDownLeftFromCircle, ArrowDownRightFromCircle, DollarSign, PlusCircleIcon, PlusIcon} from 'lucide-react'
-import { RecentSales } from '@/components/recent-sales';
+import { RecentTransactions } from '@/components/recent-transactions';
 import { UserBalanceChartAnalysis } from '../wallet/chart-metrics';
 import {
     ColumnDef,

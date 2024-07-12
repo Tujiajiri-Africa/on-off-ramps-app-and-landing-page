@@ -2,7 +2,7 @@
 
 import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
-import { RecentSales } from "@/components/recent-sales";
+import { RecentTransactions } from "@/components/recent-transactions"
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -416,14 +416,15 @@ export function MainUserDashboard() {
                                         <CardTitle>Recent Transactions</CardTitle>
                                         
                                         </div>
-                                        <Button 
+                                        <Link 
+                                        href={'/dashboard/transactions'}
                                             className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-orange-500 hover:text-white"
-                                            variant={'outline'}
+                                            //variant={'outline'}
                                         >
                                           <div className='flex items-center gap-2'>
                                                 View More <ArrowUpRight className='h-6 w-6' />
                                           </div>
-                                        </Button>
+                                        </Link>
                                     </div> 
                       
                       <CardDescription>
@@ -431,7 +432,7 @@ export function MainUserDashboard() {
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <RecentSales />
+                      <RecentTransactions />
                     </CardContent>
                   </Card>
             </div>
