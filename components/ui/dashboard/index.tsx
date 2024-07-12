@@ -419,7 +419,7 @@ export function MainUserDashboard() {
                                         <Link 
                                         href={'/dashboard/transactions'}
                                             className="content-start group  rounded-md px-3 py-2 text-sm bg-orange-600 text-white font-medium hover:bg-orange-500 hover:text-white"
-                                            //variant={'outline'}
+                                            
                                         >
                                           <div className='flex items-center gap-2'>
                                                 View More <ArrowUpRight className='h-6 w-6' />
