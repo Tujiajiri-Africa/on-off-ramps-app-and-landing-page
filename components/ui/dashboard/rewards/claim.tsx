@@ -23,7 +23,7 @@ import {Button} from '@/components/ui/button'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {WithdrawSchema} from '@/schemas'
+import {CryptoRewardClaimSchema} from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -44,11 +44,11 @@ export function RewardClaimsForm(){
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
 
-    const form = useForm<z.infer<typeof WithdrawSchema>>({
-        resolver: zodResolver(WithdrawSchema),
+    const form = useForm<z.infer<typeof CryptoRewardClaimSchema>>({
+        resolver: zodResolver(CryptoRewardClaimSchema),
         defaultValues:{
-            amount: 100,
-            channel: ""
+            amount: "1",
+            payment_method: ""
         }
     })
 

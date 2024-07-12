@@ -2,7 +2,7 @@
 
 import  * as z from 'zod'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT, TransactionHistoryProps } from '@/helpers/data'
-import { DepositSchema, BuyAssetSchema } from '@/schemas'
+import { DepositSchema, BuyAssetSchema, CryptoRewardClaimSchema } from '@/schemas'
 import { UserResponseDataProps } from '@/lib/utils'
 import { getChainIdFromAssetAddress } from '@/helpers/data'
 
@@ -308,6 +308,97 @@ export const buyCrypto = async(
 
     try{
         return initiateCryptoPurchase
+    }catch(error){
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    }
+}
+
+export const claimCryptoReward = async(
+    values: z.infer<typeof CryptoRewardClaimSchema>,
+    bearerToken: string|undefined,
+    userWalletAddress: string|undefined
+) => {
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/rewards/claim-crypto-reward' : PROD_BASE_URI + '/payments/rewards/claim-crypto-reward'
+
+    let dataInfo: UserResponseDataProps = {
+        data: "",
+        error: "",
+        success: ""
+    }
+
+    const validatedFields = CryptoRewardClaimSchema.safeParse(values)
+    
+    if(!validatedFields.success){
+        dataInfo = {
+            error: 'Invalid Recipient parameters',
+            success: '',
+            data: ''
+        }
+        return  { data: dataInfo}
+    }
+
+    const onrampPayload = {
+        amount: validatedFields.data.amount,
+        recipient_address: userWalletAddress,
+    }
+
+    const payload = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        },
+        body: JSON.stringify(onrampPayload)
+    }
+
+    const initiateRewardClaim = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            dataInfo = {
+                error: 'Something went wrong!',
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            dataInfo = {
+                error: data['message'],
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+        if(data['status'] == true){
+            dataInfo = {
+                error: "",
+                success: data['message'],
+                data: data['data']
+            }
+
+            return { data: dataInfo}
+        }
+    }).catch((error) =>{
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    })
+
+    try{
+        return initiateRewardClaim
     }catch(error){
         dataInfo = {
             error: 'Something went wrong!',

@@ -279,10 +279,10 @@ export const DepositSchema = z.object({
     //     message: "Minimum deposit amount is KES 1" //300
     // })
     amount: z.string({
-        required_error: 'Minimum deposit amount is 1'
+        required_error: 'Amount is required'
     }),
     payment_method: z.string({
-        required_error: 'Please payment network'
+        required_error: 'Please select payment network'
     })
 })
 
@@ -291,6 +291,15 @@ export const WithdrawSchema = z.object({
         message: "Minimum withdrawal amount is KES 50"
     }),
     channel: z.string()
+})
+
+export const CryptoRewardClaimSchema = z.object({
+    amount: z.string({
+        required_error: 'Amount is required'
+    }),
+    payment_method: z.string({
+        required_error: 'Please select payment network'
+    })
 })
 
 export const BuyAssetSchema = z.object({
