@@ -52,7 +52,7 @@ export function UserRewardInfoPage(){
                     >
                         <Card 
                             className='col-span-5 sm:col-span-1 lg:col-span-5'
-                            //className='col-span-5 sm:col-span-2'
+                            
                             
                             >
                             <CardHeader>
