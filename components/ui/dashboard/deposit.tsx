@@ -100,7 +100,7 @@ export function DepositForm(){
                 <Card>
             <CardHeader>
                 <CardTitle>Deposit</CardTitle>
-                <CardDescription className="mb-10">Top up your AjiraPay wallet with {userSessionData?.user.currency} from M-Pesa and start making money buying and selling cUSD seamlessly</CardDescription>
+                <CardDescription className="mb-10">Top up your AjiraPay wallet with {userSessionData?.user.currency} and start making money buying and selling cUSD seamlessly on MiniPay</CardDescription>
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
             <CardContent>
