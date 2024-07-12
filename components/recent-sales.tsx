@@ -165,7 +165,7 @@ const setStatusColor = (status: string|undefined) => {
             </p>
           </div>
           <div className="ml-auto font-medium">
-              <p>{transansactionItem.asset_name} {transansactionItem.transaction_type != "Deposit" && transansactionItem.transaction_type != "Withdraw" ? transansactionItem.amount?.toPrecision(4) :transansactionItem.amount}</p>
+              <p>{transansactionItem.asset_name} {transansactionItem.amount}</p>
               <p className='text-sm'>{transansactionItem.created_at}</p>
             </div>
         </div>
