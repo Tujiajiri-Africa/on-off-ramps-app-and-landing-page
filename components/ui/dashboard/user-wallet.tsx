@@ -339,7 +339,8 @@ export function UserWallet(){
                                         <CardContent>
                                             <div className='text-2xl font-bold'>
                                                 {/* KES 2,184.00 */}
-                                                { `${ userSessionData?.user.currency } 2,184.00`}
+                                                {/* { `${ userSessionData?.user.currency } 2,184.00`} */}
+                                                { `$ 5.00`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
                                             <p className="text-xs text-muted-foreground mb-6">
