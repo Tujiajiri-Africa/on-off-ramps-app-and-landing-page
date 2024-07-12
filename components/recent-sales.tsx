@@ -205,7 +205,7 @@ const setStatusColor = (status: string|undefined) => {
               {transansactionItem.status}
             </p>
           </div>
-          <div className="space-y-1"
+          <div className="ml-auto space-y-1"
             //items-start
           >
               <p className='text-md font-medium leading-none'>{transansactionItem.asset_name} {transansactionItem.amount}</p>
