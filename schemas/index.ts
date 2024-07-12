@@ -279,7 +279,7 @@ export const DepositSchema = z.object({
     //     message: "Minimum deposit amount is KES 1" //300
     // })
     amount: z.string({
-        required_error: 'Minimum deposit amount is KES 1'
+        required_error: 'Minimum deposit amount is 1'
     }),
 })
 
