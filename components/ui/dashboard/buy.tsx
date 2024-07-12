@@ -56,7 +56,7 @@ export function BuyComponent(){
     const form = useForm<z.infer<typeof BuyAssetSchema>>({
       resolver: zodResolver(BuyAssetSchema),
       defaultValues:{
-          asset: "",
+          asset_address: "",
           amount: 300,
           payment_method: ""
       }
@@ -82,7 +82,7 @@ export function BuyComponent(){
                           <div>
                         <FormField 
                             control={form.control}
-                            name='asset'
+                            name='asset_address'
                             render={({field}) => (
                                 <FormItem>
                                     <FormLabel 
@@ -118,7 +118,7 @@ export function BuyComponent(){
                                                         .filter((s) => s.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((asset) => (
-                                                                <SelectItem key={asset.value} value={asset.value}>
+                                                                <SelectItem key={asset.value} value={asset.address}>
                                                                         <div className='flex items-center content-center gap-2'>
                                                                             <Image src={asset.icon.src} width={18} height={18} alt={asset.label} />
                                                                             {asset.label}
@@ -205,7 +205,13 @@ export function BuyComponent(){
                                                         .filter((p) => p.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((channel) => (
-                                                            <SelectItem key={channel.value} value={channel.value}>{channel.label}</SelectItem>
+                                                            <SelectItem key={channel.value} value={channel.value}>
+                                                                
+                                                                <div className='flex items-center content-center gap-2'>
+                                                                            <Image src={channel.iconUrl?.src} width={18} height={18} alt={channel.value} />
+                                                                            {channel.label}
+                                                                </div>
+                                                            </SelectItem>
                                                         ))
                                                     }
                                                 </SelectContent>

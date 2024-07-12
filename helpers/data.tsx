@@ -34,6 +34,11 @@ import CAMEROON_FLAG from '@/app/assets/icons/countries/flags/cm.svg'
 import GHANA_FLAG from '@/app/assets/icons/countries/flags/gh.svg'
 import NIGERIAN_FLAG from '@/app/assets/icons/countries/flags/ng.svg'
 
+//PAYMENT METHODS
+import MPESA_LOGO_PNG from '@/app/assets/icons/payment_methods/M-Pesa.png'
+import MPESA_LOGO_SVG from '@/app/assets/icons/payment_methods/M-PESA_LOGO-01.svg.png'
+import bank_photo_png from '@/app/assets/icons/payment_methods/Bank-PNG.png'
+
 //Team
 import Dickens_Image from '@/app/assets/team/dickens_2.jpg'
 import David_Leon_Image from '@/app/assets/team/david_leon.jpg'
@@ -339,72 +344,22 @@ export const supportedAssets: Asset[] = [
   }
 ] 
 
-export const supportedMiniPayAssets: Asset[] = [
-  {
-    value: "bitcoin",
-    label: "BTC",
-    icon: BTC_LOGO,
-    active: false,
-    chain: 'Bitcoin'
-  },
-  {
-    value: "eth",
-    label: "ETH",
-    icon: ETH_LOGO,
-    active: false,
-    chain: 'Ethereum'
-  },
-  {
-    value: "usdt",
-    label: "USDT",
-    icon: USDT_LOGO,
-    active: false,
-    chain: 'Ethereum'
-  },
-  {
-    value: "solana",
-    label: "SOL",
-    icon: SOL_lOGO,
-    active: false,
-    chain: 'Solana'
-  },
-  {
-    value: "matic",
-    label: "MATIC",
-    icon: MATIC_LOGO,
-    active: false,
-    chain: 'Polygon'
-  },
-  {
-      value: 'usdc',
-      label: 'USDC',
-      icon: USDC_LOGO,
-      active: false,
-      chain: 'Ethereum'
-  },
-  {
-      value: 'pyusd',
-      label: 'PYUSD',
-      icon: PAYPAL_USD_LOGO,
-      active: false,
-      chain: 'Ethereum'
-  },
+export type MiniPayAssets = {
+  value: string
+  label: string
+  icon: ImageProps | StaticImageData
+  active: boolean
+  chain? : 'Ethereum'|'Polygon'|'Arbitrum'|'Bitcoin'|'Celo'|'Tron'|'Optimism'|'Solana',
+  address : string
+}
+
+export const supportedMiniPayAssets: MiniPayAssets[] = [
   {
       value: 'cUSD',
       label: 'cUSD',
       icon: cUSD_LOGO,
       active: true,
-  },
-  {
-    value: 'cardano',
-    label: 'ADA',
-    icon: ADA_LOGO,
-    active: false
-  },{
-    value: 'tether_gold',
-    label: 'XAUT',
-    icon: TETHER_GOLD_LOGO,
-    active: false
+      address: "0x765DE816845861e75A25fCA122bb6898B8B1282a"
   }
 ] 
 
@@ -412,19 +367,22 @@ export type SupportedPaymentMethods = {
   value: string;
   label: string;
   active: boolean;
+  iconUrl: ImageProps | StaticImageData
 }
 
-export const supportedPaymentMethods:SupportedPaymentMethods[] = [
+export const supportedPaymentMethods: SupportedPaymentMethods[] = [
   {
     value: 'mobile_money',
     label: 'M-Pesa',
     //label: 'Mobile Money',
     active: true,
+    iconUrl: MPESA_LOGO_SVG
   },
   {
     value: 'bank',
     label: 'Bank Transfer',
-    active: false
+    active: false, 
+    iconUrl: bank_photo_png
   }
 ]
 
@@ -779,3 +737,22 @@ export type TransactionHistoryProps = {
 export const TransactionHistory: TransactionHistoryProps[] = [
  
 ]
+
+export const CELO_MAINNET_CHAIN_ID = 42220;
+export const cUSD_MAINNET_CONTRACT_ADDRESS = "0x765DE816845861e75A25fCA122bb6898B8B1282a";
+
+export const getChainIdFromAssetAddress = (assetAddress: string|undefined) =>{
+    let chainId;
+    let formatedAssetAddress = assetAddress?.toLowerCase()
+
+    switch(formatedAssetAddress){
+      case cUSD_MAINNET_CONTRACT_ADDRESS.toLowerCase():
+        chainId = 42220
+        break;
+
+      default:
+        chainId = 42220;  
+    }
+
+    return chainId;
+}
