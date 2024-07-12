@@ -70,7 +70,7 @@ export function BuyComponent(){
       }
     })
 
-    const handleAmountChange = useCallback((amount:any) => {
+    const handleAmountChange = useCallback((amount:string) => {
         setFiatAmountLocal(amount)
         
     },[setFiatAmountLocal])
