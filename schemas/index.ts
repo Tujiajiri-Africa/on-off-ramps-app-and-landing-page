@@ -292,8 +292,8 @@ export const WithdrawSchema = z.object({
 
 export const BuyAssetSchema = z.object({
     asset_address: z.string(),
-    amount: z.number().min(300,{
-        message: 'Minimum purchase amount is KES 300'
+    amount: z.number().min(1,{
+        message: 'Minimum purchase amount is KES 1'
     }),
     payment_method: z.string()
 })
