@@ -157,7 +157,12 @@ export function BuyComponent(){
                                             <Select
                                             {...field}
                                             //onValueChange={field.onChange}
-                                            onValueChange={value => handleAssetChange(value)}
+                                            onValueChange={
+                                               (value) => {
+                                                field.onChange
+                                                handleAssetChange(value)
+                                               }
+                                            }
                                             defaultValue={field.value}
                                             //onOpenChange={e => handleAssetChange(e.)}
                                             >
