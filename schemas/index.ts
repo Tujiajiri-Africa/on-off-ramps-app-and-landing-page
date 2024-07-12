@@ -281,6 +281,9 @@ export const DepositSchema = z.object({
     amount: z.string({
         required_error: 'Minimum deposit amount is 1'
     }),
+    payment_method: z.string({
+        required_error: 'Please payment network'
+    })
 })
 
 export const WithdrawSchema = z.object({
