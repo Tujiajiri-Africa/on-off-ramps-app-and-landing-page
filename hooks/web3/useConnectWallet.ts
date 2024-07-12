@@ -5,7 +5,7 @@ import {useConnect, useAccount} from 'wagmi'
 import { InjectedConnector } from "wagmi/connectors/injected";
 
 export const useMiniPay = () =>{
-    const {address} = useAccount()
+    const {address, isConnected} = useAccount()
 
     const { connect } = useConnect({
       connector: new InjectedConnector(),
@@ -20,8 +20,9 @@ export const useMiniPay = () =>{
     // }
   
     useEffect(() => {
-      connect();
-    }, [connect]);
+      // connect();
+      if(!isConnected){connect()}
+    }, [connect, isConnected]);
 
     return address
 }
