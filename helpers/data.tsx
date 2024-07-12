@@ -756,3 +756,19 @@ export const getChainIdFromAssetAddress = (assetAddress: string|undefined) =>{
 
     return chainId;
 }
+
+export const getAssetNameFromAssetAddress = (assetAddress: string|undefined) =>{
+  let chainId;
+  let formatedAssetAddress = assetAddress?.toLowerCase()
+
+  switch(formatedAssetAddress){
+    case cUSD_MAINNET_CONTRACT_ADDRESS.toLowerCase():
+      chainId = "cUSD"
+      break;
+
+    default:
+      chainId = "cUSD";  
+  }
+
+  return chainId;
+}
