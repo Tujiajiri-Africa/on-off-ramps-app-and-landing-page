@@ -202,7 +202,13 @@ export function SellComponent(){
                                                         .filter((p) => p.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((channel) => (
-                                                            <SelectItem key={channel.value} value={channel.value}>{channel.label}</SelectItem>
+                                                            // <SelectItem key={channel.value} value={channel.value}>{channel.label}</SelectItem>
+                                                            <SelectItem key={channel.value} value={channel.value}>
+                                                                <div className='flex items-center content-center gap-2'>
+                                                                            <Image src={channel.iconUrl?.src} width={30} height={30} alt={channel.value} />
+                                                                            {channel.label}
+                                                                </div>
+                                                            </SelectItem>
                                                         ))
                                                     }
                                                 </SelectContent>
