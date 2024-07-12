@@ -42,7 +42,13 @@ import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {BuyAssetSchema} from '@/schemas'
-import {supportedAssets, supportedPaymentMethods, supportedMiniPayAssets, getAssetNameFromAssetAddress} from '@/helpers/data'
+import {   
+    supportedAssets, 
+    supportedPaymentMethods, 
+    supportedMiniPayAssets, 
+    getAssetNameFromAssetAddress,
+    cUSD_MAINNET_CONTRACT_ADDRESS
+} from '@/helpers/data'
 import {Clock8Icon} from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -156,14 +162,16 @@ export function BuyComponent(){
                                             /> */}
                                             <Select
                                             {...field}
-                                            //onValueChange={field.onChange}
-                                            onValueChange={
-                                               (value) => {
-                                                field.onChange
-                                                handleAssetChange(value)
-                                               }
-                                            }
+                                            onValueChange={field.onChange}
+                                            // onValueChange={
+                                            //    (value) => {
+                                            //     field.onChange
+                                            //     handleAssetChange(value)
+                                            //    }
+                                            // }
+                                            //onValueChange={value  => handleAssetChange(field.value)}
                                             defaultValue={field.value}
+                                            //defaultvalue={cUSD_MAINNET_CONTRACT_ADDRESS}
                                             //onOpenChange={e => handleAssetChange(e.)}
                                             >
                                                 <SelectTrigger className="w-full">
@@ -351,7 +359,8 @@ export function BuyComponent(){
                                                                         </path>
                                                                    </svg>
                                                                    {/* Buying  */}
-                                                                   {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"}
+                                                                   {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"} */}
+                                                                   Buying cUSD
                                                             </Button>
                                                        )
 
@@ -361,7 +370,8 @@ export function BuyComponent(){
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
-                                                       {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"}
+                                                       {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"} */}
+                                                       Buy cUSD
                                                    </Button>
                                                     }
                     </div>
