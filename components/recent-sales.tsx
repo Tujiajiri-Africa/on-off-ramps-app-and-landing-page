@@ -210,8 +210,8 @@ const setStatusColor = (status: string|undefined) => {
             //items-start
           >
               <p className='text-md font-medium leading-none'>
-                {/* {transansactionItem.asset_name} {transansactionItem.amount} */}
-                 {transansactionItem.amount}
+                {transansactionItem.asset_name} {transansactionItem.amount}
+                 {/* {transansactionItem.amount} */}
               </p>
               {/* <p className='text-sm text-grey-400'>{transansactionItem.created_at}</p> */}
               <p className={`text-sm  ${setStatusColor(transansactionItem.status)}`}
