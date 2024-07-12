@@ -39,6 +39,7 @@ import { DashboardIntro } from '@/components/ui/dashboard/getting-started'
 import { ArrowUpRight } from "lucide-react";
 import {useSession} from 'next-auth/react'
 import {UserWallet} from '@/components/ui/dashboard/user-wallet'
+import {UserRewardInfoPage} from "@/components/ui/dashboard/rewards";
 //Emohis https://emojidb.org/wallet-emojis
 
 export function MainUserDashboard() {
@@ -435,6 +436,16 @@ export function MainUserDashboard() {
                   </Card>
             </div>
 
+          </TabsContent>
+          <TabsContent value="rewards" className="space-y-4">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
+              {/* <Card className="col-span-4 md:col-span-3">
+                  <UserWallet/>
+              </Card> */}
+              <div className="col-span-4 md:col-span-3">
+                  <UserRewardInfoPage/>
+              </div>
+            </div>
           </TabsContent>
         </Tabs>
         
