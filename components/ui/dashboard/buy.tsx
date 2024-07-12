@@ -140,7 +140,7 @@ export function BuyComponent(){
                                                 placeholder="Enter amount to deposit"
                                                 
                                                 //disabled={isPending}
-                                                min={0}
+                                                
                                                 
                                             /> */}
                                             <Select
