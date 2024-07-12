@@ -74,9 +74,14 @@ export function BuyComponent(){
     })
 
     const handleAmountChange = useCallback((amount:string) => {
+        const buyRate = 129.00
         setFiatAmountLocal(amount)
+
+        const assetAmount = parseFloat(amount) / buyRate;
+
+        setCalculatedCryptoAmount(assetAmount.toString())
         
-    },[setFiatAmountLocal])
+    },[setFiatAmountLocal, setCalculatedCryptoAmount])
 
     const processOnramp = (values: z.infer<typeof BuyAssetSchema>) => {
         setError("")
