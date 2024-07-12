@@ -78,15 +78,6 @@ export function BuyComponent(){
         
     },[setFiatAmountLocal])
 
-    const handleAmount = (
-        value: string,
-        onChange: (...event: string[]) => void
-      ) => {
-        onChange(value);
-        //trigger();
-        setFiatAmountLocal(value)
-      };
-
     const processOnramp = (values: z.infer<typeof BuyAssetSchema>) => {
         setError("")
         setSuccess("")
@@ -185,21 +176,6 @@ export function BuyComponent(){
                         />
                     </div>
                     <div>
-                    {/* <Controller
-        name={name}
-        onFocus={onFocus}
-        rules={rules}
-        render={(props) => (
-          <FormField
-            onChange={(value) => {
-              props.onChange(value);
-              changeHandler(value, name);
-            }}
-            value={props.value}
-            {...newProps}
-          />
-        )}
-      /> */}
                         <FormField 
                             control={form.control}
                             name='amount'
