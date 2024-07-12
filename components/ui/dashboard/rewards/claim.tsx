@@ -57,6 +57,7 @@ export function RewardClaimsForm(){
             setError("Amount exceeds available balance")
         }else{
             setIsSubmitButtonDisabled(false)
+            setError("")
         }
     },[cryptoRewardBalance, setIsSubmitButtonDisabled, setError])
 
