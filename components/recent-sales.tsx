@@ -165,7 +165,7 @@ const setStatusColor = (status: string|undefined) => {
             </p>
           </div>
           <div className="ml-auto font-medium">
-              <p>{transansactionItem.asset_name} {transansactionItem.amount.toPrecision(4).toString()}</p>
+              <p>{transansactionItem.asset_name} {transansactionItem.amount.toPrecision(4)}</p>
               <p className='text-sm'>{transansactionItem.created_at}</p>
             </div>
         </div>
