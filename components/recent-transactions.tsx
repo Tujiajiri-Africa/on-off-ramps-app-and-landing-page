@@ -26,7 +26,7 @@ import {Button} from '@/components/ui/button';
 import Link from 'next/link';
 import WomanCheckingInvoiceIllustration from '@/app/assets/backgrounds/invoices/woman-checking-invoice-colored.svg'
 
-export function RecentSales() {
+export function RecentTransactions() {
   const {data: userSessionData} = useSession()
   const [transansactionHistoryData, setTransactionData] = useState<TransactionHistoryProps[]|undefined>([]) //TransactionHistoryProps[]|undefined>([]
 

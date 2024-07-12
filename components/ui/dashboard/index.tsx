@@ -2,7 +2,7 @@
 
 import { CalendarDateRangePicker } from "@/components/date-range-picker";
 import { Overview } from "@/components/overview";
-import { RecentSales } from "@/components/recent-sales";
+import { RecentTransactions } from "@/components/recent-transactions"
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -431,7 +431,7 @@ export function MainUserDashboard() {
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <RecentSales />
+                      <RecentTransactions />
                     </CardContent>
                   </Card>
             </div>
