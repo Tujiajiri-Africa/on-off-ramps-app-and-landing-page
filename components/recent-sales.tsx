@@ -199,11 +199,12 @@ const setStatusColor = (status: string|undefined) => {
           </Avatar>
           <div className="ml-4 space-y-1">
             <p className="text-md font-medium leading-none">{transansactionItem.description}</p>
-            <p className={`text-sm  ${setStatusColor(transansactionItem.status)}`}
+            {/* <p className={`text-sm  ${setStatusColor(transansactionItem.status)}`}
             //text-muted-foreground
             >
               {transansactionItem.status}
-            </p>
+            </p> */}
+            <p className='text-sm text-grey-400'>{transansactionItem.created_at}</p>
           </div>
           <div className="ml-auto space-y-1"
             //items-start
@@ -212,7 +213,12 @@ const setStatusColor = (status: string|undefined) => {
                 {/* {transansactionItem.asset_name} {transansactionItem.amount} */}
                  {transansactionItem.amount}
               </p>
-              <p className='text-sm text-grey-400'>{transansactionItem.created_at}</p>
+              {/* <p className='text-sm text-grey-400'>{transansactionItem.created_at}</p> */}
+              <p className={`text-sm  ${setStatusColor(transansactionItem.status)}`}
+            //text-muted-foreground
+            >
+              {transansactionItem.status}
+            </p>
             </div>
         </div>
         ))
