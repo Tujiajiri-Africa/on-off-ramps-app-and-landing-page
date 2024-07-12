@@ -1,7 +1,16 @@
 'use client'
 
 import React, { useCallback, useEffect, useMemo, useState, useTransition, useRef } from 'react'
-import {ArrowDownLeftFromCircle, ArrowDownRightFromCircle, DollarSign, PlusCircleIcon, PlusIcon} from 'lucide-react'
+import {
+  ArrowDownLeftFromCircle, 
+  ArrowDownRightFromCircle, 
+  DollarSign, 
+  PlusCircleIcon, 
+  PlusIcon,
+  MinusIcon as LucidMinusIcon,
+  ArrowDownCircle,
+  ArrowUpCircle, ArrowUpRight, ArrowDownLeft
+} from 'lucide-react'
 
 import { fetchTransactionHistory } from '@/actions/payments';
 import {useSession} from 'next-auth/react'
@@ -32,6 +41,37 @@ const {error, status, data:invoiceData, isLoading, isError } = useQuery({
     queryKey: 'transactions',
     queryFn: fetchTransactionData
 })
+
+const toggleTransactionIconByType = (txType: string) =>{
+  let iconData;
+
+  switch(txType){
+    case "Buy":
+      iconData = <PlusIcon className="w-4 h-4"  />
+      break;
+    
+    case "Deposit":
+      iconData = <ArrowDownCircle className="w-4 h-4"  />
+      break;
+
+    case "Withdraw":
+      iconData = <ArrowUpCircle className="w-4 h-4"  />
+      break;
+
+    case "Sell":
+      iconData = <LucidMinusIcon className="w-4 h-4"  />
+      break;
+
+    case "Send":
+      iconData = <ArrowUpRight className="w-4 h-4"  />
+      break;
+      
+    case "Receive":
+      iconData = <ArrowDownLeft className="w-4 h-4"  />  
+  }
+
+  return iconData
+}
 
 const setStatusColor = (status: string|undefined) => {
   let statusColor = "";
@@ -153,7 +193,8 @@ const setStatusColor = (status: string|undefined) => {
           <Avatar className="h-9 w-9">
             <AvatarImage src="/avatars/01.png" alt="Avatar" />
             <AvatarFallback>
-                <PlusIcon className="w-4 h-4"  />
+                {/* <PlusIcon className="w-4 h-4"  /> */}
+                {toggleTransactionIconByType(transansactionItem.transaction_type)}
             </AvatarFallback>
           </Avatar>
           <div className="ml-4 space-y-1">
@@ -164,7 +205,9 @@ const setStatusColor = (status: string|undefined) => {
               {transansactionItem.status}
             </p>
           </div>
-          <div className="ml-4 space-y-1 items-start">
+          <div className="ml-4 space-y-1"
+            //items-start
+          >
               <p className='text-md font-medium leading-none'>{transansactionItem.asset_name} {transansactionItem.amount}</p>
               <p className='text-sm text-grey-400'>{transansactionItem.created_at}</p>
             </div>
