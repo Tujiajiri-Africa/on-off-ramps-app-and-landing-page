@@ -36,10 +36,7 @@ import {
   } from "@/components/ui/select"
 import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
 import {useSession} from 'next-auth/react'
-
-const handleWithdraw = () => {
-
-}
+import Image from 'next/image'
 
 export function WithdrawForm(){
     const {data: userSessionData} = useSession()
@@ -69,7 +66,7 @@ export function WithdrawForm(){
         <Card>
             <CardHeader>
                 <CardTitle>Withdraw</CardTitle>
-                <CardDescription className="mb-10">Withdraw {userSessionData?.user.currency} from your AjiraPay wallet to your M-Pesa</CardDescription>
+                <CardDescription className="mb-10">Withdraw {userSessionData?.user.currency} from your AjiraPay wallet to your mobile wallet</CardDescription>
                 {/* <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription> */}
             </CardHeader>
             <CardContent>
@@ -144,12 +141,18 @@ export function WithdrawForm(){
                                                   <SelectValue placeholder="withdrawal method" />
                                                 </SelectTrigger>
                                                 <SelectContent>
-                                                    {
+                                                {
                                                         supportedPaymentMethods
                                                         .filter((p) => p.active == true)
                                                         .sort((a, b) => a.label.toLowerCase().localeCompare(b.label.toLowerCase()))
                                                         .map((channel) => (
-                                                            <SelectItem key={channel.value} value={channel.value}>{channel.label}</SelectItem>
+                                                            <SelectItem key={channel.value} value={channel.value}>
+                                                                
+                                                                <div className='flex items-center content-center gap-2'>
+                                                                            <Image src={channel.iconUrl?.src} width={30} height={30} alt={channel.value} />
+                                                                            {channel.label}
+                                                                </div>
+                                                            </SelectItem>
                                                         ))
                                                     }
                                                 </SelectContent>
