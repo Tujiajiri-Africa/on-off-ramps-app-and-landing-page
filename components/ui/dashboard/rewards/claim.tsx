@@ -148,7 +148,7 @@ export function RewardClaimsForm(){
                                                                    </svg>
                                                                    {/* Buying  */}
                                                                    {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"} */}
-                                                                   Processing...
+                                                                   Processing claim
                                                             </Button>
                                                        )
 
