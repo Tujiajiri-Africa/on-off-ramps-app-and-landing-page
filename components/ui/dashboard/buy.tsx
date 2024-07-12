@@ -307,14 +307,8 @@ export function BuyComponent(){
                     </div>
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
-                          </form>
-                        </Form>
-                    </CardContent>
-                    <CardFooter>
-                      {/* <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
-                        Buy
-                      </Button> */}
-                                 {
+                    <div className='flex flex-1 sm:gap-40 gap-10'>
+                    {
                                                        isPending ? (
                                                             <Button 
                                                                 type="button" 
@@ -341,7 +335,10 @@ export function BuyComponent(){
                                                        {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"}
                                                    </Button>
                                                     }
-                    </CardFooter>
+                    </div>
+                          </form>
+                        </Form>
+                    </CardContent>
                     <CardFooter>
                     <div className='text-sm text-gray-500'>
                         By continuing you agree to our <Link href="#" className='text-blue-600'>terms and conditions</Link> 
