@@ -148,7 +148,7 @@ const setStatusColor = (status: string|undefined) => {
       </div>
       
       : 
-      transansactionHistoryData && transansactionHistoryData.length > 1 && transansactionHistoryData?.slice(0, 10).map((transansactionItem, index) => (
+      transansactionHistoryData && transansactionHistoryData.length > 1 && transansactionHistoryData?.slice(0, 5).map((transansactionItem, index) => (
           <div key={index} className="flex items-center">
           <Avatar className="h-9 w-9">
             <AvatarImage src="/avatars/01.png" alt="Avatar" />
@@ -164,7 +164,10 @@ const setStatusColor = (status: string|undefined) => {
               {transansactionItem.status}
             </p>
           </div>
-          <div className="ml-auto font-medium">{transansactionItem.asset_name} {transansactionItem.amount.toPrecision(4)}</div>
+          <div className="ml-auto font-medium">
+              <p>{transansactionItem.asset_name} {transansactionItem.amount.toPrecision(4)}</p>
+              <p className='text-sm'>{transansactionItem.created_at}</p>
+            </div>
         </div>
         ))
       }
