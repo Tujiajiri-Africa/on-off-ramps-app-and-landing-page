@@ -40,9 +40,9 @@ export function DashboardIntro(){
           </div> */}
           <div className="col-span-2">
             {/* <Image src={AboutPageIllustration.src} width={150} height={20} alt='d' className="h-auto"/> */}
-            {/* <h1 className="text-3xl font-bold text-white mb-4">
-                  Buy/Sell
-              </h1> */}
+            <h1 className="text-xl font-bold text-white mb-4">
+                  Buy/Sell cUSD and Earn More
+              </h1>
               {/* <h1 className="text-4xl font-bold text-white mb-4">
                   Buy/Sell
               </h1> */}
@@ -51,7 +51,8 @@ export function DashboardIntro(){
               </p> */}
                 <p className="text-md text-white mb-8">
                   {/* Start buying and selling crypto, create and manage invoices with ease. */}
-                    Start accumulating rewards in cUSD and {userSessionData?.user.currency} when you buy and sell cUSD from us via MiniPay. You get 2% cashback for every cUSD purchase claimable after every 7 days.
+                  {/* Start accumulating rewards in cUSD and {userSessionData?.user.currency}.  */}
+                    When you buy and sell cUSD from us via MiniPay, you get a 2% cashback into your MiniPay wallet, claimable after every 7 days, what&apos;s your money move?
                   {/* Get cash rewards for trading cUSD with M-Pesa on MiniPay */}
               </p>
               <Link href="/dashboard/buy-sell-crypto" className="bg-white hover:bg-gray-200 text-purple-600 font-bold py-2 px-4 rounded">
