@@ -157,7 +157,7 @@ const setStatusColor = (status: string|undefined) => {
             </AvatarFallback>
           </Avatar>
           <div className="ml-4 space-y-1">
-            <p className="text-sm font-medium leading-none">{transansactionItem.description}</p>
+            <p className="text-md font-medium leading-none">{transansactionItem.description}</p>
             <p className={`text-sm  ${setStatusColor(transansactionItem.status)}`}
             //text-muted-foreground
             >
@@ -165,7 +165,7 @@ const setStatusColor = (status: string|undefined) => {
             </p>
           </div>
           <div className="ml-4 space-y-1">
-              <p className='text-sm font-medium leading-none'>{transansactionItem.asset_name} {transansactionItem.amount}</p>
+              <p className='text-md font-medium leading-none'>{transansactionItem.asset_name} {transansactionItem.amount}</p>
               <p className='text-sm text-grey-400'>{transansactionItem.created_at}</p>
             </div>
         </div>
