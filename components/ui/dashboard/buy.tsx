@@ -307,7 +307,7 @@ export function BuyComponent(){
                                     </TableHeader>
                                     <TableBody>
                                         <TableRow>
-                                        <TableCell className="font-medium">{`~ ${userSessionData?.user.currency } 132.00`}</TableCell>
+                                        <TableCell className="font-medium">{`~ ${userSessionData?.user.currency } 129.76`}</TableCell>
                                         <TableCell>{`${userSessionData?.user.currency } 3.00`}</TableCell>
                                         {/* <TableCell>Credit Card</TableCell>
                                         <TableCell className="text-right">$250.00</TableCell> */}
