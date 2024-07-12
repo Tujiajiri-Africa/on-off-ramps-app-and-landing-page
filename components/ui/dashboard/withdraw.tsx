@@ -117,7 +117,8 @@ export function WithdrawForm(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        Select Withdawal method
+                                        {/* Select Withdawal method */}
+                                        Select payment network for withdrawal
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
