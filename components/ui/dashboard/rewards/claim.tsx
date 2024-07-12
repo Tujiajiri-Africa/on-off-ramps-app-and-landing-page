@@ -29,9 +29,11 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import {useSession} from 'next-auth/react'
 import { claimCryptoReward } from '@/actions/payments'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance'
 
 export function RewardClaimsForm(){
     const miniPayWallet = useMiniPay()
+    const cryptoRewardBalance = useUserCryptoRewardBalance()
 
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
@@ -124,6 +126,11 @@ export function RewardClaimsForm(){
                                                 
                                             />
                                         </FormControl>
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Available Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance}`}</span> </p>
+                                        </FormLabel>
                                         <FormMessage/>
                                     </div>
                                 </FormItem>
