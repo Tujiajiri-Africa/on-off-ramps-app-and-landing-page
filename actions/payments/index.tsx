@@ -2,8 +2,9 @@
 
 import  * as z from 'zod'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT, TransactionHistoryProps } from '@/helpers/data'
-import { DepositSchema } from '@/schemas'
+import { DepositSchema, BuyAssetSchema } from '@/schemas'
 import { UserResponseDataProps } from '@/lib/utils'
+import { getChainIdFromAssetAddress } from '@/helpers/data'
 
 export const depositFiat = async(
     values: z.infer<typeof DepositSchema>,
@@ -178,8 +179,101 @@ export const fetchFiatBalance = async(bearerToken: string|undefined) =>{
     }
 }
 
-export const buyCrypto = async() =>{
+export const buyCrypto = async(
+    values: z.infer<typeof BuyAssetSchema>,
+    bearerToken: string|undefined,
+    userWalletAddress: string|undefined,
+    fiatAmountLocal: string|undefined
+) => {
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/onramp/buy-crypto' : PROD_BASE_URI + '/payments/onramp/buy-crypto'
 
+    let dataInfo: UserResponseDataProps = {
+        data: "",
+        error: "",
+        success: ""
+    }
+
+    const validatedFields = BuyAssetSchema.safeParse(values)
+    
+    if(!validatedFields.success){
+        dataInfo = {
+            error: 'Invalid Recipient parameters',
+            success: '',
+            data: ''
+        }
+        return  { data: dataInfo}
+    }
+
+    const chainId = getChainIdFromAssetAddress(validatedFields.data.asset_address)
+
+    const onrampPayload = {
+        asset_address: validatedFields.data.asset_address,
+        amount: validatedFields.data.amount,
+        chain: chainId,
+        recipient_address: userWalletAddress,
+        fiat_amount_local: fiatAmountLocal
+    }
+
+    const payload = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        },
+        body: JSON.stringify(onrampPayload)
+    }
+
+    const initiateCryptoPurchase = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            dataInfo = {
+                error: 'Something went wrong!',
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            dataInfo = {
+                error: data['message'],
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+        if(data['status'] == true){
+            dataInfo = {
+                error: "",
+                success: data['message'],
+                data: data['data']
+            }
+
+            return { data: dataInfo}
+        }
+    }).catch((error) =>{
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    })
+
+    try{
+        return initiateCryptoPurchase
+    }catch(error){
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    }
 }
 
 export const sellCrypto = async() =>{
