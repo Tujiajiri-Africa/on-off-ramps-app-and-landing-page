@@ -294,6 +294,9 @@ export const SendPaymentSchema = z.object({
     }),
     payment_method: z.string({
         required_error: 'Please select payment method'
+    }),
+    recipient: z.string({
+        required_error: 'Please specify recipient phone number'
     })
 })
 

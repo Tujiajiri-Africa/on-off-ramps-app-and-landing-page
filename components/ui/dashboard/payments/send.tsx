@@ -34,7 +34,7 @@ import {SendPaymentSchema} from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { depositFiat } from '@/actions/payments'
+import { depositFiat, sendCrypto } from '@/actions/payments'
 import {useSession} from 'next-auth/react'
 import {   
     supportedAssets, 
@@ -51,6 +51,8 @@ export function MakePaymentComponent(){
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+    const [recipientPhone, setRecipientPhone] = useState<string>("")
+    const [amount, setAmount] = useState<string>("")
 
     const form = useForm<z.infer<typeof SendPaymentSchema>>({
         resolver: zodResolver(SendPaymentSchema),
@@ -65,7 +67,8 @@ export function MakePaymentComponent(){
         setSuccess("")
     
         startTransition(async() => {
-            depositFiat(values, userSessionData?.user.accessToken)
+            //depositFiat(values, userSessionData?.user.accessToken)
+            sendCrypto(values, userSessionData?.user.accessToken, recipientPhone, amount)
             .then((data:any) => {
                 if(data?.data.error){
                     //form.reset()
@@ -89,7 +92,7 @@ export function MakePaymentComponent(){
     >
             <Form {...form}>
                 <form
-                    onSubmit={form.handleSubmit(handleSend)} 
+                    //onSubmit={form.handleSubmit(handleSend)} 
                     className="space-y-6"
                 >
                 <Card>
@@ -181,6 +184,40 @@ export function MakePaymentComponent(){
                                                 placeholder="Enter amount to send"
                                                 // placeholder="Enter amount to deposit"
                                                 type='number'
+                                                disabled={isPending}
+                                                min={0}
+                                                
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <FormField 
+                            control={form.control}
+                            name='recipient'
+                            render={({field}) => (
+                                <FormItem>
+                                    <FormLabel 
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
+                                        >
+                                        {/* Amount in {userSessionData?.user.currency} */}
+                                        Recipient&apos;s phone
+                                    </FormLabel>
+                                    <div 
+                                        className='mt-1'
+                                        >
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                placeholder="Enter recipient phone"
+                                                // placeholder="Enter amount to deposit"
+                                                type='text'
                                                 disabled={isPending}
                                                 min={0}
                                                 
