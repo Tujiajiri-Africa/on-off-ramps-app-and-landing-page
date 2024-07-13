@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition, useState } from 'react'
+import React, { useTransition, useState, useCallback } from 'react'
 import {
     Card,
     CardHeader,
@@ -37,12 +37,28 @@ import {
 import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
 import {useSession} from 'next-auth/react'
 import Image from 'next/image'
+import { fetchFiatBalance, fetchUserCryptoWalletBalance } from '@/actions/payments'
+import { useQuery } from 'react-query';
 
 export function WithdrawForm(){
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+
+    const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+
+    const fetchUserFiatBalance = useCallback(async() => {
+        const result = await fetchFiatBalance(userSessionData?.user.accessToken)
+        const balance = result
+
+        setFiatBalance(balance)
+    },[userSessionData])
+
+    const {error: balanceLoadError, status, data:fiatBalanceData, isLoading: balanceIsLoading, isError } = useQuery({
+        queryKey: 'fiat_balance',
+        queryFn: fetchUserFiatBalance
+    })
 
     const form = useForm<z.infer<typeof WithdrawSchema>>({
         resolver: zodResolver(WithdrawSchema),
