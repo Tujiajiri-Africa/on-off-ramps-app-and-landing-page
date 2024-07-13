@@ -96,7 +96,6 @@ export function ReceivePaymentComponent(){
     
     return (<>
     <CardContent 
-        //className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4"
         >
                 <Card>
             <CardHeader>
