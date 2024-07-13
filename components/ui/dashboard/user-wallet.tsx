@@ -334,7 +334,7 @@ export function UserWallet(){
                                             </Button>
 
                                             <Button
-                                                className="w-full bg-[#F00FDA]/95 text-primary-foreground dark:text-white dark:hover:bg-[#4B49AC]/30 hover:bg-[#4B49AC]/95 hover:text-white"
+                                                className="w-full bg-transparent text-primary-foreground dark:text-white dark:hover:bg-[#4B49AC]/30 hover:bg-[#4B49AC]/95 hover:text-white"
                                             >
                                                 <Link href={`/dashboard/pay`}>
                                                     Send/Receive
