@@ -46,10 +46,10 @@ export function WithdrawForm(){
 
     const form = useForm<z.infer<typeof WithdrawSchema>>({
         resolver: zodResolver(WithdrawSchema),
-        defaultValues:{
-            amount: 100,
-            channel: ""
-        }
+        // defaultValues:{
+        //     amount: 100,
+        //     channel: ""
+        // }
     })
 
     return (<>
