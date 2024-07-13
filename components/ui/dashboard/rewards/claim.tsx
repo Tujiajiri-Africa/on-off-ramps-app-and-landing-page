@@ -103,7 +103,7 @@ export function RewardClaimsForm(){
         if(!cryptoRewardBalance) return;
         const rate = 129.75;
         const localValueTotal = cryptoRewardBalance * rate;
-        return localValueTotal.toString();
+        return localValueTotal.toFixed(4).toString();
     }
 
     return (<>
