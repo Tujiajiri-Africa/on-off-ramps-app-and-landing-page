@@ -304,10 +304,12 @@ export const CryptoRewardClaimSchema = z.object({
 
 export const BuyAssetSchema = z.object({
     asset_address: z.string(),
-    amount: z.number().min(1,{
+    amount: z.number({
+        required_error: "Please specify amount"
+    }).min(1,{
         message: 'Minimum purchase amount is KES 1'
     }),
-    payment_method: z.string()
+    payment_method: z.string({required_error: "Please select payment method"})
 })
 
 export const SellAssetSchema = z.object({

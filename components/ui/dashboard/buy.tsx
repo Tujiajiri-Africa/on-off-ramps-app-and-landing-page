@@ -72,11 +72,11 @@ export function BuyComponent(){
 
     const form = useForm<z.infer<typeof BuyAssetSchema>>({
       resolver: zodResolver(BuyAssetSchema),
-      defaultValues:{
-          asset_address: "",
-          amount: 1,
-          payment_method: ""
-      }
+    //   defaultValues:{
+    //       asset_address: "",
+    //       amount: 1,
+    //       payment_method: ""
+    //   }
     })
 
     const handleAssetChange = useCallback((value: string) => {
