@@ -41,7 +41,6 @@ export function BuildWalletQRCode(){
         <>
      <SVG
         text={miniPayWlletAddress && miniPayWlletAddress != undefined ? miniPayWlletAddress: ""}
-        //text="userwallet"
         options={{
           margin: 2,
           width: 200,
