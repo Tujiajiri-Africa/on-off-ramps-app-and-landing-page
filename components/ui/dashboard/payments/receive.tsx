@@ -27,6 +27,7 @@ import {DepositSchema} from '@/schemas'
 import Image from 'next/image'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 import {truncateAddress} from '@/helpers/addresses'
+import { toast } from 'react-toastify';
 
 export function ReceivePaymentComponent(){
     const miniPayWallet = useMiniPay()
@@ -40,7 +41,34 @@ export function ReceivePaymentComponent(){
     })
 
     const handleCopyWallet = () =>{
-
+        if(!miniPayWallet) return;
+        navigator.clipboard.writeText(miniPayWallet).then(() => {
+            toast.success("Wallet copied successfully",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              //transition: Bounce,
+            }
+            );
+          }).catch((error) => {
+            toast.error("Failed to copy!",{
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              //transition: Bounce,
+            })
+          })
     }
     
     return (<>
