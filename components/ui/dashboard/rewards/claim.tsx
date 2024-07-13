@@ -43,10 +43,10 @@ export function RewardClaimsForm(){
 
     const form = useForm<z.infer<typeof CryptoRewardClaimSchema>>({
         resolver: zodResolver(CryptoRewardClaimSchema),
-        defaultValues:{
-            amount: "1",
-            payment_method: ""
-        }
+        // defaultValues:{
+        //     amount: "1",
+        //     payment_method: ""
+        // }
     })
 
     const handleInputAmountChange = useCallback((amount:string) => {
