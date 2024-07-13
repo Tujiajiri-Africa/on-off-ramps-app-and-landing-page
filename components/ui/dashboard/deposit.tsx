@@ -104,7 +104,7 @@ export function DepositForm(){
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
             <CardContent>
-            <div>
+            <div className="mb-4">
                         <FormField 
                             control={form.control}
                             name='amount'

@@ -99,11 +99,11 @@ export function RewardClaimsForm(){
         setIsSubmitButtonDisabled(false)
     },[cryptoRewardBalance, setClaimAmount])
 
-    const convertUSDToLocalCurrency = (amount: string) =>{
+    const convertUSDToLocalCurrency = () =>{
+        if(!cryptoRewardBalance) return;
         const rate = 129.75;
-        const formatedUSDAmount = parseFloat(amount)
-        const localValueTotal = formatedUSDAmount * rate;
-        return localValueTotal;
+        const localValueTotal = cryptoRewardBalance * rate;
+        return localValueTotal.toString();
     }
 
     return (<>
@@ -165,7 +165,7 @@ export function RewardClaimsForm(){
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance?.toString() } ( ~ ${userSessionData?.user.currency} ${convertUSDToLocalCurrency})`}</span> </p>
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance?.toString()} ${userSessionData?.user.currency} ${convertUSDToLocalCurrency()}`}</span> </p>
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>
