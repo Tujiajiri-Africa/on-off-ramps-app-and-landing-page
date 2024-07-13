@@ -104,6 +104,39 @@ export function DepositForm(){
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
             <CardContent>
+            <div>
+                        <FormField 
+                            control={form.control}
+                            name='amount'
+                            render={({field}) => (
+                                <FormItem>
+                                    <FormLabel 
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
+                                        >
+                                        Amount in {userSessionData?.user.currency}
+                                    </FormLabel>
+                                    <div 
+                                        className='mt-1'
+                                        >
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                placeholder="Enter KES amount to deposit"
+                                                // placeholder="Enter amount to deposit"
+                                                type='number'
+                                                disabled={isPending}
+                                                min={0}
+                                                
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+                    
             <div className='mb-4'>
                         <FormField 
                             control={form.control}
@@ -160,39 +193,7 @@ export function DepositForm(){
                             )}
                         />
                     </div>
-                    
-                    <div>
-                        <FormField 
-                            control={form.control}
-                            name='amount'
-                            render={({field}) => (
-                                <FormItem>
-                                    <FormLabel 
-                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
-                                        >
-                                        Amount in {userSessionData?.user.currency}
-                                    </FormLabel>
-                                    <div 
-                                        className='mt-1'
-                                        >
-                                        <FormControl>
-                                            <Input
-                                                {...field}
-                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="Enter KES amount to deposit"
-                                                // placeholder="Enter amount to deposit"
-                                                type='number'
-                                                disabled={isPending}
-                                                min={0}
-                                                
-                                            />
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </div>
-                                </FormItem>
-                            )}
-                        />
-                    </div>
+                
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
             </CardContent>
