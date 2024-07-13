@@ -221,6 +221,48 @@ export const fetchUserCryptoRewardBalance = async(bearerToken: string|undefined)
     }
 }
 
+export const fetchUserCryptoRewardNextClaimDate = async(bearerToken: string|undefined) =>{
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/rewards/next-claim-date' : PROD_BASE_URI + '/payments/rewards/next-claim-date'
+    
+    let claimDate = "";
+   
+    const payload = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        }
+    }
+
+    const fetchUserRewardNextClaimDate = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            return claimDate
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            return claimDate
+        }
+
+        if(data['status'] == true){
+            claimDate = data['data']
+            return claimDate
+        }
+    }).catch((error) =>{
+        console.log(error)
+        return claimDate
+    })
+
+    try{
+        return fetchUserRewardNextClaimDate
+    }catch(error){
+        console.log(error)
+        return claimDate
+    }
+}
+
 // asset_address = request.args.get('asset_address')
 // user_address = request.args.get('user_address')
 // chain_id = request.args.get('chain')
