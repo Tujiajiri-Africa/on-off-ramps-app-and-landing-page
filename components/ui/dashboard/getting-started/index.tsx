@@ -41,7 +41,7 @@ export function DashboardIntro(){
           <div className="col-span-2">
             {/* <Image src={AboutPageIllustration.src} width={150} height={20} alt='d' className="h-auto"/> */}
             <h1 className="text-xl font-bold text-white mb-4">
-                  Buy/Sell cUSD and Earn More
+                  Buy/Sell cUSD and Earn 2% More
               </h1>
               {/* <h1 className="text-4xl font-bold text-white mb-4">
                   Buy/Sell
