@@ -168,7 +168,7 @@ export function RewardClaimsForm(){
                     
                     <div className='flex flex-1 sm:gap-4 gap-2'>
                         {
-                            cryptoRewardBalance && cryptoRewardBalance > 0 && 
+                            cryptoRewardBalance != null || cryptoRewardBalance != undefined && cryptoRewardBalance > 0 && 
                             (
                              <>
                                <Button
