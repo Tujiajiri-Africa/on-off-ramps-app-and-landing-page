@@ -35,7 +35,7 @@ export function BuildWalletQRCode(){
     const { SVG, Image, Canvas } = useQRCode()
     const miniPayWlletAddress = useMiniPay()
 
-    //if(!miniPayWlletAddress) return;
+    //if(!miniPayWlletAddress) return ;
 
     return (
         <>
