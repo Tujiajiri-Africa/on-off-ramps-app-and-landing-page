@@ -2,8 +2,8 @@ import React from 'react'
 import {CardContent, Card} from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {BuyComponent} from '@/components/ui/dashboard/buy'
 import {SellComponent} from '@/components/ui/dashboard/sell'
+import { MakePaymentComponent } from '@/components/ui/dashboard/payments/send'
 
 export function PaymentComponent(){
     return (
@@ -21,7 +21,7 @@ export function PaymentComponent(){
                                     <TabsTrigger value="receive" className='w-full border-spacing-4'>Receive</TabsTrigger>
                                   </TabsList>
                                   <TabsContent value="send">
-                                      <BuyComponent />
+                                      <MakePaymentComponent />
                                   </TabsContent>
                                   <TabsContent value="receive">
                                       <SellComponent />

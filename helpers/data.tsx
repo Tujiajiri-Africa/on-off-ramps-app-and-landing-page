@@ -383,6 +383,23 @@ export type SupportedPaymentMethods = {
   iconUrl: ImageProps | StaticImageData
 }
 
+export const supportedMiniPayPaymentMethods: SupportedPaymentMethods[] = [
+  {
+    value: 'mobile_money',
+    label: 'M-Pesa',
+    //label: 'Mobile Money',
+    active: true,
+    iconUrl: MPESA_LOGO_SVG
+  },
+  {
+    value: 'crypto',
+    label: 'cUSD',
+    //label: 'Mobile Money',
+    active: true,
+    iconUrl: cUSD_LOGO
+  },
+]
+
 export const supportedPaymentMethods: SupportedPaymentMethods[] = [
   {
     value: 'mobile_money',
