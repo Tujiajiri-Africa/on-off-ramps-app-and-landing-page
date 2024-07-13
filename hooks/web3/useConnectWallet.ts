@@ -18,11 +18,23 @@ export const useMiniPay = () =>{
             // }
     //   }
     // }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const checkMiniPayAndconnectWallet = () => {
+      if(typeof window.ethereum !== 'undefined'){
+        if(window.ethereum && window.ethereum.isMiniPay){
+          if(!isConnected) {
+            connect()
+          }
+        }
+      }
+    }
   
     useEffect(() => {
       // connect();
       if(!isConnected){connect()}
-    }, [connect, isConnected]);
+      //checkMiniPayAndconnectWallet()
+    }, [ connect, isConnected]); //checkMiniPayAndconnectWallet
 
     return address
 }
