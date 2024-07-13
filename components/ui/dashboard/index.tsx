@@ -413,7 +413,7 @@ export function MainUserDashboard() {
                     <CardHeader>
                     <div className="flex items-center justify-between space-y-2">
                                         <div className="md:flex items-center space-x-2">
-                                        <CardTitle>Recent Transactions</CardTitle>
+                                        <CardTitle>Transactions</CardTitle>
                                         
                                         </div>
                                         <Button 
@@ -430,7 +430,7 @@ export function MainUserDashboard() {
                                     </div> 
                       
                       <CardDescription>
-                          Your transactions history
+                          My transaction history
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
