@@ -23,7 +23,7 @@ import { fetchFiatBalance, fetchUserCryptoWalletBalance } from '@/actions/paymen
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 
 export function UserWallet(){
-    const miniPayWallet = useMiniPay()
+    //const miniPayWallet = useMiniPay()
     const {data: userSessionData} = useSession()
 
     const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
