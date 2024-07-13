@@ -9,7 +9,10 @@ import {
   PlusIcon,
   MinusIcon as LucidMinusIcon,
   ArrowDownCircle,
-  ArrowUpCircle, ArrowUpRight, ArrowDownLeft
+  ArrowUpCircle, 
+  ArrowUpRight, 
+  ArrowDownLeft,
+  CircleDollarSign
 } from 'lucide-react'
 
 import { fetchTransactionHistory } from '@/actions/payments';
@@ -64,6 +67,10 @@ const toggleTransactionIconByType = (txType: string) =>{
 
     case "Send":
       iconData = <ArrowUpRight className="w-4 h-4"  />
+      break;
+
+    case "Claim cUSD":
+      iconData = <CircleDollarSign className="w-4 h-4"  />
       break;
       
     case "Receive":
