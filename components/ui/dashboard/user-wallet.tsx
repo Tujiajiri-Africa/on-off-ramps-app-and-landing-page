@@ -43,7 +43,7 @@ export function UserWallet(){
     })
 
     const fetchUserCryptoBalance = useCallback(async() => {
-        const result = await fetchUserCryptoWalletBalance(cUSD_MAINNET_CONTRACT_ADDRESS, miniPayWallet, CELO_MAINNET_CHAIN_ID)
+        const result = await fetchUserCryptoWalletBalance(miniPayWallet)
         const balance = result
        
         setCryptoBalance(balance)
