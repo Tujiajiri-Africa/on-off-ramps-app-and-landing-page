@@ -1,8 +1,7 @@
 import React from 'react'
-import {CardContent, Card} from "@/components/ui/card";
+import {CardContent} from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {SellComponent} from '@/components/ui/dashboard/sell'
 import { MakePaymentComponent } from '@/components/ui/dashboard/payments/send'
 import { ReceivePaymentComponent } from '@/components/ui/dashboard/payments/receive'
 
