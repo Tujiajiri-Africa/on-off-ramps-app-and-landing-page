@@ -175,7 +175,7 @@ export function RewardClaimsForm(){
 
                                                        :
                                                        <Button 
-                                                       disabled={isPending && isSubmitButtonDisabled}
+                                                       disabled={ isSubmitButtonDisabled }
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
