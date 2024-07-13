@@ -57,6 +57,7 @@ import { buyCrypto } from '@/actions/payments'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 import { fetchFiatBalance } from '@/actions/payments'
 import { useQuery } from 'react-query';
+import { useUserFiatBalanceBalance } from '@/hooks/fiat/useUserFiatBalance'
 
 //import { NumberInput } from '@chakra-ui/react'
 //https://medium.com/@mobileatexxeta/conditional-form-validation-with-react-hook-form-and-zod-46b0b29080a3
@@ -64,6 +65,7 @@ import { useQuery } from 'react-query';
 
 export function BuyComponent(){
     const miniPayWallet = useMiniPay()
+    const totalMobileMoneyBalance = useUserFiatBalanceBalance()
 
     const {data: userSessionData} = useSession()
     const [error, setError] = useState<string>("")
@@ -73,6 +75,7 @@ export function BuyComponent(){
     const [ calculatedCryptoAmount, setCalculatedCryptoAmount ] = useState<string>("")
     const [ selectedCryptoAsset, setSelectedCryptoAsset ] = useState<string>("")
     const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+    const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState<boolean>(true)
 
     const fetchUserFiatBalance = useCallback(async() => {
         const result = await fetchFiatBalance(userSessionData?.user.accessToken)
@@ -102,14 +105,24 @@ export function BuyComponent(){
     },[setSelectedCryptoAsset])
 
     const handleAmountChange = useCallback((amount:string) => {
+        if(!totalMobileMoneyBalance) return;
         const buyRate = 129.76
-        setFiatAmountLocal(amount)
-
+        
+        let formatedAmount = parseFloat(amount)
+        if(formatedAmount > totalMobileMoneyBalance){
+            setError("Amount exceeds available balance")
+            setIsSubmitButtonDisabled(true)
+            setFiatAmountLocal("")
+        }else{
+            setFiatAmountLocal(amount)
+            setIsSubmitButtonDisabled(false)
+            setError("")
+        }
         const assetAmount = parseFloat(amount) / buyRate;
 
         setCalculatedCryptoAmount(assetAmount.toString())
         
-    },[setFiatAmountLocal, setCalculatedCryptoAmount])
+    },[setFiatAmountLocal, setCalculatedCryptoAmount, totalMobileMoneyBalance, setIsSubmitButtonDisabled, setError])
 
     const processOnramp = (values: z.infer<typeof BuyAssetSchema>) => {
         setError("")
@@ -382,7 +395,7 @@ export function BuyComponent(){
 
                                                        :
                                                        <Button 
-                                                       //disabled={isPending}
+                                                       disabled={ isSubmitButtonDisabled || fiatAmountLocal == "" || fiatAmountLocal == null || fiatAmountLocal == undefined }
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
