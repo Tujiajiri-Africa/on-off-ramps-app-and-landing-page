@@ -234,7 +234,7 @@ export function WithdrawForm(){
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
                                                       
-                                                        Withdraw
+                                                        {fiatBalance == 0 ? 'Insufficient balance' : 'Withdraw'}
                                                    </Button>
                                                     }
                     </div>
