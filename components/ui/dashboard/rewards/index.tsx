@@ -104,8 +104,7 @@ export function UserRewardInfoPage(){
 
                                                     :
                                                     
-                                                    // `${userSessionData?.user.currency} ${rewardBalance?.toString()}`
-                                                    // `$ ${balance?.toString()}`
+                                            
                                                     `$ ${rewardBalance?.toString()}`
                                                 }
                                             </div>
