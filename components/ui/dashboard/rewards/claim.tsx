@@ -147,11 +147,11 @@ export function RewardClaimsForm(){
                                                 //placeholder="Enter cUSD amount"
                                                 placeholder=""
                                                 type='number'
-                                                //disabled={isPending}
-                                                disabled
-                                                value={parseFloat(claimAmount)}
+                                                disabled={isPending}
+                                                //disabled
+                                                //value={parseFloat(claimAmount)}
                                                 min={0}
-                                                //onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
+                                                onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
                                                 { ...form.register('amount', { valueAsNumber: true } ) }
                                             />
                                         </FormControl>
@@ -167,7 +167,7 @@ export function RewardClaimsForm(){
                         />
                     </div>
                     
-                    <div className='flex flex-1 sm:gap-4 gap-2'>
+                    {/* <div className='flex flex-1 sm:gap-4 gap-2'>
                         {
                             cryptoRewardBalance != undefined && cryptoRewardBalance > 0 && 
                             (
@@ -205,7 +205,7 @@ export function RewardClaimsForm(){
                              </>
                             )
                         }
-                    </div>
+                    </div> */}
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
                     <div className='flex flex-1 sm:gap-40 gap-10'>
