@@ -34,10 +34,10 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
-import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
+import { supportedPaymentMethods } from '@/helpers/data'
 import {useSession} from 'next-auth/react'
 import Image from 'next/image'
-import { fetchFiatBalance, fetchUserCryptoWalletBalance } from '@/actions/payments'
+import { fetchFiatBalance } from '@/actions/payments'
 import { useQuery } from 'react-query';
 
 export function WithdrawForm(){
@@ -118,6 +118,11 @@ export function WithdrawForm(){
                                                 
                                             />
                                         </FormControl>
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Available Balance: <span className="text-orange-600">{`$ ${fiatBalance}`}</span> </p>
+                                        </FormLabel>
                                         <FormMessage/>
                                     </div>
                                 </FormItem>
