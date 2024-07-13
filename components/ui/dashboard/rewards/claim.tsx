@@ -172,12 +172,14 @@ export function RewardClaimsForm(){
                             (
                              <>
                                <Button
+                                    type='button'
                                     className='bg-orange-600 text-white text-sm'
                                     onClick={() => calculateAssetAmountFromPercentage(25)}
                                >
                                     25%
                                </Button>
                                <Button
+                                    type='button'
                                     className='bg-orange-600 text-white text-sm'
                                     onClick={() => calculateAssetAmountFromPercentage(50)}
                                >
@@ -185,6 +187,7 @@ export function RewardClaimsForm(){
                                </Button>
                                 
                                <Button
+                                    type='button'
                                     className='bg-orange-600 text-white text-sm'
                                     onClick={() => calculateAssetAmountFromPercentage(70)}
                                >
@@ -192,6 +195,7 @@ export function RewardClaimsForm(){
                                </Button>
 
                                <Button
+                                    type='button'
                                     className='bg-orange-600 text-white text-sm'
                                     onClick={() => calculateAssetAmountFromPercentage(100)}
                                >
