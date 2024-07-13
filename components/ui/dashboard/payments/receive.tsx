@@ -28,6 +28,28 @@ import Image from 'next/image'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 import {truncateAddress} from '@/helpers/addresses'
 import { toast } from 'react-toastify';
+import { useQRCode } from 'next-qrcode'
+
+function BuildWalletQRCode(){
+    const { SVG } = useQRCode()
+    const miniPayWlletAddress = useMiniPay()
+
+    if(!miniPayWlletAddress) return;
+
+    return (
+        <SVG
+        text={miniPayWlletAddress && miniPayWlletAddress != undefined ? miniPayWlletAddress: ""}
+        options={{
+          margin: 2,
+          width: 200,
+          color: {
+            dark: '#010599FF',
+            light: '#FFBF60FF',
+          },
+        }}
+      />
+    )
+}
 
 export function ReceivePaymentComponent(){
     const miniPayWallet = useMiniPay()
@@ -85,7 +107,10 @@ export function ReceivePaymentComponent(){
                 </CardDescription>
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
-            <CardContent>                    
+            <CardContent>     
+                <div className='mb-4'>
+                    <BuildWalletQRCode />
+                </div>               
             <div className="mb-4">
                         <FormField 
                             control={form.control}
@@ -124,7 +149,7 @@ export function ReceivePaymentComponent(){
                 onClick={handleCopyWallet}
                     >
                     Copy wallet
-                </Button>
+            </Button>
 
             </CardFooter>
         </Card>
