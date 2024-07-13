@@ -119,8 +119,8 @@ export function RewardClaimsForm(){
         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
         <Card>
             <CardHeader>
-                <CardTitle>Claim Reward Earnings</CardTitle>
-                <CardDescription className="mb-10">Instantly withdraw your AjiraPay cUSD reward earnings to your MiniPay wallet</CardDescription>
+                <CardTitle>Claim Earnings</CardTitle>
+                <CardDescription className="mb-10">Instantly withdraw your AjiraPay cUSD reward earnings directly to your MiniPay wallet</CardDescription>
                 {/* <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription> */}
             </CardHeader>
             <CardContent>
