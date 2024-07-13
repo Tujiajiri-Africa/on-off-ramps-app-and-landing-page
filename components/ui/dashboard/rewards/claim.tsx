@@ -135,7 +135,7 @@ export function RewardClaimsForm(){
                                             </Button> */}
                                             <Trophy className='w-10 h-10 rounded-full' />
                                         </div>  
-                                        <CardDescription className="mb-10">Instantly withdraw your AjiraPay cUSD reward earnings directly to your MiniPay wallet</CardDescription> 
+                                        <CardDescription className="mb-10">Hello champ, instantly withdraw your AjiraPay cUSD reward earnings directly to your MiniPay wallet</CardDescription> 
                 </CardHeader>
             {/* <CardHeader>
                 <CardTitle className='flex flex-1 gap-2'>

@@ -323,6 +323,8 @@ export function UserWallet(){
                                                     2.23%
                                                 </span> <span className='dark:text-gray-300 text-black'>last 1 month</span>
                                             </p> */}
+
+                                            <div className='flex flex-row gap-2'>
                                             <Button
                                                 className="w-full dark:bg-[#4B49AC]/95 text-white"
                                             >
@@ -330,10 +332,17 @@ export function UserWallet(){
                                                     Buy/Sell
                                                 </Link>
                                             </Button>
+
+                                            <Button
+                                                className="w-full bg-[#F00FDA]/95 text-primary-foreground dark:text-white dark:hover:bg-[#4B49AC]/30 hover:bg-[#4B49AC]/95 hover:text-white"
+                                            >
+                                                <Link href={`/dashboard/pay`}>
+                                                    Send/Receive
+                                                </Link>
+                                            </Button>
+                                            </div>
                                         </CardContent>
                                     </Card>
-
-
                                 </div>
                             </CardContent>
                         </Card>
