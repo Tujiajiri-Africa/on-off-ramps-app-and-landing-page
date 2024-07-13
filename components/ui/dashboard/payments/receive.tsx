@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition, useState } from 'react'
+import React, { useTransition, useState, ReactNode } from 'react'
 import {
     Card,
     CardHeader,
@@ -31,15 +31,17 @@ import { toast } from 'react-toastify';
 import { useQRCode } from 'next-qrcode'
 import { CopyIcon } from 'lucide-react'
 
-function BuildWalletQRCode(){
+export function BuildWalletQRCode(){
     const { SVG } = useQRCode()
     const miniPayWlletAddress = useMiniPay()
 
     //if(!miniPayWlletAddress) return;
 
     return (
-        <SVG
+        <>
+     <SVG
         text={miniPayWlletAddress && miniPayWlletAddress != undefined ? miniPayWlletAddress: ""}
+        //text="userwallet"
         options={{
           margin: 2,
           width: 200,
@@ -49,6 +51,7 @@ function BuildWalletQRCode(){
           },
         }}
       />
+        </>
     )
 }
 
@@ -108,7 +111,7 @@ export function ReceivePaymentComponent(){
             </CardHeader>
             <CardContent>     
                 <div className='mb-4'>
-                    <BuildWalletQRCode />
+                    <BuildWalletQRCode  />
                 </div>               
             <div className="mb-4">
                         <FormField 
