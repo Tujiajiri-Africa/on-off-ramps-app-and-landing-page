@@ -55,6 +55,7 @@ export function RewardClaimsForm(){
         let formatedAmount = parseFloat(amount)
         if(formatedAmount > cryptoRewardBalance){
             setError("Amount exceeds available balance")
+            setIsSubmitButtonDisabled(true)
         }else{
             setIsSubmitButtonDisabled(false)
             setError("")
@@ -174,7 +175,7 @@ export function RewardClaimsForm(){
 
                                                        :
                                                        <Button 
-                                                       disabled={isPending || isSubmitButtonDisabled}
+                                                       disabled={isPending && isSubmitButtonDisabled}
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
