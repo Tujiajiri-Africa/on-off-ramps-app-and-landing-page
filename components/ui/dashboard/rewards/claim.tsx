@@ -39,6 +39,8 @@ export function RewardClaimsForm(){
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+    const [claimAmount, setClaimAmount] = useState<string>("")
+
     const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState<boolean>(true)
 
     const form = useForm<z.infer<typeof CryptoRewardClaimSchema>>({
@@ -56,11 +58,13 @@ export function RewardClaimsForm(){
         if(formatedAmount > cryptoRewardBalance){
             setError("Amount exceeds available balance")
             setIsSubmitButtonDisabled(true)
+            setClaimAmount("")
         }else{
+            setClaimAmount(amount)
             setIsSubmitButtonDisabled(false)
             setError("")
         }
-    },[cryptoRewardBalance, setIsSubmitButtonDisabled, setError])
+    },[cryptoRewardBalance, setIsSubmitButtonDisabled, setError, setClaimAmount])
 
     const processRewardClaim = (values: z.infer<typeof CryptoRewardClaimSchema>) => {
         setError("")
@@ -175,7 +179,7 @@ export function RewardClaimsForm(){
 
                                                        :
                                                        <Button 
-                                                       disabled={ isSubmitButtonDisabled }
+                                                       disabled={ isSubmitButtonDisabled || claimAmount == "" || claimAmount == null || claimAmount == undefined }
                                                        type='submit'
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
