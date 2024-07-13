@@ -17,10 +17,13 @@ import { useQuery } from 'react-query';
 import {useSession} from 'next-auth/react'
 import { fetchUserCryptoRewardBalance } from '@/actions/payments'
 import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance';
+import { useNextRewardClaimDate } from '@/hooks/web3/useNextRewardClaimDate'
+
 import { Trophy } from 'lucide-react'
 
 export function UserRewardInfoPage(){
     //const balance = useUserCryptoRewardBalance();
+    const nextClaimDate = useNextRewardClaimDate()
 
     const {data: userSessionData} = useSession()
     const [ rewardBalance, setRewardBalance ] = useState<number|undefined>(0);
@@ -47,7 +50,6 @@ export function UserRewardInfoPage(){
                 <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
                     <div 
                         className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
-                    //className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7'
                     >
                         <Card 
                             className='col-span-5 sm:col-span-1 lg:col-span-5'
@@ -63,12 +65,6 @@ export function UserRewardInfoPage(){
                                         </CardTitle>
                                         
                                         </div>
-                                        {/* <Button 
-                                            className="content-start group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
-                                            variant={'outline'}
-                                        >
-                                            View More
-                                        </Button> */}
                                         <Trophy className='w-10 h-10 rounded-full' />
                                     </div>   
                                 </CardHeader>
@@ -108,11 +104,16 @@ export function UserRewardInfoPage(){
                                                 }
                                             </div>
                                             <p className='text-sm font-normal'>Total Rewards</p>
-                                            <p className="text-xs text-muted-foreground mb-6">
-                                                <span className="dark:text-gray-300 text-black">
-                                                    Claimable 
-                                                </span> <span className='dark:text-gray-300 text-black'>in 7 days</span>
-                                            </p>
+                                            {
+                                                rewardBalance != undefined && rewardBalance > 0 && (
+                                                    <p className="text-xs text-muted-foreground mb-6">
+                                                        <span className="dark:text-gray-300 text-black">
+                                                            Claimable 
+                                                        </span> <span className='dark:text-gray-300 text-black'>{ nextClaimDate }</span>
+                                                    </p>
+                                                )
+                                            }
+
                                             <br></br>
                                             <hr></hr>
                                             <br></br>

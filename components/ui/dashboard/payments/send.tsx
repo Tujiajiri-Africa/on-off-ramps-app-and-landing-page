@@ -30,11 +30,11 @@ import {Button} from '@/components/ui/button'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {DepositSchema} from '@/schemas'
+import {SendPaymentSchema} from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { depositFiat } from '@/actions/payments'
+import { depositFiat, sendCrypto } from '@/actions/payments'
 import {useSession} from 'next-auth/react'
 import {   
     supportedAssets, 
@@ -51,21 +51,24 @@ export function MakePaymentComponent(){
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+    const [recipientPhone, setRecipientPhone] = useState<string>("")
+    const [amount, setAmount] = useState<string>("")
 
-    const form = useForm<z.infer<typeof DepositSchema>>({
-        resolver: zodResolver(DepositSchema),
+    const form = useForm<z.infer<typeof SendPaymentSchema>>({
+        resolver: zodResolver(SendPaymentSchema),
         // defaultValues:{
         //     amount: "",
         //     payment_method: ""
         // }
     })
 
-    const handleDeposit = (values: z.infer<typeof DepositSchema>) => {
+    const handleSend = (values: z.infer<typeof SendPaymentSchema>) => {
         setError("")
         setSuccess("")
     
         startTransition(async() => {
-            depositFiat(values, userSessionData?.user.accessToken)
+            //depositFiat(values, userSessionData?.user.accessToken)
+            sendCrypto(values, userSessionData?.user.accessToken, recipientPhone, amount)
             .then((data:any) => {
                 if(data?.data.error){
                     //form.reset()
@@ -83,19 +86,13 @@ export function MakePaymentComponent(){
     }
     
     return (<>
-    <ScrollArea className='h-full'>
-        {/* <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-            <div className="flex items-center justify-between space-y-2">
-                <h2 className="text-3xl font-bold tracking-tight">
-                    Deposit
-                </h2>
-            </div>
-        </div> */}
-        <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none'>
-        <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
+    <Card>
+    <CardContent 
+        //className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4"
+    >
             <Form {...form}>
                 <form
-                    //onSubmit={form.handleSubmit(handleDeposit)} 
+                    //onSubmit={form.handleSubmit(handleSend)} 
                     className="space-y-6"
                 >
                 <Card>
@@ -103,7 +100,7 @@ export function MakePaymentComponent(){
                 <CardTitle>Send Money</CardTitle>
                 <CardDescription className="mb-10">
                     {/* Top up your AjiraPay wallet with {userSessionData?.user.currency} and start making money buying and selling cUSD seamlessly on MiniPay */}
-                    Send money to your friends and loved ones at zero fee
+                        Send money to your friends and loved ones at zero fee, make cUSD payments across the globe
                 </CardDescription>
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
@@ -198,6 +195,40 @@ export function MakePaymentComponent(){
                             )}
                         />
                     </div>
+
+                    <div className="mb-4">
+                        <FormField 
+                            control={form.control}
+                            name='recipient'
+                            render={({field}) => (
+                                <FormItem>
+                                    <FormLabel 
+                                        className="block text-sm font-medium text-gray-700 dark:text-gray-400"
+                                        >
+                                        {/* Amount in {userSessionData?.user.currency} */}
+                                        Recipient&apos;s phone
+                                    </FormLabel>
+                                    <div 
+                                        className='mt-1'
+                                        >
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                                                placeholder="Enter recipient phone"
+                                                // placeholder="Enter amount to deposit"
+                                                type='text'
+                                                disabled={isPending}
+                                                min={0}
+                                                
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </div>
+                                </FormItem>
+                            )}
+                        />
+                    </div>
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
             </CardContent>
@@ -233,8 +264,7 @@ export function MakePaymentComponent(){
                 </form>
             </Form>
         </CardContent>
-        </div>
-    </ScrollArea>
+    </Card>
 
     </>)
 }

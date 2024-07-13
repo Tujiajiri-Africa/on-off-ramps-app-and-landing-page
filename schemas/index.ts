@@ -288,6 +288,18 @@ export const WithdrawSchema = z.object({
     channel: z.string({required_error: "Please select payment network"})
 })
 
+export const SendPaymentSchema = z.object({
+    amount: z.string({
+        required_error: 'Amount is required'
+    }),
+    payment_method: z.string({
+        required_error: 'Please select payment method'
+    }),
+    recipient: z.string({
+        required_error: 'Please specify recipient phone number'
+    })
+})
+
 export const CryptoRewardClaimSchema = z.object({
     amount: z.string({
         required_error: 'Amount is required'

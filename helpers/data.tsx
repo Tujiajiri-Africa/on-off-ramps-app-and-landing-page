@@ -108,6 +108,12 @@ export const navItems: NavItem[] = [
     label: 'wallet'
   },
   {
+    title: 'Send/Receive',
+    href: '/dashboard/pay',
+    icon: 'send_receive',
+    label: 'send_receive'
+  },
+  {
     title: 'Rewards & Earnings',
     href: '/dashboard/rewards',
     icon: 'money',
