@@ -163,7 +163,7 @@ export const fetchFiatBalance = async(bearerToken: string|undefined) =>{
         }
 
         if(data['status'] == true){
-            balance += data['data']
+            balance = data['data']
             return balance
         }
     }).catch((error) =>{
@@ -205,7 +205,7 @@ export const fetchUserCryptoRewardBalance = async(bearerToken: string|undefined)
         }
 
         if(data['status'] == true){
-            balance += data['data']
+            balance = data['data']
             return balance
         }
     }).catch((error) =>{
@@ -224,7 +224,7 @@ export const fetchUserCryptoRewardBalance = async(bearerToken: string|undefined)
 export const fetchUserCryptoWalletBalance = async(bearerToken: string|undefined) =>{
     const endpoint = "https://stream-api-service.ajirapay.finance/api/v1/wallet/asset_balance"
     
-    let balance = 0;
+    let balance = 0
    
     const payload = {
         method: 'GET',
@@ -246,7 +246,7 @@ export const fetchUserCryptoWalletBalance = async(bearerToken: string|undefined)
         }
 
         if(data['status'] == true){
-            balance += data['data']
+            balance = data['data']
             return balance
         }
     }).catch((error) =>{
