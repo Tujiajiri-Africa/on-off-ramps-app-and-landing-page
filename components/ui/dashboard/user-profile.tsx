@@ -54,14 +54,15 @@ import { UserProfileSchema } from '@/schemas'
 import {UseAddressForm} from '@/components/ui/dashboard/user-address-form'
 import {useMiniPay} from '@/hooks/web3/useConnectWallet'
 import {truncateAddress} from '@/helpers/addresses'
+import {useAccount} from 'wagmi'
 
 export function UserProfileComponent(){
+    //const miniPayWallet = useMiniPay()
+    const {address, isConnected} = useAccount()
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
-    
-    const miniPayWallet = useMiniPay()
     
     const form = useForm<z.infer<typeof UserProfileSchema>>({
       resolver: zodResolver(UserProfileSchema),
@@ -262,7 +263,7 @@ export function UserProfileComponent(){
                                                         //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                         placeholder="wallet"
                                                         type='text'
-                                                        value={truncateAddress(miniPayWallet)}
+                                                        value={truncateAddress(address)}
                                                         
                                                     />
                                                 </FormControl>
