@@ -286,7 +286,9 @@ export function UserWallet(){
                                         </CardContent>
                                     </Card> */}
 
-                                    <Card className=''
+                                    <Card 
+                                    className=''
+                                    //className='col-span-5 sm:col-span-1 lg:col-span-5'
                                     //bg-[#F3797E]/20 dark:bg-teal-800/60
                                     >
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
