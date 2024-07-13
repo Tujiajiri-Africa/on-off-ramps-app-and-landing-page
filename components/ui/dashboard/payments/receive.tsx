@@ -29,6 +29,7 @@ import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 import {truncateAddress} from '@/helpers/addresses'
 import { toast } from 'react-toastify';
 import { useQRCode } from 'next-qrcode'
+import { CopyIcon } from 'lucide-react'
 
 function BuildWalletQRCode(){
     const { SVG } = useQRCode()
@@ -148,7 +149,11 @@ export function ReceivePaymentComponent(){
                 type='button'
                 onClick={handleCopyWallet}
                     >
-                    Copy wallet
+                    <div className='flex items-center content-center gap-2'>
+                        Copy wallet
+
+                        <CopyIcon className='w-10 h-10'/>
+                    </div>
             </Button>
 
             </CardFooter>
