@@ -303,7 +303,7 @@ export function UserWallet(){
                                                 {/* { `${ userSessionData?.user.currency } 2,184.00`} */}
                                                 { `$ ${cryptoBalance?.toString()}`}
                                             </div>
-                                            <p className='text-sm font-normal'>Available Balance</p>
+                                            <p className='text-sm font-normal mb-6'>Available Balance</p>
                                             {/* <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="text-red-600">
                                                     2.23%
