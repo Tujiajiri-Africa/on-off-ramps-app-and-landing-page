@@ -221,7 +221,9 @@ export const fetchUserCryptoRewardBalance = async(bearerToken: string|undefined)
     }
 }
 
-export const fetchUserCryptoRewardNextClaimDate = async(bearerToken: string|undefined) =>{
+export const fetchUserCryptoRewardNextClaimDate = async(
+    bearerToken: string|undefined
+) =>{
     const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/rewards/next-claim-date' : PROD_BASE_URI + '/payments/rewards/next-claim-date'
     
     let claimDate = "";
