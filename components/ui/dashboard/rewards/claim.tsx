@@ -119,8 +119,8 @@ export function RewardClaimsForm(){
         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
         <Card>
             <CardHeader>
-                <CardTitle>Claim Reward Earnings</CardTitle>
-                <CardDescription className="mb-10">Instantly withdraw your AjiraPay cUSD reward earnings to your MiniPay wallet</CardDescription>
+                <CardTitle>Claim Earnings</CardTitle>
+                <CardDescription className="mb-10">Instantly withdraw your AjiraPay cUSD reward earnings directly to your MiniPay wallet</CardDescription>
                 {/* <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription> */}
             </CardHeader>
             <CardContent>
@@ -165,7 +165,14 @@ export function RewardClaimsForm(){
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance?.toString()} (~${userSessionData?.user.currency} ${convertUSDToLocalCurrency()})`}</span> </p>
+                                            {
+                                                cryptoRewardBalance != undefined && (
+                                                    <p className="text-gray-700 dark:text-gray-400">
+                                                        Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance?.toString()} (~${userSessionData?.user.currency} ${convertUSDToLocalCurrency()})`}</span> 
+                                                    </p>
+                                                )
+                                            }
+
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>
