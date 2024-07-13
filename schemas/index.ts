@@ -275,9 +275,6 @@ export const UserPhoneVerificationSchema = z.object({
 )
 
 export const DepositSchema = z.object({
-    // amount: z.number().gt(1,{ //300
-    //     message: "Minimum deposit amount is KES 1" //300
-    // })
     amount: z.string({
         required_error: 'Amount is required'
     }),
