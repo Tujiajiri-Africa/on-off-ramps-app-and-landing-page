@@ -17,10 +17,13 @@ import { useQuery } from 'react-query';
 import {useSession} from 'next-auth/react'
 import { fetchUserCryptoRewardBalance } from '@/actions/payments'
 import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance';
+import { useNextRewardClaimDate } from '@/hooks/web3/useNextRewardClaimDate'
+
 import { Trophy } from 'lucide-react'
 
 export function UserRewardInfoPage(){
     //const balance = useUserCryptoRewardBalance();
+    const nextClaimDate = useNextRewardClaimDate()
 
     const {data: userSessionData} = useSession()
     const [ rewardBalance, setRewardBalance ] = useState<number|undefined>(0);
@@ -108,11 +111,16 @@ export function UserRewardInfoPage(){
                                                 }
                                             </div>
                                             <p className='text-sm font-normal'>Total Rewards</p>
-                                            <p className="text-xs text-muted-foreground mb-6">
-                                                <span className="dark:text-gray-300 text-black">
-                                                    Claimable 
-                                                </span> <span className='dark:text-gray-300 text-black'>in 7 days</span>
-                                            </p>
+                                            {
+                                                rewardBalance != undefined && rewardBalance > 0 && (
+                                                    <p className="text-xs text-muted-foreground mb-6">
+                                                        <span className="dark:text-gray-300 text-black">
+                                                            Claimable 
+                                                        </span> <span className='dark:text-gray-300 text-black'>{ nextClaimDate }</span>
+                                                    </p>
+                                                )
+                                            }
+
                                             <br></br>
                                             <hr></hr>
                                             <br></br>
