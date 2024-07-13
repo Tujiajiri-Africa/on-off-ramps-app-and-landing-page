@@ -50,7 +50,6 @@ export function UserRewardInfoPage(){
                 <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
                     <div 
                         className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
-                    //className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7'
                     >
                         <Card 
                             className='col-span-5 sm:col-span-1 lg:col-span-5'
