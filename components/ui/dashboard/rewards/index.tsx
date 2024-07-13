@@ -59,7 +59,7 @@ export function UserRewardInfoPage(){
                                     <div className="flex items-center justify-between space-y-2">
                                         <div className="md:flex items-center space-x-2">
                                         <CardTitle>
-                                            My Reward Earnings
+                                            My Earnings
                                             {/* {userSessionData?.user.currency}  Wallet */}
                                         </CardTitle>
                                         
