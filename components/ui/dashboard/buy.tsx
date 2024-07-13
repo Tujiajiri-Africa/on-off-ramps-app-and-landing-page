@@ -55,6 +55,9 @@ import Image from 'next/image'
 import {useSession} from 'next-auth/react'
 import { buyCrypto } from '@/actions/payments'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import { fetchFiatBalance } from '@/actions/payments'
+import { useQuery } from 'react-query';
+
 //import { NumberInput } from '@chakra-ui/react'
 //https://medium.com/@mobileatexxeta/conditional-form-validation-with-react-hook-form-and-zod-46b0b29080a3
 //https://github.com/orgs/react-hook-form/discussions/2194
@@ -69,6 +72,19 @@ export function BuyComponent(){
     const [ fiatAmountLocal, setFiatAmountLocal ] = useState<string>("")
     const [ calculatedCryptoAmount, setCalculatedCryptoAmount ] = useState<string>("")
     const [ selectedCryptoAsset, setSelectedCryptoAsset ] = useState<string>("")
+    const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+
+    const fetchUserFiatBalance = useCallback(async() => {
+        const result = await fetchFiatBalance(userSessionData?.user.accessToken)
+        const balance = result
+
+        setFiatBalance(balance)
+    },[userSessionData])
+
+    const {error: balanceLoadError, status, data:fiatBalanceData, isLoading: balanceIsLoading, isError } = useQuery({
+        queryKey: 'fiat_balance',
+        queryFn: fetchUserFiatBalance
+    })
 
     const form = useForm<z.infer<typeof BuyAssetSchema>>({
       resolver: zodResolver(BuyAssetSchema),
@@ -371,7 +387,7 @@ export function BuyComponent(){
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
                                                        {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"} */}
-                                                       Buy cUSD
+                                                       {fiatBalance == 0 ? `Insufficient ${userSessionData?.user.currency} balance` : 'Buy cUSD'}
                                                    </Button>
                                                     }
                     </div>
