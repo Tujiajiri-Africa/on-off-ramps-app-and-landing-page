@@ -111,36 +111,27 @@ export function ReceivePaymentComponent(){
             <CardContent>     
                 <div className='mb-4'>
                     <BuildWalletQRCode  />
-                </div>               
+                </div>            
             <div className="mb-4">
-                        <FormField 
-                            control={form.control}
-                            name='amount'
-                            render={({field}) => (
-                                <FormItem>
-
-                                    <div 
-                                        className='mt-1'
-                                        >
-                                        <FormControl>
-                                            <Input
-                                                //{...field}
-                                                value={truncateAddress(miniPayWallet)}
-                                                //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="Enter amount to send"
-                                                // placeholder="Enter amount to deposit"
-                                                type='number'
-                                                //disabled={isPending}
-                                                disabled
-                                                min={0}
-                                                
-                                            />
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </div>
-                                </FormItem>
-                            )}
+            <FormItem>
+                <div 
+                    className='mt-1'
+                    >
+                        <Input
+                            //{...field}
+                            value={truncateAddress(miniPayWallet)}
+                            //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                            placeholder="Enter amount to send"
+                            // placeholder="Enter amount to deposit"
+                            type='text'
+                            //disabled={isPending}
+                            disabled
+                            //min={0}
+                            
                         />
+                    <FormMessage/>
+                </div>
+                </FormItem>
                     </div>
             </CardContent>
             <CardFooter>
