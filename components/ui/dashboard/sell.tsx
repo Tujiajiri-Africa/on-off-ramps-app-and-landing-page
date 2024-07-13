@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useState} from 'react'
+import React,{useState, useTransition} from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -47,8 +47,14 @@ import Link from 'next/link'
 import { Clock8Icon } from 'lucide-react'
 import Image from 'next/image'
 import {useSession} from 'next-auth/react'
+import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance'
+import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 
 export function SellComponent(){
+    const miniPayWallet = useMiniPay()
+    const cryptoRewardBalance = useUserCryptoRewardBalance()
+
+    const [isPending, startTransition] = useTransition()
     const {data: userSessionData} = useSession()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
@@ -146,7 +152,7 @@ export function SellComponent(){
                                     <div 
                                         className='mt-1'
                                         >
-                                        <FormControl>
+                                        <FormControl className='mb-2'>
                                             <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
@@ -157,6 +163,11 @@ export function SellComponent(){
                                                 
                                             />
                                         </FormControl>
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Available Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance}`}</span> </p>
+                                        </FormLabel>
                                         <FormMessage/>
                                     </div>
                                 </FormItem>
@@ -259,15 +270,41 @@ export function SellComponent(){
                     </div>
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
+
+                    <div className='flex flex-1 sm:gap-40 gap-10'>
+                    {
+                                                       isPending ? (
+                                                            <Button 
+                                                                type="button" 
+                                                                disabled
+                                                                className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                                //className="py-2 px-4 flex justify-center items-center  bg-orange-600  hover:bg-orange-500 hover:text-white focus:ring-orange-500 focus:ring-offset-orange-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
+                                                                >
+                                                                
+                                                                <svg width="20" height="20" fill="currentColor" className="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                                         <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
+                                                                        </path>
+                                                                   </svg>
+                                                                   {/* Buying  */}
+                                                                   {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"} */}
+                                                                    Processing
+                                                            </Button>
+                                                       )
+
+                                                       :
+                                                       <Button 
+                                                       //disabled={isPending}
+                                                       type='submit'
+                                                       className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                       >
+                                                       {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"} */}
+                                                        Sell cUSD
+                                                   </Button>
+                                                    }
+                    </div>
                           </form>
                         </Form>
                     </CardContent>
-                    <CardFooter>
-                      <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
-                        Sell
-                      </Button>
-                      
-                    </CardFooter>
                     <CardFooter>
                     <div className='text-sm text-gray-500'>
                         By continuing you agree to our <Link href="#" className='text-blue-600'>terms and conditions</Link> 

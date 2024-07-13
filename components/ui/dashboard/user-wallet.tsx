@@ -20,8 +20,10 @@ import KESH_LOGO from '@/app/assets/icons/currencies/KES.png'
 import { useQuery } from 'react-query';
 import {useSession} from 'next-auth/react'
 import { fetchFiatBalance, fetchUserCryptoWalletBalance } from '@/actions/payments'
+import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 
 export function UserWallet(){
+    const miniPayWallet = useMiniPay()
     const {data: userSessionData} = useSession()
 
     const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
