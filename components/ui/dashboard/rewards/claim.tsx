@@ -152,7 +152,7 @@ export function RewardClaimsForm(){
                                                 //value={parseFloat(claimAmount)}
                                                 //min={0}
                                                 onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
-                                                { ...form.register('amount', { valueAsNumber: true } ) }
+                                                //{ ...form.register('amount', { valueAsNumber: true } ) }
                                             />
                                         </FormControl>
                                         <FormLabel
