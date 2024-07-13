@@ -111,8 +111,9 @@ export function ReceivePaymentComponent(){
             <CardContent>     
                 <div className='mb-4'>
                     <BuildWalletQRCode  />
-                </div>            
-            <div className="mb-4">
+                </div>   
+       
+            {/* <div className="mb-4">
             <FormItem>
                 <div 
                     className='mt-1'
@@ -132,7 +133,7 @@ export function ReceivePaymentComponent(){
                     <FormMessage/>
                 </div>
                 </FormItem>
-                    </div>
+                    </div> */}
             </CardContent>
             <CardFooter>
             <Button 
