@@ -4,7 +4,7 @@ import { useAccount } from 'wagmi'
 import {useSession} from 'next-auth/react'
 import {fetchUserCryptoRewardNextClaimDate} from '@/actions/payments'
 
-export const useUserRewardClaimDate = () =>{
+export const useNextRewardClaimDate = () =>{
     const {data: userSessionData} = useSession()
     const {address, isConnected} = useAccount()
     const [ nextRewardClaimDate, setNextRewardClaimDate ] = useState<string|undefined>("");
