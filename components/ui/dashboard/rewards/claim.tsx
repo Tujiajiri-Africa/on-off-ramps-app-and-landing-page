@@ -30,7 +30,7 @@ import {useSession} from 'next-auth/react'
 import { claimCryptoReward } from '@/actions/payments'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance'
-
+import { GiftIcon, LucideTrophy, Trophy } from 'lucide-react'
 export function RewardClaimsForm(){
     const miniPayWallet = useMiniPay()
     const cryptoRewardBalance = useUserCryptoRewardBalance()
@@ -119,10 +119,34 @@ export function RewardClaimsForm(){
         <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
         <Card>
             <CardHeader>
-                <CardTitle>Claim Earnings</CardTitle>
+                                        <div className="flex items-center justify-between space-y-2">
+                                            <div className="md:flex items-center space-x-2">
+                                            <CardTitle>
+                                                Claim Earnings
+                                                {/* {userSessionData?.user.currency}  Wallet */}
+                                            </CardTitle>
+                                            
+                                            </div>
+                                            {/* <Button 
+                                                className="content-start group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
+                                                variant={'outline'}
+                                            >
+                                                View More
+                                            </Button> */}
+                                            <Trophy className='w-10 h-10 rounded-full' />
+                                        </div>  
+                                        <CardDescription className="mb-10">Instantly withdraw your AjiraPay cUSD reward earnings directly to your MiniPay wallet</CardDescription> 
+                </CardHeader>
+            {/* <CardHeader>
+                <CardTitle className='flex flex-1 gap-2'>
+                    <p>
+                        Claim Earnings
+                    </p>
+                    <LucideTrophy className='w-10 h-10'/>
+                </CardTitle>
                 <CardDescription className="mb-10">Instantly withdraw your AjiraPay cUSD reward earnings directly to your MiniPay wallet</CardDescription>
-                {/* <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription> */}
-            </CardHeader>
+                <CardDescription className="mb-10">Withdraw from your fiat wallet to your mobile money or directly to your bank account</CardDescription>
+            </CardHeader> */}
             <CardContent>
             
                 <Form  {...form}>
