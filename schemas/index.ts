@@ -291,10 +291,10 @@ export const WithdrawSchema = z.object({
 export const CryptoRewardClaimSchema = z.object({
     amount: z.string({
         required_error: 'Amount is required'
-    }),
-    payment_method: z.string({
-        required_error: 'Please select payment network'
     })
+    // payment_method: z.string({
+    //     required_error: 'Please select payment network'
+    // })
 })
 
 export const BuyAssetSchema = z.object({
