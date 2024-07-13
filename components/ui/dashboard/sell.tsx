@@ -47,12 +47,12 @@ import Link from 'next/link'
 import { Clock8Icon } from 'lucide-react'
 import Image from 'next/image'
 import {useSession} from 'next-auth/react'
-import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance'
-import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import { useUserCryptoWalletBalance } from '@/hooks/web3/useUserCryptoWalletBalance'
+//import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 
 export function SellComponent(){
-    const miniPayWallet = useMiniPay()
-    const cryptoRewardBalance = useUserCryptoRewardBalance()
+    //const miniPayWallet = useMiniPay()
+    const cryptoBalance = useUserCryptoWalletBalance()
 
     const [isPending, startTransition] = useTransition()
     const {data: userSessionData} = useSession()
@@ -166,7 +166,7 @@ export function SellComponent(){
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance}`}</span> </p>
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoBalance}`}</span> </p>
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>
