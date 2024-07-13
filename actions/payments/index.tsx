@@ -4,7 +4,7 @@ import  * as z from 'zod'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT, TransactionHistoryProps } from '@/helpers/data'
 import { DepositSchema, BuyAssetSchema, CryptoRewardClaimSchema } from '@/schemas'
 import { UserResponseDataProps } from '@/lib/utils'
-import { getChainIdFromAssetAddress } from '@/helpers/data'
+import { getChainIdFromAssetAddress, cUSD_MAINNET_CONTRACT_ADDRESS } from '@/helpers/data'
 
 export const depositFiat = async(
     values: z.infer<typeof DepositSchema>,
@@ -221,8 +221,16 @@ export const fetchUserCryptoRewardBalance = async(bearerToken: string|undefined)
     }
 }
 
-export const fetchUserCryptoWalletBalance = async(bearerToken: string|undefined) =>{
-    const endpoint = "https://stream-api-service.ajirapay.finance/api/v1/wallet/asset_balance"
+// asset_address = request.args.get('asset_address')
+// user_address = request.args.get('user_address')
+// chain_id = request.args.get('chain')
+
+export const fetchUserCryptoWalletBalance = async(
+    assetAdddress: string|undefined, 
+    userWalletAdddress: string|undefined,
+    chain: number|undefined
+) =>{
+    const endpoint = `https://stream-api-service.ajirapay.finance/api/v1/wallet/asset_balance?asset_address=${assetAdddress}&user_address=${userWalletAdddress}&chain=${chain}`
     
     let balance = 0
    
