@@ -92,6 +92,12 @@ export function RewardClaimsForm(){
         })
     }
 
+    const calculateAssetAmountFromPercentage = useCallback((percentageValue:number) => {
+        if(!cryptoRewardBalance) return;
+        let totalToClaim = (cryptoRewardBalance * percentageValue) / 100;
+        setClaimAmount(totalToClaim.toString());
+    },[cryptoRewardBalance])
+
     return (<>
         <ScrollArea className='h-full'>
         {/* <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
@@ -139,9 +145,12 @@ export function RewardClaimsForm(){
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                                                 placeholder="Enter cUSD amount"
                                                 type='number'
-                                                disabled={isPending}
+                                                //disabled={isPending}
+                                                disabled
+                                                value={claimAmount}
                                                 min={0}
                                                 onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
+                                                { ...form.register('amount', { valueAsNumber: true } ) }
                                             />
                                         </FormControl>
                                         <FormLabel
@@ -154,6 +163,42 @@ export function RewardClaimsForm(){
                                 </FormItem>
                             )}
                         />
+                    </div>
+                    
+                    <div className='flex flex-1 sm:gap-40 gap-10'>
+                        {
+                            cryptoRewardBalance && cryptoRewardBalance > 0 && 
+                            (
+                             <>
+                               <Button
+                                    className='bg-orange-600 text-white text-sm'
+                                    onClick={() => calculateAssetAmountFromPercentage(25)}
+                               >
+                                    25%
+                               </Button>
+                               <Button
+                                    className='bg-orange-600 text-white text-sm'
+                                    onClick={() => calculateAssetAmountFromPercentage(50)}
+                               >
+                                    50%
+                               </Button>
+                                
+                               <Button
+                                    className='bg-orange-600 text-white text-sm'
+                                    onClick={() => calculateAssetAmountFromPercentage(70)}
+                               >
+                                    70%
+                               </Button>
+
+                               <Button
+                                    className='bg-orange-600 text-white text-sm'
+                                    onClick={() => calculateAssetAmountFromPercentage(100)}
+                               >
+                                    All
+                               </Button>
+                             </>
+                            )
+                        }
                     </div>
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
