@@ -221,6 +221,47 @@ export const fetchUserCryptoRewardBalance = async(bearerToken: string|undefined)
     }
 }
 
+export const fetchUserCryptoWalletBalance = async(bearerToken: string|undefined) =>{
+    const endpoint = "https://stream-api-service.ajirapay.finance/api/v1/wallet/asset_balance"
+    
+    let balance = 0;
+   
+    const payload = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        }
+    }
+
+    const fetchCryptoWalletBalance = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            return balance
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            return balance
+        }
+
+        if(data['status'] == true){
+            balance += data['data']
+            return balance
+        }
+    }).catch((error) =>{
+        console.log(error)
+        return balance
+    })
+
+    try{
+        return fetchCryptoWalletBalance
+    }catch(error){
+        console.log(error)
+        return balance
+    }
+}
+
 export const buyCrypto = async(
     values: z.infer<typeof BuyAssetSchema>,
     bearerToken: string|undefined,

@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useTransition, useState, useCallback } from 'react'
+import React,{useState, useCallback } from 'react'
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,81 +13,42 @@ import {
 } from "@/components/ui/card";
 import Image from 'next/image'
 import Link from 'next/link'
-import BTC_LOGO from '@/app/assets/logo/bitcoin-btc-logo.svg'
-import ETH_LOGO from '@/app/assets/logo/ethereum-eth-logo.svg'
-import SOL_lOGO from '@/app/assets/logo/solana-sol-logo.svg'
-import MATIC_LOGO from '@/app/assets/logo/polygon-matic-logo.svg'
-import USDT_LOGO from '@/app/assets/logo/crypto/usdt_transparent.png'
-import USDC_LOGO from '@/app/assets/logo/crypto/usd-coin-usdc-logo.svg'
+
 import cUSD_LOGO from '@/app/assets/logo/crypto/cUSD.png'
 import KESH_LOGO from '@/app/assets/icons/currencies/KES.png'
 
-import { UserBalanceChartAnalysis } from '@/components/ui/dashboard/wallet/chart-metrics'
-import {WalletIcon,MedalIcon,MagnifierIcon} from '@/components/icons/index'
-import {Wallet2Icon, Wallet2, WalletCardsIcon, Wallpaper, Bitcoin, BitcoinIcon, ArrowUpRight} from 'lucide-react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import {DepositForm} from '@/components/ui/dashboard/deposit'
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage
-} from '@/components/ui/form'
-import {Input} from '@/components/ui/input'
-import * as z from 'zod'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import {DepositSchema,WithdrawSchema} from '@/schemas'
-import {FormErrorMessage} from '@/components/form-errors'
-import {FormSuccessMessage} from '@/components/form-success'
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
-import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
 import { useQuery } from 'react-query';
 import {useSession} from 'next-auth/react'
-import { fetchFiatBalance } from '@/actions/payments'
+import { fetchFiatBalance, fetchUserCryptoWalletBalance } from '@/actions/payments'
 
 export function UserWallet(){
     const {data: userSessionData} = useSession()
-    const [isPending, startTransition] = useTransition()
-    const [error, setError] = useState<string>("")
-    const [success, setSuccess] = useState<string>("")
 
     const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+    const [cryptoBalance, setCryptoBalance] = useState<number|undefined>(0);
 
-    const fetchBalance = useCallback(async() => {
+    const fetchUserFiatBalance = useCallback(async() => {
         const result = await fetchFiatBalance(userSessionData?.user.accessToken)
         const balance = result
-        //console.log(transactions)
+
         setFiatBalance(balance)
     },[userSessionData])
 
     const {error: balanceLoadError, status, data:invoiceData, isLoading: balanceIsLoading, isError } = useQuery({
-        queryKey: 'balance',
-        queryFn: fetchBalance
+        queryKey: 'fiatBalance',
+        queryFn: fetchUserFiatBalance
     })
 
-    const form = useForm<z.infer<typeof DepositSchema>>({
-        resolver: zodResolver(DepositSchema),
-        defaultValues:{
-            amount: ""
-        }
-    })
+    const fetchUserCryptoBalance = useCallback(async() => {
+        const result = await fetchUserCryptoWalletBalance(userSessionData?.user.accessToken)
+        const balance = result
+       
+        setCryptoBalance(balance)
+    },[userSessionData])
 
-    const withdrawForm = useForm<z.infer<typeof WithdrawSchema>>({
-        resolver: zodResolver(WithdrawSchema),
-        defaultValues:{
-            amount: 100,
-            channel: ""
-        }
+    const {error: cryptoBalanceLoadError, status: cryptoBalanceStatus, data:cryptoBlanaceData, isLoading: cryptoBalanceIsLoading, isError: isCryptoBalanceError } = useQuery({
+        queryKey: 'cryptoBalance',
+        queryFn: fetchUserCryptoBalance
     })
 
     {
@@ -340,14 +301,14 @@ export function UserWallet(){
                                             <div className='text-2xl font-bold'>
                                                 {/* KES 2,184.00 */}
                                                 {/* { `${ userSessionData?.user.currency } 2,184.00`} */}
-                                                { `$ 5.00`}
+                                                { `$ ${cryptoBalance?.toString()}`}
                                             </div>
                                             <p className='text-sm font-normal'>Available Balance</p>
-                                            <p className="text-xs text-muted-foreground mb-6">
+                                            {/* <p className="text-xs text-muted-foreground mb-6">
                                                 <span className="text-red-600">
                                                     2.23%
                                                 </span> <span className='dark:text-gray-300 text-black'>last 1 month</span>
-                                            </p>
+                                            </p> */}
                                             <Button
                                                 className="w-full dark:bg-[#4B49AC]/95 text-white"
                                             >
