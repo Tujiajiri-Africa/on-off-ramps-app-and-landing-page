@@ -130,7 +130,7 @@ export function WithdrawForm(){
                                             <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="Enter amount to deposit"
+                                                placeholder="Enter amount to withdraw"
                                                 type='number'
                                                 disabled={isPending}
                                                 min={0}
@@ -234,7 +234,7 @@ export function WithdrawForm(){
                                                        className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
                                                       
-                                                        {fiatBalance == 0 ? 'Insufficient balance' : 'Withdraw'}
+                                                        {fiatBalance == 0 ? `Insufficient ${userSessionData?.user.currency} balance` : 'Withdraw'}
                                                    </Button>
                                                     }
                     </div>
