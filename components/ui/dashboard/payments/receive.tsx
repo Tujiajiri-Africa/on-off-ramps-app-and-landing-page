@@ -142,9 +142,9 @@ export function ReceivePaymentComponent(){
                 onClick={handleCopyWallet}
                     >
                     <div className='flex items-center content-center gap-2'>
-                        Copy wallet
+                        Copy 
 
-                        <CopyIcon className='w-10 h-10'/>
+                        <CopyIcon className='w-4 h-4'/>
                     </div>
             </Button>
 
