@@ -96,6 +96,7 @@ export function RewardClaimsForm(){
         if(!cryptoRewardBalance) return;
         let totalToClaim = (cryptoRewardBalance * percentageValue) / 100;
         setClaimAmount(totalToClaim.toString());
+        setIsSubmitButtonDisabled(false)
     },[cryptoRewardBalance, setClaimAmount])
 
     return (<>

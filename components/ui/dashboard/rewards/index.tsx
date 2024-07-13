@@ -21,7 +21,7 @@ import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance'
 import { Trophy } from 'lucide-react'
 
 export function UserRewardInfoPage(){
-    const balance = useUserCryptoRewardBalance();
+    //const balance = useUserCryptoRewardBalance();
 
     const {data: userSessionData} = useSession()
     const [ rewardBalance, setRewardBalance ] = useState<number|undefined>(0);
