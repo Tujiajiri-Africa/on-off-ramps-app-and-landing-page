@@ -142,7 +142,7 @@ export function WithdrawForm(){
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${fiatBalance}`}</span> </p>
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`${userSessionData?.user.currency } ${fiatBalance}`}</span> </p>
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>

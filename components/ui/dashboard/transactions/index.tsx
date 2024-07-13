@@ -30,13 +30,13 @@ export function TransactionHistory(){
                     <CardHeader>
                     <div className="flex items-center justify-between space-y-2">
                                         <div className="md:flex items-center space-x-2">
-                                        <CardTitle>Recent Transactions</CardTitle>
+                                        <CardTitle>Transactions</CardTitle>
 
                                         </div>
                                     </div> 
                       
                       <CardDescription>
-                          Your transactions history
+                          Transaction history
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
