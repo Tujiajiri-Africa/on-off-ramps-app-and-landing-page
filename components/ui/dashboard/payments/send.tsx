@@ -86,7 +86,6 @@ export function MakePaymentComponent(){
     }
     
     return (<>
-    <Card>
     <CardContent 
         //className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4"
     >
@@ -264,7 +263,6 @@ export function MakePaymentComponent(){
                 </form>
             </Form>
         </CardContent>
-    </Card>
 
     </>)
 }

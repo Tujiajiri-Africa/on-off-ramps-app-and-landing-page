@@ -35,7 +35,7 @@ function BuildWalletQRCode(){
     const { SVG } = useQRCode()
     const miniPayWlletAddress = useMiniPay()
 
-    if(!miniPayWlletAddress) return;
+    //if(!miniPayWlletAddress) return;
 
     return (
         <SVG
@@ -95,7 +95,6 @@ export function ReceivePaymentComponent(){
     }
     
     return (<>
-    <Card>
     <CardContent 
         //className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4"
         >
@@ -159,7 +158,6 @@ export function ReceivePaymentComponent(){
             </CardFooter>
         </Card>
         </CardContent>
-    </Card>
 
     </>)
 }
