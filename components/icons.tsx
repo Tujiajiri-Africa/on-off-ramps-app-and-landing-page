@@ -44,7 +44,8 @@ import {
     ArrowUpCircleIcon,
     HandCoins, 
     DollarSignIcon,
-    ArrowDownUpIcon
+    ArrowDownUpIcon,
+    SendIcon
   } from "lucide-react";
   
   export type Icon = LucideIcon;
@@ -90,6 +91,7 @@ import {
     handCoins: HandCoins,
     money: DollarSignIcon,
     transaction_list: ArrowDownUpIcon,
+    send_receive: SendIcon,
     gitHub: ({ ...props }: LucideProps) => (
       <svg
         aria-hidden="true"
