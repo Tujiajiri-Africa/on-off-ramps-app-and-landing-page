@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition, useState } from 'react'
+import React, { useTransition, useState, useCallback } from 'react'
 import {
     Card,
     CardHeader,
@@ -34,22 +34,57 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
-import {supportedAssets,supportedPaymentMethods} from '@/helpers/data'
+import { supportedPaymentMethods } from '@/helpers/data'
 import {useSession} from 'next-auth/react'
 import Image from 'next/image'
+import { fetchFiatBalance } from '@/actions/payments'
+import { useQuery } from 'react-query';
+import { useUserFiatBalanceBalance } from '@/hooks/fiat/useUserFiatBalance'
 
 export function WithdrawForm(){
+    const totalMobileMoneyBalance = useUserFiatBalanceBalance()
+
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
+    const [withDrawalAmount, setWithDrawalAmount] = useState<string>("")
+    const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState<boolean>(true)
+    const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+
+    const fetchUserFiatBalance = useCallback(async() => {
+        const result = await fetchFiatBalance(userSessionData?.user.accessToken)
+        const balance = result
+
+        setFiatBalance(balance)
+    },[userSessionData])
+
+    const {error: balanceLoadError, status, data:fiatBalanceData, isLoading: balanceIsLoading, isError } = useQuery({
+        queryKey: 'fiat_balance',
+        queryFn: fetchUserFiatBalance
+    })
+
+    const handleInputAmountChange = useCallback((amount:string) => {
+        if(!totalMobileMoneyBalance) return;
+        
+        let formatedAmount = parseFloat(amount)
+        if(formatedAmount > totalMobileMoneyBalance){
+            setError("Amount exceeds available balance")
+            setIsSubmitButtonDisabled(true)
+            setWithDrawalAmount("")
+        }else{
+            setWithDrawalAmount(amount)
+            setIsSubmitButtonDisabled(false)
+            setError("")
+        }
+    },[totalMobileMoneyBalance, setIsSubmitButtonDisabled, setError, setWithDrawalAmount])
 
     const form = useForm<z.infer<typeof WithdrawSchema>>({
         resolver: zodResolver(WithdrawSchema),
-        defaultValues:{
-            amount: 100,
-            channel: ""
-        }
+        // defaultValues:{
+        //     amount: 100,
+        //     channel: ""
+        // }
     })
 
     return (<>
@@ -99,9 +134,16 @@ export function WithdrawForm(){
                                                 type='number'
                                                 disabled={isPending}
                                                 min={0}
+                                                onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
+                                                { ...form.register('amount', { valueAsNumber: true } ) }
                                                 
                                             />
                                         </FormControl>
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Available Balance: <span className="text-orange-600">{`$ ${fiatBalance}`}</span> </p>
+                                        </FormLabel>
                                         <FormMessage/>
                                     </div>
                                 </FormItem>
@@ -167,14 +209,38 @@ export function WithdrawForm(){
                     </div>
                     <FormErrorMessage message={error}/>
                     <FormSuccessMessage message={success}/>
+                    <div className='flex flex-1 sm:gap-40 gap-10'>
+                    {
+                                                       isPending ? (
+                                                            <Button 
+                                                                type="button" 
+                                                                disabled
+                                                                className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                                //className="py-2 px-4 flex justify-center items-center  bg-orange-600  hover:bg-orange-500 hover:text-white focus:ring-orange-500 focus:ring-offset-orange-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg max-w-md"
+                                                                >
+                                                                
+                                                                <svg width="20" height="20" fill="currentColor" className="mr-2 animate-spin" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                                         <path d="M526 1394q0 53-37.5 90.5t-90.5 37.5q-52 0-90-38t-38-90q0-53 37.5-90.5t90.5-37.5 90.5 37.5 37.5 90.5zm498 206q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-704-704q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm1202 498q0 52-38 90t-90 38q-53 0-90.5-37.5t-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-964-996q0 66-47 113t-113 47-113-47-47-113 47-113 113-47 113 47 47 113zm1170 498q0 53-37.5 90.5t-90.5 37.5-90.5-37.5-37.5-90.5 37.5-90.5 90.5-37.5 90.5 37.5 37.5 90.5zm-640-704q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm530 206q0 93-66 158.5t-158 65.5q-93 0-158.5-65.5t-65.5-158.5q0-92 65.5-158t158.5-66q92 0 158 66t66 158z">
+                                                                        </path>
+                                                                   </svg>
+                                                                   Processing withdrawal
+                                                            </Button>
+                                                       )
+
+                                                       :
+                                                       <Button 
+                                                       disabled={ isSubmitButtonDisabled || withDrawalAmount == "" || withDrawalAmount == null || withDrawalAmount == undefined }
+                                                       type='submit'
+                                                       className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                       >
+                                                      
+                                                        Withdraw
+                                                   </Button>
+                                                    }
+                    </div>
                     </form>
                 </Form>
             </CardContent>
-            <CardFooter>
-                <Button className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'>
-                    Withdraw
-                </Button>
-            </CardFooter>
         </Card>
         </CardContent>
 
