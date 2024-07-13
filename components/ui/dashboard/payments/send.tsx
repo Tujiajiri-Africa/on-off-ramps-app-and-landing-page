@@ -86,9 +86,6 @@ export function MakePaymentComponent(){
     }
     
     return (<>
-    <CardContent 
-        //className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4"
-    >
             <Form {...form}>
                 <form
                     //onSubmit={form.handleSubmit(handleSend)} 
@@ -262,7 +259,6 @@ export function MakePaymentComponent(){
         </Card>
                 </form>
             </Form>
-        </CardContent>
 
     </>)
 }
