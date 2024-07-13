@@ -30,7 +30,7 @@ import {Button} from '@/components/ui/button'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {DepositSchema} from '@/schemas'
+import {SendPaymentSchema} from '@/schemas'
 import {FormErrorMessage} from '@/components/form-errors'
 import {FormSuccessMessage} from '@/components/form-success'
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -52,15 +52,15 @@ export function MakePaymentComponent(){
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
 
-    const form = useForm<z.infer<typeof DepositSchema>>({
-        resolver: zodResolver(DepositSchema),
+    const form = useForm<z.infer<typeof SendPaymentSchema>>({
+        resolver: zodResolver(SendPaymentSchema),
         // defaultValues:{
         //     amount: "",
         //     payment_method: ""
         // }
     })
 
-    const handleDeposit = (values: z.infer<typeof DepositSchema>) => {
+    const handleSend = (values: z.infer<typeof SendPaymentSchema>) => {
         setError("")
         setSuccess("")
     
@@ -89,7 +89,7 @@ export function MakePaymentComponent(){
     >
             <Form {...form}>
                 <form
-                    //onSubmit={form.handleSubmit(handleDeposit)} 
+                    onSubmit={form.handleSubmit(handleSend)} 
                     className="space-y-6"
                 >
                 <Card>
