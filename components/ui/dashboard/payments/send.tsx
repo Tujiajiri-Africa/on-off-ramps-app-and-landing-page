@@ -83,16 +83,10 @@ export function MakePaymentComponent(){
     }
     
     return (<>
-    <ScrollArea className='h-full'>
-        {/* <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-            <div className="flex items-center justify-between space-y-2">
-                <h2 className="text-3xl font-bold tracking-tight">
-                    Deposit
-                </h2>
-            </div>
-        </div> */}
-        <div className='flex flex-col justify-center py-12 sm:px-6 lg:px-8 border-none'>
-        <CardContent className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4">
+    <Card>
+    <CardContent 
+        //className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4"
+    >
             <Form {...form}>
                 <form
                     //onSubmit={form.handleSubmit(handleDeposit)} 
@@ -103,7 +97,7 @@ export function MakePaymentComponent(){
                 <CardTitle>Send Money</CardTitle>
                 <CardDescription className="mb-10">
                     {/* Top up your AjiraPay wallet with {userSessionData?.user.currency} and start making money buying and selling cUSD seamlessly on MiniPay */}
-                    Send money to your friends and loved ones at zero fee
+                        Send money to your friends and loved ones at zero fee, make cUSD payments across the globe
                 </CardDescription>
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
@@ -233,8 +227,7 @@ export function MakePaymentComponent(){
                 </form>
             </Form>
         </CardContent>
-        </div>
-    </ScrollArea>
+    </Card>
 
     </>)
 }
