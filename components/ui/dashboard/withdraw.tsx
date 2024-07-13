@@ -39,13 +39,17 @@ import {useSession} from 'next-auth/react'
 import Image from 'next/image'
 import { fetchFiatBalance } from '@/actions/payments'
 import { useQuery } from 'react-query';
+import { useUserFiatBalanceBalance } from '@/hooks/fiat/useUserFiatBalance'
 
 export function WithdrawForm(){
+    const totalMobileMoneyBalance = useUserFiatBalanceBalance()
+
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
-
+    const [withDrawalAmount, setWithDrawalAmount] = useState<string>("")
+    const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState<boolean>(true)
     const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
 
     const fetchUserFiatBalance = useCallback(async() => {
@@ -59,6 +63,21 @@ export function WithdrawForm(){
         queryKey: 'fiat_balance',
         queryFn: fetchUserFiatBalance
     })
+
+    const handleInputAmountChange = useCallback((amount:string) => {
+        if(!totalMobileMoneyBalance) return;
+        
+        let formatedAmount = parseFloat(amount)
+        if(formatedAmount > totalMobileMoneyBalance){
+            setError("Amount exceeds available balance")
+            setIsSubmitButtonDisabled(true)
+            setWithDrawalAmount("")
+        }else{
+            setWithDrawalAmount(amount)
+            setIsSubmitButtonDisabled(false)
+            setError("")
+        }
+    },[totalMobileMoneyBalance, setIsSubmitButtonDisabled, setError, setWithDrawalAmount])
 
     const form = useForm<z.infer<typeof WithdrawSchema>>({
         resolver: zodResolver(WithdrawSchema),
