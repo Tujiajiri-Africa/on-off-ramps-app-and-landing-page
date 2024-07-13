@@ -55,11 +55,11 @@ export function SellComponent(){
   
     const form = useForm<z.infer<typeof SellAssetSchema>>({
       resolver: zodResolver(SellAssetSchema),
-      defaultValues:{
-          asset: "",
-          amount: 1,
-          payment_method: ""
-      }
+    //   defaultValues:{
+    //       asset: "",
+    //       amount: 1,
+    //       payment_method: ""
+    //   }
     })
 
     return (
