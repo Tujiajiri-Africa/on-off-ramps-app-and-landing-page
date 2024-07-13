@@ -32,7 +32,7 @@ import { useQRCode } from 'next-qrcode'
 import { CopyIcon } from 'lucide-react'
 
 export function BuildWalletQRCode(){
-    const { SVG } = useQRCode()
+    const { SVG, Image, Canvas } = useQRCode()
     const miniPayWlletAddress = useMiniPay()
 
     //if(!miniPayWlletAddress) return;
