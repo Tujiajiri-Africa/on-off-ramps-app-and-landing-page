@@ -150,7 +150,7 @@ export function RewardClaimsForm(){
                                                 disabled
                                                 value={claimAmount}
                                                 min={0}
-                                                onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
+                                                //onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
                                                 { ...form.register('amount', { valueAsNumber: true } ) }
                                             />
                                         </FormControl>
