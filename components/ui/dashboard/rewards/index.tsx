@@ -65,12 +65,6 @@ export function UserRewardInfoPage(){
                                         </CardTitle>
                                         
                                         </div>
-                                        {/* <Button 
-                                            className="content-start group  rounded-md px-3 py-2 text-sm bg-[#00BF63] text-white font-medium hover:bg-accent hover:text-accent-foreground"
-                                            variant={'outline'}
-                                        >
-                                            View More
-                                        </Button> */}
                                         <Trophy className='w-10 h-10 rounded-full' />
                                     </div>   
                                 </CardHeader>
