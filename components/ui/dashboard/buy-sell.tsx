@@ -11,7 +11,7 @@ export function BuySellComponent(){
                 <ScrollArea className="h-full">
                     <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
                       <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
-                        <Card className="col-span-4 md:col-span-3">
+                        <div className="col-span-4 md:col-span-3">
                             <CardContent 
                               //className="mt-8 sm:mx-auto sm:w-full sm:max-w-md space-y-4"
                             >
@@ -29,7 +29,7 @@ export function BuySellComponent(){
                                 </Tabs>
                           
                             </CardContent>
-                          </Card>
+                          </div>
                       </div>
                     </div>
               </ScrollArea>
