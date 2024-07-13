@@ -97,8 +97,6 @@ export function ReceivePaymentComponent(){
     }
     
     return (<>
-    <CardContent 
-        >
                 <Card>
             <CardHeader>
                 <CardTitle>Receive Money</CardTitle>
@@ -155,7 +153,6 @@ export function ReceivePaymentComponent(){
 
             </CardFooter>
         </Card>
-        </CardContent>
 
     </>)
 }
