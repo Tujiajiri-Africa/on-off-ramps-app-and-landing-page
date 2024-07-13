@@ -301,11 +301,9 @@ export const CryptoRewardClaimSchema = z.object({
 })
 
 export const BuyAssetSchema = z.object({
-    asset_address: z.string(),
-    amount: z.number({
-        required_error: "Please specify amount"
-    }).min(1,{
-        message: 'Minimum purchase amount is KES 1'
+    asset_address: z.string({required_error: "Please specify the crypto to buy"}),
+    amount: z.string({
+        required_error: "Please specify local currency amount"
     }),
     payment_method: z.string({required_error: "Please select payment method"})
 })
