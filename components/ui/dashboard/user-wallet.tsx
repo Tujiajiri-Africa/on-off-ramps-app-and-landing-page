@@ -21,9 +21,10 @@ import { useQuery } from 'react-query';
 import {useSession} from 'next-auth/react'
 import { fetchFiatBalance, fetchUserCryptoWalletBalance } from '@/actions/payments'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import {cUSD_MAINNET_CONTRACT_ADDRESS, CELO_MAINNET_CHAIN_ID} from '@/helpers/data'
 
 export function UserWallet(){
-    //const miniPayWallet = useMiniPay()
+    const miniPayWallet = useMiniPay()
     const {data: userSessionData} = useSession()
 
     const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
@@ -42,11 +43,11 @@ export function UserWallet(){
     })
 
     const fetchUserCryptoBalance = useCallback(async() => {
-        const result = await fetchUserCryptoWalletBalance(userSessionData?.user.accessToken)
+        const result = await fetchUserCryptoWalletBalance(miniPayWallet)
         const balance = result
        
         setCryptoBalance(balance)
-    },[userSessionData])
+    },[miniPayWallet])
 
     const {error: cryptoBalanceLoadError, status: cryptoBalanceStatus, data:cryptoBlanaceData, isLoading: cryptoBalanceIsLoading, isError: isCryptoBalanceError } = useQuery({
         queryKey: 'crypto_balance',
