@@ -53,10 +53,10 @@ export function DepositForm(){
 
     const form = useForm<z.infer<typeof DepositSchema>>({
         resolver: zodResolver(DepositSchema),
-        defaultValues:{
-            amount: "",
-            payment_method: ""
-        }
+        // defaultValues:{
+        //     amount: "",
+        //     payment_method: ""
+        // }
     })
 
     const handleDeposit = (values: z.infer<typeof DepositSchema>) => {

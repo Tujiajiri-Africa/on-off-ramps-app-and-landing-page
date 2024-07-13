@@ -142,7 +142,7 @@ export function WithdrawForm(){
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Available Balance: <span className="text-orange-600">{`$ ${fiatBalance}`}</span> </p>
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${fiatBalance}`}</span> </p>
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>
@@ -181,7 +181,7 @@ export function WithdrawForm(){
                                             defaultValue={field.value}
                                             >
                                                 <SelectTrigger className="w-full">
-                                                  <SelectValue placeholder="withdrawal method" />
+                                                  <SelectValue placeholder="Payment network" />
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                 {

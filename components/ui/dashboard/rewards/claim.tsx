@@ -96,7 +96,7 @@ export function RewardClaimsForm(){
         if(!cryptoRewardBalance) return;
         let totalToClaim = (cryptoRewardBalance * percentageValue) / 100;
         setClaimAmount(totalToClaim.toString());
-    },[cryptoRewardBalance])
+    },[cryptoRewardBalance, setClaimAmount])
 
     return (<>
         <ScrollArea className='h-full'>
@@ -150,14 +150,14 @@ export function RewardClaimsForm(){
                                                 disabled
                                                 value={claimAmount}
                                                 min={0}
-                                                onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
+                                                //onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
                                                 { ...form.register('amount', { valueAsNumber: true } ) }
                                             />
                                         </FormControl>
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Available Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance}`}</span> </p>
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance}`}</span> </p>
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>
@@ -166,7 +166,7 @@ export function RewardClaimsForm(){
                         />
                     </div>
                     
-                    <div className='flex flex-1 sm:gap-40 gap-10'>
+                    <div className='flex flex-1 sm:gap-4 gap-2'>
                         {
                             cryptoRewardBalance && cryptoRewardBalance > 0 && 
                             (

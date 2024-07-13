@@ -166,7 +166,7 @@ export function SellComponent(){
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Available Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance}`}</span> </p>
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoRewardBalance}`}</span> </p>
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>
