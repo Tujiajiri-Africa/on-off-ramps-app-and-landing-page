@@ -2,7 +2,7 @@
 
 import  * as z from 'zod'
 import { DEV_BASE_URI, PROD_BASE_URI, ENVIRONMENT, TransactionHistoryProps } from '@/helpers/data'
-import { DepositSchema, BuyAssetSchema, CryptoRewardClaimSchema, SendPaymentSchema } from '@/schemas'
+import { DepositSchema, BuyAssetSchema, CryptoRewardClaimSchema, SendPaymentSchema, WithdrawSchema } from '@/schemas'
 import { UserResponseDataProps } from '@/lib/utils'
 import { getChainIdFromAssetAddress, cUSD_MAINNET_CONTRACT_ADDRESS, CELO_MAINNET_CHAIN_ID } from '@/helpers/data'
 
@@ -578,6 +578,97 @@ export const sendCrypto = async(
 
     try{
         return initiateFiatDeposit
+    }catch(error){
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    }
+}
+
+export const wthdrawFiatToMpesa = async(
+    values: z.infer<typeof WithdrawSchema>,
+    bearerToken: string|undefined,
+    recipientPhoneNumber: string|undefined
+) => {
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/withdrawals/process' : PROD_BASE_URI + '/payments/withdrawals/process'
+
+    let dataInfo: UserResponseDataProps = {
+        data: "",
+        error: "",
+        success: ""
+    }
+
+    const validatedFields = WithdrawSchema.safeParse(values)
+    
+    if(!validatedFields.success){
+        dataInfo = {
+            error: 'Invalid parameters',
+            success: '',
+            data: ''
+        }
+        return  { data: dataInfo}
+    }
+
+    const withdrawalPayload = {
+        amount: validatedFields.data.amount,
+        recipient_phone: recipientPhoneNumber
+    }
+
+    const payload = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        },
+        body: JSON.stringify(withdrawalPayload)
+    }
+
+    const processFiatWithdrawal = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            dataInfo = {
+                error: 'Something went wrong!',
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            dataInfo = {
+                error: data['message'],
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+        if(data['status'] == true){
+            dataInfo = {
+                error: "",
+                success: data['message'],
+                data: data['data']
+            }
+
+            return { data: dataInfo}
+        }
+    }).catch((error) =>{
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    })
+
+    try{
+        return processFiatWithdrawal
     }catch(error){
         dataInfo = {
             error: 'Something went wrong!',
