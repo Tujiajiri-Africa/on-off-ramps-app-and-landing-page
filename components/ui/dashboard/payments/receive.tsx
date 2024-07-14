@@ -97,8 +97,6 @@ export function ReceivePaymentComponent(){
     }
     
     return (<>
-    <CardContent 
-        >
                 <Card>
             <CardHeader>
                 <CardTitle>Receive Money</CardTitle>
@@ -110,7 +108,12 @@ export function ReceivePaymentComponent(){
             </CardHeader>
             <CardContent>     
                 <div className='mb-4'>
-                    <BuildWalletQRCode  />
+                    {
+                        miniPayWallet && miniPayWallet != undefined  && (
+                            <BuildWalletQRCode  />
+                        )
+                    }
+                    
                 </div>   
        
             {/* <div className="mb-4">
@@ -142,15 +145,14 @@ export function ReceivePaymentComponent(){
                 onClick={handleCopyWallet}
                     >
                     <div className='flex items-center content-center gap-2'>
-                        Copy wallet
+                        Copy Wallet
 
-                        <CopyIcon className='w-10 h-10'/>
+                        <CopyIcon className='w-4 h-4'/>
                     </div>
             </Button>
 
             </CardFooter>
         </Card>
-        </CardContent>
 
     </>)
 }
