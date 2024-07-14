@@ -37,7 +37,7 @@ import {
 import { supportedPaymentMethods } from '@/helpers/data'
 import {useSession} from 'next-auth/react'
 import Image from 'next/image'
-import { fetchFiatBalance } from '@/actions/payments'
+import { fetchFiatBalance, withdrawFiatToMpesa } from '@/actions/payments'
 import { useQuery } from 'react-query';
 import { useUserFiatBalanceBalance } from '@/hooks/fiat/useUserFiatBalance'
 
@@ -87,6 +87,32 @@ export function WithdrawForm(){
         // }
     })
 
+    const processWithdrawal = async(values: z.infer<typeof WithdrawSchema>) =>{
+        setError("")
+        setSuccess("")
+
+        startTransition(async() => {
+            withdrawFiatToMpesa(
+                values, 
+                userSessionData?.user.accessToken,
+                userSessionData?.user.phone
+            )
+            .then((data:any) => {
+                if(data?.data.error){
+                    //form.reset()
+                    setError(data?.data.error)
+                }
+                if(data?.data.success){
+                    form.reset()
+                    setSuccess(data?.data.success)
+                }
+            }).catch(() => {
+                setError("Something went wrong")
+                setSuccess("")
+            })
+        })
+    }
+
     return (<>
         <ScrollArea className='h-full'>
         {/* <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
@@ -110,6 +136,7 @@ export function WithdrawForm(){
 
                     <form 
                         className="space-y-6"
+                        onSubmit={form.handleSubmit(processWithdrawal)}
                     >
                     <div>
                         <FormField 

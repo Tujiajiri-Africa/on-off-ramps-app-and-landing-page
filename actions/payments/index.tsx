@@ -588,7 +588,7 @@ export const sendCrypto = async(
     }
 }
 
-export const wthdrawFiatToMpesa = async(
+export const withdrawFiatToMpesa = async(
     values: z.infer<typeof WithdrawSchema>,
     bearerToken: string|undefined,
     recipientPhoneNumber: string|undefined
