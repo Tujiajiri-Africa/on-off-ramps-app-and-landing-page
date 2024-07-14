@@ -267,7 +267,7 @@ export function BuyComponent(){
                                         <FormLabel
                                             className='block text-sm font-medium'
                                         >
-                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${totalMobileMoneyBalance}`}</span> </p>
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`${userSessionData?.user.currency} ${totalMobileMoneyBalance}`}</span> </p>
                                         </FormLabel>
                                         <FormMessage/>
                                     </div>
