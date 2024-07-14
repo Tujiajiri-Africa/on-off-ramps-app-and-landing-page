@@ -109,7 +109,7 @@ export function UserRewardInfoPage(){
                                                     <p className="text-xs text-muted-foreground mb-6">
                                                         <span className="dark:text-gray-300 text-black">
                                                             Claimable 
-                                                        </span> <span className='dark:text-gray-300 text-black'>{ nextClaimDate }</span>
+                                                        </span> <span className='dark:text-gray-300 text-black'>{ nextClaimDate?.toString() }</span>
                                                     </p>
                                                 )
                                             }

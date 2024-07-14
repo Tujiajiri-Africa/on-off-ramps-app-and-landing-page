@@ -31,6 +31,7 @@ import { claimCryptoReward } from '@/actions/payments'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 import { useUserCryptoRewardBalance } from '@/hooks/web3/useCryptoRewardBalance'
 import { GiftIcon, LucideTrophy, Trophy } from 'lucide-react'
+
 export function RewardClaimsForm(){
     const miniPayWallet = useMiniPay()
     const cryptoRewardBalance = useUserCryptoRewardBalance()
@@ -50,6 +51,10 @@ export function RewardClaimsForm(){
         //     payment_method: ""
         // }
     })
+
+    const refetchBalance = useCallback(() => {
+
+    },[])
 
     const handleInputAmountChange = useCallback((amount:string) => {
         if(!cryptoRewardBalance) return;
