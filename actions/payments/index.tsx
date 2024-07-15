@@ -526,9 +526,9 @@ export const sendCrypto = async(
     }
 
     const body = {
-        'amount': amount,//validatedFields.data.amount,
-        'chain': CELO_MAINNET_CHAIN_ID,
-        'recipient_address': recipientWalletAddress
+        amount: amount,//validatedFields.data.amount,
+        chain: CELO_MAINNET_CHAIN_ID,
+        recipient_address: recipientWalletAddress
     }
 
     const payload = {
