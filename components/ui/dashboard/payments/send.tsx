@@ -125,6 +125,8 @@ export function MakePaymentComponent(){
         })
     }
     
+    const tokekenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
+
     const {
         data: contractWriteData, 
         isLoading:contractWriteLoad, 
@@ -138,7 +140,7 @@ export function MakePaymentComponent(){
         abi: activeTokenContractAbi,
         functionName: "transfer",
         chainId: chain?.id,
-        args: [recipientWalletAddress, BigNumber.from(amount)],
+        args: [recipientWalletAddress, tokekenAmountBn],
         onError(error: any){
             toast.error("Transaction failed!",{
                 position: "top-right",
@@ -177,7 +179,25 @@ export function MakePaymentComponent(){
               //transition: Bounce,
             }
         );
-      }
+      },
+      onError(error){
+        const errorData = Object.entries(error);
+        let data = errorData.map( ([key, val]) => {
+          return `${val}`
+        });
+
+        toast.error(`${error.cause}`,{
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            //transition: Bounce,
+          })
+    }
     })
 
      const sendWalletCryptoSendTransaction = () => {
