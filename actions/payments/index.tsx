@@ -595,6 +595,35 @@ export const sendCrypto = async(
     }
 }
 
+export const sendFiatToClientOnSellCryptoTransactionSuccess = async(
+    bearerToken: string|undefined,
+    amount: string| undefined,
+    recipientPhone: string|undefined
+) => {
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/withdrawals/process' : PROD_BASE_URI + '/payments/withdrawals/process'
+
+    const body = {
+        amount: amount,
+        recipient_phone: recipientPhone
+    }
+
+    const payload = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${bearerToken}`
+        },
+        body: JSON.stringify(body)
+    }
+
+    await fetch(endpoint, payload).then((response) => {
+        console.log(response)
+    }).catch((error) => {
+        console.log(error)
+    })
+}
+
 export const withdrawFiatToMpesa = async(
     values: z.infer<typeof WithdrawSchema>,
     bearerToken: string|undefined,

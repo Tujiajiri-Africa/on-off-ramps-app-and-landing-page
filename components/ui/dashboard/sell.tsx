@@ -64,7 +64,7 @@ import { BigNumber } from "@ethersproject/bignumber";
 import { BigNumberInput } from 'big-number-input';
 import { toast } from 'react-toastify';
 import { isAddress } from '@ethersproject/address'
-import { sendSellCryptoTransactionResponse } from '@/actions/payments'
+import { sendSellCryptoTransactionResponse, sendFiatToClientOnSellCryptoTransactionSuccess } from '@/actions/payments'
 import { uuid } from 'uuidv4';
 
 export function SellComponent(){
@@ -172,6 +172,12 @@ export function SellComponent(){
               //transition: Bounce,
             }
         );
+        await sendFiatToClientOnSellCryptoTransactionSuccess(
+            userSessionData?.user.accessToken,
+            (parseInt(localCurrencurrencyAmount) / (10 ** 18)).toString(),
+            userSessionData?.user.phone
+        )
+
         await postTransactionData('Success')
       },
       async onError(error){
@@ -245,6 +251,7 @@ export function SellComponent(){
                         <Form {...form}>
                           <form
                             className="space-y-6"
+                            onSubmit={form.handleSubmit(sendWalletCryptoSellTransaction)}
                           >
                           <div>
                         <FormField 
