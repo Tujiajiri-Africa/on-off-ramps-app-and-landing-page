@@ -159,7 +159,7 @@ export function SellComponent(){
                                                 placeholder="Enter amount to deposit"
                                                 type='number'
                                                 //disabled={isPending}
-                                                min={0}
+                                                //min={0}
                                                 
                                             />
                                         </FormControl>

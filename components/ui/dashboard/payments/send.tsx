@@ -199,7 +199,7 @@ export function MakePaymentComponent(){
                                                 // placeholder="Enter amount to deposit"
                                                 type='number'
                                                 disabled={isPending}
-                                                min={0}
+                                                //min={0}
                                                 onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
                                                 
                                             />
