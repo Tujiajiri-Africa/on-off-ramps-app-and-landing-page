@@ -437,12 +437,15 @@ export function SellComponent(){
                         <AccordionContent>
                             {/* You will receive ~300.00 {userSessionData?.user.currency} for 2.26 USDT */}
                             {
-                                localCurrencurrencyAmount && amount && (
+                                amount  && localCurrencurrencyAmount ? (
                                     <>
                                         You will receive ~{(parseInt(localCurrencurrencyAmount) / (10 ** 18)).toString() } {userSessionData?.user.currency} for {(parseInt(amount) / (10 ** 18)).toString()} cUSD
 
                                     </>
-                                )
+                                ):
+                                <>
+                                    <div></div>
+                                </>
                             }
                             <br/>
                             <Table className='text-sm'>
