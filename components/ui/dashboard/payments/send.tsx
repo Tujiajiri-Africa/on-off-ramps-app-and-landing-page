@@ -160,7 +160,7 @@ export function MakePaymentComponent(){
     const postTransactionData = async(transactionStatus:string) => {
         const trasanctionId = uuid();
         const assetName = 'cUSD'
-        const cryptoAmountSold = amount;
+        const cryptoAmountSold = (parseInt(amount) / (10 ** 18)).toString()//BigNumber.from(amount).toString();
         const description = 'Sent cUSD'
         const failReason = ""
         const referenceIdd = trasanctionId
