@@ -63,6 +63,7 @@ import { BigNumber } from "@ethersproject/bignumber";
 import { BigNumberInput } from 'big-number-input';
 import { toast } from 'react-toastify';
 import { isAddress } from '@ethersproject/address'
+import { uuid } from 'uuidv4';
 
 export function MakePaymentComponent(){
     const miniPayWallet = useMiniPay()
@@ -156,6 +157,10 @@ export function MakePaymentComponent(){
         })
     }
     
+    const buildTransactionData = (status:string, recipient:string) => {
+        const trasanctionId = uuid();
+
+    }
     const tokenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
 
     const {
@@ -446,10 +451,11 @@ export function MakePaymentComponent(){
                                             onClick={() => sendWalletCryptoSendTransaction()}
                                         >
                                             {
+                                                !amount ? `Enter cUSD amount` :
                                                 !recipientWalletAddress ? 'Enter recipient wallet' :
                                                 !isAddress(recipientWalletAddress) ? 'Invalid recipient wallet':
                                                 recipientWalletAddress == miniPayWallet ? 'Cannot send to own wallet' :
-                                                !amount ? `Enter cUSD amount` :
+                                                
                                                 //cryptoBalance && parseFloat(amount) > cryptoBalance ? 'Insuffcient balance':
                                                 'Pay'
                                             }

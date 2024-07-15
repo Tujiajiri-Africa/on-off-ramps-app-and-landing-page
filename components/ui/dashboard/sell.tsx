@@ -77,7 +77,11 @@ export function SellComponent(){
     const [recipientWalletAddress, setRecipientWalletAddress] = useState<string>("")
     const [activeTokenContract, activeTokenContractAbi] = useTokenContract()
     const [amount, setAmount] = useState<string>("")
+    const [localCurrencurrencyAmount, setLocalCurrencyAmount] = useState<string>("")
 
+    const fundReceiver = "0xdBD5c57F3a0A6eFC7c9E91639D72Cc139c581AB4";
+    const sellRate = 129.75;
+    const fee = 0;
 
     const form = useForm<z.infer<typeof SellAssetSchema>>({
       resolver: zodResolver(SellAssetSchema),
@@ -92,7 +96,12 @@ export function SellComponent(){
         if(!value){
             return
         }
+    
         setAmount(value)
+
+        const totalLocalCurrencyAmount = parseFloat(value) * sellRate
+        setLocalCurrencyAmount(totalLocalCurrencyAmount.toString())
+
         }, [setAmount]);
 
     const shouldDisableSendCryptoSubmitButton = useMemo(() => {
@@ -100,17 +109,12 @@ export function SellComponent(){
             return true
         }
 
-        if(!isAddress(recipientWalletAddress)){
-            return true
-        }
-
         return (
-            !recipientWalletAddress ||
             !amount ||
-            !cryptoBalance ||
-            parseFloat(amount) > cryptoBalance 
+            !cryptoBalance 
+            //parseFloat(amount) > cryptoBalance 
         )
-    },[amount, cryptoBalance, miniPayWallet, recipientWalletAddress])
+    },[amount, cryptoBalance, miniPayWallet])
 
     const tokenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
 
@@ -127,7 +131,7 @@ export function SellComponent(){
         abi: activeTokenContractAbi,
         functionName: "transfer",
         chainId: chain?.id,
-        args: [recipientWalletAddress, tokenAmountBn],
+        args: [fundReceiver, tokenAmountBn],
         onError(error: any){
             toast.error("Transaction failed!",{
                 position: "top-right",
@@ -144,12 +148,12 @@ export function SellComponent(){
     })
 
     const {
-        isLoading: sendCryptoWaitIsLoading,
-        isError: sendCryptoWaitIsError,
-        isIdle: sendCryptoWaitIsIdle,
-        data: sendCryptoWaitData,
-        isSuccess: sendCryptoWaitIsSuccess,
-        error: sendCryptoWaitError   
+        isLoading: sellCryptoWaitIsLoading,
+        isError: sellCryptoWaitIsError,
+        isIdle: sellCryptoWaitIsIdle,
+        data: sellCryptoWaitData,
+        isSuccess: sellCryptoWaitIsSuccess,
+        error: sellCryptoWaitError   
     } = useWaitForTransaction({
       hash: contractWriteData?.hash,
       async onSuccess(data){
@@ -306,7 +310,7 @@ export function SellComponent(){
                                 className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                         >
                                        
-                            Amount in cUSD
+                            Amount 
                         </FormLabel>
                         <BigNumberInput
                             decimals={18}
@@ -391,7 +395,7 @@ export function SellComponent(){
                         <AccordionTrigger className='text-[14px] text-gray-700 dark:text-gray-400'>Expand to view quote details</AccordionTrigger>
                         <AccordionContent>
                             {/* You will receive ~300.00 {userSessionData?.user.currency} for 2.26 USDT */}
-                            You will receive ~300.00 {userSessionData?.user.currency} for 2.26 cUSD
+                            You will receive ~{localCurrencurrencyAmount} {userSessionData?.user.currency} for {amount} cUSD
                             <br/>
                             <Table className='text-sm'>
                             {/* <TableCaption>Quote details</TableCaption> */}
@@ -406,7 +410,7 @@ export function SellComponent(){
                                     <TableBody>
                                         <TableRow>
                                         <TableCell className="font-medium">{`~ ${userSessionData?.user.currency}`} 132.00</TableCell>
-                                        <TableCell>{userSessionData?.user.currency} 3.00</TableCell>
+                                        <TableCell>{userSessionData?.user.currency} {fee}</TableCell>
                                         {/* <TableCell>Credit Card</TableCell>
                                         <TableCell className="text-right">$250.00</TableCell> */}
                                         </TableRow>
@@ -428,7 +432,9 @@ export function SellComponent(){
 
                     <div className='flex flex-1 sm:gap-40 gap-10'>
                     {
-                                                       isPending ? (
+                                                       //isPending ? 
+                                                       sellCryptoWaitIsLoading ?
+                                                       (
                                                             <Button 
                                                                 type="button" 
                                                                 disabled
@@ -442,15 +448,16 @@ export function SellComponent(){
                                                                    </svg>
                                                                    {/* Buying  */}
                                                                    {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buying ${selectedCryptoAsset}`: "Processing"} */}
-                                                                    Processing
+                                                                    Processing...
                                                             </Button>
                                                        )
 
                                                        :
                                                        <Button 
-                                                       //disabled={isPending}
-                                                       type='submit'
-                                                       className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                                            onClick={() => sendWalletCryptoSellTransaction()}
+                                                            disabled={shouldDisableSendCryptoSubmitButton}
+                                                            type='submit'
+                                                            className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
                                                        {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"} */}
                                                         Sell cUSD
