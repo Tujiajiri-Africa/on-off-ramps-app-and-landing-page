@@ -600,7 +600,7 @@ export const sendFiatToClientOnSellCryptoTransactionSuccess = async(
     amount: string| undefined,
     recipientPhone: string|undefined
 ) => {
-    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/withdrawals/process' : PROD_BASE_URI + '/payments/withdrawals/process'
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/send-money/process' : PROD_BASE_URI + '/payments/send-money/process'
 
     const body = {
         amount: amount,
