@@ -244,7 +244,7 @@ export function BuyComponent(){
                                     <div 
                                         className='mt-1'
                                         >
-                                        <FormControl>
+                                        <FormControl className='mb-2'>
                                             {/* <NumberInput 
                                                 
                                                 onChange={(value: any) => handleAmount(value, onChange)}

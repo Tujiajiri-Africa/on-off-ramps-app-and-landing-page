@@ -191,7 +191,7 @@ export function MakePaymentComponent(){
                                     <div 
                                         className='mt-1'
                                         >
-                                        <FormControl>
+                                        <FormControl className='mb-2'>
                                             <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
@@ -204,6 +204,11 @@ export function MakePaymentComponent(){
                                                 
                                             />
                                         </FormControl>
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoBalance}`}</span> </p>
+                                        </FormLabel>
                                         <FormMessage/>
                                     </div>
                                 </FormItem>
@@ -230,7 +235,7 @@ export function MakePaymentComponent(){
                                             <Input
                                                 {...field}
                                                 //className='appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                                                placeholder="Enter recipient phone"
+                                                //placeholder="Enter recipient address/phone"
                                                 // placeholder="Enter amount to deposit"
                                                 type='text'
                                                 disabled={isPending}
