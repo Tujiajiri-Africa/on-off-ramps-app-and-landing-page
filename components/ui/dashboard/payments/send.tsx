@@ -46,8 +46,11 @@ import {
 } from '@/helpers/data'
 import Image from 'next/image'
 import { useUserCryptoWalletBalance } from '@/hooks/web3/useUserCryptoWalletBalance'
+import { useMiniPay } from '@/hooks/web3/useConnectWallet'
 
 export function MakePaymentComponent(){
+    const miniPayWallet = useMiniPay()
+
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
     const [error, setError] = useState<string>("")
@@ -89,7 +92,7 @@ export function MakePaymentComponent(){
         setSuccess("")
     
         startTransition(async() => {
-            sendCrypto(values, userSessionData?.user.accessToken, recipientWalletAddress, amount)
+            sendCrypto(values, userSessionData?.user.accessToken, recipientWalletAddress, miniPayWallet, amount)
             .then((data:any) => {
                 if(data?.data.error){
                     //form.reset()

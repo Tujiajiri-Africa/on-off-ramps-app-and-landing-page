@@ -504,6 +504,7 @@ export const sendCrypto = async(
     values: z.infer<typeof SendPaymentSchema>,
     bearerToken: string|undefined,
     recipientWalletAddress: string|undefined,
+    initiatorWalletAddress: string|undefined,
     amount: string|undefined
 ) =>{
     const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/onramp/send-crypto-payment' : PROD_BASE_URI + '/payments/onramp/send-crypto-payment'
@@ -528,7 +529,8 @@ export const sendCrypto = async(
     const body = {
         amount: amount,//validatedFields.data.amount,
         chain: CELO_MAINNET_CHAIN_ID,
-        recipient_address: validatedFields.data.recipient //recipientWalletAddress
+        recipient_address: validatedFields.data.recipient, //recipientWalletAddress
+        from_address: initiatorWalletAddress
     }
 
     const payload = {
