@@ -104,7 +104,7 @@ export function SellComponent(){
         const totalLocalCurrencyAmount = parseFloat(value) * sellRate
         setLocalCurrencyAmount(totalLocalCurrencyAmount.toString())
 
-        }, [setAmount]);
+        }, [setAmount, setLocalCurrencyAmount]);
 
     const shouldDisableSendCryptoSubmitButton = useMemo(() => {
         if(!miniPayWallet){
@@ -501,7 +501,7 @@ export function SellComponent(){
                                                         {
                                                             !amount ? "Enter amount":
                                                             //BigNumber.from(cryptoBalance?.toString())
-                                                            BigNumber.from(amount).gt(BigNumber.from(cryptoBalance?.toString())) ? 'Amount exceeds balance':
+                                                            //BigNumber.from(amount).gt(BigNumber.from(cryptoBalance?.toString())) ? 'Amount exceeds balance':
                                                             'Sell cUSD'
                                                         }
                                                    </Button>
