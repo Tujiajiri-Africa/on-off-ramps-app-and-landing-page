@@ -506,7 +506,7 @@ export const sendCrypto = async(
     recipientWalletAddress: string|undefined,
     amount: string|undefined
 ) =>{
-    const endpoint = 'https://stream-api-service.ajirapay.finance/api/v1/payments/crypto/send'
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/onramp/send-crypto-payment' : PROD_BASE_URI + '/payments/onramp/send-crypto-payment'
 
     let dataInfo: UserResponseDataProps = {
         data: "",
