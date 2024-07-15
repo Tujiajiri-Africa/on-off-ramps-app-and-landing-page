@@ -156,7 +156,7 @@ export function BuyComponent(){
                     <CardHeader>
                       <CardTitle>Buy</CardTitle>
                       {/* <CardDescription>Buy crypto and pay with either mobile money or from your bank account</CardDescription> */}
-                      <CardDescription>Buy cUSD with {userSessionData?.user.currency} from M-Pesa and get a 2% cashback in cUSD</CardDescription>
+                      <CardDescription>Buy cUSD with {userSessionData?.user.currency} from M-Pesa and get a 2% cashback in cUSD pai directly to your MiniPay wallet</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <Form {...form}>

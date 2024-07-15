@@ -113,7 +113,7 @@ export function MakePaymentComponent(){
     },[])
 
     const handleInputAmountChange = useCallback((amount:string) => {
-        if(!cryptoBalance || !amount) return;
+        if(!cryptoBalance) return;
         
         let formatedAmount = parseFloat(amount)
         if(formatedAmount > cryptoBalance){
@@ -125,7 +125,7 @@ export function MakePaymentComponent(){
             setIsSubmitButtonDisabled(false)
             setError("")
         }
-    },[cryptoBalance])
+    },[cryptoBalance, setAmount, setIsSubmitButtonDisabled, setError])
 
     const handleSendPayment = (values: z.infer<typeof SendPaymentSchema>) => {
         setError("")
@@ -318,7 +318,8 @@ export function MakePaymentComponent(){
                             onChange={handleInputAmountChange}
                             value={amount}
                             renderInput={(props: HTMLProps<HTMLInputElement>) => (
-                                <ChakraUiInputField 
+                                <Input
+                                    //ChakraUiInputField 
                                     //onError={validateAmountValue}
                                     value={String(props.value)} 
                                     placeholder={"Enter cUSD amount"} 
@@ -383,7 +384,7 @@ export function MakePaymentComponent(){
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
                                         {/* Amount in {userSessionData?.user.currency} */}
-                                        Recipient&apos;s phone/address
+                                        Recipient&apos;s wallet
                                     </FormLabel>
                                     <div 
                                         className='mt-1'
@@ -438,7 +439,7 @@ export function MakePaymentComponent(){
                                             //onClick={() => sendWalletCryptoSendTransaction()}
                                         >
                                             {
-                                                !recipientWalletAddress ? 'Enter Recipient Address' :
+                                                !recipientWalletAddress ? 'Enter recipient wallet' :
                                                 !isAddress(recipientWalletAddress) ? 'Invalid recipient wallet':
                                                 recipientWalletAddress == miniPayWallet ? 'Cannot send to own wallet' :
                                                 !amount ? `Enter cUSD amount` :
