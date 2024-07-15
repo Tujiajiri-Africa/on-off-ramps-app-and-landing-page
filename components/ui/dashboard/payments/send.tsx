@@ -87,6 +87,10 @@ export function MakePaymentComponent(){
         //     payment_method: ""
         // }
     })
+    
+    const handleRecipientInpuChange = useCallback((value: string) => {
+        setRecipientWalletAddress(value)
+    },[])
 
     const handleInputAmountChange = useCallback((amount:string) => {
         if(!cryptoBalance) return;
@@ -346,6 +350,7 @@ export function MakePaymentComponent(){
                                                 type='text'
                                                 disabled={isPending}
                                                 //min={0}
+                                                onChangeCapture={e => handleRecipientInpuChange(e.currentTarget.value)}
                                                 
                                             />
                                         </FormControl>
