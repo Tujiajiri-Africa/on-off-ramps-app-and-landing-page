@@ -56,7 +56,10 @@ export function MakePaymentComponent(){
     const [amount, setAmount] = useState<string>("")
     const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState<boolean>(true)
     const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+    const [recipientWalletAddress, setRecipientWalletAddress] = useState<string>("")
+
     const cryptoBalance = useUserCryptoWalletBalance()
+    
 
     const form = useForm<z.infer<typeof SendPaymentSchema>>({
         resolver: zodResolver(SendPaymentSchema),
@@ -86,7 +89,7 @@ export function MakePaymentComponent(){
         setSuccess("")
     
         startTransition(async() => {
-            sendCrypto(values, userSessionData?.user.accessToken, recipientPhone, amount)
+            sendCrypto(values, userSessionData?.user.accessToken, recipientWalletAddress, amount)
             .then((data:any) => {
                 if(data?.data.error){
                     //form.reset()
@@ -239,7 +242,7 @@ export function MakePaymentComponent(){
                                                 // placeholder="Enter amount to deposit"
                                                 type='text'
                                                 disabled={isPending}
-                                                min={0}
+                                                //min={0}
                                                 
                                             />
                                         </FormControl>
