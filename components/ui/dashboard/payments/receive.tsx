@@ -43,7 +43,7 @@ export function BuildWalletQRCode(){
         text={miniPayWlletAddress && miniPayWlletAddress != undefined ? miniPayWlletAddress: ""}
         options={{
           margin: 2,
-          width: 300,
+          width: 250,
           color: {
             dark: '#010599FF',
             light: '#FFBF60FF',
