@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useState, useTransition} from 'react'
+import React,{useState, useTransition, useMemo} from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -48,17 +48,37 @@ import { Clock8Icon } from 'lucide-react'
 import Image from 'next/image'
 import {useSession} from 'next-auth/react'
 import { useUserCryptoWalletBalance } from '@/hooks/web3/useUserCryptoWalletBalance'
-//import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import {
+    useAccount,
+    useBalance,
+    useContractWrite,
+    useNetwork,
+    useWaitForTransaction,
+    useSendTransaction,
+    usePrepareContractWrite
+} from 'wagmi'
+//import { useDebounce } from 'usehooks-ts'
+import { useTokenContract } from '@/hooks/web3/useTokenContract'
+import { BigNumber } from "@ethersproject/bignumber";
+import { BigNumberInput } from 'big-number-input';
+import { toast } from 'react-toastify';
+import { isAddress } from '@ethersproject/address'
 
 export function SellComponent(){
-    //const miniPayWallet = useMiniPay()
+    const miniPayWallet = useMiniPay()
     const cryptoBalance = useUserCryptoWalletBalance()
-
+    const {chain} = useNetwork()
+    
     const [isPending, startTransition] = useTransition()
     const {data: userSessionData} = useSession()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
-  
+    const [recipientWalletAddress, setRecipientWalletAddress] = useState<string>("")
+    const [activeTokenContract, activeTokenContractAbi] = useTokenContract()
+    const [amount, setAmount] = useState<string>("")
+
+
     const form = useForm<z.infer<typeof SellAssetSchema>>({
       resolver: zodResolver(SellAssetSchema),
     //   defaultValues:{
@@ -67,6 +87,106 @@ export function SellComponent(){
     //       payment_method: ""
     //   }
     })
+
+    const shouldDisableSendCryptoSubmitButton = useMemo(() => {
+        if(!miniPayWallet){
+            return true
+        }
+
+        if(!isAddress(recipientWalletAddress)){
+            return true
+        }
+
+        return (
+            !recipientWalletAddress ||
+            !amount ||
+            !cryptoBalance ||
+            parseFloat(amount) > cryptoBalance 
+        )
+    },[amount, cryptoBalance, miniPayWallet, recipientWalletAddress])
+
+    const tokenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
+
+    const {
+        data: contractWriteData, 
+        isLoading:contractWriteLoad, 
+        isIdle: contractWriteIdle, 
+        //isError: contractWriteIsError, 
+        //error: contractWriteError, 
+        isSuccess: contractWriteIsSuccess, 
+        write: sellCUSDContractWrite 
+    } = useContractWrite({
+        address: activeTokenContract,
+        abi: activeTokenContractAbi,
+        functionName: "transfer",
+        chainId: chain?.id,
+        args: [recipientWalletAddress, tokenAmountBn],
+        onError(error: any){
+            toast.error("Transaction failed!",{
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                //transition: Bounce,
+              })
+        }
+    })
+
+    const {
+        isLoading: sendCryptoWaitIsLoading,
+        isError: sendCryptoWaitIsError,
+        isIdle: sendCryptoWaitIsIdle,
+        data: sendCryptoWaitData,
+        isSuccess: sendCryptoWaitIsSuccess,
+        error: sendCryptoWaitError   
+    } = useWaitForTransaction({
+      hash: contractWriteData?.hash,
+      async onSuccess(data){
+        toast.success("Success",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              //transition: Bounce,
+            }
+        );
+      },
+      onError(error){
+        const errorData = Object.entries(error);
+        let data = errorData.map( ([key, val]) => {
+          return `${val}`
+        });
+
+        toast.error(`${error.cause}`,{
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            //transition: Bounce,
+          })
+    }
+    })
+
+     const sendWalletCryptoSellTransaction = () => {
+        try{
+            sellCUSDContractWrite()
+        }catch(error){
+            console.log(error)
+        }
+     }
 
     return (
     <>
