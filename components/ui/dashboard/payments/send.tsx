@@ -47,6 +47,15 @@ import {
 import Image from 'next/image'
 import { useUserCryptoWalletBalance } from '@/hooks/web3/useUserCryptoWalletBalance'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import {
+    useAccount,
+    useBalance,
+    useContractWrite,
+    useNetwork,
+    useWaitForTransaction,
+    useSendTransaction,
+    usePrepareContractWrite
+} from 'wagmi'
 
 export function MakePaymentComponent(){
     const miniPayWallet = useMiniPay()
@@ -109,6 +118,18 @@ export function MakePaymentComponent(){
         })
     }
     
+    const {
+        data: contractWriteData, 
+        isLoading:contractWriteLoad, 
+        isIdle: contractWriteIdle, 
+        //isError: contractWriteIsError, 
+        //error: contractWriteError, 
+        isSuccess: contractWriteIsSuccess, 
+        write: sendCUSDContractWrite 
+    } = useContractWrite({
+        address: ''
+    })
+
     return (<>
             <Form {...form}>
                 <form
