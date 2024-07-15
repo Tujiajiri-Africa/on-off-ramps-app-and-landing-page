@@ -54,7 +54,7 @@ export const {
           tokenType: user['tokenType'],
           email: user['user']['email'],
           emailVerifiedAt: user['user']['email_verified_at'],
-          id: user.id,
+          id: user['id'], //user.id
           username: user['user']['username'],
           first_name: user['user']['first_name'],
           last_name: user['user']['last_name'],
@@ -86,6 +86,7 @@ export const {
       session.user.iso_code = token.iso_code;
       session.user.country_name = token.country_name;
       session.user.phone_code = token.phone_code;
+      session.user.id = token.id
       // if(trigger === 'update' && token.address){
       //   session.user.address = token.address
       // }

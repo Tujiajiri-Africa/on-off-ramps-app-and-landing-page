@@ -13,6 +13,7 @@ export type UserAddressProps = {
 }
 
 export type ExtendedUser = DefaultSession["user"] & {
+  id: string;
   email: string;
   accessToken: string;
   tokenType: string;
