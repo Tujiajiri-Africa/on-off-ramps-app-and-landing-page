@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useState, useTransition, useMemo} from 'react'
+import React,{useState, useTransition, useMemo, useCallback, HTMLProps, ChangeEventHandler} from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -87,6 +87,13 @@ export function SellComponent(){
     //       payment_method: ""
     //   }
     })
+
+    const handleAmountChange = useCallback((value: string): void => {
+        if(!value){
+            return
+        }
+        setAmount(value)
+        }, [setAmount]);
 
     const shouldDisableSendCryptoSubmitButton = useMemo(() => {
         if(!miniPayWallet){
@@ -257,7 +264,7 @@ export function SellComponent(){
                             )}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <FormField 
                             control={form.control}
                             name='amount'
@@ -266,7 +273,7 @@ export function SellComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        {/* Amount */}
+                                       
                                         Amount in cUSD
                                     </FormLabel>
                                     <div 
@@ -293,6 +300,34 @@ export function SellComponent(){
                                 </FormItem>
                             )}
                         />
+                    </div> */}
+                    <div className='mb-4'>
+                    <FormLabel 
+                                className="block text-sm font-medium text-gray-700 dark:text-gray-400"
+                        >
+                                       
+                            Amount in cUSD
+                        </FormLabel>
+                        <BigNumberInput
+                            decimals={18}
+                            onChange={handleAmountChange}
+                            value={amount}
+                            renderInput={(props: HTMLProps<HTMLInputElement>) => (
+                                <Input
+                                    //ChakraUiInputField 
+                                    //onError={validateAmountValue}
+                                    value={String(props.value)} 
+                                    placeholder={"Enter cUSD amount"} 
+                                    onChange={props.onChange as ChangeEventHandler<HTMLInputElement>} 
+                                    className='mb-2'
+                                />
+                            )}
+                    />
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoBalance}`}</span> </p>
+                                        </FormLabel>
                     </div>
                     <div>
                         <FormField 
