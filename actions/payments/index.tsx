@@ -698,7 +698,7 @@ export const sendSellCryptoTransactionResponse = async(
     transactionType: string|undefined,
     status: string|undefined
 )=>{
-    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/withdrawals/process' : PROD_BASE_URI + '/payments/withdrawals/process'
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/transactions/callback' : PROD_BASE_URI + '/transactions/callback'
 
     let dataInfo: UserResponseDataProps = {
         data: "",
