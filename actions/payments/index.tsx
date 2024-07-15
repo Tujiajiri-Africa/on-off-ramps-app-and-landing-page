@@ -687,7 +687,7 @@ export const withdrawFiatToMpesa = async(
 }
 
 export const sendSellCryptoTransactionResponse = async(
-    bearerToken: string|undefined,
+    user_id: string|undefined,
     referenceId: string|undefined,
     assetName: string|undefined,
     cryptoAmountSold: string|undefined,
@@ -707,6 +707,7 @@ export const sendSellCryptoTransactionResponse = async(
     }
 
     const sendCryptoTransactionPayload = {
+        user_id: user_id,
         asset_name: assetName,
         amount: cryptoAmountSold,
         transaction_type: transactionType,
@@ -723,7 +724,7 @@ export const sendSellCryptoTransactionResponse = async(
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': `Bearer ${bearerToken}`
+            //'Authorization': `Bearer ${bearerToken}`
         },
         body: JSON.stringify(sendCryptoTransactionPayload)
     }

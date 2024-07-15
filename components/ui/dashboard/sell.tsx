@@ -208,7 +208,7 @@ export function SellComponent(){
         const transactionType = 'Sell'
 
         await sendSellCryptoTransactionResponse(
-            userSessionData?.user.accessToken,
+            userSessionData?.user.id,
             trasanctionId,
             assetName,
             cryptoAmountSold,

@@ -157,7 +157,6 @@ export function MakePaymentComponent(){
         })
     }
 
-    //https://rpc.ankr.com/celo
     const postTransactionData = async(transactionStatus:string) => {
         const trasanctionId = uuid();
         const assetName = 'cUSD'
@@ -170,7 +169,7 @@ export function MakePaymentComponent(){
         const transactionType = 'Send'
 
         await sendSellCryptoTransactionResponse(
-            userSessionData?.user.accessToken,
+            userSessionData?.user.id,
             trasanctionId,
             assetName,
             cryptoAmountSold,
