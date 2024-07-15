@@ -102,7 +102,7 @@ export function ReceivePaymentComponent(){
                 <CardTitle>Receive Money</CardTitle>
                 <CardDescription className="mb-10">
                     {/* Top up your AjiraPay wallet with {userSessionData?.user.currency} and start making money buying and selling cUSD seamlessly on MiniPay */}
-                        Receive money into your MiniPay wallet from anywhere around the globe
+                        Get paid directly into your MiniPay wallet from anywhere around the globe via this Qr code, you can as well copy the wallet and share it widely
                 </CardDescription>
                 {/* <CardDescription className="mb-10">Top up your mobile money wallet and start buying and selling crypto seamlessly</CardDescription> */}
             </CardHeader>
