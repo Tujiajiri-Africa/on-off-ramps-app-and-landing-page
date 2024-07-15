@@ -108,6 +108,13 @@ export function MakePaymentComponent(){
         )
     },[amount, cryptoBalance, miniPayWallet, recipientWalletAddress])
 
+    const handleAmountChange = useCallback((value: string): void => {
+        if(!value){
+            return
+        }
+        setAmount(value)
+        }, [setAmount]);
+
     const handleRecipientInpuChange = useCallback((value: string) => {
         setRecipientWalletAddress(value)
     },[])
@@ -149,7 +156,7 @@ export function MakePaymentComponent(){
         })
     }
     
-    const tokekenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
+    const tokenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
 
     const {
         data: contractWriteData, 
@@ -164,7 +171,7 @@ export function MakePaymentComponent(){
         abi: activeTokenContractAbi,
         functionName: "transfer",
         chainId: chain?.id,
-        args: [recipientWalletAddress, tokekenAmountBn],
+        args: [recipientWalletAddress, tokenAmountBn],
         onError(error: any){
             toast.error("Transaction failed!",{
                 position: "top-right",
@@ -315,7 +322,7 @@ export function MakePaymentComponent(){
                         </FormLabel>
                         <BigNumberInput
                             decimals={18}
-                            onChange={handleInputAmountChange}
+                            onChange={handleAmountChange}
                             value={amount}
                             renderInput={(props: HTMLProps<HTMLInputElement>) => (
                                 <Input

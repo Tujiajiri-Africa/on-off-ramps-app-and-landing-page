@@ -1,6 +1,6 @@
 'use client'
 
-import React,{useState, useTransition} from 'react'
+import React,{useState, useTransition, useMemo, useCallback, HTMLProps, ChangeEventHandler} from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -48,17 +48,37 @@ import { Clock8Icon } from 'lucide-react'
 import Image from 'next/image'
 import {useSession} from 'next-auth/react'
 import { useUserCryptoWalletBalance } from '@/hooks/web3/useUserCryptoWalletBalance'
-//import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import {
+    useAccount,
+    useBalance,
+    useContractWrite,
+    useNetwork,
+    useWaitForTransaction,
+    useSendTransaction,
+    usePrepareContractWrite
+} from 'wagmi'
+//import { useDebounce } from 'usehooks-ts'
+import { useTokenContract } from '@/hooks/web3/useTokenContract'
+import { BigNumber } from "@ethersproject/bignumber";
+import { BigNumberInput } from 'big-number-input';
+import { toast } from 'react-toastify';
+import { isAddress } from '@ethersproject/address'
 
 export function SellComponent(){
-    //const miniPayWallet = useMiniPay()
+    const miniPayWallet = useMiniPay()
     const cryptoBalance = useUserCryptoWalletBalance()
-
+    const {chain} = useNetwork()
+    
     const [isPending, startTransition] = useTransition()
     const {data: userSessionData} = useSession()
     const [error, setError] = useState<string>("")
     const [success, setSuccess] = useState<string>("")
-  
+    const [recipientWalletAddress, setRecipientWalletAddress] = useState<string>("")
+    const [activeTokenContract, activeTokenContractAbi] = useTokenContract()
+    const [amount, setAmount] = useState<string>("")
+
+
     const form = useForm<z.infer<typeof SellAssetSchema>>({
       resolver: zodResolver(SellAssetSchema),
     //   defaultValues:{
@@ -67,6 +87,113 @@ export function SellComponent(){
     //       payment_method: ""
     //   }
     })
+
+    const handleAmountChange = useCallback((value: string): void => {
+        if(!value){
+            return
+        }
+        setAmount(value)
+        }, [setAmount]);
+
+    const shouldDisableSendCryptoSubmitButton = useMemo(() => {
+        if(!miniPayWallet){
+            return true
+        }
+
+        if(!isAddress(recipientWalletAddress)){
+            return true
+        }
+
+        return (
+            !recipientWalletAddress ||
+            !amount ||
+            !cryptoBalance ||
+            parseFloat(amount) > cryptoBalance 
+        )
+    },[amount, cryptoBalance, miniPayWallet, recipientWalletAddress])
+
+    const tokenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
+
+    const {
+        data: contractWriteData, 
+        isLoading:contractWriteLoad, 
+        isIdle: contractWriteIdle, 
+        //isError: contractWriteIsError, 
+        //error: contractWriteError, 
+        isSuccess: contractWriteIsSuccess, 
+        write: sellCUSDContractWrite 
+    } = useContractWrite({
+        address: activeTokenContract,
+        abi: activeTokenContractAbi,
+        functionName: "transfer",
+        chainId: chain?.id,
+        args: [recipientWalletAddress, tokenAmountBn],
+        onError(error: any){
+            toast.error("Transaction failed!",{
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                //transition: Bounce,
+              })
+        }
+    })
+
+    const {
+        isLoading: sendCryptoWaitIsLoading,
+        isError: sendCryptoWaitIsError,
+        isIdle: sendCryptoWaitIsIdle,
+        data: sendCryptoWaitData,
+        isSuccess: sendCryptoWaitIsSuccess,
+        error: sendCryptoWaitError   
+    } = useWaitForTransaction({
+      hash: contractWriteData?.hash,
+      async onSuccess(data){
+        toast.success("Success",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              //transition: Bounce,
+            }
+        );
+      },
+      onError(error){
+        const errorData = Object.entries(error);
+        let data = errorData.map( ([key, val]) => {
+          return `${val}`
+        });
+
+        toast.error(`${error.cause}`,{
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            //transition: Bounce,
+          })
+    }
+    })
+
+     const sendWalletCryptoSellTransaction = () => {
+        try{
+            sellCUSDContractWrite()
+        }catch(error){
+            console.log(error)
+        }
+     }
 
     return (
     <>
@@ -137,7 +264,7 @@ export function SellComponent(){
                             )}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <FormField 
                             control={form.control}
                             name='amount'
@@ -146,7 +273,7 @@ export function SellComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        {/* Amount */}
+                                       
                                         Amount in cUSD
                                     </FormLabel>
                                     <div 
@@ -173,6 +300,34 @@ export function SellComponent(){
                                 </FormItem>
                             )}
                         />
+                    </div> */}
+                    <div className='mb-4'>
+                    <FormLabel 
+                                className="block text-sm font-medium text-gray-700 dark:text-gray-400"
+                        >
+                                       
+                            Amount in cUSD
+                        </FormLabel>
+                        <BigNumberInput
+                            decimals={18}
+                            onChange={handleAmountChange}
+                            value={amount}
+                            renderInput={(props: HTMLProps<HTMLInputElement>) => (
+                                <Input
+                                    //ChakraUiInputField 
+                                    //onError={validateAmountValue}
+                                    value={String(props.value)} 
+                                    placeholder={"Enter cUSD amount"} 
+                                    onChange={props.onChange as ChangeEventHandler<HTMLInputElement>} 
+                                    className='mb-2'
+                                />
+                            )}
+                    />
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoBalance}`}</span> </p>
+                                        </FormLabel>
                     </div>
                     <div>
                         <FormField 
