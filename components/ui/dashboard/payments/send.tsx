@@ -103,8 +103,8 @@ export function MakePaymentComponent(){
         return (
             !recipientWalletAddress ||
             !amount ||
-            !cryptoBalance ||
-            parseFloat(amount) > cryptoBalance 
+            !cryptoBalance 
+            //parseFloat(amount) > cryptoBalance 
         )
     },[amount, cryptoBalance, miniPayWallet, recipientWalletAddress])
 
@@ -450,7 +450,7 @@ export function MakePaymentComponent(){
                                                 !isAddress(recipientWalletAddress) ? 'Invalid recipient wallet':
                                                 recipientWalletAddress == miniPayWallet ? 'Cannot send to own wallet' :
                                                 !amount ? `Enter cUSD amount` :
-                                                cryptoBalance && parseFloat(amount) > cryptoBalance ? 'Insuffient balance':
+                                                //cryptoBalance && parseFloat(amount) > cryptoBalance ? 'Insuffcient balance':
                                                 'Pay'
                                             }
                                         </Button>
