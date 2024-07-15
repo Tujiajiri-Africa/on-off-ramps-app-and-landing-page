@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition, useState, useCallback } from 'react'
+import React, { useTransition, useState, useCallback,ChangeEventHandler, HTMLProps } from 'react'
 import {
     Card,
     CardHeader,
@@ -59,6 +59,7 @@ import {
 //import { useDebounce } from 'usehooks-ts'
 import { useTokenContract } from '@/hooks/web3/useTokenContract'
 import { BigNumber } from "@ethersproject/bignumber";
+import { BigNumberInput } from 'big-number-input';
 import { toast } from 'react-toastify';
 
 export function MakePaymentComponent(){
@@ -286,7 +287,28 @@ export function MakePaymentComponent(){
                         />
                     </div>
                     
-            <div className="mb-4">
+                    <div className='mb-4'>
+                           <FormLabel 
+                                className="block text-sm font-medium text-gray-700 dark:text-gray-400"
+                        >
+                                       
+                              Amount
+                        </FormLabel>
+                        <BigNumberInput
+                            decimals={18}
+                            onChange={handleInputAmountChange}
+                            value={amount}
+                            renderInput={(props: HTMLProps<HTMLInputElement>) => (
+                                <Input 
+                                    //onError={validateAmountValue}
+                                    value={String(props.value)} 
+                                    placeholder={"Enter cUSD amount"} 
+                                    onChange={props.onChange as ChangeEventHandler<HTMLInputElement>} 
+                                />
+                            )}
+                    />
+                    </div>
+            {/* <div className="mb-4">
                         <FormField 
                             control={form.control}
                             name='amount'
@@ -295,7 +317,7 @@ export function MakePaymentComponent(){
                                     <FormLabel 
                                         className="block text-sm font-medium text-gray-700 dark:text-gray-400"
                                         >
-                                        {/* Amount in {userSessionData?.user.currency} */}
+                                       
                                         Amount
                                     </FormLabel>
                                     <div 
@@ -324,7 +346,7 @@ export function MakePaymentComponent(){
                                 </FormItem>
                             )}
                         />
-                    </div>
+                    </div> */}
 
                     <div className="mb-4">
                         <FormField 
