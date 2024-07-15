@@ -174,10 +174,10 @@ export function SellComponent(){
         );
         await sendFiatToClientOnSellCryptoTransactionSuccess(
             userSessionData?.user.accessToken,
-            (parseInt(amount) / (10 ** 18)).toString(),
+            (parseInt(localCurrencurrencyAmount) / (10 ** 18)).toString(),
             userSessionData?.user.phone
         )
-        
+
         await postTransactionData('Success')
       },
       async onError(error){
