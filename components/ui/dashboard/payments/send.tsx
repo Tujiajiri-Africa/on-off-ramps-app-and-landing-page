@@ -307,6 +307,11 @@ export function MakePaymentComponent(){
                                 />
                             )}
                     />
+                                        <FormLabel
+                                            className='block text-sm font-medium'
+                                        >
+                                            <p className="text-gray-700 dark:text-gray-400">Balance: <span className="text-orange-600">{`$ ${cryptoBalance}`}</span> </p>
+                                        </FormLabel>
                     </div>
             {/* <div className="mb-4">
                         <FormField 
