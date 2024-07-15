@@ -64,6 +64,8 @@ import { BigNumber } from "@ethersproject/bignumber";
 import { BigNumberInput } from 'big-number-input';
 import { toast } from 'react-toastify';
 import { isAddress } from '@ethersproject/address'
+import { sendSellCryptoTransactionResponse } from '@/actions/payments'
+import { uuid } from 'uuidv4';
 
 export function SellComponent(){
     const miniPayWallet = useMiniPay()
@@ -170,8 +172,9 @@ export function SellComponent(){
               //transition: Bounce,
             }
         );
+        await postTransactionData('Success')
       },
-      onError(error){
+      async onError(error){
         const errorData = Object.entries(error);
         let data = errorData.map( ([key, val]) => {
           return `${val}`
@@ -188,8 +191,39 @@ export function SellComponent(){
             theme: "dark",
             //transition: Bounce,
           })
+
+          await postTransactionData('Failed')
     }
     })
+
+    const postTransactionData = async(transactionStatus:string) => {
+        const trasanctionId = uuid();
+        const assetName = 'cUSD'
+        const cryptoAmountSold = amount;
+        const description = 'Sold cUSD'
+        const failReason = ""
+        const referenceIdd = trasanctionId
+        const MerchantRequestID = ""
+        const CheckoutRequestID = ""
+        const transactionType = 'Sell'
+
+        await sendSellCryptoTransactionResponse(
+            userSessionData?.user.id,
+            trasanctionId,
+            assetName,
+            cryptoAmountSold,
+            description,
+            failReason,
+            MerchantRequestID,
+            CheckoutRequestID,
+            transactionType,
+            transactionStatus
+        ).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
 
      const sendWalletCryptoSellTransaction = () => {
         try{
@@ -395,21 +429,23 @@ export function SellComponent(){
                         <AccordionTrigger className='text-[14px] text-gray-700 dark:text-gray-400'>Expand to view quote details</AccordionTrigger>
                         <AccordionContent>
                             {/* You will receive ~300.00 {userSessionData?.user.currency} for 2.26 USDT */}
-                            You will receive ~{localCurrencurrencyAmount} {userSessionData?.user.currency} for {amount} cUSD
+                            You will receive ~{BigNumber.from(localCurrencurrencyAmount).toString()} {userSessionData?.user.currency} for {BigNumber.from(amount).toString()} cUSD
                             <br/>
                             <Table className='text-sm'>
                             {/* <TableCaption>Quote details</TableCaption> */}
                                     <TableHeader>
                                         <TableRow className='w-full'>
                                         <TableHead className="text-sm">Base Cost</TableHead>
-                                        <TableHead className='text-sm'>Processing Fee</TableHead>
+                                        <TableHead className='text-sm'>Charges </TableHead>
+                                        {/* <TableHead className='text-sm'>Processing Fee</TableHead> */}
+
                                         {/* <TableHead>Method</TableHead>
                                         <TableHead className="text-right">Amount</TableHead> */}
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
                                         <TableRow>
-                                        <TableCell className="font-medium">{`~ ${userSessionData?.user.currency}`} 132.00</TableCell>
+                                        <TableCell className="font-medium">{`~ ${userSessionData?.user.currency}`} {sellRate}</TableCell>
                                         <TableCell>{userSessionData?.user.currency} {fee}</TableCell>
                                         {/* <TableCell>Credit Card</TableCell>
                                         <TableCell className="text-right">$250.00</TableCell> */}
@@ -460,7 +496,14 @@ export function SellComponent(){
                                                             className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                                        >
                                                        {/* {selectedCryptoAsset != null || selectedCryptoAsset != undefined ? `Buy ${selectedCryptoAsset}`: "Buy"} */}
-                                                        Sell cUSD
+                                                
+
+                                                        {
+                                                            !amount ? "Enter amount":
+                                                            //BigNumber.from(cryptoBalance?.toString())
+                                                            BigNumber.from(amount).gt(BigNumber.from(cryptoBalance?.toString())) ? 'Amount exceeds balance':
+                                                            'Sell cUSD'
+                                                        }
                                                    </Button>
                                                     }
                     </div>

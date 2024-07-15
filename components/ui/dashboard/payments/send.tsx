@@ -64,6 +64,7 @@ import { BigNumberInput } from 'big-number-input';
 import { toast } from 'react-toastify';
 import { isAddress } from '@ethersproject/address'
 import { uuid } from 'uuidv4';
+import { sendSellCryptoTransactionResponse } from '@/actions/payments'
 
 export function MakePaymentComponent(){
     const miniPayWallet = useMiniPay()
@@ -82,7 +83,6 @@ export function MakePaymentComponent(){
     const cryptoBalance = useUserCryptoWalletBalance()
 
     const [activeTokenContract, activeTokenContractAbi] = useTokenContract()
-    
 
     const form = useForm<z.infer<typeof SendPaymentSchema>>({
         resolver: zodResolver(SendPaymentSchema),
@@ -156,11 +156,36 @@ export function MakePaymentComponent(){
             })
         })
     }
-    
-    const buildTransactionData = (status:string, recipient:string) => {
-        const trasanctionId = uuid();
 
+    const postTransactionData = async(transactionStatus:string) => {
+        const trasanctionId = uuid();
+        const assetName = 'cUSD'
+        const cryptoAmountSold = amount;
+        const description = 'Sent cUSD'
+        const failReason = ""
+        const referenceIdd = trasanctionId
+        const MerchantRequestID = ""
+        const CheckoutRequestID = ""
+        const transactionType = 'Send'
+
+        await sendSellCryptoTransactionResponse(
+            userSessionData?.user.id,
+            trasanctionId,
+            assetName,
+            cryptoAmountSold,
+            description,
+            failReason,
+            MerchantRequestID,
+            CheckoutRequestID,
+            transactionType,
+            transactionStatus
+        ).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        })
     }
+
     const tokenAmountBn: BigNumber = BigNumber.from(amount ? amount: 0);
 
     const {
@@ -215,8 +240,10 @@ export function MakePaymentComponent(){
               //transition: Bounce,
             }
         );
+
+        await postTransactionData('Success')
       },
-      onError(error){
+      async onError(error){
         const errorData = Object.entries(error);
         let data = errorData.map( ([key, val]) => {
           return `${val}`
@@ -233,6 +260,8 @@ export function MakePaymentComponent(){
             theme: "dark",
             //transition: Bounce,
           })
+
+        await postTransactionData('Failed')
     }
     })
 

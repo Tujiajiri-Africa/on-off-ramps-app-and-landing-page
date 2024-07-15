@@ -686,6 +686,101 @@ export const withdrawFiatToMpesa = async(
     }
 }
 
+export const sendSellCryptoTransactionResponse = async(
+    user_id: string|undefined,
+    referenceId: string|undefined,
+    assetName: string|undefined,
+    cryptoAmountSold: string|undefined,
+    description: string|undefined,
+    failReason: string|undefined,
+    MerchantRequestID: string|undefined,
+    CheckoutRequestID: string|undefined,
+    transactionType: string|undefined,
+    status: string|undefined
+)=>{
+    const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/withdrawals/process' : PROD_BASE_URI + '/payments/withdrawals/process'
+
+    let dataInfo: UserResponseDataProps = {
+        data: "",
+        error: "",
+        success: ""
+    }
+
+    const sendCryptoTransactionPayload = {
+        user_id: user_id,
+        asset_name: assetName,
+        amount: cryptoAmountSold,
+        transaction_type: transactionType,
+        description: description,
+        fail_reason: failReason,
+        reference_id: referenceId,
+        MerchantRequestID: MerchantRequestID,
+        CheckoutRequestID: CheckoutRequestID,
+        status: status
+    }
+
+    const payload = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            //'Authorization': `Bearer ${bearerToken}`
+        },
+        body: JSON.stringify(sendCryptoTransactionPayload)
+    }
+
+    const submitNewCryptoSendTransactionData = await fetch(endpoint, payload).then(async(response) => {
+        if(response.status === 500){
+            dataInfo = {
+                error: 'Something went wrong!',
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+
+        const data = await response.json()
+
+        if(data['status'] == false){
+            dataInfo = {
+                error: data['message'],
+                success: '',
+                data: ''
+            }
+
+            return { data: dataInfo}
+        }
+        if(data['status'] == true){
+            dataInfo = {
+                error: "",
+                success: data['message'],
+                data: data['data']
+            }
+
+            return { data: dataInfo}
+        }
+    }).catch((error) =>{
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    })
+
+    try{
+        return submitNewCryptoSendTransactionData
+    }catch(error){
+        dataInfo = {
+            error: 'Something went wrong!',
+            success: '',
+            data: ''
+        }
+        return {data: dataInfo}
+    }
+}
+
 export const sellCrypto = async() =>{
 
 }
