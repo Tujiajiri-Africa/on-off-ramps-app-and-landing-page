@@ -47,9 +47,23 @@ import {
 import Image from 'next/image'
 import { useUserCryptoWalletBalance } from '@/hooks/web3/useUserCryptoWalletBalance'
 import { useMiniPay } from '@/hooks/web3/useConnectWallet'
+import {
+    useAccount,
+    useBalance,
+    useContractWrite,
+    useNetwork,
+    useWaitForTransaction,
+    useSendTransaction,
+    usePrepareContractWrite
+} from 'wagmi'
+//import { useDebounce } from 'usehooks-ts'
+import { useTokenContract } from '@/hooks/web3/useTokenContract'
+import { BigNumber } from "@ethersproject/bignumber";
+import { toast } from 'react-toastify';
 
 export function MakePaymentComponent(){
     const miniPayWallet = useMiniPay()
+    const {chain} = useNetwork()
 
     const {data: userSessionData} = useSession()
     const [isPending, startTransition] = useTransition()
@@ -62,6 +76,8 @@ export function MakePaymentComponent(){
     const [recipientWalletAddress, setRecipientWalletAddress] = useState<string>("")
 
     const cryptoBalance = useUserCryptoWalletBalance()
+
+    const [activeTokenContract, activeTokenContractAbi] = useTokenContract()
     
 
     const form = useForm<z.infer<typeof SendPaymentSchema>>({
@@ -109,10 +125,74 @@ export function MakePaymentComponent(){
         })
     }
     
+    const {
+        data: contractWriteData, 
+        isLoading:contractWriteLoad, 
+        isIdle: contractWriteIdle, 
+        //isError: contractWriteIsError, 
+        //error: contractWriteError, 
+        isSuccess: contractWriteIsSuccess, 
+        write: sendCUSDContractWrite 
+    } = useContractWrite({
+        address: activeTokenContract,
+        abi: activeTokenContractAbi,
+        functionName: "transfer",
+        chainId: chain?.id,
+        args: [recipientWalletAddress, BigNumber.from(amount)],
+        onError(error: any){
+            toast.error("Transaction failed!",{
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                //transition: Bounce,
+              })
+        }
+    })
+
+    const {
+        isLoading: sendCryptoWaitIsLoading,
+        isError: sendCryptoWaitIsError,
+        isIdle: sendCryptoWaitIsIdle,
+        data: sendCryptoWaitData,
+        isSuccess: sendCryptoWaitIsSuccess,
+        error: sendCryptoWaitError   
+    } = useWaitForTransaction({
+      hash: contractWriteData?.hash,
+      async onSuccess(data){
+        toast.success("Success",
+            {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              //transition: Bounce,
+            }
+        );
+      }
+    })
+
+     const sendWalletCryptoSendTransaction = () => {
+        try{
+            sendCUSDContractWrite()
+        }catch(error){
+            console.log(error)
+        }
+     }
+
     return (<>
             <Form {...form}>
                 <form
-                    onSubmit={form.handleSubmit(handleSendPayment)} 
+                    //onSubmit={form.handleSubmit(handleSendPayment)} 
+                    onSubmit={form.handleSubmit(sendWalletCryptoSendTransaction)}
                     className="space-y-6"
                 >
                 <Card>
@@ -260,7 +340,8 @@ export function MakePaymentComponent(){
             </CardContent>
             <CardFooter>
                 {
-                                            isPending ? 
+                                            //isPending ? 
+                                            sendCryptoWaitIsLoading ?
 
                                             <Button 
                                                 type="button" 
@@ -280,7 +361,9 @@ export function MakePaymentComponent(){
                                         <Button 
                                             disabled={ isSubmitButtonDisabled || amount == "" || amount == null || amount == undefined }
                                             className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
+                                            //type='submit'
                                             type='submit'
+                                            //onClick={() => sendWalletCryptoSendTransaction()}
                                         >
                                             Pay
                                         </Button>
