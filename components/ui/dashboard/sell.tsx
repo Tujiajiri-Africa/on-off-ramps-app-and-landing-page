@@ -429,7 +429,7 @@ export function SellComponent(){
                         <AccordionTrigger className='text-[14px] text-gray-700 dark:text-gray-400'>Expand to view quote details</AccordionTrigger>
                         <AccordionContent>
                             {/* You will receive ~300.00 {userSessionData?.user.currency} for 2.26 USDT */}
-                            You will receive ~{BigNumber.from(localCurrencurrencyAmount).toString()} {userSessionData?.user.currency} for {BigNumber.from(amount).toString()} cUSD
+                            You will receive ~{(parseInt(localCurrencurrencyAmount) / (10 ** 18)).toString() } {userSessionData?.user.currency} for {(parseInt(amount) / (10 ** 18)).toString()} cUSD
                             <br/>
                             <Table className='text-sm'>
                             {/* <TableCaption>Quote details</TableCaption> */}
