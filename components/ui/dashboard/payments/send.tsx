@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition, useState, useCallback,ChangeEventHandler, HTMLProps } from 'react'
+import React, { useTransition, useState, useCallback,ChangeEventHandler, HTMLProps, useMemo } from 'react'
 import {
     Card,
     CardHeader,
@@ -26,6 +26,7 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 import {Input} from '@/components/ui/input'
+import {Input as ChakraUiInputField} from '@chakra-ui/react'
 import {Button} from '@/components/ui/button'
 import * as z from 'zod'
 import { useForm } from 'react-hook-form'
@@ -61,6 +62,7 @@ import { useTokenContract } from '@/hooks/web3/useTokenContract'
 import { BigNumber } from "@ethersproject/bignumber";
 import { BigNumberInput } from 'big-number-input';
 import { toast } from 'react-toastify';
+import { isAddress } from '@ethersproject/address'
 
 export function MakePaymentComponent(){
     const miniPayWallet = useMiniPay()
@@ -89,12 +91,29 @@ export function MakePaymentComponent(){
         // }
     })
     
+    const shouldDisableSendCryptoSubmitButton = useMemo(() => {
+        if(!miniPayWallet){
+            return true
+        }
+
+        if(!isAddress(recipientWalletAddress)){
+            return true
+        }
+
+        return (
+            !recipientWalletAddress ||
+            !amount ||
+            !cryptoBalance ||
+            parseFloat(amount) > cryptoBalance 
+        )
+    },[amount, cryptoBalance, miniPayWallet, recipientWalletAddress])
+
     const handleRecipientInpuChange = useCallback((value: string) => {
         setRecipientWalletAddress(value)
     },[])
 
     const handleInputAmountChange = useCallback((amount:string) => {
-        if(!cryptoBalance) return;
+        if(!cryptoBalance || !amount) return;
         
         let formatedAmount = parseFloat(amount)
         if(formatedAmount > cryptoBalance){
@@ -299,11 +318,12 @@ export function MakePaymentComponent(){
                             onChange={handleInputAmountChange}
                             value={amount}
                             renderInput={(props: HTMLProps<HTMLInputElement>) => (
-                                <Input 
+                                <ChakraUiInputField 
                                     //onError={validateAmountValue}
                                     value={String(props.value)} 
                                     placeholder={"Enter cUSD amount"} 
                                     onChange={props.onChange as ChangeEventHandler<HTMLInputElement>} 
+                                    className='mb-2'
                                 />
                             )}
                     />
@@ -411,13 +431,19 @@ export function MakePaymentComponent(){
                                         :
 
                                         <Button 
-                                            disabled={ isSubmitButtonDisabled || amount == "" || amount == null || amount == undefined }
+                                            disabled={ shouldDisableSendCryptoSubmitButton }
                                             className='w-full bg-orange-600 text-white hover:bg-orange-500 hover:text-white'
                                             //type='submit'
                                             type='submit'
                                             //onClick={() => sendWalletCryptoSendTransaction()}
                                         >
-                                            Pay
+                                            {
+                                                !recipientWalletAddress ? 'Enter Recipient Address' :
+                                                !isAddress(recipientWalletAddress) ? 'Invalid recipient wallet':
+                                                recipientWalletAddress == miniPayWallet ? 'Cannot send to own wallet' :
+                                                !amount ? `Enter cUSD amount` :
+                                                'Pay'
+                                            }
                                         </Button>
                 }
 
