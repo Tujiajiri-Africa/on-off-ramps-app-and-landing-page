@@ -503,11 +503,10 @@ export const claimCryptoReward = async(
 export const sendCrypto = async(
     values: z.infer<typeof SendPaymentSchema>,
     bearerToken: string|undefined,
-    recipientPhone: string|undefined,
+    recipientWalletAddress: string|undefined,
     amount: string|undefined
 ) =>{
-    //const endpoint = ENVIRONMENT == 'local' ? DEV_BASE_URI + '/payments/deposits/stkpush' : PROD_BASE_URI + '/payments/deposits/stkpush'
-    const endpoint = ''
+    const endpoint = 'https://stream-api-service.ajirapay.finance/api/v1/payments/crypto/send'
 
     let dataInfo: UserResponseDataProps = {
         data: "",
@@ -519,11 +518,17 @@ export const sendCrypto = async(
     
     if(!validatedFields.success){
         dataInfo = {
-            error: 'Invalid Invoice parameters',
+            error: 'Invalid parameters',
             success: '',
             data: ''
         }
         return  { data: dataInfo}
+    }
+
+    const body = {
+        'amount': amount,//validatedFields.data.amount,
+        'chain': CELO_MAINNET_CHAIN_ID,
+        'recipient_address': recipientWalletAddress
     }
 
     const payload = {
@@ -533,10 +538,10 @@ export const sendCrypto = async(
             'Accept': 'application/json',
             'Authorization': `Bearer ${bearerToken}`
         },
-        body: JSON.stringify(validatedFields.data)
+        body: JSON.stringify(body)
     }
 
-    const initiateFiatDeposit = await fetch(endpoint, payload).then(async(response) => {
+    const initiateSendCryptoTransaction = await fetch(endpoint, payload).then(async(response) => {
         if(response.status === 500){
             dataInfo = {
                 error: 'Something went wrong!',
@@ -577,7 +582,7 @@ export const sendCrypto = async(
     })
 
     try{
-        return initiateFiatDeposit
+        return initiateSendCryptoTransaction
     }catch(error){
         dataInfo = {
             error: 'Something went wrong!',

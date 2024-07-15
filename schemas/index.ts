@@ -296,7 +296,7 @@ export const SendPaymentSchema = z.object({
         required_error: 'Please select payment method'
     }),
     recipient: z.string({
-        required_error: 'Please specify recipient phone number'
+        required_error: 'Please specify recipient wallet adress or phone number'
     })
 })
 

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useTransition, useState } from 'react'
+import React, { useTransition, useState, useCallback } from 'react'
 import {
     Card,
     CardHeader,
@@ -45,6 +45,7 @@ import {
     supportedMiniPayPaymentMethods
 } from '@/helpers/data'
 import Image from 'next/image'
+import { useUserCryptoWalletBalance } from '@/hooks/web3/useUserCryptoWalletBalance'
 
 export function MakePaymentComponent(){
     const {data: userSessionData} = useSession()
@@ -53,6 +54,9 @@ export function MakePaymentComponent(){
     const [success, setSuccess] = useState<string>("")
     const [recipientPhone, setRecipientPhone] = useState<string>("")
     const [amount, setAmount] = useState<string>("")
+    const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState<boolean>(true)
+    const [fiatBalance, setFiatBalance] = useState<number|undefined>(0);
+    const cryptoBalance = useUserCryptoWalletBalance()
 
     const form = useForm<z.infer<typeof SendPaymentSchema>>({
         resolver: zodResolver(SendPaymentSchema),
@@ -62,12 +66,26 @@ export function MakePaymentComponent(){
         // }
     })
 
-    const handleSend = (values: z.infer<typeof SendPaymentSchema>) => {
+    const handleInputAmountChange = useCallback((amount:string) => {
+        if(!cryptoBalance) return;
+        
+        let formatedAmount = parseFloat(amount)
+        if(formatedAmount > cryptoBalance){
+            setError("Amount exceeds available balance")
+            setIsSubmitButtonDisabled(true)
+            setAmount("")
+        }else{
+            setAmount(amount)
+            setIsSubmitButtonDisabled(false)
+            setError("")
+        }
+    },[cryptoBalance])
+
+    const handleSendPayment = (values: z.infer<typeof SendPaymentSchema>) => {
         setError("")
         setSuccess("")
     
         startTransition(async() => {
-            //depositFiat(values, userSessionData?.user.accessToken)
             sendCrypto(values, userSessionData?.user.accessToken, recipientPhone, amount)
             .then((data:any) => {
                 if(data?.data.error){
@@ -88,7 +106,7 @@ export function MakePaymentComponent(){
     return (<>
             <Form {...form}>
                 <form
-                    //onSubmit={form.handleSubmit(handleSend)} 
+                    onSubmit={form.handleSubmit(handleSendPayment)} 
                     className="space-y-6"
                 >
                 <Card>
@@ -182,6 +200,7 @@ export function MakePaymentComponent(){
                                                 type='number'
                                                 disabled={isPending}
                                                 min={0}
+                                                onChangeCapture={e => handleInputAmountChange(e.currentTarget.value)}
                                                 
                                             />
                                         </FormControl>
