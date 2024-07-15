@@ -729,56 +729,11 @@ export const sendSellCryptoTransactionResponse = async(
         body: JSON.stringify(sendCryptoTransactionPayload)
     }
 
-    const submitNewCryptoSendTransactionData = await fetch(endpoint, payload).then(async(response) => {
-        if(response.status === 500){
-            dataInfo = {
-                error: 'Something went wrong!',
-                success: '',
-                data: ''
-            }
-
-            return { data: dataInfo}
-        }
-
-        const data = await response.json()
-
-        if(data['status'] == false){
-            dataInfo = {
-                error: data['message'],
-                success: '',
-                data: ''
-            }
-
-            return { data: dataInfo}
-        }
-        if(data['status'] == true){
-            dataInfo = {
-                error: "",
-                success: data['message'],
-                data: data['data']
-            }
-
-            return { data: dataInfo}
-        }
-    }).catch((error) =>{
-        dataInfo = {
-            error: 'Something went wrong!',
-            success: '',
-            data: ''
-        }
-        return {data: dataInfo}
-    })
-
-    try{
-        return submitNewCryptoSendTransactionData
-    }catch(error){
-        dataInfo = {
-            error: 'Something went wrong!',
-            success: '',
-            data: ''
-        }
-        return {data: dataInfo}
-    }
+    await fetch(endpoint, payload).then((response) => {
+        console.log(response) ;
+    }).catch((error) => {
+        console.log(error)
+    });
 }
 
 export const sellCrypto = async() =>{
