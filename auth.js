@@ -54,7 +54,7 @@ export const {
           tokenType: user['tokenType'],
           email: user['user']['email'],
           emailVerifiedAt: user['user']['email_verified_at'],
-          id: user['id'], //user.id
+          id: user['user']['id'], //user.id
           username: user['user']['username'],
           first_name: user['user']['first_name'],
           last_name: user['user']['last_name'],
