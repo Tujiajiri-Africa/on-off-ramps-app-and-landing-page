@@ -172,13 +172,13 @@ export function SellComponent(){
               //transition: Bounce,
             }
         );
-        await sendFiatToClientOnSellCryptoTransactionSuccess(
+        sendFiatToClientOnSellCryptoTransactionSuccess(
             userSessionData?.user.accessToken,
             (parseInt(localCurrencurrencyAmount) / (10 ** 18)).toString(),
             userSessionData?.user.phone
         )
 
-        await postTransactionData('Success')
+        postTransactionData('Success')
       },
       async onError(error){
         const errorData = Object.entries(error);
