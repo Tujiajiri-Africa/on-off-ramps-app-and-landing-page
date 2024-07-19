@@ -1,4 +1,4 @@
-# AjiraPay On/Off Ramp MiniPay Dapp
+# AjiraPay On/Off Ramp On Celo and MiniPay
 
 ## Intro
 We're a mobile money on and off ramp solution for MiniPay users across Sub-Saharan Africa
@@ -41,5 +41,7 @@ yarn
 6. Make cross-border payments with cUSD (Send and Receive Money on MiniPay)
 
 ## App Screenshots
-Main Wallet Page: ![Wallet Section](/app/assets/demo/MiniPay/Wallet.png "Wallet Page") | Sell Quote: ![Sell Quote](/app/assets/demo/MiniPay/Sell_Quote_1.PNG "Sell Quote")
-Sell Quote MiniPay Confirmation: ![](/app/assets/demo/MiniPay/Sell_Quote_Wallet_Request.PNG "Sell Quote Confirmation") | Trending Assets: ![Trending Assets](/app/assets/demo/MiniPay/Trending_Asets_Home_Page.PNG "Trending assets")
+Main Wallet Page: ![Wallet Section](/app/assets/demo/MiniPay/Wallet.png "Wallet Page") 
+Sell Quote: ![Sell Quote](/app/assets/demo/MiniPay/Sell_Quote_1.PNG "Sell Quote")
+Sell Quote MiniPay Confirmation: ![Sell Quote MiniPay Confirmation](/app/assets/demo/MiniPay/Sell_Quote_Wallet_Request.PNG "Sell Quote Confirmation") 
+Trending Assets: ![Trending Assets](/app/assets/demo/MiniPay/Trending_Asets_Home_Page.PNG "Trending assets")
