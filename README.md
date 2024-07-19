@@ -9,6 +9,14 @@ With the current average inflation rate across Sub-Saharan Africa standing at a 
 ## Our Solution
 To hedge against high inflation and bad debt, we're rewarding and enabling our users to invest in, earn and save in cUSD on MiniPay with as little as $0.078 (KES 10) using the extisting local mobile money payment rails. Curently integrated with M-Pesa
 
+## What Separates us from our competitors ?
+- Zero withdrawal fees
+- 2% initial cashback on cUSD purchases
+- Non-custodial, we are decentralized and thus, we do not take custody of user funds, users are in total control of their funds via the MiniPay wallet
+- We have introduced a savings module where by our users transact, earn and claim cUSD rewards within a duration of 7 days between each claim to enable savings on MiniPay 
+
+[Sign up for the waitlist here](https://forms.gle/mMctjrTP6BeXuCWr6)
+
 ## Installation
 ```bash
 git clone https://github.com/Tujiajiri-Africa/on-off-ramps-app-and-landing-page.git <my_derectory>
@@ -18,11 +26,11 @@ yarn
 ```
 
 ## Tools
-[Next.js 14](https://nextjs.org/)
-[NextAuth for user Authentication](https://next-auth.js.org/)
-[Laravel 10 Backend](https://laravel.com/)
-[Smart contracts writen in Solidity](https://soliditylang.org/)
-[Integration of MiniPay for Opera browser on the Celo Blockchain](https://www.opera.com/products/minipay)
+- [Next.js 14](https://nextjs.org/)
+- [NextAuth for user Authentication](https://next-auth.js.org/)
+- [Laravel 10 Backend](https://laravel.com/)
+- [Smart contracts writen in Solidity](https://soliditylang.org/)
+- [Integration of MiniPay for Opera browser on the Celo Blockchain](https://www.opera.com/products/minipay)
 
 ## Features
 1. Fiat(KES) deposit with M-Pesa for Kenyan users
@@ -33,6 +41,5 @@ yarn
 6. Make cross-border payments with cUSD (Send and Receive Money on MiniPay)
 
 ## App Screenshots
-Main Wallet Page: ![Wallet Section](/app/assets/demo/MiniPay/Wallet.png "Title")
-
-[Sign up for the waitlist here](https://forms.gle/mMctjrTP6BeXuCWr6)
+Main Wallet Page: ![Wallet Section](/app/assets/demo/MiniPay/Wallet.png "Wallet Page") | Sell Quote: ![Sell Quote](/app/assets/demo/MiniPay/Sell_Quote_1.PNG "Sell Quote")
+Sell Quote MiniPay Confirmation: ![](/app/assets/demo/MiniPay/Sell_Quote_Wallet_Request.PNG "Sell Quote Confirmation") | Trending Assets: ![Trending Assets](/app/assets/demo/MiniPay/Trending_Asets_Home_Page.PNG "Trending assets")
